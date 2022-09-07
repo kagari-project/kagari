@@ -8,7 +8,7 @@
     "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'"
   },
   "workspaces": [
-    "pacakges/**",
+    "packages/**",
     "apps/**"
   ],
   "author": "",
