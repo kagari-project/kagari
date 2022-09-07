@@ -1,8 +1,8 @@
 {
-  "name": "marisa",
+  "name": "kagari",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@3.2.3",
   "scripts": {
     "postinstall": "husky install",
     "lint": "eslint 'apps/**/src/**' 'packages/**/src/**'",
@@ -14,6 +14,7 @@
       "apps/**"
     ],
     "nohoist": [
+      "@babel/**",
       "@nestjs/**",
       "@angular/**",
       "@angular-devkit/*",

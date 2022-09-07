@@ -1,5 +1,5 @@
 {
-  "name": "@marisa/common",
+  "name": "common",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
