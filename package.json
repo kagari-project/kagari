@@ -7,7 +7,10 @@
     "lint": "eslint 'apps/**/src/**' 'packages/**/src/**'",
     "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'"
   },
-  "workspaces": [],
+  "workspaces": [
+    "pacakges/**",
+    "apps/**"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
