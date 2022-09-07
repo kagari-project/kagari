@@ -4,6 +4,9 @@
     "node": true,
     "jest": true
   },
+  "plugins": [
+    "html"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
