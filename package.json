@@ -1,16 +1,25 @@
 {
   "name": "marisa",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "lint": "eslint 'apps/**/src/**' 'packages/**/src/**'",
     "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'"
   },
-  "workspaces": [
-    "packages/**",
-    "apps/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/**",
+      "apps/**"
+    ],
+    "nohoist": [
+      "@nestjs/**",
+      "@angular/**",
+      "@angular-devkit/*",
+      "rxjs",
+      "zone.js"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
