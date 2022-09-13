@@ -1,5 +1,5 @@
-import { Injectable, Type } from '@nestjs/common';
-import { DataSource, InjectDataSource, Repository } from '@kagari/database';
+import { Injectable } from '@nestjs/common';
+import { DataSource, InjectDataSource } from '@kagari/database';
 
 @Injectable()
 export class AppService {

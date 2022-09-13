@@ -2,7 +2,6 @@ import { Inject, Injectable } from '@nestjs/common';
 import { InjectDataSource, DataSource } from '@kagari/database';
 import { AUTH_MODULE_OPTIONS } from './constants';
 import { AuthModuleOptions, Credential } from './types';
-import { ObjectLiteral } from 'typeorm/common/ObjectLiteral';
 
 @Injectable()
 export class AuthService {

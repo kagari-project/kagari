@@ -1,5 +1,1 @@
-const a = 1;
-
-function fn() {
-  return 1 + 1;
-}
+export const a = 1;
