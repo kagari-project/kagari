@@ -1,16 +1,15 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-local';
-import { Injectable, NotImplementedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { AuthService } from '../auth.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor() {
+  constructor(private authService: AuthService) {
     super();
   }
 
-  async validate() {
-    throw new NotImplementedException(
-      'local strategy.validate is not implemented',
-    );
+  async validate(username: string, password: string) {
+    return this.authService.validate({ username, password });
   }
 }
