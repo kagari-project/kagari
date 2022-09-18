@@ -1,5 +1,5 @@
 import { BadRequestException, Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { AuthController } from './auth.controller';
 import { DatabaseModule, TypeOrmModuleOptions } from '@kagari/database';
 import { UserEntity } from './entities/User.entity';
 import { AuthModule, LocalStrategy } from '@kagari/auth';
@@ -9,7 +9,7 @@ import ConfigValidationSchema from './core/config.schema';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env.local', '.env'],
+      envFilePath: ['.env', '.env.local'],
       isGlobal: true,
       validationSchema: ConfigValidationSchema,
     }),
@@ -20,12 +20,12 @@ import ConfigValidationSchema from './core/config.schema';
         entities: [UserEntity],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
+        url: cs.get('DATABASE.URL'),
+        database: cs.get('DATABASE.DATABASE'),
         synchronize:
-          cs.get('NODE_ENV') !== 'production'
+          cs.get('NODE_ENV') === 'production'
             ? false
             : cs.get<boolean>('DATABASE.SYNCHRONIZE', false),
-        // i.g 'postgres://root:root@localhost:5432/postgres'
-        url: cs.get('DATABASE.URL'),
       }),
     } as TypeOrmModuleOptions),
     AuthModule.register<UserEntity>({
@@ -48,7 +48,7 @@ import ConfigValidationSchema from './core/config.schema';
       },
     }),
   ],
-  controllers: [AppController],
+  controllers: [AuthController],
   providers: [],
 })
 export class AppModule {}
