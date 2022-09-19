@@ -2,7 +2,7 @@ import { BadRequestException, Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { DatabaseModule, TypeOrmModuleOptions } from '@kagari/database';
 import { UserEntity } from './entities/User.entity';
-import { AuthModule, LocalStrategy } from '@kagari/auth';
+import { LocalAuthModule, LocalStrategy } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import ConfigValidationSchema from './core/config.schema';
 
@@ -28,7 +28,7 @@ import ConfigValidationSchema from './core/config.schema';
             : cs.get<boolean>('DATABASE.SYNCHRONIZE', false),
       }),
     } as TypeOrmModuleOptions),
-    AuthModule.register<UserEntity>({
+    LocalAuthModule.forRoot<UserEntity>({
       strategy: LocalStrategy,
       entity: UserEntity,
       validate: async (repo, credential) => {

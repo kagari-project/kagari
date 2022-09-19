@@ -1,5 +1,5 @@
 import { Repository } from '@kagari/database';
-import { Type } from '@nestjs/common';
+import { ModuleMetadata, Type } from '@nestjs/common';
 
 export type Credential = { [key: string]: string };
 
@@ -11,3 +11,13 @@ export type AuthModuleOptions<Entity = unknown, ExtraOptions = unknown> = {
     credential: Credential,
   ) => boolean | Promise<boolean>;
 } & ExtraOptions;
+
+export type AsyncAuthModuleOptions<
+  Entity = unknown,
+  ExtraOptions = unknown,
+> = Pick<ModuleMetadata, 'imports'> & {
+  useExisting?: Type;
+  useClass?: Type;
+  useFactory?: (...args: unknown[]) => AuthModuleOptions<Entity, ExtraOptions>;
+  inject?: Type[];
+};

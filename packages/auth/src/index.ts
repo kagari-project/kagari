@@ -1,5 +1,7 @@
-export * from './auth.module';
 export * from './constants';
+
+export * from './local-auth.module';
+export * from './jwt-auth.module';
 
 export * from './guards/jwt-auth.guard';
 export * from './guards/local-auth.guard';
