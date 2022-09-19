@@ -28,23 +28,31 @@ import ConfigValidationSchema from './core/config.schema';
             : cs.get<boolean>('DATABASE.SYNCHRONIZE', false),
       }),
     } as TypeOrmModuleOptions),
-    LocalAuthModule.forRoot<UserEntity>({
-      strategy: LocalStrategy,
-      entity: UserEntity,
-      validate: async (repo, credential) => {
-        const user = await repo.findOne({
-          where: { username: credential.username },
-        });
+    LocalAuthModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory(cs: ConfigService) {
+        return {
+          strategy: LocalStrategy,
+          entity: UserEntity,
+          validate: async (repo, credential) => {
+            const user = await repo.findOne({
+              where: { username: credential.username },
+            });
 
-        if (!user) {
-          throw new BadRequestException({ error: 'user not found' });
-        }
+            if (!user) {
+              throw new BadRequestException({ error: 'user not found' });
+            }
 
-        if (user.password !== credential.password) {
-          throw new BadRequestException({ error: 'incorrect password' });
-        }
+            if (user.password !== credential.password) {
+              throw new BadRequestException({ error: 'incorrect password' });
+            }
 
-        return user;
+            return user;
+          },
+          session: {
+            secret: cs.get<string>('HTTP.SESSION', 'secret'),
+          },
+        };
       },
     }),
   ],

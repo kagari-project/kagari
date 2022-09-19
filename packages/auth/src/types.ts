@@ -18,6 +18,6 @@ export type AsyncAuthModuleOptions<
 > = Pick<ModuleMetadata, 'imports'> & {
   useExisting?: Type;
   useClass?: Type;
-  useFactory?: (...args: unknown[]) => AuthModuleOptions<Entity, ExtraOptions>;
+  useFactory: (...args: any[]) => AuthModuleOptions<Entity, ExtraOptions>;
   inject?: Type[];
 };

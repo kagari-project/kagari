@@ -1,4 +1,4 @@
-import { DynamicModule, MiddlewareConsumer, Module } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
@@ -32,8 +32,23 @@ export class JwtAuthModule {
     return {
       ...options,
       module: JwtAuthModule,
-      // todo facade it
-      // imports: [PassportModule, JwtModule.register(options.jwt)]
+      imports: [
+        PassportModule,
+        JwtModule.registerAsync({
+          inject: [{ provide: AUTH_MODULE_OPTIONS }],
+          useFactory(options: AuthModuleOptions<T, { jwt: JwtModuleOptions }>) {
+            return options.jwt;
+          },
+        }),
+      ],
+      providers: [
+        AuthService,
+        JwtStrategy,
+        {
+          provide: AUTH_MODULE_OPTIONS,
+          useFactory: options.useFactory,
+        },
+      ],
     };
   }
 }

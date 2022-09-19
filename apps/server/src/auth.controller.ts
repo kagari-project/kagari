@@ -1,4 +1,11 @@
-import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Request,
+  Post,
+  Get,
+  UseGuards,
+  Session,
+} from '@nestjs/common';
 import { LocalAuthGuard } from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
 
@@ -35,5 +42,11 @@ export class AuthController {
   @Get('profile')
   profile() {
     return { msg: 'this is protected' };
+  }
+
+  @Get('session')
+  test(@Session() session) {
+    session.count++;
+    return session;
   }
 }
