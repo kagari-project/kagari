@@ -6,10 +6,10 @@ import {
   NestModule,
 } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { AuthService } from './auth.service';
-import { AUTH_MODULE_OPTIONS } from './constants';
-import { AsyncAuthModuleOptions, AuthModuleOptions } from './types';
-import { LocalStrategy } from './strategies/local.strategy';
+import { AuthService } from '../services/auth.service';
+import { AUTH_MODULE_OPTIONS } from '../constants';
+import { AsyncAuthModuleOptions, AuthModuleOptions } from '../types';
+import { LocalStrategy } from '../strategies/local.strategy';
 import * as session from 'express-session';
 
 @Module({})

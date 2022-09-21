@@ -1,20 +1,15 @@
-import {
-  Controller,
-  Request,
-  Post,
-  Get,
-  UseGuards,
-  Session,
-} from '@nestjs/common';
-import { LocalAuthGuard } from '@kagari/auth';
+import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard, LocalAuthGuard } from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
+import { JwtAuthService } from '@kagari/auth';
 
-@Controller('auth')
-export class AuthController {
+@Controller('jwt-auth')
+export class JwtAuthController {
+  constructor(private authService: JwtAuthService) {}
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @ApiOperation({
-    tags: ['auth', 'local'],
+    tags: ['auth', 'jwt'],
     requestBody: {
       content: {
         'application/json': {
@@ -35,18 +30,12 @@ export class AuthController {
     },
   })
   login(@Request() req) {
-    return req.user;
+    return this.authService.signature(req.user);
   }
 
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Get('profile')
   profile() {
     return { msg: 'this is protected' };
-  }
-
-  @Get('session')
-  test(@Session() session) {
-    session.count++;
-    return session;
   }
 }
