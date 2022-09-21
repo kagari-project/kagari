@@ -12,14 +12,6 @@
     "packages": [
       "packages/**",
       "apps/**"
-    ],
-    "nohoist": [
-      "@babel/**",
-      "@nestjs/**",
-      "@angular/**",
-      "@angular-devkit/*",
-      "rxjs",
-      "zone.js"
     ]
   },
   "author": "",
