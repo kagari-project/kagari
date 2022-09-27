@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@import '../../../theme.scss';
+
 .menu-tree-invisible {
   display: none;
 }
@@ -27,4 +30,14 @@
 
 .menu-tree {
   min-width: 140px;
+}
+
+.nav-item {
+  text-decoration: none;
+  padding-left: 10px;
+  cursor: pointer;
+  &.active {
+    color: #fff;
+    background: mat.get-color-from-palette($main-palette, 300);
+  }
 }

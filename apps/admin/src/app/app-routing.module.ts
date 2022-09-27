@@ -11,10 +11,29 @@ import { HomeComponent as HomePage } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     canActivate: [AuthenticatedGuard],
     loadComponent: () => BaseLayout,
-    children: [{ path: '', pathMatch: 'full', loadComponent: () => HomePage }],
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () => HomePage,
+        data: { label: 'Home', showInSidebar: true },
+      },
+    ],
+  },
+  {
+    path: 'users',
+    canActivate: [AuthenticatedGuard],
+    loadComponent: () => BaseLayout,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () => HomePage,
+        data: { label: 'list', showInSidebar: true },
+      },
+    ],
   },
   {
     path: 'auth',

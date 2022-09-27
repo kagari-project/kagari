@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@include mat.core();
+@import '@angular/material/theming';
+
+$main-palette: mat.define-palette(mat.$indigo-palette);
+$accent-palette: mat.define-palette(mat.$pink-palette);

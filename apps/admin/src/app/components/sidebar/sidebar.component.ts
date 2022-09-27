@@ -2,18 +2,16 @@ import { Component } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MaterialUIModule } from '../../material-ui.module';
+import { RouteMetadata, Router, RouterModule } from '@angular/router';
 
-type TreeNode = {
-  name: string;
-  children?: TreeNode[];
-};
+type TreeNode = RouteMetadata & { children?: TreeNode[] };
 
 @Component({
   standalone: true,
-  imports: [MaterialUIModule],
+  imports: [RouterModule, MaterialUIModule],
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.less'],
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
   public treeControl = new NestedTreeControl<TreeNode>((node) => node.children);
@@ -21,21 +19,16 @@ export class SidebarComponent {
   constructor() {
     this.dataSource.data = [
       {
-        name: 'foobar',
+        label: 'Home',
+        url: '/',
       },
       {
-        name: 'lorem',
-        children: [
-          {
-            name: 'lorem-1',
-          },
-          {
-            name: 'lorem-2',
-          },
-        ],
+        label: 'User',
+        children: [{ label: 'list', url: '/users' }],
       },
     ];
   }
+
   hasChild(_: number, node: TreeNode) {
     return !!node.children && node.children.length > 0;
   }

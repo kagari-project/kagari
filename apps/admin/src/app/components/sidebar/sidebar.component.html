@@ -3,8 +3,15 @@
   [treeControl]="treeControl"
   class="menu-tree"
 >
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
-    <button mat-button>{{ node.name }}</button>
+  <mat-tree-node
+    *matTreeNodeDef="let node"
+    matTreeNodeToggle
+    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLink]="node.url"
+    class="nav-item"
+    routerLinkActive="active"
+  >
+    {{ node.label }}
   </mat-tree-node>
 
   <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
@@ -13,13 +20,16 @@
         mat-icon-button
         size="small"
         matTreeNodeToggle
-        [attr.aria-label]="'Toggle ' + node.name"
+        [attr.aria-label]="'Toggle ' + node.label"
       >
         <mat-icon class="mat-icon-rtl-mirror">
           {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
         </mat-icon>
       </button>
-      {{ node.name }}
+      <a [routerLink]="node.url" class="nav-item" routerLinkActive="active">{{
+        node.label
+      }}</a>
+      <!--      {{ node.label }}-->
     </div>
     <!-- There is inline padding applied to this div using styles.
         This padding value depends on the mat-icon-button width.  -->
