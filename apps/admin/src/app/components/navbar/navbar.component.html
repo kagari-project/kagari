@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-button (click)="handleClick()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span style="flex: 1 1 auto"></span>
+  <button
+    mat-button
+    [matMenuTriggerFor]="menu"
+    matBadge="8"
+    matBadgePosition="after"
+    matBadgeColor="accent"
+  >
+    Username
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>settings</mat-icon>Setting</button>
+    <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Logout</button>
+  </mat-menu>
+</mat-toolbar>

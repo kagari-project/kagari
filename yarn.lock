@@ -4218,6 +4218,7 @@ __metadata:
     karma-coverage: ~2.2.0
     karma-jasmine: ~5.1.0
     karma-jasmine-html-reporter: ~2.0.0
+    material-icons: ^1.11.11
     rxjs: ~7.5.0
     tslib: ^2.3.0
     typescript: ~4.7.2
@@ -9715,6 +9716,13 @@ __metadata:
   version: 4.3.0
   resolution: "map-obj@npm:4.3.0"
   checksum: fbc554934d1a27a1910e842bc87b177b1a556609dd803747c85ece420692380827c6ae94a95cce4407c054fa0964be3bf8226f7f2cb2e9eeee432c7c1985684e
+  languageName: node
+  linkType: hard
+
+"material-icons@npm:^1.11.11":
+  version: 1.11.11
+  resolution: "material-icons@npm:1.11.11"
+  checksum: 59fc9273415b0055e194206c269b4402979eeb2ae77bc6d349935d8a5f4deb33b4b5401badb1d26d2487fd7a7ff7d84ee636abe52493eb1fec46d6f5a6b1d9a1
   languageName: node
   linkType: hard
 
