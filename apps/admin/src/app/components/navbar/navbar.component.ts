@@ -6,7 +6,7 @@ import { MaterialUIModule } from '../../material-ui.module';
   imports: [MaterialUIModule],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.less'],
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
   @Output()

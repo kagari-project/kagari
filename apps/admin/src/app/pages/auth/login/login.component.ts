@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-login',
   imports: [MaterialUIModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less'],
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   title = 'Login';

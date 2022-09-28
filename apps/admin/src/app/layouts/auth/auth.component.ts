@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -6,10 +6,6 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.less'],
+  styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class AuthComponent {}

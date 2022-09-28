@@ -5,7 +5,7 @@
   "packageManager": "yarn@3.2.3",
   "scripts": {
     "postinstall": "husky install",
-    "lint": "eslint 'apps/**/src/**' 'packages/**/src/**'",
+    "lint": "eslint --fix 'apps/**/src/**.ts' 'packages/**/src/**.ts'",
     "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'"
   },
   "workspaces": {

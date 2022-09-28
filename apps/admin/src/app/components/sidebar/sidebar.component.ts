@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MaterialUIModule } from '../../material-ui.module';
-import { RouteMetadata, Router, RouterModule } from '@angular/router';
+import { RouteMetadata, RouterModule } from '@angular/router';
 
 type TreeNode = RouteMetadata & { children?: TreeNode[] };
 

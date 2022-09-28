@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,7 +18,7 @@ const KEY = '__SIDEBAR_OPENED__';
   ],
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.less'],
+  styleUrls: ['./base.component.scss'],
 })
 export class BaseComponent {
   public opened = localStorage.getItem(KEY) === '1';

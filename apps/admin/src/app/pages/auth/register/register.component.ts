@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   imports: [MaterialUIModule, ReactiveFormsModule, RouterModule],
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.less'],
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   title = 'Register';

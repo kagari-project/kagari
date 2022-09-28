@@ -18,6 +18,7 @@ export type AsyncAuthModuleOptions<
   useExisting?: Type;
   useClass?: Type;
   useFactory: (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...args: any[]
   ) =>
     | Promise<AuthModuleOptions<Entity, ExtraOptions>>
