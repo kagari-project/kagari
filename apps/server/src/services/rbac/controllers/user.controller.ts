@@ -1,4 +1,7 @@
-import { Controller } from '@nestjs/common';
+import { UserEntity } from '../../../entities/User.entity';
+import { CreateBaseControllerHelper } from '../../../core/create-base-controller.helper';
 
-@Controller('user')
-export class UserController {}
+export class UserController extends CreateBaseControllerHelper<UserEntity>(
+  UserEntity,
+  { path: 'users' },
+) {}

@@ -1,4 +1,7 @@
-import { Controller } from '@nestjs/common';
+import { CreateBaseControllerHelper } from '../../../core/create-base-controller.helper';
+import { PermissionEntity } from '../../../entities/Permission.entity';
 
-@Controller('permission')
-export class PermissionController {}
+export class PermissionController extends CreateBaseControllerHelper<PermissionEntity>(
+  PermissionEntity,
+  { path: 'permissions' },
+) {}

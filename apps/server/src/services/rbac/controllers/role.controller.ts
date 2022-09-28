@@ -1,4 +1,7 @@
-import { Controller } from '@nestjs/common';
+import { CreateBaseControllerHelper } from '../../../core/create-base-controller.helper';
+import { RoleEntity } from '../../../entities/Role.entity';
 
-@Controller('role')
-export class RoleController {}
+export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
+  RoleEntity,
+  { path: 'roles' },
+) {}
