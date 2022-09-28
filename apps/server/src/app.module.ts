@@ -13,7 +13,6 @@ import ConfigValidationSchema from './core/config.schema';
 import { RoleEntity } from './entities/Role.entity';
 import { PermissionEntity } from './entities/Permission.entity';
 import { ApiModule } from './domains/api/api.module';
-import { RouterModule } from '@nestjs/core';
 
 const validateUser = async (repo, credential) => {
   const user = await repo.findOne({
