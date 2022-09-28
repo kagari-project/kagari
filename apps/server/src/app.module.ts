@@ -6,6 +6,8 @@ import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import ConfigValidationSchema from './core/config.schema';
+import { RoleEntity } from './entities/Role.entity';
+import { PermissionEntity } from './entities/Permission.entity';
 
 const validateUser = async (repo, credential) => {
   const user = await repo.findOne({
@@ -34,7 +36,7 @@ const validateUser = async (repo, credential) => {
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         type: cs.get('DATABASE.TYPE'),
-        entities: [UserEntity],
+        entities: [UserEntity, RoleEntity, PermissionEntity],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
         url: cs.get('DATABASE.URL'),
