@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MaterialUIModule } from '../../../material-ui.module';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [MaterialUIModule],
+  imports: [MaterialUIModule, ReactiveFormsModule, RouterModule],
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.less'],
@@ -12,15 +14,17 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class RegisterComponent {
   title = 'Register';
 
-  public form: FormGroup = new FormGroup({
+  public registerForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
+    passwordRepeat: new FormControl(''),
   });
 
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-    }
+  constructor(private snackbar: MatSnackBar, private router: Router) {}
+
+  async onSubmit() {
+    this.snackbar.open('register successfully');
+    await this.router.navigate(['/auth/login']);
   }
   @Input() error: string | null | undefined;
 

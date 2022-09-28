@@ -1,5 +1,5 @@
 <mat-card>
-  <form (ngSubmit)="submit()">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-card-title style="margin-bottom: 20px">{{ title }}</mat-card-title>
     <mat-card-content style="flex-direction: column">
       <mat-form-field>
@@ -24,6 +24,7 @@
     <mat-card-actions>
       <div class="button">
         <button type="submit" mat-raised-button color="primary">Login</button>
+        <a mat-raised-button [routerLink]="['/auth/register']">Register</a>
       </div>
     </mat-card-actions>
   </form>

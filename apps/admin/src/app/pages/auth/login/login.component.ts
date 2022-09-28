@@ -1,26 +1,32 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MaterialUIModule } from '../../../material-ui.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-login',
-  imports: [MaterialUIModule],
+  imports: [MaterialUIModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less'],
 })
 export class LoginComponent {
   title = 'Login';
-
-  public form: FormGroup = new FormGroup({
+  loginForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
   });
 
-  submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-    }
+  constructor(private snackBar: MatSnackBar, private router: Router) {}
+
+  async onSubmit() {
+    this.snackBar.open('login successfully');
+    localStorage.setItem(
+      'userInfo',
+      JSON.stringify({ id: 1, username: 'foobar' }),
+    );
+    await this.router.navigate(['/']);
   }
   @Input() error: string | null | undefined;
 
