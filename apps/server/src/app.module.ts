@@ -1,6 +1,10 @@
 import { BadRequestException, Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
-import { DatabaseModule, TypeOrmModuleOptions } from '@kagari/database';
+import {
+  DatabaseModule,
+  TypeOrmModuleOptions,
+  NestLogger,
+} from '@kagari/database';
 import { UserEntity } from './entities/User.entity';
 import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -39,6 +43,7 @@ const validateUser = async (repo, credential) => {
         entities: [UserEntity, RoleEntity, PermissionEntity],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
+        logger: new NestLogger({ context: 'database' }),
         url: cs.get('DATABASE.URL'),
         database: cs.get('DATABASE.DATABASE'),
         synchronize:
