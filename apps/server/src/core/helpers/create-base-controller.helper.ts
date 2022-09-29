@@ -11,7 +11,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { InjectRepository, Repository } from '@kagari/database';
-import { RbacGuard } from './rbac.guard';
+import { RbacGuard } from '../../services/rbac/rbac.guard';
 
 export function CreateBaseControllerHelper<Entity>(
   entity: Type<Entity>,

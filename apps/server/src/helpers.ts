@@ -3,7 +3,7 @@ import {
   ComposeRefreshTokenPayload,
   ValidateFunction,
 } from '@kagari/auth';
-import { UserEntity } from './entities/User.entity';
+import { UserEntity } from './core/entities/User.entity';
 import { BadRequestException } from '@nestjs/common';
 import { omit } from 'lodash';
 

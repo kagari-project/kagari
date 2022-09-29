@@ -5,14 +5,14 @@ import {
   NestLogger,
   TypeOrmModuleOptions,
 } from '@kagari/database';
-import { UserEntity } from './entities/User.entity';
+import { UserEntity } from './core/entities/User.entity';
 import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApiModule } from './domains/api/api.module';
 
 import ConfigValidationSchema from './core/config.schema';
-import { RoleEntity } from './entities/Role.entity';
-import { PermissionEntity } from './entities/Permission.entity';
+import { RoleEntity } from './core/entities/Role.entity';
+import { PermissionEntity } from './core/entities/Permission.entity';
 import {
   composeAccessTokenPayload,
   composeRefreshTokenPayload,
