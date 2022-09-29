@@ -1,36 +1,23 @@
-import { BadRequestException, Module, Type } from '@nestjs/common';
+import { Module, RequestMethod } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import {
   DatabaseModule,
-  TypeOrmModuleOptions,
   NestLogger,
-  Repository,
+  TypeOrmModuleOptions,
 } from '@kagari/database';
 import { UserEntity } from './entities/User.entity';
-import { LocalAuthModule, ValidateFunction } from '@kagari/auth';
+import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ApiModule } from './domains/api/api.module';
 
 import ConfigValidationSchema from './core/config.schema';
 import { RoleEntity } from './entities/Role.entity';
 import { PermissionEntity } from './entities/Permission.entity';
-import { ApiModule } from './domains/api/api.module';
-import { omit } from 'lodash';
-
-const validateUser: ValidateFunction<UserEntity> = async (repo, credential) => {
-  const user = await repo.findOne({
-    where: { username: credential.username },
-  });
-
-  if (!user) {
-    throw new BadRequestException({ error: 'user not found' });
-  }
-
-  if (user.password !== credential.password) {
-    throw new BadRequestException({ error: 'incorrect password' });
-  }
-
-  return omit(user, 'password') as UserEntity;
-};
+import {
+  composeAccessTokenPayload,
+  composeRefreshTokenPayload,
+  validate,
+} from './helpers';
 
 @Module({
   imports: [
@@ -59,15 +46,30 @@ const validateUser: ValidateFunction<UserEntity> = async (repo, credential) => {
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         entity: UserEntity,
-        validate: validateUser,
+        validate,
         session: {
           secret: cs.get<string>('HTTP.SESSION.SECRET', 'secret'),
           saveUninitialized: false,
           resave: false,
         },
+        exclude: [{ path: '/api/(.*)', method: RequestMethod.ALL }],
       }),
     }),
-    // ApiModule,
+    JwtAuthModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (cs: ConfigService) => ({
+        entity: UserEntity,
+        validate,
+        jwt: {
+          secret: cs.get<string>('HTTP.JWT.SECRET', 'secret'),
+        },
+        payload: {
+          access: composeAccessTokenPayload,
+          refresh: composeRefreshTokenPayload,
+        },
+      }),
+    }),
+    ApiModule,
   ],
   controllers: [AuthController],
 })

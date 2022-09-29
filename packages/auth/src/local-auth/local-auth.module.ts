@@ -14,10 +14,14 @@ import * as session from 'express-session';
 import * as passport from 'passport';
 import { LocalSerializer } from './local.serializer';
 import { IStrategyOptions } from 'passport-local';
+import { Type } from '@nestjs/common/interfaces/type.interface';
+import { RouteInfo } from '@nestjs/common/interfaces/middleware/middleware-configuration.interface';
 
 type ExtraOptions = {
   session: session.SessionOptions;
   strategyOptions?: IStrategyOptions;
+  forRoutes?: (string | Type | RouteInfo)[];
+  exclude?: (string | RouteInfo)[];
 };
 
 @Module({})
@@ -68,12 +72,15 @@ export class LocalAuthModule implements NestModule {
   }
 
   configure(consumer: MiddlewareConsumer) {
+    const excludes = this.options.exclude || [];
+    const forRoutes = this.options.forRoutes || ['*'];
     consumer
       .apply(
         session(this.options.session),
         passport.initialize(),
         passport.session(),
       )
-      .forRoutes('*');
+      .exclude(...excludes)
+      .forRoutes(...forRoutes);
   }
 }

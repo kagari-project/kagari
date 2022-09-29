@@ -6,11 +6,17 @@ import {
   UseGuards,
   Session,
 } from '@nestjs/common';
-import { AuthenticatedGuard, LocalAuthGuard } from '@kagari/auth';
+import {
+  AuthenticatedGuard,
+  JwtAuthService,
+  LocalAuthGuard,
+} from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
+  constructor(private jwtSigner: JwtAuthService) {}
+
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @ApiOperation({
@@ -35,9 +41,12 @@ export class AuthController {
       },
     },
   })
-  login(@Request() req, @Session() session) {
-    console.log(session);
-    return req.user;
+  async login(@Request() req, @Session() session) {
+    const tokens = await this.jwtSigner.signature(req.user);
+    return {
+      data: req.user,
+      ...tokens,
+    };
   }
 
   @Post('logout')

@@ -1,35 +1,67 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, forwardRef, Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { JwtModule } from '@nestjs/jwt';
-import { AuthModuleOptions } from '../types';
+import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
+import {
+  AsyncAuthModuleOptions,
+  AuthModuleOptions,
+  ComposeAccessTokenPayload,
+  ComposeRefreshTokenPayload,
+} from '../types';
+import { JwtAuthService } from './jwt-auth.service';
+import { JWT_AUTH_MODULE_OPTIONS } from '../constants';
 
-@Module({
-  imports: [PassportModule],
-})
+import { ExtraOptions } from './types';
+
+@Module({})
 export class JwtAuthModule {
   static forRoot(
-    options: AuthModuleOptions<unknown, { jwt: any }>,
+    options: AuthModuleOptions<unknown, ExtraOptions>,
   ): DynamicModule {
     return {
       module: JwtAuthModule,
-      imports: [JwtModule.register(options.jwt)],
+      imports: [PassportModule, JwtModule.register(options.jwt)],
       providers: [
-        // {
-        //   provide:
-        // },
+        {
+          provide: JWT_AUTH_MODULE_OPTIONS,
+          useValue: options,
+        },
         ...this.createProviders(),
       ],
+      exports: [...this.createExports()],
     };
   }
 
-  static forRootAsync(): DynamicModule {
+  static forRootAsync(
+    options: AsyncAuthModuleOptions<unknown, ExtraOptions>,
+  ): DynamicModule {
     return {
+      global: true,
       module: JwtAuthModule,
-      providers: [...this.createProviders()],
+      imports: [
+        PassportModule,
+        JwtModule.registerAsync({
+          inject: [JWT_AUTH_MODULE_OPTIONS],
+          useFactory: (options: AuthModuleOptions<unknown, ExtraOptions>) =>
+            options.jwt,
+        }),
+      ],
+      providers: [
+        {
+          inject: options.inject,
+          provide: JWT_AUTH_MODULE_OPTIONS,
+          useFactory: options.useFactory,
+        },
+        ...this.createProviders(),
+      ],
+      exports: [...this.createExports()],
     };
   }
 
   private static createProviders() {
-    return [];
+    return [JwtAuthService];
+  }
+
+  private static createExports() {
+    return [JWT_AUTH_MODULE_OPTIONS, JwtAuthService];
   }
 }

@@ -8,6 +8,14 @@ export type ValidateFunction<Entity> = (
   credential: Credential,
 ) => Promise<Entity>;
 
+export type ComposeAccessTokenPayload<Entity> = (
+  userInfo: Entity,
+) => Record<string, unknown>;
+
+export type ComposeRefreshTokenPayload<Entity> = (
+  userInfo: Entity,
+) => Record<string, unknown>;
+
 export type AuthModuleOptions<Entity = unknown, ExtraOptions = unknown> = {
   entity: Type<Entity>;
   validate: ValidateFunction<Entity>;
