@@ -3,12 +3,14 @@ import { ModuleMetadata, Type } from '@nestjs/common';
 
 export type Credential = { [key: string]: string };
 
+export type ValidateFunction<Entity> = (
+  repo: Repository<Entity>,
+  credential: Credential,
+) => Promise<Entity>;
+
 export type AuthModuleOptions<Entity = unknown, ExtraOptions = unknown> = {
   entity: Type<Entity>;
-  validate: (
-    repo: Repository<Entity>,
-    credential: Credential,
-  ) => boolean | Promise<boolean>;
+  validate: ValidateFunction<Entity>;
 } & ExtraOptions;
 
 export type AsyncAuthModuleOptions<
