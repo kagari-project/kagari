@@ -42,6 +42,6 @@
   cursor: pointer;
   &.active {
     //border-right: solid 8px mat.get-color-from-palette($main-palette, 600);
-    background: mat.get-color-from-palette($main-palette, 50);
+    background: mat.get-color-from-palette($accent-palette, 100);
   }
 }

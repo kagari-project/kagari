@@ -2,14 +2,19 @@
   <button mat-button (click)="handleClick()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span style="flex: 1 1 auto"></span>
+  <span style="flex: 1 1 auto">Application</span>
   <button
     mat-button
     [matMenuTriggerFor]="menu"
-    matBadge="8"
+    matBadge="0"
     matBadgePosition="after"
     matBadgeColor="accent"
   >
+    <img
+      style="height: 30px; width: 30px"
+      src="https://ui-avatars.com/api/?rounded=true"
+      alt=""
+    />
     Username
   </button>
   <mat-menu #menu="matMenu">
