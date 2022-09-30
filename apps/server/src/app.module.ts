@@ -18,9 +18,11 @@ import {
   composeRefreshTokenPayload,
   validate,
 } from './helpers';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
+    CoreModule,
     ConfigModule.forRoot({
       envFilePath: ['.env', '.env.local'],
       isGlobal: true,
