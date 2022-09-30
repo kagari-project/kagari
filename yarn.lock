@@ -2657,7 +2657,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@*, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -2671,7 +2671,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@workspace:packages/restful":
+"@kagari/restful@*, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -11746,6 +11746,8 @@ __metadata:
   dependencies:
     "@kagari/auth": "*"
     "@kagari/database": "*"
+    "@kagari/rbac": "*"
+    "@kagari/restful": "*"
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0

@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 import { IsPublic } from '../../core/decorators/public.decorator';
-import { RoleBasedAccessControl } from '@kagari/rbac';
+import { RoleBasedAccessControlGuard } from '@kagari/rbac';
 // import { ApiExcludeController } from '@nestjs/swagger';
 
 // @ApiExcludeController()
@@ -23,7 +23,7 @@ export class DemoController {
     };
   }
 
-  @UseGuards(RoleBasedAccessControl)
+  @UseGuards(RoleBasedAccessControlGuard)
   @Get('rbac')
   protectedByRbac() {
     return {

@@ -4,11 +4,13 @@ import {
   AsyncRoleBasedAccessControlModuleOptions as AsyncModuleOptions,
 } from './types';
 import { RBAC_OPTIONS } from './token';
+import { RoleBasedAccessControlGuard } from './rbac.guard';
 
 @Module({})
 export class RoleBasedAccessControlModule {
   static forRoot(options: ModuleOptions): DynamicModule {
     return {
+      global: options.global,
       module: RoleBasedAccessControlModule,
       providers: [
         {
@@ -17,11 +19,13 @@ export class RoleBasedAccessControlModule {
         },
         ...this.createProviders(),
       ],
+      exports: [...this.createExports()],
     };
   }
 
   static forRootAsync(options: AsyncModuleOptions): DynamicModule {
     return {
+      global: options.global,
       module: RoleBasedAccessControlModule,
       providers: [
         {
@@ -31,10 +35,15 @@ export class RoleBasedAccessControlModule {
         },
         ...this.createProviders(),
       ],
+      exports: [...this.createExports()],
     };
   }
 
   private static createProviders() {
-    return [];
+    return [RoleBasedAccessControlGuard];
+  }
+
+  private static createExports() {
+    return [RBAC_OPTIONS, RoleBasedAccessControlGuard];
   }
 }

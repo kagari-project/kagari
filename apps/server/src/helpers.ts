@@ -4,8 +4,9 @@ import {
   ValidateFunction,
 } from '@kagari/auth';
 import { UserEntity } from './core/entities/User.entity';
-import { BadRequestException } from '@nestjs/common';
+import { BadRequestException, ExecutionContext, Logger } from '@nestjs/common';
 import { omit } from 'lodash';
+import { CanActivateFunction } from '@kagari/rbac';
 
 export const validate: ValidateFunction<UserEntity> = async (
   repo,
@@ -32,3 +33,8 @@ export const composeAccessTokenPayload: ComposeAccessTokenPayload<
 export const composeRefreshTokenPayload: ComposeRefreshTokenPayload<
   UserEntity
 > = (userInfo) => ({ id: userInfo.id, username: userInfo.username });
+
+export const canActivate: CanActivateFunction = (context: ExecutionContext) => {
+  Logger.debug('trying check rbac permission');
+  return true;
+};

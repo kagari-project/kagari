@@ -1,18 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ModuleMetadata, Type } from '@nestjs/common';
+import { ExecutionContext, ModuleMetadata, Type } from '@nestjs/common';
 
-type RequiredEntities<U, R, P> = {
+export type RequiredEntities<U, R, P> = {
   user: Type<U>;
   role: Type<R>;
   permission: Type<P>;
 };
+
+export type CanActivateFunction = (
+  context: ExecutionContext,
+) => Promise<boolean> | boolean;
 
 export type RoleBasedAccessControlModuleOptions<
   UserEntity = any,
   RoleEntity = any,
   PermissionEntity = any,
 > = {
+  global?: boolean;
   entities: RequiredEntities<UserEntity, RoleEntity, PermissionEntity>;
+  canActivate: CanActivateFunction;
 };
 
 export type AsyncRoleBasedAccessControlModuleOptions<
@@ -20,6 +26,7 @@ export type AsyncRoleBasedAccessControlModuleOptions<
   RoleEntity = any,
   PermissionEntity = any,
 > = Pick<ModuleMetadata, 'imports'> & {
+  global?: boolean;
   inject?: Type[];
   useFactory: (
     ...args: unknown[]

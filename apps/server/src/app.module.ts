@@ -14,6 +14,7 @@ import ConfigValidationSchema from './core/config.schema';
 import { RoleEntity } from './core/entities/Role.entity';
 import { PermissionEntity } from './core/entities/Permission.entity';
 import {
+  canActivate,
   composeAccessTokenPayload,
   composeRefreshTokenPayload,
   validate,
@@ -73,12 +74,14 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
       }),
     }),
     RoleBasedAccessControlModule.forRootAsync({
+      global: true,
       useFactory: () => ({
         entities: {
           user: UserEntity,
           role: RoleEntity,
           permission: PermissionEntity,
         },
+        canActivate,
       }),
     }),
     ApiModule,
