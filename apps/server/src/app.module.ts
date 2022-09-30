@@ -19,6 +19,7 @@ import {
   validate,
 } from './helpers';
 import { CoreModule } from './core/core.module';
+import { RoleBasedAccessControlModule } from '@kagari/rbac';
 
 @Module({
   imports: [
@@ -68,6 +69,15 @@ import { CoreModule } from './core/core.module';
         payload: {
           access: composeAccessTokenPayload,
           refresh: composeRefreshTokenPayload,
+        },
+      }),
+    }),
+    RoleBasedAccessControlModule.forRootAsync({
+      useFactory: () => ({
+        entities: {
+          user: UserEntity,
+          role: RoleEntity,
+          permission: PermissionEntity,
         },
       }),
     }),
