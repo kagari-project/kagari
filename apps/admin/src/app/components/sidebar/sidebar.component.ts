@@ -24,12 +24,17 @@ export class SidebarComponent {
       },
       {
         label: 'User',
-        children: [{ label: 'list', url: '/users' }],
+        children: [{ label: 'List', url: '/users' }],
       },
     ];
   }
 
   hasChild(_: number, node: TreeNode) {
     return !!node.children && node.children.length > 0;
+  }
+
+  ngAfterContentInit() {
+    this.treeControl.dataNodes = this.dataSource.data;
+    this.treeControl.expandAll();
   }
 }

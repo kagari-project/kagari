@@ -7,6 +7,7 @@ import { NotFoundComponent as NotFoundPage } from './pages/not-found/not-found.c
 import { LoginComponent as LoginPage } from './pages/auth/login/login.component';
 import { RegisterComponent as RegisterPage } from './pages/auth/register/register.component';
 import { HomeComponent as HomePage } from './pages/home/home.component';
+import { UserComponent as UserPage } from './pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => HomePage,
+        loadComponent: () => UserPage,
         data: { label: 'list', showInSidebar: true },
       },
     ],

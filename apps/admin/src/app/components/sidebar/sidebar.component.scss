@@ -19,6 +19,10 @@
   //padding-left: 40px;
 }
 
+.menu-tree {
+  padding-top: 8px;
+}
+
 /*
  * Padding for leaf nodes.
  * Leaf nodes need to have padding so as to align with other non-leaf nodes
@@ -37,7 +41,7 @@
   padding-left: 10px;
   cursor: pointer;
   &.active {
-    color: #fff;
-    background: mat.get-color-from-palette($main-palette, 300);
+    //border-right: solid 8px mat.get-color-from-palette($main-palette, 600);
+    background: mat.get-color-from-palette($main-palette, 50);
   }
 }
