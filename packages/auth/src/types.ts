@@ -25,8 +25,6 @@ export type AsyncAuthModuleOptions<
   Entity = unknown,
   ExtraOptions = unknown,
 > = Pick<ModuleMetadata, 'imports'> & {
-  useExisting?: Type;
-  useClass?: Type;
   useFactory: (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...args: any[]
