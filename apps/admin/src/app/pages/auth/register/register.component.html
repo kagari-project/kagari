@@ -33,7 +33,17 @@
     <mat-card-actions>
       <div class="button">
         <button type="submit" mat-raised-button color="primary">Submit</button>
-        <a [routerLink]="['/auth/login']" mat-raised-button>Login</a>
+        <button type="reset" mat-raised-button>Reset</button>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
+        "
+      >
+        <a [routerLink]="['/auth/login']">Login</a>
       </div>
     </mat-card-actions>
   </form>

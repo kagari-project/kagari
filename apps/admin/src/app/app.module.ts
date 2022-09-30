@@ -6,11 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent as BaseLayout } from './layouts/base/base.component';
 import { AuthComponent as AuthLayout } from './layouts/auth/auth.component';
 import { MaterialUIModule } from './material-ui.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialUIModule,
