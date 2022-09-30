@@ -1,7 +1,7 @@
 import { LocalAuthenticatedGuard } from './local-authenticated.guard';
 import { JwtAuthenticatedGuard } from './jwt-authenticated.guard';
 
-export function AuthenticatedGuard(type: 'local' | 'jwt') {
+export function getAuthenticatedGuard(type: 'local' | 'jwt') {
   if (type === 'local') {
     return LocalAuthenticatedGuard;
   }
