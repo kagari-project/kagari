@@ -1,8 +1,11 @@
 import {
   Column,
+  CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   ManyToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from '@kagari/database';
 import { RoleEntity } from './Role.entity';
 import { UserEntity } from './User.entity';
@@ -17,6 +20,15 @@ export class PermissionEntity {
 
   @Column({ unique: true })
   token: string;
+
+  @CreateDateColumn()
+  createdAt: string;
+
+  @UpdateDateColumn()
+  updatedAt: string;
+
+  @DeleteDateColumn()
+  deletedAt: string;
 
   // permissions belongs to many roles
   @ManyToMany(() => RoleEntity, (role) => role.permissions)

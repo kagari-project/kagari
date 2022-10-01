@@ -4,6 +4,9 @@ import {
   Column,
   ManyToMany,
   JoinTable,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from '@kagari/database';
 import { RoleEntity } from './Role.entity';
 import { PermissionEntity } from './Permission.entity';
@@ -18,6 +21,15 @@ export class UserEntity {
 
   @Column()
   password: string;
+
+  @CreateDateColumn()
+  createdAt: string;
+
+  @UpdateDateColumn()
+  updatedAt: string;
+
+  @DeleteDateColumn()
+  deletedAt: string;
 
   // users have many roles
   @ManyToMany(() => RoleEntity, (role) => role.users)
