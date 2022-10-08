@@ -11,7 +11,6 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
   @Get()
   findAll(@QueryProtocol() query) {
     const findOptions = transformProtocol(query);
-    console.log(findOptions);
     return super.findAll(findOptions);
   }
 }

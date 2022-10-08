@@ -10,7 +10,7 @@ import {
   ILike,
   Equal,
 } from '@kagari/database';
-import { Operations } from './types';
+import { Operations, ParsedQueryString } from './types';
 
 function getOperatorBySymbol(symbol, value) {
   switch (symbol) {
@@ -39,11 +39,20 @@ function getOperatorBySymbol(symbol, value) {
   }
 }
 
-export function extractOperators(input = '') {
+export function extractOperator(input = '') {
   const matches = /^(\$.*)\((.*)\)/.exec(input);
   if (!matches) {
     return input;
   }
   const [, symbol, value] = matches;
   return getOperatorBySymbol(symbol, value);
+}
+
+export function extractOperators($where: Array<{ [key: string]: string }>) {
+  return $where.map((conditions) => {
+    for (const field in conditions) {
+      conditions[field] = extractOperator(conditions[field]);
+    }
+    return conditions;
+  });
 }

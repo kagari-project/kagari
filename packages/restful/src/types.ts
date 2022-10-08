@@ -25,7 +25,7 @@ export type ParsedQueryString = {
   $page?: number;
   $pageSize?: number;
   $withDeleted?: boolean;
-  $where?: unknown[];
+  $where?: Array<{ [key: string]: string }>;
   $sort?: unknown[];
   $select?: unknown[];
 };
