@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Request,
-  Post,
-  Get,
-  UseGuards,
-  Session,
-} from '@nestjs/common';
+import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
 import {
   AuthenticatedGuard,
   JwtAuthService,
@@ -41,7 +34,7 @@ export class AuthController {
       },
     },
   })
-  async login(@Request() req, @Session() session) {
+  async login(@Request() req) {
     const tokens = await this.jwtSigner.signature(req.user);
     return {
       data: req.user,
@@ -51,7 +44,7 @@ export class AuthController {
 
   @Post('logout')
   logout(@Request() request) {
-    request.logOut();
+    return new Promise((resolve) => request.logOut(resolve));
   }
 
   @UseGuards(AuthenticatedGuard)
