@@ -16,6 +16,8 @@ import {
   InjectRepository,
   Repository,
 } from '@kagari/database';
+import { ParsedQueryString, QueryProtocol } from '@kagari/restful';
+import { transformProtocolHelper } from './transform-protocol.helper';
 
 export type BaseController<Entity> = Type<{
   findAll(...args: any[]): Promise<{ list: Type<Entity>[]; total: number }>;
@@ -34,9 +36,10 @@ export function CreateBaseControllerHelper<Entity>(
     constructor(@InjectRepository(entity) private repo: Repository<Entity>) {}
 
     @Get()
-    async findAll(options: FindManyOptions<Entity>) {
-      const [list, total] = await this.repo.findAndCount(options);
-      return { list, total };
+    async findAll(@QueryProtocol() query: ParsedQueryString) {
+      const findOptions = transformProtocolHelper(query);
+      const [list, total] = await this.repo.findAndCount(findOptions);
+      return { list, total, query };
     }
 
     @Get(':id')

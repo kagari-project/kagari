@@ -35,3 +35,11 @@ it('should parse $withDeleted', function () {
 it('should parse if param is null', function () {
   expect(() => serialize(null)).not.toThrowError();
 });
+
+it('should support $sort command', function () {
+  expect(serialize(`$sort=username|desc`)).toStrictEqual({
+    $sort: {
+      username: 'DESC',
+    },
+  });
+});

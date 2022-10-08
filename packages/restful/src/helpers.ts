@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Operations, ParsedQueryString } from './types';
-import { object } from 'joi';
 
 export function isTruthy(value: number | string | undefined | null) {
   if (typeof value === 'number') {
@@ -29,7 +29,7 @@ export function numeric(
 
 export function ensureIsArray(
   obj: ParsedQueryString,
-  key: keyof Pick<ParsedQueryString, '$where' | '$sort' | '$select'>,
+  key: keyof Pick<ParsedQueryString, '$where' | '$select'>,
 ) {
   if (!Array.isArray(obj[key])) {
     obj[key] = [];
@@ -62,4 +62,12 @@ export function pushCondition<T = any>(
       }
     }
   }
+}
+
+export function pushOrder(
+  $order: Record<string, 'ASC' | 'DESC'>,
+  value: string,
+) {
+  const [field, order] = value.split('|');
+  $order[field] = order.toUpperCase() as 'ASC' | 'DESC';
 }

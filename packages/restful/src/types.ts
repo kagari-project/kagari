@@ -26,7 +26,7 @@ export type ParsedQueryString = {
   $pageSize?: number;
   $withDeleted?: boolean;
   $where?: Array<{ [key: string]: string }>;
-  $sort?: unknown[];
+  $sort?: Record<string, 'DESC' | 'ASC'>;
   $select?: unknown[];
 };
 

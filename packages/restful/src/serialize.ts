@@ -1,4 +1,10 @@
-import { ensureIsArray, isTruthy, numeric, pushCondition } from './helpers';
+import {
+  ensureIsArray,
+  isTruthy,
+  numeric,
+  pushCondition,
+  pushOrder,
+} from './helpers';
 import { Operations, ParsedQueryString, QueryCommand } from './types';
 
 export function serialize(query): ParsedQueryString {
@@ -20,8 +26,8 @@ export function serialize(query): ParsedQueryString {
         parsed[key] = numeric(value, Math.floor);
         break;
       case QueryCommand.$sort:
-        ensureIsArray(parsed, key);
-        parsed[key].push(value);
+        parsed[key] = parsed[key] || {};
+        pushOrder(parsed[key], value);
         break;
       default:
         ensureIsArray(parsed, '$where');
