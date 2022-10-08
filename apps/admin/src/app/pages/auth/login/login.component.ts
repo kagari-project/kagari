@@ -7,7 +7,7 @@ import {
   FormGroupDirective,
   NgForm,
 } from '@angular/forms';
-import { MaterialUIModule } from '../../../material-ui.module';
+import { MaterialUIModule } from '../../../modules/material-ui.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
 import { AuthModule } from '../../../auth/auth.module';

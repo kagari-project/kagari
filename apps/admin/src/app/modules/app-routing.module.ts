@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent as AuthLayout } from './layouts/auth/auth.component';
-import { BaseComponent as BaseLayout } from './layouts/base/base.component';
-import { AuthenticatedGuard } from './guards/authenticated.guard';
-import { NotFoundComponent as NotFoundPage } from './pages/not-found/not-found.component';
-import { LoginComponent as LoginPage } from './pages/auth/login/login.component';
-import { RegisterComponent as RegisterPage } from './pages/auth/register/register.component';
-import { HomeComponent as HomePage } from './pages/home/home.component';
-import { UserComponent as UserPage } from './pages/user/user.component';
+import { AuthComponent as AuthLayout } from '../layouts/auth/auth.component';
+import { BaseComponent as BaseLayout } from '../layouts/base/base.component';
+import { AuthenticatedGuard } from '../guards/authenticated.guard';
+import { NotFoundComponent as NotFoundPage } from '../pages/not-found/not-found.component';
+import { LoginComponent as LoginPage } from '../pages/auth/login/login.component';
+import { RegisterComponent as RegisterPage } from '../pages/auth/register/register.component';
+import { HomeComponent as HomePage } from '../pages/home/home.component';
+import { UserComponent as UserPage } from '../pages/user/user.component';
 
 const routes: Routes = [
   {

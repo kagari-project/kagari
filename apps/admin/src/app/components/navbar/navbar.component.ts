@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MaterialUIModule } from '../../material-ui.module';
+import { MaterialUIModule } from '../../modules/material-ui.module';
 
 @Component({
   standalone: true,

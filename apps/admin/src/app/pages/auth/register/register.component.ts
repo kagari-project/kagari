@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MaterialUIModule } from '../../../material-ui.module';
+import { MaterialUIModule } from '../../../modules/material-ui.module';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';

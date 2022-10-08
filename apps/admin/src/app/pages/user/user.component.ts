@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MaterialUIModule } from '../../material-ui.module';
+import { Component, OnInit } from '@angular/core';
+import { MaterialUIModule } from '../../modules/material-ui.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
   title = 'Users';
   columns = ['id', 'name', 'createdAt', 'updatedAt', 'actions'];
   dataSource = [
@@ -43,4 +43,6 @@ export class UserComponent {
     { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
     { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
   ];
+
+  ngOnInit(): void {}
 }

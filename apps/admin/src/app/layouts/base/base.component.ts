@@ -3,7 +3,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
-import { MaterialUIModule } from '../../material-ui.module';
+import { MaterialUIModule } from '../../modules/material-ui.module';
 
 const KEY = '__SIDEBAR_OPENED__';
 
