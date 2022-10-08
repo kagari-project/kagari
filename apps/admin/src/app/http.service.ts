@@ -17,9 +17,15 @@ export class HttpService {
     );
   }
 
-  request({ method, url, body }: any) {
+  request<T>({ method, url, body }: any) {
+    console.log();
     return this.http
-      .request(method, this.baseUrl + url, { body })
+      .request<T>(method, this.baseUrl + url, {
+        body,
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+        },
+      })
       .pipe(catchError(this.onError));
   }
 }

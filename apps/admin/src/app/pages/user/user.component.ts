@@ -13,45 +13,23 @@ import { HttpService } from '../../http.service';
 })
 export class UserComponent implements OnInit {
   title = 'Users';
-  columns = ['id', 'name', 'createdAt', 'updatedAt', 'actions'];
-  dataSource = [
-    { id: 1, name: 'foobar', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 2, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 3, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 4, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 5, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 6, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 7, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 8, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 9, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-    { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
-  ];
+  columns = ['id', 'username', 'password', 'createdAt', 'updatedAt', 'actions'];
+  dataSource: any[] = [];
 
   constructor(private http: HttpService) {}
 
   getMany() {
-    return this.http.request({ method: 'get', url: '/api/users' });
+    return this.http.request<{ list: any[]; total: any[] }>({
+      method: 'get',
+      url: '/api/users',
+    });
   }
 
   ngOnInit(): void {
-    this.getMany().subscribe();
+    this.getMany().subscribe({
+      next: ({ list }) => {
+        this.dataSource = list;
+      },
+    });
   }
 }
