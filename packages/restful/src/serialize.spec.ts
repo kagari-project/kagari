@@ -24,3 +24,7 @@ it('should parse $withDeleted', function () {
   });
   expect(serialize(`$withDeleted=true`)).toStrictEqual({ $withDeleted: true });
 });
+
+it('should parse if param is null', function () {
+  expect(() => serialize(null)).not.toThrowError();
+});

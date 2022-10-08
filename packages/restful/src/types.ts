@@ -19,4 +19,9 @@ export type ParsedQueryString = {
   $filters?: unknown[];
   $where?: unknown[];
   $sort?: unknown[];
+  $select?: unknown[];
+};
+
+export type Serialized = {
+  [key in keyof ParsedQueryString]: unknown;
 };

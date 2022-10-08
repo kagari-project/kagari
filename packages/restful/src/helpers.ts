@@ -28,7 +28,10 @@ export function numeric(
 
 export function ensureIsArray(
   obj: ParsedQueryString,
-  key: keyof Pick<ParsedQueryString, '$filters' | '$where' | '$sort'>,
+  key: keyof Pick<
+    ParsedQueryString,
+    '$filters' | '$where' | '$sort' | '$select'
+  >,
 ) {
   if (!Array.isArray(obj[key])) {
     obj[key] = [];

@@ -10,7 +10,12 @@ import {
   Put,
   Type,
 } from '@nestjs/common';
-import { FindOneOptions, InjectRepository, Repository } from '@kagari/database';
+import {
+  FindManyOptions,
+  FindOneOptions,
+  InjectRepository,
+  Repository,
+} from '@kagari/database';
 
 export type BaseController<Entity> = Type<{
   findAll(...args: any[]): Promise<{ list: Type<Entity>[]; total: number }>;
@@ -29,8 +34,8 @@ export function CreateBaseControllerHelper<Entity>(
     constructor(@InjectRepository(entity) private repo: Repository<Entity>) {}
 
     @Get()
-    async findAll() {
-      const [list, total] = await this.repo.findAndCount();
+    async findAll(options: FindManyOptions<Entity>) {
+      const [list, total] = await this.repo.findAndCount(options);
       return { list, total };
     }
 
