@@ -51,6 +51,9 @@ export function pushCondition<T = any>(
   key: string,
   value: T,
 ) {
+  if (!key) {
+    return;
+  }
   if ($where.length === 0) {
     $where.push({
       [key]: composeOperator(Operations.eq, value),

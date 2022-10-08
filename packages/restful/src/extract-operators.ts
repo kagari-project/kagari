@@ -49,6 +49,9 @@ export function extractOperator(input = '') {
 }
 
 export function extractOperators($where: Array<{ [key: string]: string }>) {
+  if (!$where) {
+    return undefined;
+  }
   return $where.map((conditions) => {
     for (const field in conditions) {
       conditions[field] = extractOperator(conditions[field]);

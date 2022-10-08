@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { HttpService } from '../../http.service';
 
 @Component({
   standalone: true,
@@ -44,5 +45,13 @@ export class UserComponent implements OnInit {
     { id: 10, name: 'lorem', createdAt: '2022-01-01', updatedAt: '2022-01-01' },
   ];
 
-  ngOnInit(): void {}
+  constructor(private http: HttpService) {}
+
+  getMany() {
+    return this.http.request({ method: 'get', url: '/api/users' });
+  }
+
+  ngOnInit(): void {
+    this.getMany().subscribe();
+  }
 }

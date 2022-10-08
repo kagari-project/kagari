@@ -36,6 +36,11 @@ it('should parse if param is null', function () {
   expect(() => serialize(null)).not.toThrowError();
 });
 
+it('should parse if empty query string', function () {
+  console.log(serialize(''));
+  expect(serialize('')).toStrictEqual({ $where: [] });
+});
+
 it('should support $sort command', function () {
   expect(serialize(`$sort=username|desc`)).toStrictEqual({
     $sort: {

@@ -12,7 +12,7 @@ export function serialize(query): ParsedQueryString {
   const pairs = query.split('&');
   const parsed: ParsedQueryString = {};
   for (const pair of pairs) {
-    const [key, value] = pair.split('=');
+    const [key = '', value = ''] = pair.split('=');
     switch (key) {
       case QueryCommand.$select:
         ensureIsArray(parsed, key);
@@ -34,6 +34,10 @@ export function serialize(query): ParsedQueryString {
         pushCondition(parsed['$where'], key, value);
       // parsed['$where'].push({ [key]: `${Operations.eq}(${value})` });
     }
+  }
+
+  if (parsed.$where.length === 0) {
+    delete parsed.$where;
   }
   return parsed;
 }
