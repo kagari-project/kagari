@@ -12,11 +12,19 @@ export const Operations = {
   not: '$not',
 };
 
+export const QueryCommand = {
+  $select: '$select',
+  $withDeleted: '$withDeleted',
+  $page: '$page',
+  $pageSize: '$pageSize',
+  $sort: '$sort',
+  $orWhere: '$orWhere',
+};
+
 export type ParsedQueryString = {
   $page?: number;
   $pageSize?: number;
   $withDeleted?: boolean;
-  $filters?: unknown[];
   $where?: unknown[];
   $sort?: unknown[];
   $select?: unknown[];

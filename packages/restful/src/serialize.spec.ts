@@ -8,7 +8,14 @@ it('should parse pagination', function () {
 it('should parse field key=value', function () {
   const parsed = serialize(`foo=lorem&bar=lorem2`);
   expect(parsed).toStrictEqual({
-    $where: [{ foo: '$eq(lorem)' }, { bar: '$eq(lorem2)' }],
+    $where: [{ foo: '$eq(lorem)', bar: '$eq(lorem2)' }],
+  });
+});
+
+it('should supports filter condition with operator', function () {
+  const parsed = serialize(`foo=$eq(lorem)&bar=$not(lorem2)`);
+  expect(parsed).toStrictEqual({
+    $where: [{ foo: '$eq(lorem)', bar: '$not(lorem2)' }],
   });
 });
 

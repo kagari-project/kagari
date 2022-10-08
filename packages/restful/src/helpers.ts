@@ -1,4 +1,5 @@
-import { ParsedQueryString } from './types';
+import { Operations, ParsedQueryString } from './types';
+import { object } from 'joi';
 
 export function isTruthy(value: number | string | undefined | null) {
   if (typeof value === 'number') {
@@ -28,12 +29,37 @@ export function numeric(
 
 export function ensureIsArray(
   obj: ParsedQueryString,
-  key: keyof Pick<
-    ParsedQueryString,
-    '$filters' | '$where' | '$sort' | '$select'
-  >,
+  key: keyof Pick<ParsedQueryString, '$where' | '$sort' | '$select'>,
 ) {
   if (!Array.isArray(obj[key])) {
     obj[key] = [];
+  }
+}
+
+export function hasOperator(input = '') {
+  return /^(\$.*)\((.*)\)/.test(input);
+}
+
+export function composeOperator(symbol, value) {
+  return typeof value === 'string' && hasOperator(value)
+    ? value
+    : `${Operations.eq}(${value})`;
+}
+
+export function pushCondition<T = any>(
+  $where: unknown[],
+  key: string,
+  value: T,
+) {
+  if ($where.length === 0) {
+    $where.push({
+      [key]: composeOperator(Operations.eq, value),
+    });
+  } else {
+    for (const item of $where) {
+      if (!item[key]) {
+        item[key] = composeOperator(Operations.eq, value);
+      }
+    }
   }
 }
