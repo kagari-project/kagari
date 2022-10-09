@@ -36,6 +36,7 @@ export class UserComponent implements OnInit {
   isLoading = false;
   isSubmitting = false;
   isDeleting = false;
+  isEditing: string | undefined;
 
   pageSize = 10;
   pageIndex = 0;
@@ -78,6 +79,26 @@ export class UserComponent implements OnInit {
         },
         error: () => (this.isDeleting = false),
         complete: () => (this.isDeleting = false),
+      });
+  }
+
+  updateOne() {
+    this.isSubmitting = true;
+    return this.http
+      .request({
+        method: 'patch',
+        url: '/api/users/' + this.isEditing,
+        body: this.editForm.value,
+      })
+      .subscribe({
+        next: () => {
+          this.drawer.close();
+          this.editForm.reset();
+          this.snackBar.open('resource updated', 'close', { duration: 3000 });
+          this.getMany();
+        },
+        error: () => (this.isSubmitting = false),
+        complete: () => (this.isSubmitting = false),
       });
   }
 
@@ -129,6 +150,14 @@ export class UserComponent implements OnInit {
   }
 
   onCreate() {
+    this.isEditing = undefined;
+    this.editForm.reset();
+    this.drawer.open();
+  }
+
+  onEdit(element: UserModel) {
+    this.isEditing = element.id;
+    this.editForm.reset(element);
     this.drawer.open();
   }
 
@@ -136,16 +165,19 @@ export class UserComponent implements OnInit {
     this.drawer.close();
   }
 
-  onSearchSubmit() {
+  onSearch() {
     if (this.searchForm.valid) {
       this.getMany();
     }
   }
 
-  onEditFormSubmit() {
-    console.log(this.editForm.valid);
+  onSubmit() {
     if (this.editForm.valid) {
-      this.createOne();
+      if (this.isEditing) {
+        this.updateOne();
+      } else {
+        this.createOne();
+      }
     }
   }
 
