@@ -51,8 +51,8 @@
     <h2>{{ title }}</h2>
     <mat-card style="margin-bottom: 10px">
       <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <mat-label style="margin-right: 10px" matPrefix>Username </mat-label>
         <mat-form-field style="margin-right: 8px" floatLabel="never">
-          <mat-label style="margin-right: 10px" matPrefix>Username </mat-label>
           <input
             type="text"
             matInput
@@ -61,8 +61,8 @@
           />
         </mat-form-field>
 
+        <mat-label style="margin-right: 10px" matPrefix>CreatedAt </mat-label>
         <mat-form-field style="margin-right: 8px">
-          <mat-label style="margin-right: 10px" matPrefix>CreatedAt </mat-label>
           <mat-date-range-input [rangePicker]="picker">
             <input
               matStartDate
