@@ -15,6 +15,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
+import { WithErrorMatcher } from '../../../utils/with-error-matcher';
 
 export class TouchErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -43,23 +44,23 @@ export class TouchErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent extends WithErrorMatcher() {
   title = 'Login';
   loginForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  matcher = new TouchErrorStateMatcher();
+  // matcher = new TouchErrorStateMatcher();
 
-  @Input() error: string | null | undefined;
-
-  // @Output() submitEM = new EventEmitter();
+  // @Input() error: string | null | undefined;
 
   constructor(
     private snackBar: MatSnackBar,
     private router: Router,
     private authService: AuthService,
-  ) {}
+  ) {
+    super();
+  }
 
   onSubmit() {
     this.loginForm.get('username')?.hasError('required');
