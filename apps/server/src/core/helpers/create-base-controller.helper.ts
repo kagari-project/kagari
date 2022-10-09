@@ -43,22 +43,23 @@ export function CreateBaseControllerHelper<Entity>(
     }
 
     @Get(':id')
-    async findOne(@Param(':id') id: string) {
+    async findOne(@Param('id') id: string) {
       return this.repo.findOneOrFail({ where: { id } } as FindOneOptions);
     }
 
     @Put()
     async createOne(@Body() data: any) {
-      return this.repo.create(data);
+      return this.repo.save(data);
     }
 
     @Patch(':id')
-    async updateOne(@Param(':id') id: string, @Body() data: any) {
+    async updateOne(@Param('id') id: string, @Body() data: any) {
       return this.repo.update(id, data);
     }
 
     @Delete(':id')
-    async deleteOne(@Param(':id') id: string) {
+    async deleteOne(@Param('id') id: string) {
+      console.log(id);
       return this.repo.softDelete(id);
     }
   }

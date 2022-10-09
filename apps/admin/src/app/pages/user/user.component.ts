@@ -34,6 +34,8 @@ export class UserComponent implements OnInit {
   columns = ['id', 'username', 'password', 'createdAt', 'updatedAt', 'actions'];
   dataSource: UserModel[] = [];
   isLoading = false;
+  isSubmitting = false;
+  isDeleting = false;
 
   pageSize = 10;
   pageIndex = 0;
@@ -62,7 +64,25 @@ export class UserComponent implements OnInit {
     }
   }
 
+  deleteOne(element: UserModel) {
+    this.isDeleting = true;
+    return this.http
+      .request({
+        method: 'delete',
+        url: '/api/users/' + element.id,
+      })
+      .subscribe({
+        next: () => {
+          this.snackBar.open('resource deleted', 'close', { duration: 3000 });
+          this.getMany();
+        },
+        error: () => (this.isDeleting = false),
+        complete: () => (this.isDeleting = false),
+      });
+  }
+
   createOne() {
+    this.isSubmitting = true;
     return this.http
       .request({
         method: 'put',
@@ -71,8 +91,13 @@ export class UserComponent implements OnInit {
       })
       .subscribe({
         next: () => {
+          this.drawer.close();
+          this.editForm.reset();
           this.snackBar.open('resource created', 'close', { duration: 3000 });
+          this.getMany();
         },
+        error: () => (this.isSubmitting = false),
+        complete: () => (this.isSubmitting = false),
       });
   }
 

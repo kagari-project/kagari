@@ -36,14 +36,15 @@
         alignItems: 'center'
       }"
     >
-      <button mat-raised-button type="submit" color="primary">
-        <mat-icon>search</mat-icon>
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="isSubmitting"
+      >
         Submit
       </button>
-      <button mat-raised-button type="reset" color="accent">
-        <mat-icon>highlight_off</mat-icon>
-        Reset
-      </button>
+      <button mat-raised-button type="reset" color="accent">Reset</button>
     </div>
   </form>
   <div style="padding: 20px">
@@ -150,8 +151,12 @@
             Action
           </th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button><mat-icon>edit</mat-icon></button>
-            <button mat-icon-button><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button type="button">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteOne(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </ng-container>
 
