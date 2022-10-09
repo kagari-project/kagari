@@ -1,4 +1,4 @@
 export * from './serialize';
-export * from './deserieialize';
+export * from './deserialize';
 export * from './query-protocol.decorator';
 export * from './types';

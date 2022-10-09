@@ -17,11 +17,11 @@ export class HttpService {
     );
   }
 
-  request<T>({ method, url, body }: any) {
-    console.log();
+  request<T>({ method, url, body, params }: any) {
     return this.http
       .request<T>(method, this.baseUrl + url, {
         body,
+        params,
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
         },

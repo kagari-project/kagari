@@ -74,3 +74,23 @@ export function pushOrder(
   const [field, order] = value.split('|');
   $order[field] = order.toUpperCase() as 'ASC' | 'DESC';
 }
+
+export function getOperatedValue(
+  operator: string,
+  value: string | number | string[],
+) {
+  switch (operator) {
+    case Operations.eq:
+      return `${Operations.eq}(${value})`;
+    case Operations.gt:
+      return `${Operations.gt}(${value})`;
+    case Operations.bw:
+      value = (value as string[]).filter((x) => x);
+      if (value.length === 0) {
+        return '';
+      }
+      return `${Operations.bw}(${value})`;
+    default:
+      return value;
+  }
+}

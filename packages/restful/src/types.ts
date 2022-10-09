@@ -32,4 +32,4 @@ export type ParsedQueryString = {
 
 export type Serialized = {
   [key in keyof ParsedQueryString]: unknown;
-};
+} & { [key: string]: any };

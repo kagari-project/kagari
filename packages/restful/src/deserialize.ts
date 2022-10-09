@@ -11,8 +11,12 @@ export function deserialize(data: Serialized): string {
         case '$select':
           return pickValue<string[]>(data, key).join(',');
         default:
+          if (!data[key]) {
+            return '';
+          }
           return `${key}=${data[key]}`;
       }
     })
+    .filter((x) => x)
     .join('&');
 }

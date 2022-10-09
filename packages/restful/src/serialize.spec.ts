@@ -37,8 +37,14 @@ it('should parse if param is null', function () {
 });
 
 it('should parse if empty query string', function () {
-  console.log(serialize(''));
   expect(serialize('')).toStrictEqual({ $where: [] });
+});
+
+it('should parse if empty fields filter', function () {
+  expect(serialize('$page=1&$pageSize=10')).toStrictEqual({
+    $page: 1,
+    $pageSize: 10,
+  });
 });
 
 it('should support $sort command', function () {

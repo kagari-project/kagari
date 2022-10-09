@@ -36,7 +36,7 @@ export function serialize(query): ParsedQueryString {
     }
   }
 
-  if (parsed.$where.length === 0) {
+  if (parsed.$where?.length === 0) {
     delete parsed.$where;
   }
   return parsed;
