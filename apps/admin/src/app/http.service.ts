@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +9,12 @@ import { catchError, throwError } from 'rxjs';
 export class HttpService {
   constructor(
     private http: HttpClient,
+    private snackBar: MatSnackBar,
     @Inject('BASE_URL') private baseUrl: string,
   ) {}
 
   onError(error: any) {
+    this.snackBar.open(error.message || error, 'close', { duration: 3000 });
     return throwError(
       error.error instanceof ErrorEvent ? error.error.message : error.message,
     );
@@ -26,6 +29,6 @@ export class HttpService {
           Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
         },
       })
-      .pipe(catchError(this.onError));
+      .pipe(catchError((error) => this.onError(error)));
   }
 }

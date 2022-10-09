@@ -82,6 +82,7 @@ export class UserComponent implements OnInit {
           this.dataSource = list;
           this.total = total;
         },
+        error: () => (this.isLoading = false),
         complete: () => (this.isLoading = false),
       });
   }
