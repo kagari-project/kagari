@@ -2,7 +2,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpService } from '../../http.service';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { UserModel } from '../../types';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';
@@ -10,6 +15,7 @@ import { getOperatedValue } from '@kagari/restful/dist/helpers';
 import { CommonModule } from '@angular/common';
 import { format } from 'date-fns';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   standalone: true,
   imports: [
@@ -39,9 +45,14 @@ export class UserComponent implements OnInit {
     to: new FormControl(),
   });
 
+  editForm: FormGroup = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
+
   @ViewChild('drawer') drawer!: WithDrawerComponent;
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
 
   formatTime(date: Date) {
     try {
@@ -49,6 +60,20 @@ export class UserComponent implements OnInit {
     } catch (e) {
       return undefined;
     }
+  }
+
+  createOne() {
+    return this.http
+      .request({
+        method: 'put',
+        url: '/api/users',
+        body: this.editForm.value,
+      })
+      .subscribe({
+        next: () => {
+          this.snackBar.open('resource created', 'close', { duration: 3000 });
+        },
+      });
   }
 
   getMany() {
@@ -89,6 +114,13 @@ export class UserComponent implements OnInit {
   onSearchSubmit() {
     if (this.searchForm.valid) {
       this.getMany();
+    }
+  }
+
+  onEditFormSubmit() {
+    console.log(this.editForm.valid);
+    if (this.editForm.valid) {
+      this.createOne();
     }
   }
 
