@@ -1,4 +1,4 @@
-import { extractOperators } from './extract-operators';
+import { extractOperators, extractOperator } from './extract-operators';
 import {
   IsNull,
   Not,
@@ -21,4 +21,10 @@ it('should give back value if regExp not matches', function () {
   expect(extractOperators([{ username: 'root2' }])).toStrictEqual([
     { username: 'root2' },
   ]);
+});
+
+it('should correct handle between', function () {
+  expect(extractOperator('$bw(2022-10-04,2022-10-15)')).toStrictEqual(
+    Between('2022-10-04', '2022-10-15'),
+  );
 });

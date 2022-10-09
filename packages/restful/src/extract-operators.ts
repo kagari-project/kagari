@@ -19,7 +19,7 @@ function getOperatorBySymbol(symbol, value) {
     case Operations.not:
       return Not(value);
     case Operations.bw:
-      return Between(value[0], value[1]);
+      return Between(value.split(',')[0], value.split(',')[1]);
     case Operations.ilike:
       return ILike(value);
     case Operations.in:
