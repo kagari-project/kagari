@@ -45,9 +45,11 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
+import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
 
 @NgModule({
   exports: [
+    MatDateFnsModule,
     A11yModule,
     CdkAccordionModule,
     ClipboardModule,
@@ -74,7 +76,7 @@ import { DialogModule } from '@angular/cdk/dialog';
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
+    // MatNativeDateModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,

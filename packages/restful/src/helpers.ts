@@ -77,7 +77,7 @@ export function pushOrder(
 
 export function getOperatedValue(
   operator: string,
-  value: string | number | string[],
+  value: string | number | string[] | undefined,
 ) {
   switch (operator) {
     case Operations.eq:
