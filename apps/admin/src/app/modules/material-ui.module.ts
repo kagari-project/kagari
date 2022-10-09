@@ -26,7 +26,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import {
+  DateAdapter,
+  MAT_DATE_LOCALE,
+  MatRippleModule,
+} from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -45,7 +49,11 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { DialogModule } from '@angular/cdk/dialog';
-import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
+import {
+  DateFnsAdapter,
+  MatDateFnsModule,
+} from '@angular/material-date-fns-adapter';
+import enUS from 'date-fns/locale/en-US';
 
 @NgModule({
   exports: [
@@ -98,6 +106,17 @@ import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
     ScrollingModule,
     DialogModule,
     MatCheckboxModule,
+  ],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: DateFnsAdapter,
+      deps: [MAT_DATE_LOCALE],
+    },
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: enUS,
+    },
   ],
 })
 export class MaterialUIModule {}

@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE,
-} from '@angular/material/core';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpService } from '../../http.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -13,42 +8,38 @@ import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';
 import { getOperatedValue } from '@kagari/restful/dist/helpers';
 import { CommonModule } from '@angular/common';
-import { DateFnsAdapter } from '@angular/material-date-fns-adapter';
-import enUS from 'date-fns/locale/en-US';
 import { format } from 'date-fns';
+import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 @Component({
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MaterialUIModule],
-  selector: 'app-user',
-  providers: [
-    {
-      provide: DateAdapter,
-      useClass: DateFnsAdapter,
-      deps: [MAT_DATE_LOCALE],
-    },
-    {
-      provide: MAT_DATE_LOCALE,
-      useValue: enUS,
-    },
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MaterialUIModule,
+    WithDrawerComponent,
+    WithDrawerComponent,
   ],
+  selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
   title = 'Users';
   columns = ['id', 'username', 'password', 'createdAt', 'updatedAt', 'actions'];
-  dataSource: any[] = [];
+  dataSource: UserModel[] = [];
   isLoading = false;
 
   pageSize = 10;
   pageIndex = 0;
   total = 0;
 
-  form: FormGroup = new FormGroup({
+  searchForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     from: new FormControl(),
     to: new FormControl(),
   });
+
+  @ViewChild('drawer') drawer!: WithDrawerComponent;
 
   constructor(private http: HttpService) {}
 
@@ -70,10 +61,10 @@ export class UserComponent implements OnInit {
           deserialize({
             $page: this.pageIndex + 1,
             $pageSize: this.pageSize,
-            username: this.form.get('username')?.value,
+            username: this.searchForm.get('username')?.value,
             createdAt: getOperatedValue(Operations.bw, [
-              this.formatTime(this.form.get('from')?.value) as string,
-              this.formatTime(this.form.get('to')?.value) as string,
+              this.formatTime(this.searchForm.get('from')?.value) as string,
+              this.formatTime(this.searchForm.get('to')?.value) as string,
             ]),
           }),
       })
@@ -88,11 +79,15 @@ export class UserComponent implements OnInit {
   }
 
   onCreate() {
-    console.log(123);
+    this.drawer.open();
   }
 
-  onSubmit() {
-    if (this.form.valid) {
+  onCloseSideForm() {
+    this.drawer.close();
+  }
+
+  onSearchSubmit() {
+    if (this.searchForm.valid) {
       this.getMany();
     }
   }
