@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { PageEvent } from '@angular/material/paginator';
 import { HttpService } from '../../http.service';
@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { format } from 'date-fns';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SearchFormComponent } from '../../components/search-form/search-form.component';
 @Component({
   standalone: true,
   imports: [
@@ -24,6 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MaterialUIModule,
     WithDrawerComponent,
     WithDrawerComponent,
+    SearchFormComponent,
   ],
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -46,6 +48,11 @@ export class UserComponent implements OnInit {
     from: new FormControl(),
     to: new FormControl(),
   });
+  searchFields = {
+    username: new FormControl(''),
+    from: new FormControl(),
+    to: new FormControl(),
+  };
 
   editForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -164,7 +171,8 @@ export class UserComponent implements OnInit {
     this.drawer.close();
   }
 
-  onSearch() {
+  onSearch(...args: any[]) {
+    console.log(args);
     if (this.searchForm.valid) {
       this.getMany();
     }

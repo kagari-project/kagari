@@ -1,6 +1,6 @@
 <with-drawer
   #drawer
-  [mode]="'over'"
+  mode="over"
   [disableClose]="true"
   [hasBackdrop]="true"
   width="25vw"
@@ -49,8 +49,13 @@
   </form>
   <div style="padding: 20px">
     <h2>{{ title }}</h2>
-    <mat-card style="margin-bottom: 10px">
-      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <app-search-form
+      [formGroup]="searchForm"
+      (onSubmit)="onSearch()"
+      (onReload)="getMany()"
+      (onAdd)="onCreate()"
+    >
+      <ng-container fields>
         <mat-label style="margin-right: 10px" matPrefix>Username </mat-label>
         <mat-form-field style="margin-right: 8px" floatLabel="never">
           <input
@@ -60,55 +65,21 @@
             formControlName="username"
           />
         </mat-form-field>
-
         <mat-label style="margin-right: 10px" matPrefix>CreatedAt </mat-label>
-        <mat-form-field style="margin-right: 8px">
+        <mat-form-field style="margin-right: 8px" floatLabel="never">
           <mat-date-range-input [rangePicker]="picker">
             <input
               matStartDate
               placeholder="Start date"
               (focus)="picker.open()"
-              formControlName="from"
             />
-            <input
-              matEndDate
-              placeholder="End date"
-              (focus)="picker.open()"
-              formControlName="to"
-            />
+            <input matEndDate placeholder="End date" (focus)="picker.open()" />
           </mat-date-range-input>
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
-
-        <button mat-button type="submit" color="primary">
-          <mat-icon>search</mat-icon>
-          Search
-        </button>
-        <button mat-button type="reset" color="accent">
-          <mat-icon>highlight_off</mat-icon>
-          Reset
-        </button>
-
-        <button
-          mat-icon-button
-          type="button"
-          (click)="getMany()"
-          style="float: right"
-        >
-          <mat-icon>cached</mat-icon>
-        </button>
-
-        <button
-          style="float: right"
-          mat-icon-button
-          type="button"
-          (click)="onCreate()"
-        >
-          <mat-icon>add</mat-icon>
-        </button>
-      </form>
-    </mat-card>
+      </ng-container>
+    </app-search-form>
     <mat-card>
       <table style="width: 100%" mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
