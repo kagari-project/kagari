@@ -10,7 +10,10 @@ import { CommonModule } from '@angular/common';
 import { format } from 'date-fns';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RestTableComponent } from '../../components/rest-table/rest-table.component';
+import {
+  RestTableComponent,
+  RestTableImpl,
+} from '../../components/rest-table/rest-table.component';
 
 @Component({
   standalone: true,
@@ -38,7 +41,7 @@ import { RestTableComponent } from '../../components/rest-table/rest-table.compo
     </div>
   `,
 })
-export class UserComponent {
+export class UserComponent implements RestTableImpl<UserModel> {
   title = 'Users';
 
   searchOptions = [

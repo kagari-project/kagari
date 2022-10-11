@@ -10,36 +10,16 @@ import { MaterialUIModule } from '../../modules/material-ui.module';
 import { CommonModule } from '@angular/common';
 import { PageEvent } from '@angular/material/paginator';
 import { SearchFormComponent } from '../search-form/search-form.component';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { WithDrawerComponent } from '../drawer-form/with-drawer.component';
+import {
+  ColumnDefinition,
+  ActionButtonDefinition,
+  ObjectOf,
+  FieldDefinition,
+} from './types';
 
-type ActionButtonDefinition = {
-  type: 'text' | 'icon' | string;
-  content: string;
-  emit?: string;
-};
-
-type ColumnDefinition = {
-  prop: string;
-  label?: string;
-  buttons?: ActionButtonDefinition[];
-};
-
-type ObjectOf<T> = { [key: string]: T };
-
-type FilterFieldDefinition = {
-  label?: string;
-  name: string;
-  value?: unknown;
-  type: string;
-  validators?: CallableFunction[];
-};
+export * from './types';
 
 @Component({
   standalone: true,
@@ -301,8 +281,8 @@ export class RestTableComponent implements OnInit {
   @Input() title: string | undefined;
   @Input() pageSize = 10;
   @Input() pageSizeOptions = [5, 10, 25, 100];
-  @Input() searchOptions: FilterFieldDefinition[] = [];
-  @Input() workspaceOptions: FilterFieldDefinition[] = [];
+  @Input() searchOptions: FieldDefinition[] = [];
+  @Input() workspaceOptions: FieldDefinition[] = [];
   @Input() tableOptions: ColumnDefinition[] = [];
 
   @Output() actionsClick = new EventEmitter<{
