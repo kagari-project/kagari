@@ -15,7 +15,10 @@ export class JoiValidationPipe<Input = any, Output = any>
       });
       return value as Output;
     } catch (error) {
-      throw new BadRequestException(error.details[0].message);
+      throw new BadRequestException({
+        message: error.details[0]?.message,
+        inputValue: query,
+      });
     }
   }
 }

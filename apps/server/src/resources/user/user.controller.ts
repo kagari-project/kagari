@@ -3,5 +3,7 @@ import { CreateBaseControllerHelper } from '../../core/helpers/create-base-contr
 
 export class UserController extends CreateBaseControllerHelper<UserEntity>(
   UserEntity,
-  { path: 'users' },
+  {
+    controllerOptions: { path: 'users' },
+  },
 ) {}

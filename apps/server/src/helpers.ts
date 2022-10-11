@@ -7,20 +7,28 @@ import { UserEntity } from './core/entities/User.entity';
 import { BadRequestException, ExecutionContext, Logger } from '@nestjs/common';
 import { omit } from 'lodash';
 import { CanActivateFunction } from '@kagari/rbac';
+import * as Joi from 'joi';
 
 export const validate: ValidateFunction<UserEntity> = async (
   repo,
   credential,
 ) => {
+  const { error, value } = Joi.object({
+    username: Joi.string().trim().required(),
+    password: Joi.string().trim().required(),
+  }).validate(credential);
+  if (error) {
+    throw new BadRequestException({ error });
+  }
   const user = await repo.findOne({
-    where: { username: credential.username },
+    where: { username: value.username },
   });
 
   if (!user) {
     throw new BadRequestException({ error: 'user not found' });
   }
 
-  if (user.password !== credential.password) {
+  if (user.password !== value.password) {
     throw new BadRequestException({ error: 'incorrect password' });
   }
 
