@@ -1,13 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
-import { PageEvent } from '@angular/material/paginator';
 import { HttpService } from '../../http.service';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UserModel } from '../../types';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';
@@ -16,7 +10,8 @@ import { CommonModule } from '@angular/common';
 import { format } from 'date-fns';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SearchFormComponent } from '../../components/search-form/search-form.component';
+import { RestTableComponent } from '../../components/rest-table/rest-table.component';
+
 @Component({
   standalone: true,
   imports: [
@@ -24,46 +19,72 @@ import { SearchFormComponent } from '../../components/search-form/search-form.co
     ReactiveFormsModule,
     MaterialUIModule,
     WithDrawerComponent,
-    WithDrawerComponent,
-    SearchFormComponent,
+    RestTableComponent,
   ],
   selector: 'app-user',
-  templateUrl: './user.component.html',
+  template: `
+    <div style="padding: 0 10px; height: 100%">
+      <app-rest-table
+        #restTable
+        title="User"
+        [searchOptions]="searchOptions"
+        [workspaceOptions]="workspaceOptions"
+        [tableOptions]="tableOptions"
+        (getMany)="getMany($event)"
+        (createOne)="createOne($event)"
+        (updateOne)="updateOne($event)"
+        (actionsClick)="onRowActionClick($event)"
+      ></app-rest-table>
+    </div>
+  `,
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   title = 'Users';
-  columns = ['id', 'username', 'password', 'createdAt', 'updatedAt', 'actions'];
-  dataSource: UserModel[] = [];
-  isLoading = false;
-  isSubmitting = false;
-  isDeleting = false;
-  isEditing: string | undefined;
 
-  pageSize = 10;
-  pageIndex = 0;
-  total = 0;
+  searchOptions = [
+    {
+      name: 'username',
+      type: 'text',
+    },
+    {
+      label: 'CreatedAt',
+      name: 'createdAt',
+      type: 'dateRange',
+    },
+  ];
 
-  searchForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    from: new FormControl(),
-    to: new FormControl(),
-  });
-  searchFields = {
-    username: new FormControl(''),
-    from: new FormControl(),
-    to: new FormControl(),
-  };
+  workspaceOptions = [
+    {
+      name: 'username',
+      type: 'text',
+    },
+    {
+      name: 'password',
+      type: 'text',
+    },
+  ];
 
-  editForm: FormGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
+  tableOptions = [
+    { prop: 'id' },
+    { prop: 'username' },
+    { prop: 'password' },
+    { prop: 'createdAt' },
+    { prop: 'updatedAt' },
+    {
+      prop: 'actions',
+      buttons: [
+        { type: 'icon', content: 'edit', emit: 'edit' },
+        { type: 'icon', content: 'delete', emit: 'delete' },
+      ],
+    },
+  ];
 
-  @ViewChild('drawer') drawer!: WithDrawerComponent;
+  @ViewChild('restTable') restTable: RestTableComponent | undefined;
 
-  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
-
-  formatTime(date: Date) {
+  private formatTime(date: Date | undefined) {
+    if (!date) {
+      return undefined;
+    }
     try {
       return format(date, 'yyyy-MM-dd');
     } catch (e) {
@@ -71,130 +92,91 @@ export class UserComponent implements OnInit {
     }
   }
 
-  deleteOne(element: UserModel) {
-    this.isDeleting = true;
-    return this.http
-      .request({
-        method: 'delete',
-        url: '/api/users/' + element.id,
-      })
-      .subscribe({
-        next: () => {
-          this.snackBar.open('resource deleted', 'close', { duration: 3000 });
-          this.getMany();
-        },
-        error: () => (this.isDeleting = false),
-        complete: () => (this.isDeleting = false),
-      });
+  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
+
+  onRowActionClick(event: { emit: string; row: unknown }) {
+    switch (event.emit) {
+      case 'edit':
+        this.restTable?.workspace.reset(event.row);
+        this.restTable?.drawer?.open();
+        break;
+      case 'delete':
+        this.deleteOne(event.row as UserModel);
+        break;
+    }
   }
 
-  updateOne() {
-    this.isSubmitting = true;
-    return this.http
-      .request({
-        method: 'patch',
-        url: '/api/users/' + this.isEditing,
-        body: this.editForm.value,
-      })
-      .subscribe({
-        next: () => {
-          this.drawer.close();
-          this.editForm.reset();
-          this.snackBar.open('resource updated', 'close', { duration: 3000 });
-          this.getMany();
-        },
-        error: () => (this.isSubmitting = false),
-        complete: () => (this.isSubmitting = false),
-      });
-  }
-
-  createOne() {
-    this.isSubmitting = true;
-    return this.http
-      .request({
-        method: 'put',
-        url: '/api/users',
-        body: this.editForm.value,
-      })
-      .subscribe({
-        next: () => {
-          this.drawer.close();
-          this.editForm.reset();
-          this.snackBar.open('resource created', 'close', { duration: 3000 });
-          this.getMany();
-        },
-        error: () => (this.isSubmitting = false),
-        complete: () => (this.isSubmitting = false),
-      });
-  }
-
-  getMany() {
-    this.isLoading = true;
+  getMany(
+    data: {
+      $page?: number;
+      $pageSize?: number;
+      username?: string;
+      ['createdAt.to']?: Date;
+      ['createdAt.from']?: Date;
+    } = {},
+  ) {
     return this.http
       .request<{ list: UserModel[]; total: number }>({
         method: 'get',
         url:
           '/api/users?' +
           deserialize({
-            $page: this.pageIndex + 1,
-            $pageSize: this.pageSize,
-            username: this.searchForm.get('username')?.value,
+            $page: data.$page,
+            $pageSize: data.$pageSize,
+            username: data.username,
             createdAt: getOperatedValue(Operations.bw, [
-              this.formatTime(this.searchForm.get('from')?.value) as string,
-              this.formatTime(this.searchForm.get('to')?.value) as string,
+              this.formatTime(data['createdAt.from']) as string,
+              this.formatTime(data['createdAt.to']) as string,
             ]),
           }),
       })
-      .subscribe({
-        next: ({ list, total }) => {
-          this.dataSource = list;
-          this.total = total;
-        },
-        error: () => (this.isLoading = false),
-        complete: () => (this.isLoading = false),
+      .subscribe(({ list, total }) => {
+        this.restTable?.updateData({ list, total });
       });
   }
 
-  onCreate() {
-    this.isEditing = undefined;
-    this.editForm.reset();
-    this.drawer.open();
+  deleteOne(row: UserModel) {
+    return this.http
+      .request({
+        method: 'delete',
+        url: '/api/users/' + row.id,
+      })
+      .subscribe(() => {
+        this.snackBar.open('resource deleted', 'close', { duration: 3000 });
+        this.restTable?.onReload();
+      });
   }
 
-  onEdit(element: UserModel) {
-    this.isEditing = element.id;
-    this.editForm.reset(element);
-    this.drawer.open();
+  createOne(form: Partial<UserModel>) {
+    return this.http
+      .request({
+        method: 'put',
+        url: '/api/users',
+        body: form,
+      })
+      .subscribe(() => {
+        this.restTable?.drawer?.close();
+        this.restTable?.workspace?.reset();
+        this.snackBar.open('resource created', 'close', { duration: 3000 });
+        this.restTable?.onReload();
+      });
   }
 
-  onCloseSideForm() {
-    this.drawer.close();
-  }
-
-  onSearch(...args: any[]) {
-    console.log(args);
-    if (this.searchForm.valid) {
-      this.getMany();
-    }
-  }
-
-  onSubmit() {
-    if (this.editForm.valid) {
-      if (this.isEditing) {
-        this.updateOne();
-      } else {
-        this.createOne();
-      }
-    }
-  }
-
-  onPaginatorChange(event: PageEvent) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.getMany();
-  }
-
-  ngOnInit(): void {
-    this.getMany();
+  updateOne({
+    oldValue,
+    newValue,
+  }: Record<'oldValue' | 'newValue', Partial<UserModel>>) {
+    return this.http
+      .request({
+        method: 'patch',
+        url: '/api/users/' + oldValue.id,
+        body: newValue,
+      })
+      .subscribe(() => {
+        this.restTable?.drawer?.close();
+        this.restTable?.workspace?.reset();
+        this.snackBar.open('resource created', 'close', { duration: 3000 });
+        this.restTable?.onReload();
+      });
   }
 }

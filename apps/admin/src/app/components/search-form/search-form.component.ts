@@ -8,10 +8,14 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, MaterialUIModule, ReactiveFormsModule],
   selector: 'app-search-form',
   template: `<mat-card style="margin-bottom: 10px">
-    <form [formGroup]="form" (ngSubmit)="onSubmit.emit(form)">
-      <ng-content #fields select="[fields]"></ng-content>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit.emit(form)"
+      style="min-height: 40px;display: inline-block"
+    >
+      <div #fields><ng-content select="[fields]"></ng-content></div>
 
-      <div #buttons id="buttons" style="display: inline-block">
+      <div #buttons style="display: inline-block">
         <ng-content select="[buttons]"></ng-content>
       </div>
       <ng-container *ngIf="!buttons.hasChildNodes()">
@@ -24,30 +28,21 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
           Reset
         </button>
       </ng-container>
-
-      <div #suffix id="suffix" style="display: inline-block">
-        <ng-content select="[suffix]"></ng-content>
-      </div>
-      <ng-container *ngIf="!suffix.hasChildNodes()">
-        <button
-          mat-icon-button
-          type="button"
-          style="float: right"
-          (click)="onReload.emit(form)"
-        >
+    </form>
+    <div #suffix style="display: inline-block">
+      <ng-content select="[suffix]"></ng-content>
+    </div>
+    <ng-container *ngIf="!suffix.hasChildNodes()">
+      <div style="display: inline-block;float: right">
+        <button mat-icon-button type="button" (click)="onReload.emit(form)">
           <mat-icon>cached</mat-icon>
         </button>
 
-        <button
-          style="float: right"
-          mat-icon-button
-          type="button"
-          (click)="onAdd.emit()"
-        >
+        <button mat-icon-button type="button" (click)="onAdd.emit()">
           <mat-icon>add</mat-icon>
         </button>
-      </ng-container>
-    </form>
+      </div>
+    </ng-container>
   </mat-card>`,
 })
 export class SearchFormComponent {
