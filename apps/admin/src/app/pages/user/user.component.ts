@@ -11,6 +11,7 @@ import { format } from 'date-fns';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
+  FieldDefinition,
   RestTableComponent,
   RestTableImpl,
 } from '../../components/rest-table/rest-table.component';
@@ -26,25 +27,23 @@ import {
   ],
   selector: 'app-user',
   template: `
-    <div style="padding: 0 10px; height: 100%">
-      <app-rest-table
-        #restTable
-        title="User"
-        [searchOptions]="searchOptions"
-        [workspaceOptions]="workspaceOptions"
-        [tableOptions]="tableOptions"
-        (getMany)="getMany($event)"
-        (createOne)="createOne($event)"
-        (updateOne)="updateOne($event)"
-        (actionsClick)="onRowActionClick($event)"
-      ></app-rest-table>
-    </div>
+    <app-rest-table
+      #restTable
+      title="User"
+      [searchOptions]="searchOptions"
+      [workspaceOptions]="workspaceOptions"
+      [tableOptions]="tableOptions"
+      (getMany)="getMany($event)"
+      (createOne)="createOne($event)"
+      (updateOne)="updateOne($event)"
+      (actionsClick)="onRowActionClick($event)"
+    ></app-rest-table>
   `,
 })
 export class UserComponent implements RestTableImpl<UserModel> {
   title = 'Users';
 
-  searchOptions = [
+  searchOptions: FieldDefinition[] = [
     {
       name: 'username',
       type: 'text',
@@ -56,14 +55,20 @@ export class UserComponent implements RestTableImpl<UserModel> {
     },
   ];
 
-  workspaceOptions = [
+  workspaceOptions: FieldDefinition[] = [
     {
       name: 'username',
       type: 'text',
+      styles: {
+        field: { width: '100%' },
+      },
     },
     {
       name: 'password',
       type: 'text',
+      styles: {
+        field: { width: '100%' },
+      },
     },
   ];
 

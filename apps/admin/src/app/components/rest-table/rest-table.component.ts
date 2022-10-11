@@ -42,7 +42,11 @@ export * from './types';
             {{ item.label || (item.name | titlecase) }}
           </mat-label>
           <ng-container [ngSwitch]="item.type">
-            <mat-form-field floatLabel="never" *ngSwitchCase="'text'">
+            <mat-form-field
+              floatLabel="never"
+              [ngStyle]="item.styles?.field"
+              *ngSwitchCase="'text'"
+            >
               <input matInput type="text" [formControlName]="item.name" />
             </mat-form-field>
 
@@ -68,16 +72,10 @@ export * from './types';
       </div>
     </ng-template>
 
-    <with-drawer
-      #drawer
-      mode="over"
-      [disableClose]="true"
-      [hasBackdrop]="true"
-      width="25vw"
-    >
+    <with-drawer #drawer mode="side" [disableClose]="true" [hasBackdrop]="true">
       <h2 *ngIf="title" style="margin-top: 8px">{{ title }}</h2>
       <form
-        style="padding: 8px; width: 100%"
+        style="width: 100%; position: relative"
         sideForm
         [formGroup]="workspace"
         (ngSubmit)="onWorkspaceSubmit()"

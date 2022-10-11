@@ -25,6 +25,7 @@ export type FieldDefinition = {
   name: string;
   value?: unknown;
   type: string;
+  styles?: { field?: Record<string, any> };
   validators?: CallableFunction[];
 };
 

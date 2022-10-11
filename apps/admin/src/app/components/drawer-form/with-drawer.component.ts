@@ -7,17 +7,20 @@ import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
   standalone: true,
   selector: 'with-drawer',
   template: `
-    <mat-drawer-container style="height: 100%" [hasBackdrop]="hasBackdrop">
+    <mat-drawer-container
+      [ngStyle]="styles.container"
+      [hasBackdrop]="hasBackdrop"
+    >
       <mat-drawer
         #drawer
         [disableClose]="disableClose"
         [mode]="mode"
         [position]="position"
-        [ngStyle]="{ width: width }"
+        [ngStyle]="styles.drawer"
       >
         <ng-content select="[sideForm]"></ng-content>
       </mat-drawer>
-      <mat-drawer-content>
+      <mat-drawer-content [ngStyle]="styles.content">
         <ng-content></ng-content>
       </mat-drawer-content>
     </mat-drawer-container>
@@ -25,11 +28,15 @@ import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
   imports: [CommonModule, MaterialUIModule],
 })
 export class WithDrawerComponent {
-  @Input() width = '10vw';
   @Input() mode: MatDrawerMode = 'push';
   @Input() hasBackdrop = false;
   @Input() disableClose = false;
   @Input() position: 'start' | 'end' = 'end';
+  @Input() styles: Partial<Record<'container' | 'drawer' | 'content', any>> = {
+    container: { height: '100%' },
+    drawer: { width: '25vw', padding: '8px' },
+    content: { padding: '0 10px' },
+  };
 
   @ViewChild('drawer') drawer!: MatDrawer;
 
