@@ -50,6 +50,12 @@ export * from './types';
               <input matInput type="text" [formControlName]="item.name" />
             </mat-form-field>
 
+            <mat-slide-toggle
+              [ngStyle]="item.styles?.field"
+              *ngSwitchCase="'checkbox'"
+              [formControlName]="item.name"
+            ></mat-slide-toggle>
+
             <mat-form-field floatLabel="never" *ngSwitchCase="'dateRange'">
               <mat-date-range-input [rangePicker]="picker">
                 <input

@@ -53,6 +53,11 @@ export class UserComponent implements RestTableImpl<UserModel> {
       name: 'createdAt',
       type: 'dateRange',
     },
+    {
+      label: 'WithDeleted',
+      name: 'withDeleted',
+      type: 'checkbox',
+    },
   ];
 
   workspaceOptions: FieldDefinition[] = [
@@ -119,10 +124,12 @@ export class UserComponent implements RestTableImpl<UserModel> {
       $page?: number;
       $pageSize?: number;
       username?: string;
+      withDeleted?: boolean;
       ['createdAt.to']?: Date;
       ['createdAt.from']?: Date;
     } = {},
   ) {
+    console.log(data);
     return this.http
       .request<{ list: UserModel[]; total: number }>({
         method: 'get',
@@ -131,6 +138,7 @@ export class UserComponent implements RestTableImpl<UserModel> {
           deserialize({
             $page: data.$page,
             $pageSize: data.$pageSize,
+            $withDeleted: data.withDeleted,
             username: data.username,
             createdAt: getOperatedValue(Operations.bw, [
               this.formatTime(data['createdAt.from']) as string,
