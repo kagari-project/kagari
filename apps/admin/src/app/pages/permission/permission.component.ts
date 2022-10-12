@@ -1,22 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialUIModule } from '../../modules/material-ui.module';
+import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import {
   ActionButtonDefinition,
   ColumnDefinition,
   FieldDefinition,
+  RestTableComponent,
   RestTableImpl,
-} from '../../components/rest-table/types';
-import { RoleModel } from '../../types';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialUIModule } from '../../modules/material-ui.module';
-import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
-import { RestTableComponent } from '../../components/rest-table/rest-table.component';
+} from '../../components/rest-table/rest-table.component';
+import { PermissionModel } from '../../types';
 import { HttpService } from '../../http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 
 @Component({
-  selector: 'app-role',
+  selector: 'app-permission',
   standalone: true,
   imports: [
     CommonModule,
@@ -28,7 +28,7 @@ import { deserialize } from '@kagari/restful/dist/deserialize';
   template: `
     <app-rest-table
       #restTable
-      title="Role"
+      title="Permission"
       [searchOptions]="searchOptions"
       [workspaceOptions]="workspaceOptions"
       [tableOptions]="tableOptions"
@@ -39,7 +39,7 @@ import { deserialize } from '@kagari/restful/dist/deserialize';
     ></app-rest-table>
   `,
 })
-export class RoleComponent implements RestTableImpl<RoleModel> {
+export class PermissionComponent implements RestTableImpl<PermissionModel> {
   constructor(private http: HttpService, private snackBar: MatSnackBar) {}
 
   @ViewChild('restTable') restTable: RestTableComponent | undefined;
@@ -59,7 +59,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
     },
   ];
 
-  searchOptions: Array<FieldDefinition<RoleModel>> = [
+  searchOptions: Array<FieldDefinition<PermissionModel>> = [
     {
       name: 'name',
       type: 'text',
@@ -71,7 +71,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
     },
   ];
 
-  workspaceOptions: Array<FieldDefinition> = [
+  workspaceOptions: Array<FieldDefinition<PermissionModel>> = [
     {
       name: 'name',
       type: 'text',
@@ -88,11 +88,11 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
     },
   ];
 
-  createOne(data: Partial<RoleModel>) {
+  createOne(data: Partial<PermissionModel>) {
     return this.http
       .request({
         method: 'put',
-        url: '/api/roles',
+        url: '/api/permissions',
         body: data,
       })
       .subscribe(() => {
@@ -103,11 +103,11 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
       });
   }
 
-  deleteOne(row: RoleModel) {
+  deleteOne(row: PermissionModel) {
     return this.http
       .request({
         method: 'delete',
-        url: '/api/roles/' + row.id,
+        url: '/api/permissions/' + row.id,
       })
       .subscribe(() => {
         this.snackBar.open('resource deleted', 'close', { duration: 3000 });
@@ -120,10 +120,10 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
   ) {
     const { $page, $pageSize, withDeleted, ...rest } = data;
     return this.http
-      .request<{ list: RoleModel[]; total: number }>({
+      .request<{ list: PermissionModel[]; total: number }>({
         method: 'get',
         url:
-          '/api/roles?' +
+          '/api/permissions?' +
           deserialize({
             $page,
             $pageSize,
@@ -147,7 +147,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
         this.restTable?.drawer?.open();
         break;
       case 'delete':
-        this.deleteOne(event.row as RoleModel);
+        this.deleteOne(event.row as PermissionModel);
         break;
     }
   }
@@ -155,11 +155,11 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
   updateOne({
     oldValue,
     newValue,
-  }: Record<'oldValue' | 'newValue', Partial<RoleModel>>) {
+  }: Record<'oldValue' | 'newValue', Partial<PermissionModel>>) {
     return this.http
       .request({
         method: 'patch',
-        url: '/api/roles/' + oldValue.id,
+        url: '/api/permissions/' + oldValue.id,
         body: newValue,
       })
       .subscribe(() => {

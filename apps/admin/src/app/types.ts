@@ -15,3 +15,9 @@ export type RoleModel = WithTimestampFields<{
   name: string;
   token: string;
 }>;
+
+export type PermissionModel = WithTimestampFields<{
+  id: string;
+  name: string;
+  token: string;
+}>;
