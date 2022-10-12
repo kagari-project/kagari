@@ -10,7 +10,7 @@ import {
   ILike,
   Equal,
 } from '@kagari/database';
-import { Operations, ParsedQueryString } from './types';
+import { Operations } from './types';
 
 function getOperatorBySymbol(symbol, value) {
   switch (symbol) {

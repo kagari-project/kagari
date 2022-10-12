@@ -1,15 +1,5 @@
 import { extractOperators, extractOperator } from './extract-operators';
-import {
-  IsNull,
-  Not,
-  Between,
-  In,
-  LessThan,
-  LessThanOrEqual,
-  MoreThan,
-  MoreThanOrEqual,
-  Equal,
-} from '@kagari/database';
+import { Between, Equal } from '@kagari/database';
 
 it('should extract operator and value', function () {
   expect(extractOperators([{ username: '$eq(root2)' }])).toStrictEqual([

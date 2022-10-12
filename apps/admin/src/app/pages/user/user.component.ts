@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { HttpService } from '../../http.service';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UserModel } from '../../types';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';

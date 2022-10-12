@@ -5,7 +5,7 @@ import {
   pushCondition,
   pushOrder,
 } from './helpers';
-import { Operations, ParsedQueryString, QueryCommand } from './types';
+import { ParsedQueryString, QueryCommand } from './types';
 
 export function serialize(query): ParsedQueryString {
   query = query || '';

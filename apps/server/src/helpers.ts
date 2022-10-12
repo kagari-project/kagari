@@ -44,6 +44,7 @@ export const composeRefreshTokenPayload: ComposeRefreshTokenPayload<
   UserEntity
 > = (userInfo) => ({ id: userInfo.id, username: userInfo.username });
 
+// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 export const canActivate: CanActivateFunction = (context: ExecutionContext) => {
   Logger.debug('trying check rbac permission');
   return true;
