@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BadRequestException, PipeTransform } from '@nestjs/common';
+import {
+  ArgumentMetadata,
+  BadRequestException,
+  PipeTransform,
+} from '@nestjs/common';
 import { Schema } from 'joi';
 
 export class JoiValidationPipe<Input = any, Output = any>
@@ -9,7 +13,7 @@ export class JoiValidationPipe<Input = any, Output = any>
 
   async transform(query: Input): Promise<Output> {
     try {
-      const { value } = await this.schema.validateAsync(query, {
+      const value = await this.schema.validateAsync(query, {
         convert: true,
         abortEarly: true,
       });

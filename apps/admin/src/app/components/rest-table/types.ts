@@ -20,9 +20,9 @@ export type ColumnDefinition = {
 
 export type ObjectOf<T> = { [key: string]: T };
 
-export type FieldDefinition = {
+export type FieldDefinition<T = any> = {
   label?: string;
-  name: string;
+  name: keyof (T & { withDeleted: boolean });
   value?: unknown;
   type: string;
   styles?: { field?: Record<string, any> };

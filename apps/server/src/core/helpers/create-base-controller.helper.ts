@@ -26,17 +26,17 @@ type ControllerMethods<Entity> = {
 };
 export type BaseController<Entity> = Type<ControllerMethods<Entity>>;
 
-type ValidationSchemas<Entity> = Partial<
+type Validators<Entity> = Partial<
   Record<keyof ControllerMethods<Entity> | 'id', JoiValidationPipe>
 >;
 
 type CreateBaseControllerHelperOptions<Entity = any> = {
   controllerOptions: ControllerOptions;
-  validationSchemas?: ValidationSchemas<Entity>;
+  validators?: Validators<Entity>;
 };
 
 const DEFAULT_OPTIONS: Partial<CreateBaseControllerHelperOptions> = {
-  validationSchemas: {
+  validators: {
     id: new JoiValidationPipe(UuidSchema),
   },
 };
@@ -45,7 +45,10 @@ export function CreateBaseControllerHelper<Entity>(
   entity: Type<Entity>,
   settings: CreateBaseControllerHelperOptions<Entity>,
 ): BaseController<Entity> {
-  const options = _.defaultsDeep(settings, DEFAULT_OPTIONS);
+  const options = _.defaultsDeep(
+    settings,
+    DEFAULT_OPTIONS,
+  ) as CreateBaseControllerHelperOptions;
 
   @Controller(options.controllerOptions)
   class TargetController {
@@ -53,7 +56,7 @@ export function CreateBaseControllerHelper<Entity>(
 
     @Get()
     async findAll(
-      @QueryProtocol(options.validationSchemas.findAll)
+      @QueryProtocol(options.validators.findAll)
       query: ParsedQueryString,
     ) {
       const findOptions = transformProtocolHelper(query);
@@ -63,7 +66,7 @@ export function CreateBaseControllerHelper<Entity>(
 
     @Get(':id')
     async findOne(
-      @Param('id', options.validationSchemas.id)
+      @Param('id', options.validators.id)
       id: string,
     ) {
       return this.repo.findOneOrFail({ where: { id } } as FindOneOptions);
@@ -71,7 +74,7 @@ export function CreateBaseControllerHelper<Entity>(
 
     @Put()
     async createOne(
-      @Body(options.validationSchemas.createOne)
+      @Body(options.validators.createOne)
       data: any,
     ) {
       return this.repo.save(data);
@@ -79,9 +82,9 @@ export function CreateBaseControllerHelper<Entity>(
 
     @Patch(':id')
     async updateOne(
-      @Param('id', options.validationSchemas.id)
+      @Param('id', options.validators.id)
       id: string,
-      @Body(options.validationSchemas.updateOne)
+      @Body(options.validators.updateOne)
       data: any,
     ) {
       return this.repo.update(id, data);
@@ -89,7 +92,7 @@ export function CreateBaseControllerHelper<Entity>(
 
     @Delete(':id')
     async deleteOne(
-      @Param('id', options.validationSchemas.id)
+      @Param('id', options.validators.id)
       id: string,
     ) {
       return this.repo.softDelete(id);

@@ -43,7 +43,7 @@ import {
 export class UserComponent implements RestTableImpl<UserModel> {
   title = 'Users';
 
-  searchOptions: FieldDefinition[] = [
+  searchOptions: FieldDefinition<UserModel>[] = [
     {
       name: 'username',
       type: 'text',
@@ -60,19 +60,19 @@ export class UserComponent implements RestTableImpl<UserModel> {
     },
   ];
 
-  workspaceOptions: FieldDefinition[] = [
+  workspaceOptions: FieldDefinition<UserModel>[] = [
     {
       name: 'username',
       type: 'text',
       styles: {
-        field: { width: '100%' },
+        field: { marginRight: 0 },
       },
     },
     {
       name: 'password',
       type: 'text',
       styles: {
-        field: { width: '100%' },
+        field: { marginRight: 0 },
       },
     },
   ];
@@ -129,15 +129,15 @@ export class UserComponent implements RestTableImpl<UserModel> {
       ['createdAt.from']?: Date;
     } = {},
   ) {
-    console.log(data);
+    const { $page, $pageSize } = data;
     return this.http
       .request<{ list: UserModel[]; total: number }>({
         method: 'get',
         url:
           '/api/users?' +
           deserialize({
-            $page: data.$page,
-            $pageSize: data.$pageSize,
+            $page: $page,
+            $pageSize: $pageSize,
             $withDeleted: data.withDeleted,
             username: data.username,
             createdAt: getOperatedValue(Operations.bw, [
@@ -191,7 +191,7 @@ export class UserComponent implements RestTableImpl<UserModel> {
       .subscribe(() => {
         this.restTable?.drawer?.close();
         this.restTable?.workspace?.reset();
-        this.snackBar.open('resource created', 'close', { duration: 3000 });
+        this.snackBar.open('resource updated', 'close', { duration: 3000 });
         this.restTable?.onReload();
       });
   }

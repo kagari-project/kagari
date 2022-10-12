@@ -8,6 +8,7 @@ import { LoginComponent as LoginPage } from '../pages/auth/login/login.component
 import { RegisterComponent as RegisterPage } from '../pages/auth/register/register.component';
 import { HomeComponent as HomePage } from '../pages/home/home.component';
 import { UserComponent as UserPage } from '../pages/user/user.component';
+import { RoleComponent as RolePage } from '../pages/role/role.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,19 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         loadComponent: () => UserPage,
+        data: { label: 'list', showInSidebar: true },
+      },
+    ],
+  },
+  {
+    path: 'roles',
+    canActivate: [AuthenticatedGuard],
+    loadComponent: () => BaseLayout,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadComponent: () => RolePage,
         data: { label: 'list', showInSidebar: true },
       },
     ],

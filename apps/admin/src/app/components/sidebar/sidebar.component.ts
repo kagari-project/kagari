@@ -26,6 +26,10 @@ export class SidebarComponent {
         label: 'User',
         children: [{ label: 'List', url: '/users' }],
       },
+      {
+        label: 'Role',
+        children: [{ label: 'List', url: '/roles' }],
+      },
     ];
   }
 
