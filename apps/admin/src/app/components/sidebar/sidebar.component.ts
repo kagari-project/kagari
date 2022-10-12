@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MaterialUIModule } from '../../modules/material-ui.module';
-import { RouteMetadata, RouterModule } from '@angular/router';
+import { RouteMetadata, Router, RouterModule } from '@angular/router';
 
 type TreeNode = RouteMetadata & { children?: TreeNode[] };
 
@@ -14,9 +14,11 @@ type TreeNode = RouteMetadata & { children?: TreeNode[] };
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  public treeControl = new NestedTreeControl<TreeNode>((node) => node.children);
+  public treeControl = new NestedTreeControl<TreeNode>(
+    (node) => node.children || [],
+  );
   public dataSource = new MatTreeNestedDataSource<TreeNode>();
-  constructor() {
+  constructor(private router: Router) {
     this.dataSource.data = [
       {
         label: 'Home',
@@ -43,6 +45,20 @@ export class SidebarComponent {
 
   ngAfterContentInit() {
     this.treeControl.dataNodes = this.dataSource.data;
-    this.treeControl.expandAll();
+    this.treeControl.dataNodes.map((node) => this.walkNode(node));
+  }
+
+  walkNode(node: TreeNode, parent?: TreeNode): void {
+    if (!this.hasChild(0, node)) {
+      if (this.router.url === node.url && parent) {
+        this.treeControl.expand(parent);
+      }
+      return;
+    }
+
+    const children = this.treeControl.getChildren(node) as Array<TreeNode>;
+    children.map((subNode) => {
+      this.walkNode(subNode, node);
+    });
   }
 }

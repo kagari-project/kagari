@@ -12,6 +12,10 @@
   list-style-type: none;
 }
 
+.menu-tree .mat-nested-tree-node {
+  cursor: pointer;
+}
+
 /*
  * This padding sets alignment of the nested nodes.
  */
