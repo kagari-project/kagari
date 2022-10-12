@@ -17,6 +17,7 @@ import {
   canActivate,
   composeAccessTokenPayload,
   composeRefreshTokenPayload,
+  verify,
   validate,
 } from './helpers';
 import { CoreModule } from './core/core.module';
@@ -50,6 +51,7 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         entity: UserEntity,
+        verify,
         validate,
         session: {
           secret: cs.get<string>('HTTP.SESSION.SECRET', 'secret'),
@@ -63,6 +65,7 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         entity: UserEntity,
+        verify,
         validate,
         jwt: {
           secret: cs.get<string>('HTTP.JWT.SECRET', 'secret'),

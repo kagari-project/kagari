@@ -16,7 +16,7 @@ export class JwtAuthService {
 
   async validate(credential: Credential) {
     const repo = this.datasource.getRepository(this.options.entity);
-    return this.options.validate(repo, credential);
+    return this.options.verify(repo, credential);
   }
 
   async signature(user: unknown) {
