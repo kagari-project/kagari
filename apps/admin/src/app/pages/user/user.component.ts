@@ -15,6 +15,8 @@ import {
   RestTableComponent,
   RestTableImpl,
 } from '../../components/rest-table/rest-table.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   standalone: true,
@@ -41,7 +43,11 @@ import {
   `,
 })
 export class UserComponent implements RestTableImpl<UserModel> {
-  title = 'Users';
+  constructor(
+    private http: HttpService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+  ) {}
 
   searchOptions: FieldDefinition<UserModel>[] = [
     {
@@ -87,6 +93,7 @@ export class UserComponent implements RestTableImpl<UserModel> {
       prop: 'actions',
       buttons: [
         { type: 'icon', content: 'edit', emit: 'edit' },
+        { type: 'icon', content: 'settings', emit: 'setRoles' },
         { type: 'icon', content: 'delete', emit: 'delete' },
       ],
     },
@@ -105,8 +112,6 @@ export class UserComponent implements RestTableImpl<UserModel> {
     }
   }
 
-  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
-
   onRowActionClick(event: { emit: string; row: unknown }) {
     switch (event.emit) {
       case 'edit':
@@ -114,7 +119,14 @@ export class UserComponent implements RestTableImpl<UserModel> {
         this.restTable?.drawer?.open();
         break;
       case 'delete':
-        this.deleteOne(event.row as UserModel);
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              this.deleteOne(event.row as UserModel);
+            }
+          });
         break;
     }
   }

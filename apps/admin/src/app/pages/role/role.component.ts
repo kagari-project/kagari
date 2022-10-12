@@ -14,6 +14,8 @@ import { RestTableComponent } from '../../components/rest-table/rest-table.compo
 import { HttpService } from '../../http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-role',
@@ -40,7 +42,11 @@ import { deserialize } from '@kagari/restful/dist/deserialize';
   `,
 })
 export class RoleComponent implements RestTableImpl<RoleModel> {
-  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
+  constructor(
+    private http: HttpService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+  ) {}
 
   @ViewChild('restTable') restTable: RestTableComponent | undefined;
 
@@ -54,6 +60,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
       prop: 'actions',
       buttons: [
         { type: 'icon', content: 'edit', emit: 'edit' },
+        { type: 'icon', content: 'settings', emit: 'setPermissions' },
         { type: 'icon', content: 'delete', emit: 'delete' },
       ],
     },
@@ -147,7 +154,14 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
         this.restTable?.drawer?.open();
         break;
       case 'delete':
-        this.deleteOne(event.row as RoleModel);
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              this.deleteOne(event.row as RoleModel);
+            }
+          });
         break;
     }
   }

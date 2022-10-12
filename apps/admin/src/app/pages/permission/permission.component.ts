@@ -14,6 +14,8 @@ import { PermissionModel } from '../../types';
 import { HttpService } from '../../http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-permission',
@@ -40,8 +42,11 @@ import { deserialize } from '@kagari/restful/dist/deserialize';
   `,
 })
 export class PermissionComponent implements RestTableImpl<PermissionModel> {
-  constructor(private http: HttpService, private snackBar: MatSnackBar) {}
-
+  constructor(
+    private http: HttpService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
+  ) {}
   @ViewChild('restTable') restTable: RestTableComponent | undefined;
 
   tableOptions: Array<ColumnDefinition> = [
@@ -147,7 +152,16 @@ export class PermissionComponent implements RestTableImpl<PermissionModel> {
         this.restTable?.drawer?.open();
         break;
       case 'delete':
-        this.deleteOne(event.row as PermissionModel);
+        this.dialog
+          .open<ConfirmDialogComponent, { message: string }, boolean>(
+            ConfirmDialogComponent,
+          )
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              this.deleteOne(event.row as PermissionModel);
+            }
+          });
         break;
     }
   }
