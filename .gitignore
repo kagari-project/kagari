@@ -264,3 +264,4 @@ Temporary Items
 .apdisk
 *.db
 .run
+.fleet

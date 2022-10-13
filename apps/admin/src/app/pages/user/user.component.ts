@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { HttpService } from '../../http.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import {
 } from '../../components/rest-table/rest-table.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { TransferDialogComponent } from '../../components/transfer-dialog/transfer-dialog.component';
 
 @Component({
   standalone: true,
@@ -93,7 +94,8 @@ export class UserComponent implements RestTableImpl<UserModel> {
       prop: 'actions',
       buttons: [
         { type: 'icon', content: 'edit', emit: 'edit' },
-        { type: 'icon', content: 'settings', emit: 'setRoles' },
+        { type: 'icon', content: 'group', emit: 'setRoles' },
+        { type: 'icon', content: 'settings', emit: 'setPermissions' },
         { type: 'icon', content: 'delete', emit: 'delete' },
       ],
     },
@@ -127,6 +129,10 @@ export class UserComponent implements RestTableImpl<UserModel> {
               this.deleteOne(event.row as UserModel);
             }
           });
+        break;
+      case 'setRoles':
+      case 'setPermissions':
+        this.dialog.open(TransferDialogComponent);
         break;
     }
   }
