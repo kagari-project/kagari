@@ -280,7 +280,6 @@ export class UserComponent implements RestTableImpl<UserModel> {
               this.updateUserRoles(event.row as any, lists.right);
             }
           });
-
         break;
       case 'setPermissions':
         this.dialog

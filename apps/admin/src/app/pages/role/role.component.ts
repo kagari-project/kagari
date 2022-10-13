@@ -6,7 +6,7 @@ import {
   FieldDefinition,
   RestTableImpl,
 } from '../../components/rest-table/types';
-import { RoleModel } from '../../types';
+import { PermissionModel, RoleModel } from '../../types';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
@@ -16,6 +16,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { Observable } from 'rxjs';
+import { TransferDialogComponent } from '../../components/transfer-dialog/transfer-dialog.component';
 
 @Component({
   selector: 'app-role',
@@ -143,6 +145,52 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
       });
   }
 
+  updateRolePermissions(row: RoleModel, permissions: PermissionModel[]) {
+    return this.http
+      .request({
+        method: 'patch',
+        url: `/api/roles/${row.id}/permissions`,
+        body: { permissions },
+      })
+      .subscribe(() => {
+        this.snackBar.open('resource updated', 'close', { duration: 3000 });
+      });
+  }
+
+  fetchAllPermission(params: unknown) {
+    return this.http.request({
+      method: 'get',
+      url: '/api/permissions',
+      params,
+    });
+  }
+
+  fetchOwnedPermissions(row: RoleModel, params: unknown): Observable<unknown> {
+    return this.http.request({
+      method: 'get',
+      url: `/api/roles/${row.id}/permissions`,
+      params,
+    });
+  }
+
+  updateOne({
+    oldValue,
+    newValue,
+  }: Record<'oldValue' | 'newValue', Partial<RoleModel>>) {
+    return this.http
+      .request({
+        method: 'patch',
+        url: '/api/roles/' + oldValue.id,
+        body: newValue,
+      })
+      .subscribe(() => {
+        this.restTable?.drawer?.close();
+        this.restTable?.workspace.reset();
+        this.snackBar.open('resource updated', 'close', { duration: 3000 });
+        this.restTable?.onReload();
+      });
+  }
+
   onRowActionClick(event: {
     emit: string;
     row: unknown;
@@ -163,24 +211,23 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
             }
           });
         break;
+      case 'setPermissions':
+        this.dialog
+          .open(TransferDialogComponent, {
+            data: {
+              title: `Manage Role's Permissions`,
+              fetchLeft: (params: unknown) => this.fetchAllPermission(params),
+              fetchRight: (params: unknown) =>
+                this.fetchOwnedPermissions(event.row as any, params),
+            },
+          })
+          .afterClosed()
+          .subscribe((lists) => {
+            if (lists) {
+              this.updateRolePermissions(event.row as any, lists.right);
+            }
+          });
+        break;
     }
-  }
-
-  updateOne({
-    oldValue,
-    newValue,
-  }: Record<'oldValue' | 'newValue', Partial<RoleModel>>) {
-    return this.http
-      .request({
-        method: 'patch',
-        url: '/api/roles/' + oldValue.id,
-        body: newValue,
-      })
-      .subscribe(() => {
-        this.restTable?.drawer?.close();
-        this.restTable?.workspace.reset();
-        this.snackBar.open('resource updated', 'close', { duration: 3000 });
-        this.restTable?.onReload();
-      });
   }
 }
