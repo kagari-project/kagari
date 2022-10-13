@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { HttpService } from '../../http.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RoleModel, UserModel } from '../../types';
+import { PermissionModel, RoleModel, UserModel } from '../../types';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';
 import { getOperatedValue } from '@kagari/restful/dist/helpers';
@@ -115,42 +115,6 @@ export class UserComponent implements RestTableImpl<UserModel> {
     }
   }
 
-  onRowActionClick(event: { emit: string; row: unknown }) {
-    switch (event.emit) {
-      case 'edit':
-        this.restTable?.workspace.reset(event.row);
-        this.restTable?.drawer?.open();
-        break;
-      case 'delete':
-        this.dialog
-          .open(ConfirmDialogComponent)
-          .afterClosed()
-          .subscribe((isConfirmed) => {
-            if (isConfirmed) {
-              this.deleteOne(event.row as UserModel);
-            }
-          });
-        break;
-      case 'setRoles':
-      case 'setPermissions':
-        this.dialog
-          .open(TransferDialogComponent, {
-            data: {
-              fetchLeft: (params: unknown) => this.fetchAllRoles(params),
-              fetchRight: (params: unknown) =>
-                this.fetchOwnedRoles(event.row as any, params),
-            },
-          })
-          .afterClosed()
-          .subscribe((lists) => {
-            if (lists) {
-              this.updateUserRoles(event.row as any, lists.right);
-            }
-          });
-        break;
-    }
-  }
-
   getMany(
     data: {
       $page?: number;
@@ -240,6 +204,18 @@ export class UserComponent implements RestTableImpl<UserModel> {
       });
   }
 
+  updateUserPermissions(row: UserModel, permissions: PermissionModel[]) {
+    return this.http
+      .request({
+        method: 'patch',
+        url: `/api/users/${row.id}/permissions`,
+        body: { permissions },
+      })
+      .subscribe(() => {
+        this.snackBar.open('resource updated', 'close', { duration: 3000 });
+      });
+  }
+
   fetchAllRoles(params: any): Observable<any> {
     return this.http.request({
       method: 'get',
@@ -254,5 +230,75 @@ export class UserComponent implements RestTableImpl<UserModel> {
       url: `/api/users/${row.id}/roles`,
       params,
     });
+  }
+
+  fetchAllPermissions(params: unknown): Observable<any> {
+    return this.http.request({
+      method: 'get',
+      url: '/api/permissions',
+      params,
+    });
+  }
+
+  fetchOwnedPermissions(row: UserModel, params: unknown): Observable<any> {
+    return this.http.request({
+      method: 'get',
+      url: `/api/users/${row.id}/permissions`,
+      params,
+    });
+  }
+
+  onRowActionClick(event: { emit: string; row: unknown }) {
+    switch (event.emit) {
+      case 'edit':
+        this.restTable?.workspace.reset(event.row);
+        this.restTable?.drawer?.open();
+        break;
+      case 'delete':
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              this.deleteOne(event.row as UserModel);
+            }
+          });
+        break;
+      case 'setRoles':
+        this.dialog
+          .open(TransferDialogComponent, {
+            data: {
+              title: `Manage User's Roles`,
+              fetchLeft: (params: unknown) => this.fetchAllRoles(params),
+              fetchRight: (params: unknown) =>
+                this.fetchOwnedRoles(event.row as any, params),
+            },
+          })
+          .afterClosed()
+          .subscribe((lists) => {
+            if (lists) {
+              this.updateUserRoles(event.row as any, lists.right);
+            }
+          });
+
+        break;
+      case 'setPermissions':
+        this.dialog
+          .open(TransferDialogComponent, {
+            data: {
+              title: `Manage User's Permissions`,
+              fetchLeft: (params: unknown) => this.fetchAllPermissions(params),
+              fetchRight: (params: unknown) =>
+                this.fetchOwnedPermissions(event.row as any, params),
+            },
+          })
+          .afterClosed()
+          .subscribe((lists) => {
+            if (lists) {
+              this.updateUserPermissions(event.row as any, lists.right);
+            }
+          });
+        break;
+    }
   }
 }

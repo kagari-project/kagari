@@ -15,7 +15,7 @@ import { TransferComponent } from '../transfer/transfer.component';
     TransferComponent,
   ],
   template: `
-    <h2 mat-dialog-title>Manage User's Roles</h2>
+    <h2 mat-dialog-title>{{ data?.title }}</h2>
     <mat-dialog-content>
       <app-transfer
         #transfer
@@ -50,6 +50,7 @@ export class TransferDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
+      title: string;
       fetchLeft: CallableFunction;
       fetchRight: CallableFunction;
     },
