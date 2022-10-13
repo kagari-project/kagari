@@ -1,7 +1,9 @@
 import {
   Component,
   ContentChild,
+  EventEmitter,
   Input,
+  Output,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -14,17 +16,12 @@ import {
 import { SelectionModel } from '@angular/cdk/collections';
 import { filter, finalize, map, pairwise, throttleTime } from 'rxjs/operators';
 import { HttpService } from '../../http.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-infinite-list',
   standalone: true,
   imports: [CommonModule, MaterialUIModule, ScrollingModule],
   template: `
-    <!--    <mat-form-field [ngStyle]="{ width: '100%' }" floatLabel="never">-->
-    <!--      <mat-label>Search</mat-label>-->
-    <!--      <input matInput type="text" />-->
-    <!--    </mat-form-field>-->
     <mat-selection-list [ngStyle]="{ height: '100%', paddingTop: 0 }" dense>
       <cdk-virtual-scroll-viewport
         #scroller
@@ -34,6 +31,7 @@ import { Observable } from 'rxjs';
         <mat-list-option
           *cdkVirtualFor="let item of list"
           [value]="item"
+          (selectedChange)="onSelectChange({ selected: $event, item })"
           [selected]="selection.isSelected(item)"
         >
           <ng-container
@@ -55,6 +53,11 @@ export class InfiniteListComponent {
   @Input() fetch!: CallableFunction;
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport | undefined;
   @ContentChild('labelTemplate') labelTemplate!: TemplateRef<unknown>;
+
+  @Output() onSelected = new EventEmitter<{
+    selected: boolean;
+    item: unknown;
+  }>();
 
   selection = new SelectionModel(true);
   list: unknown[] = [];
@@ -78,6 +81,14 @@ export class InfiniteListComponent {
       });
   }
 
+  onSelectChange($ev: { selected: boolean; item: unknown }) {
+    if ($ev.selected) {
+      this.selection.select($ev.item);
+    } else {
+      this.selection.deselect($ev.item);
+    }
+  }
+
   hasMore() {
     return this.list.length < this.total;
   }
@@ -96,5 +107,20 @@ export class InfiniteListComponent {
         this.total = total;
         this.page = this.page + 1;
       });
+  }
+
+  push(...items: any[]) {
+    this.list = [...this.list, ...items];
+  }
+  remove(...items: any[]) {
+    const cp = this.list.slice(0);
+    for (const item of items) {
+      const index = cp.indexOf(item);
+      if (index !== -1) {
+        cp.splice(index, 1);
+      }
+    }
+    this.selection.deselect(...items);
+    this.list = cp;
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { HttpService } from '../../http.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserModel } from '../../types';
+import { RoleModel, UserModel } from '../../types';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { Operations } from '@kagari/restful/dist/types';
 import { getOperatedValue } from '@kagari/restful/dist/helpers';
@@ -133,13 +133,20 @@ export class UserComponent implements RestTableImpl<UserModel> {
         break;
       case 'setRoles':
       case 'setPermissions':
-        this.dialog.open(TransferDialogComponent, {
-          data: {
-            fetchLeft: this.fetchAllRoles,
-            fetchRight: (params: unknown) =>
-              this.fetchOwnedRoles(event.row as any, params),
-          },
-        });
+        this.dialog
+          .open(TransferDialogComponent, {
+            data: {
+              fetchLeft: (params: unknown) => this.fetchAllRoles(params),
+              fetchRight: (params: unknown) =>
+                this.fetchOwnedRoles(event.row as any, params),
+            },
+          })
+          .afterClosed()
+          .subscribe((lists) => {
+            if (lists) {
+              this.updateUserRoles(event.row as any, lists.right);
+            }
+          });
         break;
     }
   }
@@ -218,6 +225,18 @@ export class UserComponent implements RestTableImpl<UserModel> {
         this.restTable?.workspace?.reset();
         this.snackBar.open('resource updated', 'close', { duration: 3000 });
         this.restTable?.onReload();
+      });
+  }
+
+  updateUserRoles(row: UserModel, roles: RoleModel[]) {
+    return this.http
+      .request({
+        method: 'patch',
+        url: `/api/users/${row.id}/roles`,
+        body: { roles },
+      })
+      .subscribe(() => {
+        this.snackBar.open('resource updated', 'close', { duration: 3000 });
       });
   }
 

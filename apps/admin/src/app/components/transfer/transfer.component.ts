@@ -1,8 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { InfiniteListComponent } from '../infinite-list/infinite-list.component';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transfer',
@@ -11,18 +10,22 @@ import { Observable } from 'rxjs';
   template: `
     <div class="container">
       <div class="left">
-        <app-infinite-list [fetch]="fetchLeft">
+        <app-infinite-list #left [fetch]="fetchLeft">
           <ng-template #labelTemplate let-item
             >{{ item.name }} | {{ item.token }}</ng-template
           >
         </app-infinite-list>
       </div>
       <div class="middle">
-        <button mat-icon-button><mat-icon>chevron_left</mat-icon></button>
-        <button mat-icon-button><mat-icon>chevron_right</mat-icon></button>
+        <button mat-icon-button (click)="left2right()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button mat-icon-button (click)="right2left()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
       </div>
       <div class="right">
-        <app-infinite-list [fetch]="fetchRight">
+        <app-infinite-list #right [fetch]="fetchRight">
           <ng-template #labelTemplate let-item
             >{{ item.name }} | {{ item.token }}</ng-template
           >
@@ -54,4 +57,16 @@ import { Observable } from 'rxjs';
 export class TransferComponent {
   @Input() fetchLeft!: CallableFunction;
   @Input() fetchRight!: CallableFunction;
+
+  @ViewChild('left') left!: InfiniteListComponent;
+  @ViewChild('right') right!: InfiniteListComponent;
+
+  left2right() {
+    this.right.push(...this.left.selection.selected);
+    this.left.selection.setSelection([]);
+  }
+  right2left() {
+    this.left.push(...this.right.selection.selected);
+    this.right.remove(...this.right.selection.selected);
+  }
 }

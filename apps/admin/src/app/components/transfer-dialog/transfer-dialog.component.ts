@@ -1,11 +1,9 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HttpService } from '../../http.service';
 import { InfiniteListComponent } from '../infinite-list/infinite-list.component';
 import { TransferComponent } from '../transfer/transfer.component';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transfer-dialog',
@@ -20,12 +18,22 @@ import { Observable } from 'rxjs';
     <h2 mat-dialog-title>Manage User's Roles</h2>
     <mat-dialog-content>
       <app-transfer
+        #transfer
         [fetchLeft]="data.fetchLeft"
         [fetchRight]="data.fetchRight"
       ></app-transfer>
     </mat-dialog-content>
     <mat-dialog-actions>
-      <button mat-raised-button color="primary">Submit</button>
+      <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="{
+          left: transfer?.left?.list,
+          right: transfer?.right?.list
+        }"
+      >
+        Submit
+      </button>
       <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
     </mat-dialog-actions>
   `,
@@ -46,4 +54,6 @@ export class TransferDialogComponent {
       fetchRight: CallableFunction;
     },
   ) {}
+
+  @ViewChild('transfer') transfer: TransferComponent | undefined;
 }
