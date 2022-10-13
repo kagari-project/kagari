@@ -30,7 +30,7 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
       where: { id },
       relations: ['roles'],
     });
-    return user.roles;
+    return { list: user.roles, total: user.roles.length };
   }
 
   @Patch(':id/roles')
@@ -54,7 +54,10 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
       where: { id },
       relations: ['permissions'],
     });
-    return user.permissions;
+    return {
+      list: user.permissions,
+      total: user.permissions.length,
+    };
   }
 
   @Patch(':id/permissions')

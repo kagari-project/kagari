@@ -1,10 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpService } from '../../http.service';
 import { InfiniteListComponent } from '../infinite-list/infinite-list.component';
 import { TransferComponent } from '../transfer/transfer.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transfer-dialog',
@@ -18,7 +19,10 @@ import { TransferComponent } from '../transfer/transfer.component';
   template: `
     <h2 mat-dialog-title>Manage User's Roles</h2>
     <mat-dialog-content>
-      <app-transfer></app-transfer>
+      <app-transfer
+        [fetchLeft]="data.fetchLeft"
+        [fetchRight]="data.fetchRight"
+      ></app-transfer>
     </mat-dialog-content>
     <mat-dialog-actions>
       <button mat-raised-button color="primary">Submit</button>
@@ -36,7 +40,10 @@ import { TransferComponent } from '../transfer/transfer.component';
 })
 export class TransferDialogComponent {
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: unknown,
-    private http: HttpService,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      fetchLeft: CallableFunction;
+      fetchRight: CallableFunction;
+    },
   ) {}
 }

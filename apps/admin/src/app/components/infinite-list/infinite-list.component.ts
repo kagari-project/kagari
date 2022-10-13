@@ -1,31 +1,30 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  Input,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import {
   CdkVirtualScrollViewport,
   ScrollingModule,
 } from '@angular/cdk/scrolling';
-import { MatCheckboxChange } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
-import {
-  delay,
-  filter,
-  finalize,
-  map,
-  pairwise,
-  throttleTime,
-} from 'rxjs/operators';
+import { filter, finalize, map, pairwise, throttleTime } from 'rxjs/operators';
 import { HttpService } from '../../http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-infinite-list',
   standalone: true,
   imports: [CommonModule, MaterialUIModule, ScrollingModule],
   template: `
-    <mat-form-field [ngStyle]="{ width: '100%' }" floatLabel="never">
-      <mat-label>Search</mat-label>
-      <input matInput type="text" />
-    </mat-form-field>
+    <!--    <mat-form-field [ngStyle]="{ width: '100%' }" floatLabel="never">-->
+    <!--      <mat-label>Search</mat-label>-->
+    <!--      <input matInput type="text" />-->
+    <!--    </mat-form-field>-->
     <mat-selection-list [ngStyle]="{ height: '100%', paddingTop: 0 }" dense>
       <cdk-virtual-scroll-viewport
         #scroller
@@ -36,7 +35,10 @@ import { HttpService } from '../../http.service';
           *cdkVirtualFor="let item of list"
           [value]="item"
           [selected]="selection.isSelected(item)"
-          >{{ item.name }} | {{ item.token }}
+        >
+          <ng-container
+            *ngTemplateOutlet="labelTemplate; context: { $implicit: item }"
+          ></ng-container>
         </mat-list-option>
         <mat-progress-bar *ngIf="isLoading" mode="indeterminate">
         </mat-progress-bar>
@@ -50,10 +52,12 @@ export class InfiniteListComponent {
   @Input() itemSize = 20;
   @Input() page = 0;
   @Input() pageSize = 20;
+  @Input() fetch!: CallableFunction;
   @ViewChild('scroller') scroller: CdkVirtualScrollViewport | undefined;
+  @ContentChild('labelTemplate') labelTemplate!: TemplateRef<unknown>;
 
   selection = new SelectionModel(true);
-  list: any[] = [];
+  list: unknown[] = [];
   total = 0;
   isLoading = false;
 
@@ -79,12 +83,7 @@ export class InfiniteListComponent {
   }
 
   fetchMore() {
-    this.http
-      .request<{ list: any[]; total: number }>({
-        method: 'get',
-        url: '/api/roles',
-        params: { $page: this.page + 1, $pageSize: this.pageSize },
-      })
+    this.fetch({ $page: this.page + 1, $pageSize: this.pageSize })
       .pipe(
         map((res) => {
           this.isLoading = true;
@@ -92,7 +91,7 @@ export class InfiniteListComponent {
         }),
         finalize(() => (this.isLoading = false)),
       )
-      .subscribe(({ list, total }) => {
+      .subscribe(({ list, total }: any) => {
         this.list = [...this.list, ...list];
         this.total = total;
         this.page = this.page + 1;

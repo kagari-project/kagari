@@ -18,6 +18,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { TransferDialogComponent } from '../../components/transfer-dialog/transfer-dialog.component';
+import { Observable } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -132,7 +133,13 @@ export class UserComponent implements RestTableImpl<UserModel> {
         break;
       case 'setRoles':
       case 'setPermissions':
-        this.dialog.open(TransferDialogComponent);
+        this.dialog.open(TransferDialogComponent, {
+          data: {
+            fetchLeft: this.fetchAllRoles,
+            fetchRight: (params: unknown) =>
+              this.fetchOwnedRoles(event.row as any, params),
+          },
+        });
         break;
     }
   }
@@ -212,5 +219,21 @@ export class UserComponent implements RestTableImpl<UserModel> {
         this.snackBar.open('resource updated', 'close', { duration: 3000 });
         this.restTable?.onReload();
       });
+  }
+
+  fetchAllRoles(params: any): Observable<any> {
+    return this.http.request({
+      method: 'get',
+      url: '/api/roles',
+      params,
+    });
+  }
+
+  fetchOwnedRoles(row: UserModel, params: any): Observable<any> {
+    return this.http.request({
+      method: 'get',
+      url: `/api/users/${row.id}/roles`,
+      params,
+    });
   }
 }

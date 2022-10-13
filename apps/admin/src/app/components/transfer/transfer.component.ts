@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { InfiniteListComponent } from '../infinite-list/infinite-list.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-transfer',
@@ -10,14 +11,22 @@ import { InfiniteListComponent } from '../infinite-list/infinite-list.component'
   template: `
     <div class="container">
       <div class="left">
-        <app-infinite-list></app-infinite-list>
+        <app-infinite-list [fetch]="fetchLeft">
+          <ng-template #labelTemplate let-item
+            >{{ item.name }} | {{ item.token }}</ng-template
+          >
+        </app-infinite-list>
       </div>
       <div class="middle">
         <button mat-icon-button><mat-icon>chevron_left</mat-icon></button>
         <button mat-icon-button><mat-icon>chevron_right</mat-icon></button>
       </div>
       <div class="right">
-        <app-infinite-list></app-infinite-list>
+        <app-infinite-list [fetch]="fetchRight">
+          <ng-template #labelTemplate let-item
+            >{{ item.name }} | {{ item.token }}</ng-template
+          >
+        </app-infinite-list>
       </div>
     </div>
   `,
@@ -42,4 +51,7 @@ import { InfiniteListComponent } from '../infinite-list/infinite-list.component'
     `,
   ],
 })
-export class TransferComponent {}
+export class TransferComponent {
+  @Input() fetchLeft!: CallableFunction;
+  @Input() fetchRight!: CallableFunction;
+}
