@@ -265,3 +265,4 @@ Temporary Items
 *.db
 .run
 .fleet
+.npmrc
