@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialUIModule } from './modules/material-ui.module';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialUIModule,
+    NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
   ],
   providers: [{ provide: 'BASE_URL', useValue: environment.baseURL }],
   bootstrap: [AppComponent],

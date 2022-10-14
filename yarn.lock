@@ -4053,6 +4053,7 @@ __metadata:
     "@angular/router": ^14.0.0
     "@types/jasmine": ~4.0.0
     date-fns: ^2.29.3
+    echarts: ^5.4.0
     jasmine-core: ~4.3.0
     karma: ~6.4.0
     karma-chrome-launcher: ~3.1.0
@@ -4060,6 +4061,7 @@ __metadata:
     karma-jasmine: ~5.1.0
     karma-jasmine-html-reporter: ~2.0.0
     material-icons: ^1.11.11
+    ngx-echarts: ^14.0.0
     rxjs: ~7.5.0
     tslib: ^2.3.0
     typescript: ~4.7.2
@@ -5889,6 +5891,16 @@ __metadata:
   dependencies:
     safe-buffer: ^5.0.1
   checksum: 207f9ab1c2669b8e65540bce29506134613dd5f122cccf1e6a560f4d63f2732d427d938f8481df175505aad94583bcb32c688737bb39a6df0625f903d6d93c03
+  languageName: node
+  linkType: hard
+
+"echarts@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "echarts@npm:5.4.0"
+  dependencies:
+    tslib: 2.3.0
+    zrender: 5.4.0
+  checksum: 81fb304e5304f1fd172fb419e178791213d2f2f0335a187a311bbe8888f2053dc4d9cd790135786ae09171185a1fd906453a5c93bf69097fff8c5b254873a322
   languageName: node
   linkType: hard
 
@@ -9580,6 +9592,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ngx-echarts@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "ngx-echarts@npm:14.0.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    echarts: ">=5.0.0"
+  checksum: e777658cba6503f9b808fc820383a94be143ba5fd981d9f93675f1b666637bb91bbd0b78dd7b4372573c27834404b203322dc932e18d5b424113ddfd9a5bee50
+  languageName: node
+  linkType: hard
+
 "nice-napi@npm:^1.0.2":
   version: 1.0.2
   resolution: "nice-napi@npm:1.0.2"
@@ -12736,6 +12759,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.3.0":
+  version: 2.3.0
+  resolution: "tslib@npm:2.3.0"
+  checksum: 8869694c26e4a7b56d449662fd54a4f9ba872c889d991202c74462bd99f10e61d5bd63199566c4284c0f742277736292a969642cc7b590f98727a7cae9529122
+  languageName: node
+  linkType: hard
+
 "tslib@npm:2.4.0, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.3.1":
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
@@ -13603,5 +13633,14 @@ __metadata:
   dependencies:
     tslib: ^2.3.0
   checksum: ad4a2f4aafce10f5bc3f60213384bb6ee4727de09d87fb77cb8089eecdb44dd5838fd9fa43ac4c351afec142b0e5477a22093928260a486804f70b8cace6c7d3
+  languageName: node
+  linkType: hard
+
+"zrender@npm:5.4.0":
+  version: 5.4.0
+  resolution: "zrender@npm:5.4.0"
+  dependencies:
+    tslib: 2.3.0
+  checksum: 913cfd53064a9eaab0a6658bb48c8dddc8bd03f13858a2e6792a698af0c0b3d640e89de28eb4f1668f37d94ef125c24912d1bba904ae8a12ac17292fe0db52d5
   languageName: node
   linkType: hard
