@@ -1,12 +1,14 @@
 import { CreateBaseControllerHelper } from '../../core/helpers/create-base-controller.helper';
 import { RoleEntity } from '../../core/entities/Role.entity';
-import { Body, Get, Param, Patch } from '@nestjs/common';
+import { Body, Get, Param, Patch, UseGuards } from '@nestjs/common';
 import { InjectRepository, Repository } from '@kagari/database';
-import { UserEntity } from '../../core/entities/User.entity';
 import { PermissionEntity } from '../../core/entities/Permission.entity';
 import { JoiValidationPipe } from '../../core/pipes/joi-validation.pipe';
 import { UuidSchema } from '../../core/schemas/uuid.schema';
+import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
+import { RoleBasedAccessControlGuard } from '@kagari/rbac';
 
+@UseGuards(getAuthenticatedGuard('jwt'), RoleBasedAccessControlGuard)
 export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
   RoleEntity,
   {
