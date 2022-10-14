@@ -10,8 +10,8 @@ import {
 import { MaterialUIModule } from '../../../modules/material-ui.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
-import { AuthModule } from '../../../auth/auth.module';
-import { AuthService } from '../../../auth/auth.service';
+import { AuthModule } from '../../../modules/auth/auth.module';
+import { AuthService } from '../../../modules/auth/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
