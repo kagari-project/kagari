@@ -11813,6 +11813,7 @@ __metadata:
     ts-loader: ^9.2.3
     ts-node: ^10.0.0
     tsconfig-paths: 4.1.0
+    typeorm-store: ^2.0.1
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -12863,6 +12864,15 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
+  languageName: node
+  linkType: hard
+
+"typeorm-store@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "typeorm-store@npm:2.0.1"
+  peerDependencies:
+    typeorm: ^0.2.7
+  checksum: 4a666d6d8793acc0a51fe96ef1919afa54c58922b41650cec8e2b0d2892c148f317187e54bcabb3033285cf11d8c937177bd1726b9e1ecd0433969e848697e5b
   languageName: node
   linkType: hard
 

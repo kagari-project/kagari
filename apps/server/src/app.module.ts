@@ -2,7 +2,10 @@ import { Module, RequestMethod } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import {
   DatabaseModule,
+  DataSource,
+  getRepositoryToken,
   NestLogger,
+  Repository,
   TypeOrmModuleOptions,
 } from '@kagari/database';
 import { UserEntity } from './core/entities/User.entity';
@@ -10,6 +13,7 @@ import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApiModule } from './domains/api/api.module';
 
+import { TypeormStore } from 'typeorm-store';
 import ConfigValidationSchema from './core/config.schema';
 import { RoleEntity } from './core/entities/Role.entity';
 import { PermissionEntity } from './core/entities/Permission.entity';
@@ -22,6 +26,7 @@ import {
 } from './helpers';
 import { CoreModule } from './core/core.module';
 import { RoleBasedAccessControlModule } from '@kagari/rbac';
+import { SessionEntity } from './core/entities/Session.entity';
 
 @Module({
   imports: [
@@ -35,7 +40,7 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         type: cs.get('DATABASE.TYPE'),
-        entities: [UserEntity, RoleEntity, PermissionEntity],
+        entities: [UserEntity, RoleEntity, PermissionEntity, SessionEntity],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
         logger: new NestLogger({ context: 'database' }),
@@ -48,8 +53,8 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
       }),
     } as TypeOrmModuleOptions),
     LocalAuthModule.forRootAsync<UserEntity>({
-      inject: [ConfigService],
-      useFactory: (cs: ConfigService) => ({
+      inject: [ConfigService, DataSource],
+      useFactory: (cs: ConfigService, dataSource: DataSource) => ({
         entity: UserEntity,
         verify,
         validate,
@@ -57,6 +62,9 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
           secret: cs.get<string>('HTTP.SESSION.SECRET', 'secret'),
           saveUninitialized: false,
           resave: false,
+          store: new TypeormStore({
+            repository: dataSource.getRepository(SessionEntity),
+          }),
         },
         exclude: [{ path: '/api/(.*)', method: RequestMethod.ALL }],
       }),
