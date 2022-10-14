@@ -3,9 +3,7 @@ import { AuthController } from './auth.controller';
 import {
   DatabaseModule,
   DataSource,
-  getRepositoryToken,
   NestLogger,
-  Repository,
   TypeOrmModuleOptions,
 } from '@kagari/database';
 import { UserEntity } from './core/entities/User.entity';
