@@ -5,7 +5,13 @@ import {
   VerifyFunction,
 } from '@kagari/auth';
 import { UserEntity } from './core/entities/User.entity';
-import { BadRequestException, ExecutionContext, Logger } from '@nestjs/common';
+import {
+  BadRequestException,
+  ExecutionContext,
+  ForbiddenException,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { omit } from 'lodash';
 import { CanActivateFunction } from '@kagari/rbac';
 import * as Joi from 'joi';
@@ -57,10 +63,10 @@ export const verify: VerifyFunction<UserEntity> = async (repo, credential) => {
 
 export const composeAccessTokenPayload: ComposeAccessTokenPayload<
   UserEntity
-> = (userInfo) => ({ id: userInfo.id, username: userInfo.username });
+> = (userInfo) => ({ ...userInfo });
 export const composeRefreshTokenPayload: ComposeRefreshTokenPayload<
   UserEntity
-> = (userInfo) => ({ id: userInfo.id, username: userInfo.username });
+> = (userInfo) => ({ ...userInfo });
 
 // eslint-disable-next-line  @typescript-eslint/no-unused-vars
 export const canActivate: CanActivateFunction = (context: ExecutionContext) => {

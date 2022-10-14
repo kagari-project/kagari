@@ -11,6 +11,7 @@ import { JwtAuthService } from './jwt-auth.service';
 import { JWT_AUTH_MODULE_OPTIONS } from '../constants';
 
 import { ExtraOptions } from './types';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({})
 export class JwtAuthModule {
@@ -58,10 +59,10 @@ export class JwtAuthModule {
   }
 
   private static createProviders() {
-    return [JwtAuthService];
+    return [JwtAuthService, JwtStrategy];
   }
 
   private static createExports() {
-    return [JWT_AUTH_MODULE_OPTIONS, JwtAuthService];
+    return [JWT_AUTH_MODULE_OPTIONS, JwtAuthService, JwtStrategy];
   }
 }

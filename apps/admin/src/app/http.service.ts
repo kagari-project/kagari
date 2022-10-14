@@ -26,7 +26,7 @@ export class HttpService {
         body,
         params,
         headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+          'x-token': localStorage.getItem('accessToken') || '',
         },
       })
       .pipe(catchError((error) => this.onError(error)));
