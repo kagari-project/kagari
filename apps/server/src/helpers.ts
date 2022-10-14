@@ -45,6 +45,7 @@ export const verify: VerifyFunction<UserEntity> = async (repo, credential) => {
     throw new BadRequestException('incorrect password');
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, permissions, roles, ...rest } = user;
   const map = new Map<string, PermissionEntity>();
   for (const permission of permissions) {

@@ -9,8 +9,15 @@ prepare business logic
 import { ComposeAccessTokenPayload, ComposeRefreshTokenPayload, ValidateFunction } from '@kagari/auth';
 import { UserEntity } from './User.entity';
 
-export const validate: ValidateFunction = async (repo, credential) => {
-  // your logic validates the user
+// validate credential
+export const validate: ValidateFunction = (credential) => {
+  // any logic validate if input is valid
+  return credential // return validated values
+}
+
+// verify crendetial
+export const verify: ValidateFunction = async (repo, credential) => {
+  // your logic verify the user(if password matches)
   return { id: 1, username: 'foobar' }
 }
 
@@ -19,7 +26,7 @@ export const getAccessTokenPayload: ComposeAccessTokenPayload = (userInfo) => (u
 export const getRefreshTokenPayload: ComposeRefreshTokenPayload = (userInfo) => (userInfo)
 ```
 
-// register modules
+register modules
 ```typescript
 // local session
 import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
@@ -32,6 +39,7 @@ LocalAuthModule.forRootAsync({
   useFactory: () => ({
     entity: UserEntity,
     validate: validate,
+    verfiy: verify,
     session: {
       // options for express-session
     },
@@ -51,6 +59,7 @@ JwtAuthModule.forRootAsync({
   useFactory: () => ({
     entity: UserEntity,
     validate: validate,
+    verify: verify,
     jwt: {
       // options for @nestjs/jwt module
     },
