@@ -1,6 +1,6 @@
 {
   "name": "@kagari/database",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "module": "",
   "main": "dist/index.js",
   "scripts": {
