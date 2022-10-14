@@ -18,6 +18,6 @@ export class RoleBasedAccessControlGuard implements CanActivate {
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    return this.options.canActivate(context);
+    return this.options.canActivate.call(this, context);
   }
 }

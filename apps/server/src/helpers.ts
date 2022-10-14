@@ -9,12 +9,10 @@ import {
   BadRequestException,
   ExecutionContext,
   ForbiddenException,
-  Logger,
-  UnauthorizedException,
 } from '@nestjs/common';
-import { omit } from 'lodash';
 import { CanActivateFunction } from '@kagari/rbac';
 import * as Joi from 'joi';
+import 'reflect-metadata';
 import { PermissionEntity } from './core/entities/Permission.entity';
 
 export const validate: ValidateFunction = (credential) => {
@@ -69,7 +67,19 @@ export const composeRefreshTokenPayload: ComposeRefreshTokenPayload<
 > = (userInfo) => ({ ...userInfo });
 
 // eslint-disable-next-line  @typescript-eslint/no-unused-vars
-export const canActivate: CanActivateFunction = (context: ExecutionContext) => {
-  Logger.debug('trying check rbac permission');
-  return true;
+export const canActivate: CanActivateFunction = function (
+  context: ExecutionContext,
+) {
+  const request = context.switchToHttp().getRequest();
+  const klass = context.getClass();
+  const handler = context.getHandler();
+  const user = request.user;
+  const token = `${klass.name}:${handler.name}`;
+  const granted = user.permissions.find((item) => item.token === token);
+
+  if (granted) {
+    return true;
+  }
+
+  throw new ForbiddenException('Permission Not Granted');
 };
