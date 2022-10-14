@@ -9,6 +9,7 @@ import { BadRequestException, ExecutionContext, Logger } from '@nestjs/common';
 import { omit } from 'lodash';
 import { CanActivateFunction } from '@kagari/rbac';
 import * as Joi from 'joi';
+import { PermissionEntity } from './core/entities/Permission.entity';
 
 export const validate: ValidateFunction = (credential) => {
   const { error, value } = Joi.object({
@@ -24,6 +25,12 @@ export const validate: ValidateFunction = (credential) => {
 export const verify: VerifyFunction<UserEntity> = async (repo, credential) => {
   const user = await repo.findOne({
     where: { username: credential.username },
+    relations: {
+      permissions: true,
+      roles: {
+        permissions: true,
+      },
+    },
   });
 
   if (!user) {
@@ -34,7 +41,18 @@ export const verify: VerifyFunction<UserEntity> = async (repo, credential) => {
     throw new BadRequestException('incorrect password');
   }
 
-  return omit(user, 'password') as UserEntity;
+  const { password, permissions, roles, ...rest } = user;
+  const map = new Map<string, PermissionEntity>();
+  for (const permission of permissions) {
+    map.set(permission.id, permission);
+  }
+  for (const role of roles) {
+    for (const permission of role.permissions) {
+      map.set(permission.id, permission);
+    }
+  }
+
+  return { ...rest, permissions: Array.from(map.values()) } as UserEntity;
 };
 
 export const composeAccessTokenPayload: ComposeAccessTokenPayload<

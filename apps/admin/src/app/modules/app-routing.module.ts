@@ -65,7 +65,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'auth',
+    path: '',
     pathMatch: 'prefix',
     loadComponent: () => AuthLayout,
     children: [
