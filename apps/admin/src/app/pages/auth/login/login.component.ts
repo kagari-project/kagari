@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -10,8 +10,7 @@ import {
 import { MaterialUIModule } from '../../../modules/material-ui.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterModule } from '@angular/router';
-import { AuthModule } from '../../../modules/auth/auth.module';
-import { AuthService } from '../../../modules/auth/auth.service';
+import { AuthService } from '../../../auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
@@ -34,13 +33,7 @@ export class TouchErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   standalone: true,
   selector: 'app-login',
-  imports: [
-    CommonModule,
-    MaterialUIModule,
-    ReactiveFormsModule,
-    RouterModule,
-    AuthModule,
-  ],
+  imports: [CommonModule, MaterialUIModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

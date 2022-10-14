@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { CommonModule } from '@angular/common';
-import { AuthModule } from '../../modules/auth/auth.module';
-import { AuthService } from '../../modules/auth/auth.service';
+import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, AuthModule, MaterialUIModule],
+  imports: [CommonModule, MaterialUIModule],
   selector: 'app-navbar',
   template: `<mat-toolbar color="primary">
     <button mat-button (click)="handleClick()">
@@ -25,19 +25,28 @@ import { AuthService } from '../../modules/auth/auth.service';
         src="https://ui-avatars.com/api/?rounded=true"
         alt=""
       />
-      Username
+      {{ username }}
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item><mat-icon>settings</mat-icon>Setting</button>
-      <button mat-menu-item><mat-icon>exit_to_app</mat-icon>Logout</button>
+      <button mat-menu-item (click)="handleLogOut()">
+        <mat-icon>exit_to_app</mat-icon>Logout
+      </button>
     </mat-menu>
   </mat-toolbar> `,
 })
 export class NavbarComponent {
+  constructor(private authService: AuthService, private router: Router) {}
   @Output()
   public menuClicked: EventEmitter<boolean> = new EventEmitter();
 
   public handleClick() {
     this.menuClicked.emit();
+  }
+  get username() {
+    return this.authService.userInfo?.username;
+  }
+
+  async handleLogOut() {
+    this.authService.logout().subscribe(() => this.router.navigate(['/login']));
   }
 }

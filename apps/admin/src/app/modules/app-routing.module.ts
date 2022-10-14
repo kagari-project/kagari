@@ -23,44 +23,38 @@ const routes: Routes = [
         loadComponent: () => HomePage,
         data: { label: 'Home', showInSidebar: true },
       },
-    ],
-  },
-  {
-    path: 'users',
-    canActivate: [AuthenticatedGuard],
-    loadComponent: () => BaseLayout,
-    children: [
       {
-        path: '',
-        pathMatch: 'full',
-        loadComponent: () => UserPage,
-        data: { label: 'list', showInSidebar: true },
+        path: 'users',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () => UserPage,
+            data: { label: 'list', showInSidebar: true },
+          },
+        ],
       },
-    ],
-  },
-  {
-    path: 'roles',
-    canActivate: [AuthenticatedGuard],
-    loadComponent: () => BaseLayout,
-    children: [
       {
-        path: '',
-        pathMatch: 'full',
-        loadComponent: () => RolePage,
-        data: { label: 'list', showInSidebar: true },
+        path: 'roles',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () => RolePage,
+            data: { label: 'list', showInSidebar: true },
+          },
+        ],
       },
-    ],
-  },
-  {
-    path: 'permissions',
-    canActivate: [AuthenticatedGuard],
-    loadComponent: () => BaseLayout,
-    children: [
       {
-        path: '',
-        pathMatch: 'full',
-        loadComponent: () => PermissionPage,
-        data: { label: 'list', showInSidebar: true },
+        path: 'permissions',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            loadComponent: () => PermissionPage,
+            data: { label: 'list', showInSidebar: true },
+          },
+        ],
       },
     ],
   },
