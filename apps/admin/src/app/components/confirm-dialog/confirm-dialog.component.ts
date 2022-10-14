@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   imports: [CommonModule, MaterialUIModule],
   template: `
     <h2 mat-dialog-title>Needs Your Confirmation</h2>
-    <mat-dialog-content>{{ data.message || '' }}</mat-dialog-content>
+    <mat-dialog-content>{{ data?.message || '' }}</mat-dialog-content>
     <mat-dialog-actions>
       <button mat-raised-button [mat-dialog-close]="true" color="primary">
         Confirm
@@ -20,5 +20,5 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styles: [],
 })
 export class ConfirmDialogComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { message?: string }) {}
 }
