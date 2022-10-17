@@ -15,6 +15,7 @@ type WithPaginatorParams<T = any> = {
 export type ColumnDefinition = {
   prop: string;
   label?: string;
+  checkbox?: boolean;
   buttons?: ActionButtonDefinition[];
 };
 
