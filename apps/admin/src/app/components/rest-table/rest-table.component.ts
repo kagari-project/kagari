@@ -18,8 +18,8 @@ import {
   ObjectOf,
   FieldDefinition,
 } from './types';
-import {SelectionModel} from "@angular/cdk/collections";
-import {MatCheckboxChange} from "@angular/material/checkbox";
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 export * from './types';
 
@@ -175,7 +175,15 @@ export * from './types';
         <button
           mat-stroked-button
           *ngIf="hasSelected"
-          (click)="actionsClick.emit({ emit: 'deleteMany', row: this.selection.selected })">Delete All</button>
+          (click)="
+            actionsClick.emit({
+              emit: 'deleteMany',
+              row: this.selection.selected
+            })
+          "
+        >
+          Delete All
+        </button>
       </div>
       <table style="width: 100%" mat-table [dataSource]="dataSource">
         <ng-container
@@ -184,12 +192,18 @@ export * from './types';
         >
           <ng-template #selectTemplate let-item>
             <th mat-header-cell *matHeaderCellDef>
-              <mat-checkbox (click)="$event.stopPropagation()" (change)="handleSelectAll($event)">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="handleSelectAll($event)"
+              >
               </mat-checkbox>
             </th>
             <td mat-cell *matCellDef="let item">
-              <mat-checkbox (click)="$event.stopPropagation()" (change)="handleSelect(item)"
-                            [checked]="selection.isSelected(item)">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="handleSelect(item)"
+                [checked]="selection.isSelected(item)"
+              >
               </mat-checkbox>
             </td>
           </ng-template>
@@ -244,7 +258,11 @@ export * from './types';
 
           <ng-container
             *ngTemplateOutlet="
-              item.buttons ? actionsTemplate : (item.checkbox ? selectTemplate : displayTemplate);
+              item.buttons
+                ? actionsTemplate
+                : item.checkbox
+                ? selectTemplate
+                : displayTemplate;
               context: { $implicit: item }
             "
           ></ng-container>
@@ -299,11 +317,10 @@ export class RestTableComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   workspace: FormGroup = new FormGroup({});
   editingRow: Partial<unknown> | undefined;
-  selection = new SelectionModel(true, [] as any[])
+  selection = new SelectionModel(true, [] as any[]);
   get hasSelected() {
-    return this.selection.selected.length > 0
+    return this.selection.selected.length > 0;
   }
-
 
   @ViewChild('drawer') drawer: WithDrawerComponent | undefined;
 
@@ -344,7 +361,6 @@ export class RestTableComponent implements OnInit {
     };
   }
 
-
   onSearchSubmit() {
     if (!this.form.valid) {
       return;
@@ -381,19 +397,19 @@ export class RestTableComponent implements OnInit {
 
   handleSelectAll(event: MatCheckboxChange) {
     if (event.checked) {
-      this.dataSource.forEach(item => this.selection.select(item))
+      this.dataSource.forEach((item) => this.selection.select(item));
       // this.selection.select(this.dataSource)
     } else {
-      this.dataSource.forEach(item => this.selection.deselect(item))
+      this.dataSource.forEach((item) => this.selection.deselect(item));
       // this.selection.deselect(this.dataSource)
     }
   }
 
   handleSelect(row: any) {
     if (this.selection.isSelected(row)) {
-      this.selection.deselect(row)
+      this.selection.deselect(row);
     } else {
-      this.selection.select(row)
+      this.selection.select(row);
     }
     // this.selection.toggle(row)
     // console.log(this.selection.isSelected(row))
