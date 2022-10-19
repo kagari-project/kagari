@@ -16,6 +16,10 @@ export type ColumnDefinition = {
   prop: string;
   label?: string;
   checkbox?: boolean;
+  style?: {
+    cell?: any;
+    image?: any;
+  };
   buttons?: ActionButtonDefinition[];
 };
 

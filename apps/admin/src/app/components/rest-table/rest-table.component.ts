@@ -198,7 +198,7 @@ export * from './types';
               >
               </mat-checkbox>
             </th>
-            <td mat-cell *matCellDef="let item">
+            <td mat-cell *matCellDef="let item" [style]="item.cell">
               <mat-checkbox
                 (click)="$event.stopPropagation()"
                 (change)="handleSelect(item)"
@@ -212,14 +212,29 @@ export * from './types';
             <th mat-header-cell *matHeaderCellDef style="text-align: center">
               {{ item.label || item.prop }}
             </th>
-            <td mat-cell *matCellDef="let element">{{ element[item.prop] }}</td>
+            <ng-container [ngSwitch]="item.type">
+              <ng-container *ngSwitchCase="'image'">
+                <td mat-cell *matCellDef="let element" [style]="item.cell">
+                  <img
+                    [src]="element[item.prop]"
+                    [style]="item.style?.image"
+                    alt=""
+                  />
+                </td>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                <td mat-cell *matCellDef="let element" [style]="item.cell">
+                  {{ element[item.prop] }}
+                </td>
+              </ng-container>
+            </ng-container>
           </ng-template>
 
           <ng-template #actionsTemplate let-item>
             <th mat-header-cell *matHeaderCellDef style="text-align: center">
               {{ item.label || item.prop }}
             </th>
-            <td mat-cell *matCellDef="let element">
+            <td mat-cell *matCellDef="let element" [style]="item.cell">
               <ng-container *ngFor="let button of item.buttons">
                 <ng-container
                   *ngTemplateOutlet="
@@ -256,16 +271,34 @@ export * from './types';
             </button>
           </ng-template>
 
-          <ng-container
-            *ngTemplateOutlet="
-              item.buttons
-                ? actionsTemplate
-                : item.checkbox
-                ? selectTemplate
-                : displayTemplate;
-              context: { $implicit: item }
-            "
-          ></ng-container>
+          <ng-container *ngIf="item.buttons">
+            <ng-container
+              *ngTemplateOutlet="actionsTemplate; context: { $implicit: item }"
+            ></ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="item.checkbox">
+            <ng-container
+              *ngTemplateOutlet="selectTemplate; context: { $implicit: item }"
+            ></ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="!item.checkbox && !item.buttons">
+            <ng-container
+              *ngTemplateOutlet="displayTemplate; context: { $implicit: item }"
+            ></ng-container>
+          </ng-container>
+
+          <!--          <ng-container-->
+          <!--            *ngTemplateOutlet="-->
+          <!--              item.buttons-->
+          <!--                ? actionsTemplate-->
+          <!--                : item.checkbox-->
+          <!--                ? selectTemplate-->
+          <!--                : displayTemplate;-->
+          <!--              context: { $implicit: item }-->
+          <!--            "-->
+          <!--          ></ng-container>-->
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
