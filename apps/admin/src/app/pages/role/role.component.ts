@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 import { TransferDialogComponent } from '../../components/transfer-dialog/transfer-dialog.component';
 
 @Component({
@@ -53,6 +53,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
   @ViewChild('restTable') restTable: RestTableComponent | undefined;
 
   tableOptions: Array<ColumnDefinition> = [
+    { checkbox: true, prop: 'select' },
     { prop: 'id' },
     { prop: 'name' },
     { prop: 'token' },
@@ -191,11 +192,7 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
       });
   }
 
-  onRowActionClick(event: {
-    emit: string;
-    row: unknown;
-    button: ActionButtonDefinition;
-  }): void {
+  onRowActionClick(event: { emit: string; row: unknown }): void {
     switch (event.emit) {
       case 'edit':
         this.restTable?.workspace.reset(event.row);
@@ -225,6 +222,29 @@ export class RoleComponent implements RestTableImpl<RoleModel> {
           .subscribe((lists) => {
             if (lists) {
               this.updateRolePermissions(event.row as any, lists.right);
+            }
+          });
+        break;
+      case 'deleteMany':
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              const promises = (event.row as RoleModel[]).map((row) =>
+                lastValueFrom(
+                  this.http.request({
+                    method: 'delete',
+                    url: '/api/roles/' + row.id,
+                  }),
+                ),
+              );
+              Promise.all(promises).then(() => {
+                this.snackBar.open('resource deleted', 'close', {
+                  duration: 3000,
+                });
+                this.restTable?.onReload();
+              });
             }
           });
         break;

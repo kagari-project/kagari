@@ -6,7 +6,9 @@
   "scripts": {
     "postinstall": "husky install",
     "lint": "eslint --fix 'apps/**/src/**.ts' 'packages/**/src/**.ts'",
-    "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'"
+    "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'",
+    "changelog": "lerna version --conventional-commits",
+    "publish": "lerna publish"
   },
   "workspaces": {
     "packages": [

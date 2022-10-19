@@ -18,7 +18,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 import { TransferDialogComponent } from '../../components/transfer-dialog/transfer-dialog.component';
-import { Observable } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -86,6 +86,7 @@ export class UserComponent implements RestTableImpl<UserModel> {
   ];
 
   tableOptions = [
+    { prop: 'select', checkbox: true },
     { prop: 'id' },
     { prop: 'username' },
     { prop: 'password' },
@@ -295,6 +296,29 @@ export class UserComponent implements RestTableImpl<UserModel> {
           .subscribe((lists) => {
             if (lists) {
               this.updateUserPermissions(event.row as any, lists.right);
+            }
+          });
+        break;
+      case 'deleteMany':
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              const promises = (event.row as UserModel[]).map((row) =>
+                lastValueFrom(
+                  this.http.request({
+                    method: 'delete',
+                    url: '/api/users/' + row.id,
+                  }),
+                ),
+              );
+              Promise.all(promises).then(() => {
+                this.snackBar.open('resource deleted', 'close', {
+                  duration: 3000,
+                });
+                this.restTable?.onReload();
+              });
             }
           });
         break;

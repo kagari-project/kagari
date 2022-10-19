@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialUIModule } from '../../modules/material-ui.module';
 import { WithDrawerComponent } from '../../components/drawer-form/with-drawer.component';
 import {
-  ActionButtonDefinition,
   ColumnDefinition,
   FieldDefinition,
   RestTableComponent,
@@ -16,6 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { deserialize } from '@kagari/restful/dist/deserialize';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-permission',
@@ -141,11 +141,7 @@ export class PermissionComponent implements RestTableImpl<PermissionModel> {
       });
   }
 
-  onRowActionClick(event: {
-    emit: string;
-    row: unknown;
-    button: ActionButtonDefinition;
-  }): void {
+  onRowActionClick(event: { emit: string; row: unknown }): void {
     switch (event.emit) {
       case 'edit':
         this.restTable?.workspace.reset(event.row);
@@ -160,6 +156,29 @@ export class PermissionComponent implements RestTableImpl<PermissionModel> {
           .subscribe((isConfirmed) => {
             if (isConfirmed) {
               this.deleteOne(event.row as PermissionModel);
+            }
+          });
+        break;
+      case 'deleteMany':
+        this.dialog
+          .open(ConfirmDialogComponent)
+          .afterClosed()
+          .subscribe((isConfirmed) => {
+            if (isConfirmed) {
+              const promises = (event.row as PermissionModel[]).map((row) =>
+                lastValueFrom(
+                  this.http.request({
+                    method: 'delete',
+                    url: '/api/permissions/' + row.id,
+                  }),
+                ),
+              );
+              Promise.all(promises).then(() => {
+                this.snackBar.open('resource deleted', 'close', {
+                  duration: 3000,
+                });
+                this.restTable?.onReload();
+              });
             }
           });
         break;
