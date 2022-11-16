@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import * as yup from 'yup';
 
 export default {
-  title: 'Form',
+  title: 'ProForm',
   component: ProForm,
   argTypes: {
     inline: {
