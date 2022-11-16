@@ -6,14 +6,14 @@ import TableCell, { TableCellProps } from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 
-type ColumnDef = {
+export type ColumnDef = {
   label?: string;
-  prop: 'actions' | string;
+  prop?: 'actions' | string;
   align?: TableCellProps['align'];
   buttons?: JSX.Element;
   format?: (row: RowDef) => any;
 };
-type RowDef = Record<string, any>;
+export type RowDef = Record<string, any>;
 
 export type ProTableProps = {
   columns: ColumnDef[];
@@ -25,17 +25,19 @@ export default function ProTable(props: PropsWithChildren<ProTableProps>) {
 
   return (
     <TableContainer>
-      <Table>
+      <Table sx={{ width: '100%' }}>
         <TableHead>
           <TableRow>
-            {columns.map((column) => (
-              <TableCell align={column.align ?? 'center'}>
+            {columns.map((column, i) => (
+              <TableCell
+                key={column.prop ?? i}
+                align={column.align ?? 'center'}
+              >
                 {column.label ?? column.prop}
               </TableCell>
             ))}
           </TableRow>
         </TableHead>
-
         <TableBody>
           {rows.map((row, i) => (
             <TableRow key={row.id ?? i}>
