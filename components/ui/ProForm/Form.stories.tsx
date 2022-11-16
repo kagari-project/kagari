@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import ProForm from './Form';
 import Button from '@mui/material/Button';
@@ -32,24 +32,23 @@ const Template = (args) => {
   return (
     <ProForm
       schema={schema}
-      defaultValues={{ username: 'foobar', password: 'lorem' }}
       {...args}
       onSubmit={onSubmit}
       render={(props) => {
         return (
           <>
             <FormControl>
-              <InputLabel>username</InputLabel>
-              <Input {...props.register('username')} />
-              <FormHelperText>
+              <InputLabel shrink={false}>username</InputLabel>
+              <Input sx={{ pl: 12 }} {...props.register('username')} />
+              <FormHelperText error={!!props.formState.errors.username}>
                 {props.formState.errors.username?.message as string}
               </FormHelperText>
             </FormControl>
 
             <FormControl>
-              <InputLabel>password</InputLabel>
-              <Input {...props.register('password')} />
-              <FormHelperText>
+              <InputLabel shrink={false}>password</InputLabel>
+              <Input sx={{ pl: 12 }} {...props.register('password')} />
+              <FormHelperText error={!!props.formState.errors.password}>
                 {props.formState.errors.password?.message as string}
               </FormHelperText>
             </FormControl>

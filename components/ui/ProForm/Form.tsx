@@ -9,7 +9,7 @@ type ProFormProps = PropsWithChildren<{
   inline?: boolean;
   onSubmit?: (data: unknown) => void;
   defaultValues?: Record<string, unknown>;
-  schema?: any /* todo typing */;
+  schema?: yup.AnyObjectSchema /* todo typing */;
   render: (
     props: PropsWithChildren<
       Omit<
@@ -27,7 +27,7 @@ export default function ProForm(props: ProFormProps) {
   const { handleSubmit, ...useFormReturns } = useForm({
     mode: 'all',
     defaultValues,
-    resolver: schema ? yupResolver(schema) : null,
+    resolver: schema ? yupResolver(schema as unknown as any) : null,
   });
   return (
     <form
