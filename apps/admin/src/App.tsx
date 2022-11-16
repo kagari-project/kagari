@@ -1,25 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Authenticated from './layouts/Authenticated';
+import ErrorPage from './pages/Error.page';
+import Auth from './layouts/Auth';
+import LoginPage from './pages/Login.page';
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Authenticated />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <>home</>,
+      },
+      {
+        path: 'contracts/:contractId',
+        element: <>foobar</>,
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    element: <Auth />,
+    children: [
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'register',
+        element: <>register</>,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+      <RouterProvider router={router}></RouterProvider>
+    </React.StrictMode>
   );
 }
 
