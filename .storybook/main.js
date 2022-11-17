@@ -6,4 +6,10 @@ module.exports = {
     '@storybook/addon-interactions',
   ],
   framework: '@storybook/react',
+  docsPage: {
+    docs: 'automatic',
+  },
+  core: {
+    builder: 'webpack5',
+  },
 };
