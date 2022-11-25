@@ -1668,7 +1668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.15.4, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.6.2, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.20.1
   resolution: "@babel/runtime@npm:7.20.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fruntime%2F-%2Fruntime-7.20.1.tgz"
   dependencies:
@@ -3149,7 +3149,7 @@ __metadata:
     "@hookform/resolvers": ^2.9.10
     "@mui/icons-material": ^5.10.14
     "@mui/material": ^5.10.14
-    "@tanstack/react-table": ^8.5.30
+    "@tanstack/react-table": ^8.6.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^13.5.0
@@ -3158,10 +3158,13 @@ __metadata:
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
     jest: 29.0.3
+    lodash: ^4.17.21
     notistack: ^2.0.8
     react: ^18.2.0
     react-dom: ^18.2.0
     react-hook-form: ^7.39.4
+    react-infinite-scroller: ^1.2.6
+    react-query: ^3.39.2
     ts-jest: 29.0.3
     typescript: ~4.7.4
     utility-types: ^3.10.0
@@ -6405,22 +6408,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.5.30":
-  version: 8.5.30
-  resolution: "@tanstack/react-table@npm:8.5.30::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Freact-table%2F-%2Freact-table-8.5.30.tgz"
+"@tanstack/react-table@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "@tanstack/react-table@npm:8.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Freact-table%2F-%2Freact-table-8.6.0.tgz"
   dependencies:
-    "@tanstack/table-core": 8.5.30
+    "@tanstack/table-core": 8.6.0
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 0e61cd98bf68a8c5004dc80bf9ff097205ce5e48e48f72600cce0788db6987c4e770e0a97795a884c17f36647f8faf6cea5817399b1e74158c3c4ecf8c80c79a
+  checksum: 796ecf4e5dd82108c22b517284a77826b926ea643ae5f475fe1ad748e6dc0c5be72301b87c9662616a3b0f93680c59c2aeef9cc05e551132a457ceefda5917c7
   languageName: node
   linkType: hard
 
-"@tanstack/table-core@npm:8.5.30":
-  version: 8.5.30
-  resolution: "@tanstack/table-core@npm:8.5.30::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Ftable-core%2F-%2Ftable-core-8.5.30.tgz"
-  checksum: 05d5612ec417a665cb67c35eb94cada149884fc3377ec6b3850eff3081517a913a57b5725f9c609b9eada6de8b980d63bbb30a8d62111730d62aea80e184b997
+"@tanstack/table-core@npm:8.6.0":
+  version: 8.6.0
+  resolution: "@tanstack/table-core@npm:8.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Ftable-core%2F-%2Ftable-core-8.6.0.tgz"
+  checksum: 87b3d82299e12b1cc0740222396c14aacad36ffea8f12858bef488bcdb31080719a48aeb3b91412dcec122d90152955464bb6b17bfea299a15b54d3a31120765
   languageName: node
   linkType: hard
 
@@ -9051,7 +9054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"big-integer@npm:^1.6.7":
+"big-integer@npm:^1.6.16, big-integer@npm:^1.6.7":
   version: 1.6.51
   resolution: "big-integer@npm:1.6.51::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fbig-integer%2F-%2Fbig-integer-1.6.51.tgz"
   checksum: 3d444173d1b2e20747e2c175568bedeebd8315b0637ea95d75fd27830d3b8e8ba36c6af40374f36bdaea7b5de376dcada1b07587cb2a79a928fccdb6e6e3c518
@@ -9227,6 +9230,22 @@ __metadata:
   dependencies:
     fill-range: ^7.0.1
   checksum: e2a8e769a863f3d4ee887b5fe21f63193a891c68b612ddb4b68d82d1b5f3ff9073af066c343e9867a393fe4c2555dcb33e89b937195feb9c1613d259edfcd459
+  languageName: node
+  linkType: hard
+
+"broadcast-channel@npm:^3.4.1":
+  version: 3.7.0
+  resolution: "broadcast-channel@npm:3.7.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fbroadcast-channel%2F-%2Fbroadcast-channel-3.7.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.7.2
+    detect-node: ^2.1.0
+    js-sha3: 0.8.0
+    microseconds: 0.2.0
+    nano-time: 1.0.0
+    oblivious-set: 1.0.0
+    rimraf: 3.0.2
+    unload: 2.2.0
+  checksum: 803794c48dcce7f03aca69797430bd8b1c4cfd70b7de22079cd89567eeffaa126a1db98c7c2d86af8131d9bb41ed367c0fef96dfb446151c927b831572c621fc
   languageName: node
   linkType: hard
 
@@ -11519,7 +11538,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-node@npm:^2.0.4":
+"detect-node@npm:^2.0.4, detect-node@npm:^2.1.0":
   version: 2.1.0
   resolution: "detect-node@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdetect-node%2F-%2Fdetect-node-2.1.0.tgz"
   checksum: 832184ec458353e41533ac9c622f16c19f7c02d8b10c303dfd3a756f56be93e903616c0bb2d4226183c9351c15fc0b3dba41a17a2308262afabcfa3776e6ae6e
@@ -17036,6 +17055,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-sha3@npm:0.8.0":
+  version: 0.8.0
+  resolution: "js-sha3@npm:0.8.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjs-sha3%2F-%2Fjs-sha3-0.8.0.tgz"
+  checksum: 75df77c1fc266973f06cce8309ce010e9e9f07ec35ab12022ed29b7f0d9c8757f5a73e1b35aa24840dced0dea7059085aa143d817aea9e188e2a80d569d9adce
+  languageName: node
+  linkType: hard
+
 "js-string-escape@npm:^1.0.1":
   version: 1.0.1
   resolution: "js-string-escape@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjs-string-escape%2F-%2Fjs-string-escape-1.0.1.tgz"
@@ -18095,6 +18121,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"match-sorter@npm:^6.0.2":
+  version: 6.3.1
+  resolution: "match-sorter@npm:6.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmatch-sorter%2F-%2Fmatch-sorter-6.3.1.tgz"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    remove-accents: 0.4.2
+  checksum: a4b02b676ac4ce64a89a091539ee4a70a802684713bcf06f2b70787927f510fe8a2adc849f9288857a90906083ad303467e530e8723b4a9756df9994fc164550
+  languageName: node
+  linkType: hard
+
 "md5.js@npm:^1.3.4":
   version: 1.3.5
   resolution: "md5.js@npm:1.3.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmd5.js%2F-%2Fmd5.js-1.3.5.tgz"
@@ -18332,6 +18368,13 @@ __metadata:
     braces: ^3.0.2
     picomatch: ^2.3.1
   checksum: 02a17b671c06e8fefeeb6ef996119c1e597c942e632a21ef589154f23898c9c6a9858526246abb14f8bca6e77734aa9dcf65476fca47cedfb80d9577d52843fc
+  languageName: node
+  linkType: hard
+
+"microseconds@npm:0.2.0":
+  version: 0.2.0
+  resolution: "microseconds@npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmicroseconds%2F-%2Fmicroseconds-0.2.0.tgz"
+  checksum: 22bfa8553f92c7d95afff6de0aeb2aecf750680d41b8c72b02098ccc5bbbb0a384380ff539292dbd3788f5dfc298682f9d38a2b4c101f5ee2c9471d53934c5fa
   languageName: node
   linkType: hard
 
@@ -18765,6 +18808,15 @@ __metadata:
   dependencies:
     node-gyp: latest
   checksum: ec609aeaf7e68b76592a3ba96b372aa7f5df5b056c1e37410b0f1deefbab5a57a922061e2c5b369bae9c7c6b5e6eecf4ad2dac8833a1a7d3a751e0a7c7f849ed
+  languageName: node
+  linkType: hard
+
+"nano-time@npm:1.0.0":
+  version: 1.0.0
+  resolution: "nano-time@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fnano-time%2F-%2Fnano-time-1.0.0.tgz"
+  dependencies:
+    big-integer: ^1.6.16
+  checksum: eef8548546cc1020625f8e44751a7263e9eddf0412a6a1a6c80a8d2be2ea7973622804a977cdfe796807b85b20ff6c8ba340e8dd20effcc7078193ed5edbb5d4
   languageName: node
   linkType: hard
 
@@ -19498,6 +19550,13 @@ __metadata:
   version: 1.0.5
   resolution: "objectorarray@npm:1.0.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fobjectorarray%2F-%2Fobjectorarray-1.0.5.tgz"
   checksum: 8fd776aa495d113e217837f4adc1d53e63f656498237094d25f84c3e2c038b34b71d6fd85c4b60c7ae5f558790e5042426a400fae3eac35f297e11be12643a78
+  languageName: node
+  linkType: hard
+
+"oblivious-set@npm:1.0.0":
+  version: 1.0.0
+  resolution: "oblivious-set@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Foblivious-set%2F-%2Foblivious-set-1.0.0.tgz"
+  checksum: f31740ea9c3a8242ad2324e4ebb9a35359fbc2e6e7131731a0fc1c8b7b1238eb07e4c8c631a38535243a7b8e3042b7e89f7dc2a95d2989afd6f80bd5793b0aab
   languageName: node
   linkType: hard
 
@@ -21608,7 +21667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fprop-types%2F-%2Fprop-types-15.8.1.tgz"
   dependencies:
@@ -22068,6 +22127,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-infinite-scroller@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "react-infinite-scroller@npm:1.2.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-infinite-scroller%2F-%2Freact-infinite-scroller-1.2.6.tgz"
+  dependencies:
+    prop-types: ^15.5.8
+  peerDependencies:
+    react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 5f5aae76c484b4039bada87070d5f8c54d2786697ae600be19a68f4e85158ff550122f15dccc5997d8b01fa487da47b9ffbc3e9d9a29f2cf71c77275f72551fd
+  languageName: node
+  linkType: hard
+
 "react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-inspector%2F-%2Freact-inspector-5.1.1.tgz"
@@ -22106,6 +22176,24 @@ __metadata:
   version: 1.1.0
   resolution: "react-merge-refs@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-merge-refs%2F-%2Freact-merge-refs-1.1.0.tgz"
   checksum: 90884352999002d868ab9f1bcfe3222fb0f2178ed629f1da7e98e5a9b02a2c96b4aa72800db92aabd69d2483211b4be57a2088e89a11a0b660e7ada744d4ddf7
+  languageName: node
+  linkType: hard
+
+"react-query@npm:^3.39.2":
+  version: 3.39.2
+  resolution: "react-query@npm:3.39.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-query%2F-%2Freact-query-3.39.2.tgz"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    broadcast-channel: ^3.4.1
+    match-sorter: ^6.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 83b199e66af28ab67ec4d22e51da42f02447186623db926b75d27a1c09a3383da6ddc9e5b83d82578fac7abdba7e6f265aecbffdb91db61981950d3d59409346
   languageName: node
   linkType: hard
 
@@ -22706,6 +22794,13 @@ __metadata:
   dependencies:
     mdast-squeeze-paragraphs: ^4.0.0
   checksum: 2071eb74d0ecfefb152c4932690a9fd950c3f9f798a676f1378a16db051da68fb20bf288688cc153ba5019dded35408ff45a31dfe9686eaa7a9f1df9edbb6c81
+  languageName: node
+  linkType: hard
+
+"remove-accents@npm:0.4.2":
+  version: 0.4.2
+  resolution: "remove-accents@npm:0.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fremove-accents%2F-%2Fremove-accents-0.4.2.tgz"
+  checksum: 84a6988555dea24115e2d1954db99509588d43fe55a1590f0b5894802776f7b488b3151c37ceb9e4f4b646f26b80b7325dcea2fae58bc3865df146e1fa606711
   languageName: node
   linkType: hard
 
@@ -25838,6 +25933,16 @@ __metadata:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Funiversalify%2F-%2Funiversalify-2.0.0.tgz"
   checksum: 2406a4edf4a8830aa6813278bab1f953a8e40f2f63a37873ffa9a3bc8f9745d06cc8e88f3572cb899b7e509013f7f6fcc3e37e8a6d914167a5381d8440518c44
+  languageName: node
+  linkType: hard
+
+"unload@npm:2.2.0":
+  version: 2.2.0
+  resolution: "unload@npm:2.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Funload%2F-%2Funload-2.2.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    detect-node: ^2.0.4
+  checksum: 88ba950c5ff83ab4f9bbd8f63bbf19ba09687ed3c434efd43b7338cc595bc574df8f9b155ee6eee7a435de3d3a4a226726988428977a68ba4907045f1fac5d41
   languageName: node
   linkType: hard
 
