@@ -16,6 +16,7 @@ import { UuidSchema } from '../../core/schemas/uuid.schema';
 import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 import { RoleBasedAccessControlGuard } from '@kagari/rbac';
 import { UserEntity } from '../../core/entities/User.entity';
+import { ApiOperation } from '@nestjs/swagger';
 
 @UseGuards(getAuthenticatedGuard('jwt'), RoleBasedAccessControlGuard)
 export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
@@ -34,6 +35,9 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
     super(roleRepo);
   }
 
+  @ApiOperation({
+    tags: [`${RoleEntity.name}.${PermissionEntity.name}`],
+  })
   @Get(':id/permissions')
   async findAllPermissions(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
@@ -48,6 +52,9 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
     };
   }
 
+  @ApiOperation({
+    tags: [`${RoleEntity.name}.${PermissionEntity.name}`],
+  })
   @Put(':id/permissions')
   async addPermissions(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
@@ -60,6 +67,9 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
       .add(permissions);
   }
 
+  @ApiOperation({
+    tags: [`${RoleEntity.name}.${PermissionEntity.name}`],
+  })
   @Patch(':id/permissions')
   async setPermissions(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
@@ -72,6 +82,9 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
       .set(permissions);
   }
 
+  @ApiOperation({
+    tags: [`${RoleEntity.name}.${PermissionEntity.name}`],
+  })
   @Delete(':id/permissions')
   async removePermissions(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,

@@ -16,6 +16,7 @@ import { transformProtocolHelper } from './transform-protocol.helper';
 import { JoiValidationPipe } from '../pipes/joi-validation.pipe';
 import * as _ from 'lodash';
 import { UuidSchema } from '../schemas/uuid.schema';
+import { ApiOperation } from '@nestjs/swagger';
 
 type ControllerMethods<Entity> = {
   findAll(...args: any[]): Promise<{ list: Type<Entity>[]; total: number }>;
@@ -54,6 +55,9 @@ export function CreateBaseControllerHelper<Entity>(
   class TargetController {
     constructor(@InjectRepository(entity) private repo: Repository<Entity>) {}
 
+    @ApiOperation({
+      tags: [entity.name],
+    })
     @Get()
     async findAll(
       @QueryProtocol(options.validators.findAll)
@@ -64,6 +68,9 @@ export function CreateBaseControllerHelper<Entity>(
       return { list, total, query };
     }
 
+    @ApiOperation({
+      tags: [entity.name],
+    })
     @Get(':id')
     async findOne(
       @Param('id', options.validators.id)
@@ -72,6 +79,9 @@ export function CreateBaseControllerHelper<Entity>(
       return this.repo.findOneOrFail({ where: { id } } as FindOneOptions);
     }
 
+    @ApiOperation({
+      tags: [entity.name],
+    })
     @Put()
     async createOne(
       @Body(options.validators.createOne)
@@ -80,6 +90,9 @@ export function CreateBaseControllerHelper<Entity>(
       return this.repo.save(data);
     }
 
+    @ApiOperation({
+      tags: [entity.name],
+    })
     @Patch(':id')
     async updateOne(
       @Param('id', options.validators.id)
@@ -90,6 +103,9 @@ export function CreateBaseControllerHelper<Entity>(
       return this.repo.update(id, data);
     }
 
+    @ApiOperation({
+      tags: [entity.name],
+    })
     @Delete(':id')
     async deleteOne(
       @Param('id', options.validators.id)
