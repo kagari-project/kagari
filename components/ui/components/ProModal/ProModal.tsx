@@ -29,7 +29,7 @@ export const ProModal = React.forwardRef<
   );
 
   return (
-    <Modal open={open} {...props}>
+    <Modal open={open} onClose={handleClose} {...props}>
       {props.children}
     </Modal>
   );

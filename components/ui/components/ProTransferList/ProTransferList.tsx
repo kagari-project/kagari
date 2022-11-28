@@ -24,14 +24,14 @@ import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
 
 type Render = (item: any) => React.ReactNode;
-type PanelConfig = {
+export type PanelConfig = {
   loadMore: ProInfiniteListProps['loadMore'];
   render: Render;
   title?: string;
 };
 type Zone = 'left' | 'right';
 type Selected = Record<Zone, any[]>;
-type OnChangeParams = { from: Zone; to: Zone; selected: Selected };
+export type OnChangeParams = { from: Zone; to: Zone; selected: Selected };
 
 export type TransferListActionsProps = {
   selected: Selected;
@@ -61,7 +61,7 @@ export function TransferListActions(props: TransferListActionsProps) {
           onClean();
         }}
       >
-        <KeyboardArrowLeftIcon />
+        <KeyboardArrowRightIcon />
       </Button>
       <Button
         variant="outlined"
@@ -72,7 +72,7 @@ export function TransferListActions(props: TransferListActionsProps) {
           onClean();
         }}
       >
-        <KeyboardArrowRightIcon />
+        <KeyboardArrowLeftIcon />
       </Button>
     </Stack>
   );

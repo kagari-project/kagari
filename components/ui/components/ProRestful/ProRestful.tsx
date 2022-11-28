@@ -216,6 +216,8 @@ export const ProRestful = React.forwardRef(function <T = any>(
       <Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>
         {renderSideForm()}
       </Drawer>
+
+      {props.children}
     </Container>
   );
 });

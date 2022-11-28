@@ -59,14 +59,15 @@ export const ProInfiniteList = React.forwardRef(function (
     setPage(0);
     setTotal(0);
     await handleLoadMore();
-  }, [items, page, total]);
+  }, []);
 
   useImperativeHandle(
     ref,
     () => ({
       init,
+      items,
     }),
-    [total, page, items],
+    [items],
   );
 
   useEffect(() => {
