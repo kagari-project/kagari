@@ -44,6 +44,18 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
     return { list: user.roles, total: user.roles.length };
   }
 
+  @Patch(':id/roles')
+  async setRoles(
+    @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
+    @Body('roles') roles: Array<RoleEntity>,
+  ) {
+    await this.userRepo
+      .createQueryBuilder()
+      .relation(UserEntity, 'roles')
+      .of(id)
+      .set(roles);
+  }
+
   @Put(':id/roles')
   async addRoles(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
@@ -82,17 +94,28 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
     };
   }
 
+  @Patch(':id/permissions')
+  async setPermissions(
+    @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
+    @Body('permissions') permissions: Array<PermissionEntity>,
+  ) {
+    await this.userRepo
+      .createQueryBuilder()
+      .relation(UserEntity, 'permissions')
+      .of(id)
+      .set(permissions);
+  }
+
   @Put(':id/permissions')
   async addPermissions(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
     @Body('permissions') permissions: Array<PermissionEntity>,
   ) {
-    const user = await this.userRepo.findOneOrFail({
-      where: { id },
-    });
-
-    user.permissions = permissions;
-    await this.userRepo.manager.save(user);
+    await this.userRepo
+      .createQueryBuilder()
+      .relation(UserEntity, 'permissions')
+      .of(id)
+      .add(permissions);
   }
 
   @Delete(':id/permissions')
@@ -100,11 +123,10 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
     @Body('permissions') permissions: Array<PermissionEntity>,
   ) {
-    const user = await this.userRepo.findOneOrFail({
-      where: { id },
-    });
-
-    user.permissions = permissions;
-    await this.userRepo.manager.save(user);
+    await this.userRepo
+      .createQueryBuilder()
+      .relation(UserEntity, 'permissions')
+      .of(id)
+      .remove(permissions);
   }
 }
