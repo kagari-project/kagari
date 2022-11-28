@@ -2,6 +2,7 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useState,
 } from 'react';
 import Container from '@mui/material/Container';
@@ -19,8 +20,6 @@ import {
 } from '@kagari/ui/components/ProTable/ProTable';
 import TablePagination from '@mui/material/TablePagination';
 import Drawer from '@mui/material/Drawer';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 type ApiTypes = {
   list: (...args) => Promise<{ list: any[]; total: number }>;
@@ -34,7 +33,7 @@ type ListParams = Parameters<ApiTypes['list']>[0];
 type HandleList = (params?: ListParams) => Promise<void>;
 type HandleCreate = (form: unknown) => Promise<void>;
 type HandleEdit = (id: string, form: unknown) => Promise<void>;
-type HandleDelete = (id: string) => Promise<void>;
+type HandleDelete = (row: { id: string; [key: string]: any }) => Promise<void>;
 
 export type SearchForm = React.FC<{ handleList: HandleList }>;
 export type CreateForm = React.FC<{ handleCreate: HandleCreate }>;
@@ -49,7 +48,11 @@ export type ProRestfulProps = PropsWithChildren<
     editForm?: EditForm;
   } & ApiTypes
 >;
-export function ProRestful<T = any>(props: ProRestfulProps) {
+
+export const ProRestful = React.forwardRef(function <T = any>(
+  props: ProRestfulProps,
+  ref,
+) {
   const [rows, setRows] = useState<T[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [page, setPage] = useState<number>(0);
@@ -58,21 +61,21 @@ export function ProRestful<T = any>(props: ProRestfulProps) {
   const columns = React.useMemo(
     () => [
       ...props.columns,
-      {
-        accessorKey: 'actions',
-        cell: (props) => {
-          return (
-            <>
-              <IconButton onClick={onEditButtonClicked(props)}>
-                <EditIcon />
-              </IconButton>
-              <IconButton onClick={onDeleteButtonClicked(props)}>
-                <DeleteIcon />
-              </IconButton>
-            </>
-          );
-        },
-      },
+      // {
+      //   accessorKey: 'actions',
+      //   cell: (props) => {
+      //     return (
+      //       <>
+      //         <IconButton onClick={onEditButtonClicked(props)}>
+      //           <EditIcon />
+      //         </IconButton>
+      //         <IconButton onClick={onDeleteButtonClicked(props)}>
+      //           <DeleteIcon />
+      //         </IconButton>
+      //       </>
+      //     );
+      //   },
+      // },
     ],
     [props.columns],
   );
@@ -92,8 +95,8 @@ export function ProRestful<T = any>(props: ProRestfulProps) {
     setIsDrawerOpen(false);
     await handleList();
   }, []);
-  const handleDelete = useCallback<HandleDelete>(async (id) => {
-    await props.deleteOne(id);
+  const handleDelete = useCallback<HandleDelete>(async (row) => {
+    await props.deleteOne(row);
     await handleList();
   }, []);
   const handleEdit = useCallback<HandleEdit>(async (id, data) => {
@@ -125,19 +128,19 @@ export function ProRestful<T = any>(props: ProRestfulProps) {
   const onCreateButtonClicked = useCallback(() => {
     setIsDrawerOpen(true);
   }, []);
-  const onEditButtonClicked = useCallback((props: any) => {
-    return async () => {
-      setFocusedRow(props.row.original);
-      setIsDrawerOpen(true);
-      await handleList();
-    };
-  }, []);
-  const onDeleteButtonClicked = useCallback((props: any) => {
-    return async () => {
-      await handleDelete(props.row.original.id);
-      await handleList();
-    };
-  }, []);
+  // const onEditButtonClicked = useCallback((props: any) => {
+  //   return async () => {
+  //     setFocusedRow(props.row.original);
+  //     setIsDrawerOpen(true);
+  //     await handleList();
+  //   };
+  // }, []);
+  // const onDeleteButtonClicked = useCallback((props: any) => {
+  //   return async () => {
+  //     await handleDelete(props.row.original.id);
+  //     await handleList();
+  //   };
+  // }, []);
   const onDrawerClose = useCallback(() => {
     setIsDrawerOpen(false);
     setFocusedRow(null);
@@ -156,6 +159,20 @@ export function ProRestful<T = any>(props: ProRestfulProps) {
 
     return <></>;
   }
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      setIsDrawerOpen,
+      setFocusedRow,
+      handleList,
+      handleCreate,
+      handleEdit,
+      handleDelete,
+      focusedRow,
+    }),
+    [focusedRow],
+  );
 
   useEffect(() => {
     handleList();
@@ -201,4 +218,4 @@ export function ProRestful<T = any>(props: ProRestfulProps) {
       </Drawer>
     </Container>
   );
-}
+});

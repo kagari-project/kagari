@@ -5,7 +5,9 @@ function buildIdUrl(basePath: string, id: string) {
   return basePath + '/' + id;
 }
 
-export default function resourceGenerator<Schema>(basePath: string) {
+export default function resourceGenerator<Schema extends { id: string }>(
+  basePath: string,
+) {
   return {
     list(params?: ParamsWithPagination<Record<string, any>>) {
       return $http<{ list: Schema[]; total: number }>({
@@ -34,10 +36,10 @@ export default function resourceGenerator<Schema>(basePath: string) {
         data,
       }).then((res) => res.data);
     },
-    deleteOne(id: string) {
+    deleteOne(instance: Schema) {
       return $http<Schema>({
         method: 'delete',
-        url: buildIdUrl(basePath, id),
+        url: buildIdUrl(basePath, instance.id),
       }).then((res) => res.data);
     },
   };

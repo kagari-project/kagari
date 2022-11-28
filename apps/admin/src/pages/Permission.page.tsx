@@ -15,6 +15,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { createColumnHelper } from '@kagari/ui/components/ProTable';
 import { Permission } from '../typings';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const FilterForm: SearchForm = function (props) {
   const onSubmit = (formData: any) => {
@@ -107,6 +109,7 @@ export const EditionForm: EditForm = function (props) {
 const columnsHelper = createColumnHelper<Permission>();
 
 export default function PermissionPage() {
+  const ref = React.useRef<any>(null);
   const columns = React.useMemo(
     () => [
       columnsHelper.accessor('id', {
@@ -128,12 +131,35 @@ export default function PermissionPage() {
       columnsHelper.accessor('deletedAt', {
         cell: (info) => info.getValue(),
       }),
+      {
+        accessorKey: 'actions',
+        cell: (info) => (
+          <>
+            <IconButton
+              onClick={() => {
+                ref.current.setFocusedRow(info.row.original);
+                ref.current.setIsDrawerOpen(true);
+              }}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton
+              onClick={() => {
+                ref.current.handleDelete(info.row.original);
+              }}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </>
+        ),
+      },
     ],
     [],
   );
 
   return (
     <ProRestful
+      ref={ref}
       columns={columns}
       searchForm={FilterForm}
       createForm={CreationForm}
