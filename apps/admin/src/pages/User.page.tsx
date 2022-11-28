@@ -17,6 +17,7 @@ import { createColumnHelper } from '@kagari/ui/components/ProTable';
 import { User } from '../typings';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import MediationIcon from '@mui/icons-material/Mediation';
 
 export const FilterForm: SearchForm = function (props) {
   const onSubmit = (formData: any) => {
@@ -135,6 +136,9 @@ export default function UserPage() {
         accessorKey: 'actions',
         cell: (info) => (
           <>
+            <IconButton onClick={() => {}}>
+              <MediationIcon />
+            </IconButton>
             <IconButton
               onClick={() => {
                 ref.current.setFocusedRow(info.row.original);
