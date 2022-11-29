@@ -1,23 +1,40 @@
 import resourceGenerator from '../resource';
-import { Permission, Role } from '../../typings';
+import {
+  ParamsWithPagination,
+  Permission,
+  PlainObject,
+  Role,
+} from '../../typings';
 import $http from '../request';
 
 export const role = resourceGenerator<Role>('api/roles');
 
-export function getRolePermissions(roleId: string) {
-  return $http({
+export function getRolePermissions(
+  roleId: string,
+  params: ParamsWithPagination<PlainObject>,
+) {
+  return $http<{ list: Permission[]; total: number }>({
     method: 'get',
     url: `api/roles/${roleId}/permissions`,
+    params,
+  }).then((res) => res.data);
+}
+
+export function addRolePermissions(roleId: string, permissions: Permission[]) {
+  return $http({
+    method: 'put',
+    url: `api/roles/${roleId}/permissions`,
+    data: { permissions },
   });
 }
 
-export function updateRolePermissions(
+export function removeRolePermissions(
   roleId: string,
   permissions: Permission[],
 ) {
   return $http({
-    method: 'patch',
+    method: 'delete',
     url: `api/roles/${roleId}/permissions`,
-    data: permissions,
+    data: { permissions },
   });
 }
