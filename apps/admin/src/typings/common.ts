@@ -3,6 +3,8 @@ export type Pagination = {
   $pageSize?: number;
 };
 
+export type PlainObject = Record<string, any>;
+
 export type ParamsWithPagination<T = unknown> = T & Partial<Pagination>;
 
 export type DTO<T> = {

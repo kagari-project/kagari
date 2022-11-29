@@ -4,7 +4,7 @@ import Authenticated from './layouts/Authenticated';
 import ErrorPage from './pages/Error.page';
 import Auth from './layouts/Auth';
 import LoginPage from './pages/Login.page';
-import UserPage from './pages/User.page';
+import UserPage from './pages/User/User.page';
 import RolePage from './pages/Role.page';
 import PermissionPage from './pages/Permission.page';
 

@@ -132,6 +132,7 @@ export function ProTransferList(props: ProTransferListProps) {
   return (
     <Grid container spacing={2}>
       <Grid xs={5} component={Card}>
+        <CardHeader title={left.title} />
         <ProInfiniteList
           ref={$left}
           loadMore={left.loadMore}
@@ -146,6 +147,7 @@ export function ProTransferList(props: ProTransferListProps) {
         />
       </Grid>
       <Grid xs={5} component={Card}>
+        <CardHeader title={right.title} />
         <ProInfiniteList
           ref={$right}
           loadMore={right.loadMore}
