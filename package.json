@@ -2,34 +2,51 @@
   "name": "kagari",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "scripts": {
     "postinstall": "husky install",
-    "lint": "eslint --fix 'apps/**/src/**.ts' 'packages/**/src/**.ts'",
-    "prettier": "prettier --write 'apps/**/src/**' 'packages/**/src/**'",
+    "lint": "eslint '{apps,packages,components}/**/src/**.{ts,tsx}'",
+    "prettier": "prettier --write '{apps,packages,components}/**/src/**'",
     "changelog": "lerna version --conventional-commits",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "workspaces": {
     "packages": [
       "packages/**",
-      "apps/**"
+      "apps/**",
+      "components/ui"
     ]
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.20.2",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-docs": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
+    "babel-loader": "^8.3.0",
     "eslint": "8.22.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-html": "^7.1.0",
     "husky": "^8.0.1",
     "jest": "29.0.3",
     "lerna": "^4.0.0",
     "prettier": "^2.7.1",
+    "storybook": "^6.5.13",
     "typescript": "~4.7.4"
   }
 }

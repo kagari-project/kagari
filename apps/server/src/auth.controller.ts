@@ -5,6 +5,7 @@ import {
   LocalAuthGuard,
 } from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
+import { getAuthenticatedGuard } from './core/guards/authenticated.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -47,7 +48,7 @@ export class AuthController {
     return new Promise((resolve) => request.logOut(resolve));
   }
 
-  @UseGuards(AuthenticatedGuard)
+  @UseGuards(getAuthenticatedGuard('jwt'))
   @Get('profile')
   profile(@Request() request) {
     return request.user;
