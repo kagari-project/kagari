@@ -2,7 +2,7 @@
   "name": "@kagari/ui",
   "version": "0.1.1",
   "module": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
