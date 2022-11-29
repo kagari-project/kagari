@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreateForm, EditForm, ProRestful } from './ProRestful';
-import { createColumnHelper } from '../ProTable/index';
+import { createColumnHelper } from '../ProTable';
 import { FormItem, ProForm } from '../ProForm';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';

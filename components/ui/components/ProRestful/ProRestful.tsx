@@ -14,10 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 
-import {
-  ProTable,
-  ProTableProps,
-} from '@kagari/ui/components/ProTable/ProTable';
+import { ProTable, ProTableProps } from '../ProTable';
 import TablePagination from '@mui/material/TablePagination';
 import Drawer from '@mui/material/Drawer';
 
@@ -58,27 +55,7 @@ export const ProRestful = React.forwardRef(function <T = any>(
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-  const columns = React.useMemo(
-    () => [
-      ...props.columns,
-      // {
-      //   accessorKey: 'actions',
-      //   cell: (props) => {
-      //     return (
-      //       <>
-      //         <IconButton onClick={onEditButtonClicked(props)}>
-      //           <EditIcon />
-      //         </IconButton>
-      //         <IconButton onClick={onDeleteButtonClicked(props)}>
-      //           <DeleteIcon />
-      //         </IconButton>
-      //       </>
-      //     );
-      //   },
-      // },
-    ],
-    [props.columns],
-  );
+  const columns = React.useMemo(() => [...props.columns], [props.columns]);
   const [focusedRow, setFocusedRow] = useState<T | null>(null);
 
   const handleList = useCallback<HandleList>(async (params) => {

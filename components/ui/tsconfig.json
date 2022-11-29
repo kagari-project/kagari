@@ -1,4 +1,8 @@
 {
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+  ],
   "compilerOptions": {
     "esModuleInterop": true,
     "module": "commonjs",
