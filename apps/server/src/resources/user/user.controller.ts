@@ -16,8 +16,11 @@ import { RoleEntity } from '../../core/entities/Role.entity';
 import { PermissionEntity } from '../../core/entities/Permission.entity';
 import { RoleBasedAccessControlGuard } from '@kagari/rbac';
 import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
-import { ParsedQueryString, QueryProtocol } from '@kagari/restful';
 import { ApiOperation } from '@nestjs/swagger';
+import {
+  M2M_USERS__PERMISSIONS,
+  M2M_USERS__ROLES,
+} from '../../core/entities/junctions';
 
 @UseGuards(getAuthenticatedGuard('jwt'), RoleBasedAccessControlGuard)
 export class UserController extends CreateBaseControllerHelper<UserEntity>(
@@ -41,8 +44,6 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
   @Get(':id/roles')
   async findAllRoles(
     @Param('id', new JoiValidationPipe(UuidSchema)) id: string,
-    @QueryProtocol()
-    query: ParsedQueryString,
   ) {
     const user = await this.userRepo.findOneOrFail({
       where: { id },
@@ -76,9 +77,19 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
   ) {
     await this.userRepo
       .createQueryBuilder()
-      .relation(UserEntity, 'roles')
-      .of(id)
-      .add(roles);
+      .insert()
+      .into(M2M_USERS__ROLES.name)
+      .values(
+        roles.map((role) => ({
+          [M2M_USERS__ROLES.joinColumn.name]: id,
+          [M2M_USERS__ROLES.inverseJoinColumn.name]: role.id,
+        })),
+      )
+      .orUpdate([
+        M2M_USERS__ROLES.joinColumn.name,
+        M2M_USERS__ROLES.inverseJoinColumn.name,
+      ])
+      .execute();
   }
 
   @ApiOperation({
@@ -141,6 +152,22 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
       .relation(UserEntity, 'permissions')
       .of(id)
       .add(permissions);
+
+    await this.userRepo
+      .createQueryBuilder()
+      .insert()
+      .into(M2M_USERS__PERMISSIONS.name)
+      .values(
+        permissions.map((permission) => ({
+          [M2M_USERS__PERMISSIONS.joinColumn.name]: id,
+          [M2M_USERS__PERMISSIONS.inverseJoinColumn.name]: permission.id,
+        })),
+      )
+      .orUpdate([
+        M2M_USERS__PERMISSIONS.joinColumn.name,
+        M2M_USERS__PERMISSIONS.inverseJoinColumn.name,
+      ])
+      .execute();
   }
 
   @ApiOperation({

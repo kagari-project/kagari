@@ -10,6 +10,7 @@ import {
 } from '@kagari/database';
 import { UserEntity } from './User.entity';
 import { PermissionEntity } from './Permission.entity';
+import { M2M_ROLES__PERMISSIONS } from './junctions';
 
 @Entity()
 export class RoleEntity {
@@ -37,6 +38,6 @@ export class RoleEntity {
 
   // roles have many permissions
   @ManyToMany(() => PermissionEntity, (permission) => permission.roles)
-  @JoinTable()
+  @JoinTable(M2M_ROLES__PERMISSIONS)
   permissions: PermissionEntity[];
 }
