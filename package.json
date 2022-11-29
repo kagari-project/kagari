@@ -7,7 +7,8 @@
     "postinstall": "husky install",
     "lint": "eslint '{apps,packages,components}/**/src/**.{ts,tsx}'",
     "prettier": "prettier --write '{apps,packages,components}/**/src/**'",
-    "changelog": "lerna version --conventional-commits --amend",
+    "changelog": "lerna version --conventional-commits --amend -y",
+    "prepublish": "yarn changelog",
     "publish": "lerna publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
