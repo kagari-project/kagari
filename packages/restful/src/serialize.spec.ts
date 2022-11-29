@@ -37,7 +37,7 @@ it('should parse if param is null', function () {
 });
 
 it('should parse if empty query string', function () {
-  expect(serialize('')).toStrictEqual({ $where: [] });
+  expect(serialize('')).toStrictEqual({});
 });
 
 it('should parse if empty fields filter', function () {
