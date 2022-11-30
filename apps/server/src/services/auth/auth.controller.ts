@@ -1,7 +1,7 @@
 import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthService, LocalAuthGuard } from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
-import { getAuthenticatedGuard } from './core/guards/authenticated.guard';
+import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 
 @Controller('auth')
 export class AuthController {

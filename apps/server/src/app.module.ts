@@ -1,5 +1,4 @@
 import { Module, RequestMethod } from '@nestjs/common';
-import { AuthController } from './auth.controller';
 import {
   DatabaseModule,
   DataSource,
@@ -25,6 +24,7 @@ import {
 import { CoreModule } from './core/core.module';
 import { RoleBasedAccessControlModule } from '@kagari/rbac';
 import { SessionEntity } from './core/entities/Session.entity';
+import { AuthModule } from './services/auth/auth.module';
 
 @Module({
   imports: [
@@ -94,7 +94,7 @@ import { SessionEntity } from './core/entities/Session.entity';
       }),
     }),
     ApiModule,
+    AuthModule,
   ],
-  controllers: [AuthController],
 })
 export class AppModule {}
