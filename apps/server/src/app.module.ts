@@ -7,7 +7,7 @@ import {
 } from '@kagari/database';
 import { UserEntity } from './core/entities/User.entity';
 import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
-import { ConfigModule, ConfigService, registerAs } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ApiModule } from './domains/api/api.module';
 
 import { TypeormStore } from 'typeorm-store';
@@ -26,6 +26,7 @@ import { RoleBasedAccessControlModule } from '@kagari/rbac';
 import { SessionEntity } from './core/entities/Session.entity';
 import { AuthModule } from './services/auth/auth.module';
 import { MediaModule } from './services/media/MediaModule';
+import { MediaEntity } from './services/media/Media.entity';
 
 @Module({
   imports: [
@@ -39,7 +40,13 @@ import { MediaModule } from './services/media/MediaModule';
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         type: cs.get('DATABASE.TYPE'),
-        entities: [UserEntity, RoleEntity, PermissionEntity, SessionEntity],
+        entities: [
+          UserEntity,
+          RoleEntity,
+          PermissionEntity,
+          SessionEntity,
+          MediaEntity,
+        ],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
         logger: new NestLogger({ context: 'database' }),

@@ -3,6 +3,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { UploadController } from './Upload.controller';
 import { MediaModuleOptions } from './types';
 import { MEDIA_MODULE_OPTIONS } from './token';
+import { DatabaseModule } from '@kagari/database';
+import { MediaEntity } from './Media.entity';
 
 @Module({})
 export class MediaModule {
@@ -14,6 +16,7 @@ export class MediaModule {
           rootPath: options.rootPath,
           serveRoot: options.serveRoot,
         }),
+        DatabaseModule.forFeature([MediaEntity]),
       ],
       providers: [
         {
