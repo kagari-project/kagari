@@ -1,5 +1,5 @@
 import { ParsedQueryString } from '@kagari/restful';
-import { extractOperators } from '@kagari/restful/dist/extract-operators';
+import { extractOperators } from '@kagari/restful';
 import { FindManyOptions } from '@kagari/database';
 
 export function transformProtocolHelper(
