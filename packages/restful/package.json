@@ -1,6 +1,6 @@
 {
   "name": "@kagari/restful",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "module": "",
   "main": "dist/index.js",
   "publishConfig": {

@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "0.0.1",
+  "version": "0.1.12",
   "description": "",
   "author": "",
   "private": true,
@@ -21,10 +21,10 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@kagari/auth": "*",
-    "@kagari/database": "*",
-    "@kagari/rbac": "*",
-    "@kagari/restful": "*",
+    "@kagari/auth": "^0.1.12",
+    "@kagari/database": "^0.1.12",
+    "@kagari/rbac": "^0.1.12",
+    "@kagari/restful": "^0.1.12",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
