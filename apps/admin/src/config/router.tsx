@@ -1,12 +1,15 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Authenticated from '../layouts/Authenticated';
-import ErrorPage from '../pages/Error.page';
-import Auth from '../layouts/Auth';
-import LoginPage from '../pages/Login.page';
-import UserPage from '../pages/User/User.page';
-import RolePage from '../pages/Role/Role.page';
-import PermissionPage from '../pages/Permission/Permission.page';
+
+const Auth = React.lazy(() => import('../layouts/Auth'));
+const Authenticated = React.lazy(() => import('../layouts/Authenticated'));
+const UserPage = React.lazy(() => import('../pages/User/User.page'));
+const RolePage = React.lazy(() => import('../pages/Role/Role.page'));
+// prettier-ignore
+const PermissionPage = React.lazy(() => import('../pages/Permission/Permission.page'));
+const LoginPage = React.lazy(() => import('../pages/Login.page'));
+const ErrorPage = React.lazy(() => import('../pages/Error.page'));
+const GalleryPage = React.lazy(() => import('../pages/Gallery/Gallery.page'));
 
 export default createBrowserRouter([
   {
@@ -42,6 +45,15 @@ export default createBrowserRouter([
           {
             path: '',
             element: <PermissionPage />,
+          },
+        ],
+      },
+      {
+        path: 'Gallery',
+        children: [
+          {
+            path: '',
+            element: <GalleryPage />,
           },
         ],
       },

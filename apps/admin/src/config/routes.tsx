@@ -17,6 +17,10 @@ const routes: MenuConfig = [
     text: 'Permission',
     to: '/Permissions',
   },
+  {
+    text: 'Gallery',
+    to: '/Gallery',
+  },
 ];
 
 export default routes;
