@@ -1,0 +1,1 @@
+export const MEDIA_MODULE_OPTIONS = Symbol('MEDIA_MODULE_OPTIONS');

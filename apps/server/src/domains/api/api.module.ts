@@ -5,6 +5,8 @@ import { RouterModule } from '@nestjs/core';
 import { RoleModule } from '../../resources/role/role.module';
 import { PermissionModule } from '../../resources/permission/permission.module';
 import { MediaModule } from '../../services/media/MediaModule';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { join } from 'node:path';
 
 @Module({
   imports: [
@@ -17,7 +19,11 @@ import { MediaModule } from '../../services/media/MediaModule';
     UserModule,
     RoleModule,
     PermissionModule,
-    MediaModule,
+    MediaModule.forRoot({
+      rootPath: join(__dirname, '../../../public'),
+      serveRoot: '/media/',
+      tempDir: 'temp',
+    }),
   ],
   controllers: [DemoController],
 })

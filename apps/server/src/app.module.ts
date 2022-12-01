@@ -7,7 +7,7 @@ import {
 } from '@kagari/database';
 import { UserEntity } from './core/entities/User.entity';
 import { JwtAuthModule, LocalAuthModule } from '@kagari/auth';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService, registerAs } from '@nestjs/config';
 import { ApiModule } from './domains/api/api.module';
 
 import { TypeormStore } from 'typeorm-store';
