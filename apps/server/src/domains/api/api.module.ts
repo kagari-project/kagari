@@ -4,8 +4,7 @@ import { DemoController } from './demo.controller';
 import { RouterModule } from '@nestjs/core';
 import { RoleModule } from '../../resources/role/role.module';
 import { PermissionModule } from '../../resources/permission/permission.module';
-import { MediaModule } from '../../services/media/MediaModule';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MediaModule } from '../../services/media/media.module';
 import { join } from 'node:path';
 
 @Module({

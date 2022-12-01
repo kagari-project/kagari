@@ -10,6 +10,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @ApiOperation({
+    tags: ['auth'],
     requestBody: {
       content: {
         'application/json': {
@@ -40,12 +41,18 @@ export class AuthController {
   }
 
   @Post('logout')
+  @ApiOperation({
+    tags: ['auth'],
+  })
   logout(@Request() request) {
     return new Promise((resolve) => request.logOut(resolve));
   }
 
   @UseGuards(getAuthenticatedGuard('jwt'))
   @Get('profile')
+  @ApiOperation({
+    tags: ['auth'],
+  })
   profile(@Request() request) {
     return request.user;
   }

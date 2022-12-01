@@ -16,6 +16,7 @@ import { MEDIA_MODULE_OPTIONS } from './token';
 import { MediaModuleOptions } from './types';
 import { InjectRepository, Repository } from '@kagari/database';
 import { MediaEntity } from './Media.entity';
+import { ApiOperation } from '@nestjs/swagger';
 
 @Controller('upload')
 export class UploadController {
@@ -40,6 +41,9 @@ export class UploadController {
     return join(...dirs);
   }
 
+  @ApiOperation({
+    tags: ['upload'],
+  })
   @Put()
   @UseInterceptors(FileInterceptor('file'))
   async upload(@UploadedFile() file: Express.Multer.File) {
@@ -62,6 +66,9 @@ export class UploadController {
     };
   }
 
+  @ApiOperation({
+    tags: ['upload'],
+  })
   @Post('complete')
   async complete(
     @Body() data: { Key: string; mime: string; ext: string; storage: string },

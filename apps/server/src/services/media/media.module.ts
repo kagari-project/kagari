@@ -5,6 +5,7 @@ import { MediaModuleOptions } from './types';
 import { MEDIA_MODULE_OPTIONS } from './token';
 import { DatabaseModule } from '@kagari/database';
 import { MediaEntity } from './Media.entity';
+import { MediaController } from './media.controller';
 
 @Module({})
 export class MediaModule {
@@ -25,7 +26,7 @@ export class MediaModule {
         },
         ...this.createProviders(),
       ],
-      controllers: [UploadController],
+      controllers: [UploadController, MediaController],
     };
   }
 

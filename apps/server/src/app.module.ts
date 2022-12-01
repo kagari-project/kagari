@@ -25,7 +25,7 @@ import { CoreModule } from './core/core.module';
 import { RoleBasedAccessControlModule } from '@kagari/rbac';
 import { SessionEntity } from './core/entities/Session.entity';
 import { AuthModule } from './services/auth/auth.module';
-import { MediaModule } from './services/media/MediaModule';
+import { MediaModule } from './services/media/media.module';
 import { MediaEntity } from './services/media/Media.entity';
 
 @Module({
