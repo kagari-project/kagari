@@ -4,8 +4,8 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    types: [master]
 
 jobs:
   build:
@@ -15,8 +15,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: yarn workspaces foreach run build 
-      - run: yarn workspaces foreach run test 
+      - run: yarn build:all
 
   publish-npm:
     needs: build
