@@ -1,12 +1,12 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Authenticated from './layouts/Authenticated';
-import ErrorPage from './pages/Error.page';
-import Auth from './layouts/Auth';
-import LoginPage from './pages/Login.page';
-import UserPage from './pages/User/User.page';
-import RolePage from './pages/Role/Role.page';
-import PermissionPage from './pages/Permission/Permission.page';
+import Authenticated from '../layouts/Authenticated';
+import ErrorPage from '../pages/Error.page';
+import Auth from '../layouts/Auth';
+import LoginPage from '../pages/Login.page';
+import UserPage from '../pages/User/User.page';
+import RolePage from '../pages/Role/Role.page';
+import PermissionPage from '../pages/Permission/Permission.page';
 
 export default createBrowserRouter([
   {

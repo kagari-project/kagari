@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import { useAuthStore } from '../store/auth.store';
 import { useSettingStore } from '../store/setting.store';
-import router from '../router';
+import router from '../config/router';
 import appConfig from '../config';
 
 export default function Navbar() {

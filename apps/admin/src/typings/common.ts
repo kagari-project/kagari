@@ -28,3 +28,9 @@ export type Permission = DTO<{
   name: string;
   token: string;
 }>;
+
+export type Media = DTO<{
+  key: string;
+  storage: string;
+  mime: string;
+}>;

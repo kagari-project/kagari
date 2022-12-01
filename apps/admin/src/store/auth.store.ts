@@ -2,7 +2,7 @@ import createReactStore from 'zustand';
 import vanilla from 'zustand/vanilla';
 import { persist, devtools } from 'zustand/middleware';
 import { getProfile } from '../api';
-import router from '../router';
+import router from '../config/router';
 import { User } from '../typings';
 import appConfig from '../config';
 

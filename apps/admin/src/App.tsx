@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
-import router from './router';
+import router from './config/router';
 import { SnackbarProvider } from '@kagari/ui/utils/ProSnackbar';
 
 function App() {

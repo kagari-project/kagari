@@ -13,7 +13,7 @@ import * as yup from 'yup';
 import { login } from '../api';
 import { useAuthStore } from '../store/auth.store';
 import { useRoutes } from 'react-router';
-import router from '../router';
+import router from '../config/router';
 
 const loginFormSchema = yup.object().shape({
   username: yup.string().required(),
