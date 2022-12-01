@@ -25,6 +25,8 @@ import { CoreModule } from './core/core.module';
 import { RoleBasedAccessControlModule } from '@kagari/rbac';
 import { SessionEntity } from './core/entities/Session.entity';
 import { AuthModule } from './services/auth/auth.module';
+import { MediaModule } from './services/media/media.module';
+import { MediaEntity } from './services/media/Media.entity';
 
 @Module({
   imports: [
@@ -38,7 +40,13 @@ import { AuthModule } from './services/auth/auth.module';
       inject: [ConfigService],
       useFactory: (cs: ConfigService) => ({
         type: cs.get('DATABASE.TYPE'),
-        entities: [UserEntity, RoleEntity, PermissionEntity, SessionEntity],
+        entities: [
+          UserEntity,
+          RoleEntity,
+          PermissionEntity,
+          SessionEntity,
+          MediaEntity,
+        ],
         migrations: [],
         logging: cs.get<string | boolean>('DATABASE.LOGGING'),
         logger: new NestLogger({ context: 'database' }),
@@ -95,6 +103,7 @@ import { AuthModule } from './services/auth/auth.module';
     }),
     ApiModule,
     AuthModule,
+    MediaModule,
   ],
 })
 export class AppModule {}

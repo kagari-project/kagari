@@ -7,6 +7,23 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./browser": {
+      "import": "./dist/browser.js",
+      "require": "./dist/browser.js",
+      "types": "./browser.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "browser": ["dist/browser"]
+    }
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc -p tsconfig.build.json",
