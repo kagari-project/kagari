@@ -1,6 +1,6 @@
 {
   "name": "@kagari/restful",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "module": "",
   "main": "dist/index.js",
   "publishConfig": {
@@ -21,7 +21,9 @@
   },
   "typesVersions": {
     "*": {
-      "browser": ["dist/browser"]
+      "browser": [
+        "dist/browser"
+      ]
     }
   },
   "scripts": {
