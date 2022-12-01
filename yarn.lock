@@ -6802,7 +6802,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*":
+"@types/jest@npm:*, @types/jest@npm:^29.0.0":
   version: 29.2.3
   resolution: "@types/jest@npm:29.2.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjest%2F-%2Fjest-29.2.3.tgz"
   dependencies:
@@ -6819,16 +6819,6 @@ __metadata:
     expect: ^29.0.0
     pretty-format: ^29.0.0
   checksum: 14a8ec1954540ec59f4072c3c4dbc6b5d5ff616556c98671aca26606bdf9d49616a3f269f3e488c80cd481ee19880351575c1f6895827628818e193600c121e0
-  languageName: node
-  linkType: hard
-
-"@types/jest@npm:^27.5.2":
-  version: 27.5.2
-  resolution: "@types/jest@npm:27.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjest%2F-%2Fjest-27.5.2.tgz"
-  dependencies:
-    jest-matcher-utils: ^27.0.0
-    pretty-format: ^27.0.0
-  checksum: 7e11c6826aa429ad990dc262e4e4b54aa36573287fddf15773e4137f07d11d3105f0dd9f1baff73252160a057df23f5529bb83b1bf83cd3f45f9460a5ca5c22e
   languageName: node
   linkType: hard
 
@@ -7945,7 +7935,7 @@ __metadata:
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^13.5.0
-    "@types/jest": ^27.5.2
+    "@types/jest": ^29.0.0
     "@types/node": ^16.18.3
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
@@ -16427,7 +16417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^27.0.0, jest-matcher-utils@npm:^27.5.1":
+"jest-matcher-utils@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-matcher-utils@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjest-matcher-utils%2F-%2Fjest-matcher-utils-27.5.1.tgz"
   dependencies:
@@ -21575,7 +21565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.0, pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpretty-format%2F-%2Fpretty-format-27.5.1.tgz"
   dependencies:
