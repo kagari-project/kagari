@@ -49,6 +49,11 @@ export function ProForm(props: ProFormProps) {
   );
 }
 
+/**
+ * @deprecated use ProFormItem instead
+ * @param props
+ * @constructor
+ */
 export function FormItem(
   props: PropsWithChildren<{
     prop: string;
@@ -67,3 +72,5 @@ export function FormItem(
     <>{props.render({ name: props.prop, field: registered, formState })}</>
   );
 }
+
+export const ProFormItem = FormItem;

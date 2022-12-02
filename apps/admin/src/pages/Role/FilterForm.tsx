@@ -1,5 +1,5 @@
 import { SearchForm } from '@kagari/ui/components/ProRestful';
-import { FormItem, ProForm } from '@kagari/ui';
+import { ProFormItem, ProForm } from '@kagari/ui';
 import Input from '@mui/material/Input';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,7 +11,7 @@ export const FilterForm: SearchForm = function (props) {
   };
   return (
     <ProForm inline onSubmit={onSubmit}>
-      <FormItem
+      <ProFormItem
         prop={'search'}
         render={({ field, name }) => {
           return <Input {...field} placeholder={name} />;

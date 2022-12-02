@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Stack from '@mui/material/Stack';
-import { ProForm, FormItem } from '@kagari/ui/components/ProForm';
+import { ProForm, ProFormItem } from '@kagari/ui/components/ProForm';
 import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,7 +12,6 @@ import Paper from '@mui/material/Paper';
 import * as yup from 'yup';
 import { login } from '../api';
 import { useAuthStore } from '../store/auth.store';
-import { useRoutes } from 'react-router';
 import router from '../config/router';
 
 const loginFormSchema = yup.object().shape({
@@ -42,7 +41,7 @@ export default function LoginPage() {
           sx={{ padding: 1 }}
           schema={loginFormSchema}
         >
-          <FormItem
+          <ProFormItem
             prop={'username'}
             render={({ name, field, formState }) => {
               return (
@@ -59,7 +58,7 @@ export default function LoginPage() {
             }}
           />
 
-          <FormItem
+          <ProFormItem
             prop={'password'}
             render={({ name, field, formState }) => {
               return (
@@ -74,7 +73,7 @@ export default function LoginPage() {
             }}
           />
 
-          <FormItem
+          <ProFormItem
             prop={'rememberMe'}
             render={({ name, field, formState }) => {
               return (

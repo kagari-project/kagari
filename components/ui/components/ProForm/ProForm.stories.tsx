@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormItem, ProForm } from './ProForm';
+import { ProFormItem, ProForm } from './ProForm';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import InputLabel from '@mui/material/InputLabel';
@@ -33,7 +33,7 @@ const Template = (args) => {
 
   return (
     <ProForm schema={schema} {...args} onSubmit={onSubmit}>
-      <FormItem
+      <ProFormItem
         prop={'username'}
         render={({ name, field, formState }) => {
           return (
@@ -50,7 +50,7 @@ const Template = (args) => {
         }}
       />
 
-      <FormItem
+      <ProFormItem
         prop={'password'}
         render={({ name, field, formState }) => {
           return (

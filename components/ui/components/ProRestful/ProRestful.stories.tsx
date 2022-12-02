@@ -1,7 +1,7 @@
 import React from 'react';
 import { CreateForm, EditForm, ProRestful } from './ProRestful';
 import { createColumnHelper } from '../ProTable';
-import { FormItem, ProForm } from '../ProForm';
+import { ProFormItem, ProForm } from '../ProForm';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
@@ -44,7 +44,7 @@ const api = {
 const CreationForm: CreateForm = function (props) {
   return (
     <ProForm onSubmit={props.handleCreate} sx={{ padding: 1 }}>
-      <FormItem
+      <ProFormItem
         prop="username"
         render={({ name, field }) => (
           <>
@@ -54,7 +54,7 @@ const CreationForm: CreateForm = function (props) {
         )}
       />
 
-      <FormItem
+      <ProFormItem
         prop="password"
         render={({ name, field }) => (
           <>
@@ -81,7 +81,7 @@ const EditionForm: EditForm = function (props) {
       sx={{ padding: 1 }}
       defaultValues={props.data as any}
     >
-      <FormItem
+      <ProFormItem
         prop="username"
         render={({ name, field }) => (
           <>
@@ -91,7 +91,7 @@ const EditionForm: EditForm = function (props) {
         )}
       />
 
-      <FormItem
+      <ProFormItem
         prop="password"
         render={({ name, field }) => (
           <>

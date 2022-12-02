@@ -1,5 +1,5 @@
 import { CreateForm } from '@kagari/ui/components/ProRestful';
-import { FormItem, ProForm } from '@kagari/ui';
+import { ProFormItem, ProForm } from '@kagari/ui';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
@@ -9,7 +9,7 @@ import React from 'react';
 export const CreationForm: CreateForm = function (props) {
   return (
     <ProForm onSubmit={props.handleCreate} sx={{ padding: 1 }}>
-      <FormItem
+      <ProFormItem
         prop="username"
         render={({ name, field }) => (
           <>
@@ -19,7 +19,7 @@ export const CreationForm: CreateForm = function (props) {
         )}
       />
 
-      <FormItem
+      <ProFormItem
         prop="password"
         render={({ name, field }) => (
           <>

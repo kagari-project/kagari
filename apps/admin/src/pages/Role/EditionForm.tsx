@@ -1,5 +1,5 @@
 import { EditForm } from '@kagari/ui/components/ProRestful';
-import { FormItem, ProForm } from '@kagari/ui';
+import { ProFormItem, ProForm } from '@kagari/ui';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
@@ -14,7 +14,7 @@ export const EditionForm: EditForm = function (props) {
       sx={{ padding: 1 }}
       defaultValues={props.data as any}
     >
-      <FormItem
+      <ProFormItem
         prop="name"
         render={({ name, field }) => (
           <>
@@ -24,7 +24,7 @@ export const EditionForm: EditForm = function (props) {
         )}
       />
 
-      <FormItem
+      <ProFormItem
         prop="token"
         render={({ name, field }) => (
           <>
