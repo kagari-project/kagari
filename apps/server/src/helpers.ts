@@ -78,7 +78,7 @@ export const canActivate: CanActivateFunction = function (
   const token = `${klass.name}:${handler.name}`;
   const granted = user.permissions.find((item) => item.token === token);
 
-  return true;
+  // return true;
   if (granted) {
     return true;
   }
