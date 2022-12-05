@@ -28,7 +28,7 @@ type ApiTypes = {
 type ListParams = Parameters<ApiTypes['list']>[0];
 
 type HandleList = (params?: ListParams) => Promise<void>;
-type HandleCreate = (form: unknown) => Promise<void>;
+type HandleCreate = (form: unknown, original?: unknown) => Promise<void>;
 type HandleEdit = (id: string, form: unknown) => Promise<void>;
 type HandleDelete = (row: { id: string; [key: string]: any }) => Promise<void>;
 

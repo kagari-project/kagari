@@ -144,6 +144,7 @@ export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
       const merged = [...files, ...newFiles];
       setFiles(merged);
       setValue(name, merged);
+      inputRef.current.value = null;
       onChange(e);
 
       if (upload) {
