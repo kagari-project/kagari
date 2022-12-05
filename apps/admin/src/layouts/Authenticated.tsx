@@ -19,7 +19,7 @@ export default function Authenticated() {
   return (
     <Stack sx={{ flexGrow: 1, height: '100%' }}>
       <Navbar />
-      <Stack direction={'row'} sx={{ height: '100%' }}>
+      <Stack direction={'row'} sx={{ height: 'calc(100% - 64px)' }}>
         <ProMenuBar menu={routes} opened={menuOpened} sx={{ boxShadow: 3 }} />
         <Box component="main" flexGrow="1" sx={{ overflow: 'scroll' }}>
           <Outlet></Outlet>
