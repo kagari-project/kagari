@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { authStore } from '../store/auth.store';
 import set from 'lodash/set';
 import appConfig from '../config';
@@ -49,4 +49,6 @@ $http.interceptors.response.use(
   },
 );
 
-export default $http;
+export default <T>(config: AxiosRequestConfig) => {
+  return $http(config) as Promise<AxiosResponse<T>>;
+};

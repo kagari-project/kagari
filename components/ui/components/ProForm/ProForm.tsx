@@ -12,7 +12,7 @@ import * as yup from 'yup';
 import { SxProps } from '@mui/system/styleFunctionSx';
 import { styled } from '@mui/system';
 
-type ProFormProps = PropsWithChildren<{
+export type ProFormProps = PropsWithChildren<{
   inline?: boolean;
   onSubmit?: (data: unknown) => void;
   defaultValues?: Record<string, unknown>;

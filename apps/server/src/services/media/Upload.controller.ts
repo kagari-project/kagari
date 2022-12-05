@@ -54,12 +54,12 @@ export class UploadController {
       this.options.tempDir,
       randomName,
     );
-    const Key = join(this.options.tempDir, randomName);
-    const url = join(this.options.serveRoot, Key);
+    const key = join(this.options.tempDir, randomName);
+    const url = join(this.options.serveRoot, key);
     await writeFile(savePath, file.buffer);
     return {
       url,
-      Key,
+      key,
       mime,
       ext,
       storage: 'local',
@@ -71,7 +71,7 @@ export class UploadController {
   })
   @Post('complete')
   async complete(
-    @Body() data: { Key: string; mime: string; ext: string; storage: string },
+    @Body() data: { key: string; mime: string; ext: string; storage: string },
   ) {
     const hash = this.randomName();
     const dir = this.hashDirs(hash);
@@ -79,17 +79,17 @@ export class UploadController {
     const destKey = join(dir, destFileName);
     const destDir = join(this.options.rootPath, dir);
 
-    const srcFile = join(this.options.rootPath, data.Key);
+    const srcFile = join(this.options.rootPath, data.key);
     const destFile = join(this.options.rootPath, destKey);
 
     await ensureDir(destDir);
     await copyFile(srcFile, destFile);
-    return await this.repo.save([
-      {
+    return await this.repo.save(
+      this.repo.create({
         key: destKey,
         storage: data.storage,
         mime: data.mime,
-      },
-    ]);
+      }),
+    );
   }
 }

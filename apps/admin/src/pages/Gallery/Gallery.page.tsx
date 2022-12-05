@@ -11,7 +11,7 @@ import Container from '@mui/material/Container';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { BaseDTO, DTO, Media } from '../../typings';
-import { media } from '../../api';
+import * as api from '../../api';
 import config from '../../config';
 import urlJoin from 'url-join';
 import Button from '@mui/material/Button';
@@ -33,23 +33,41 @@ export default function Gallery() {
   const [pageSize, setPageSize] = useState();
   const [total, setTotal] = useState(0);
   const [items, setItems] = useState<Media[]>([]);
-  const formModalRef = useRef<any>();
+  const modalRef = useRef<any>();
+  const formRef = useRef<any>();
 
   async function handleCreate(form: unknown) {
-    // Subtract<Media, Subtract<Media, BaseDTO>>
-    console.log(form);
+    const { files } = form as { files: File[] };
+    await Promise.all(
+      files.map(async (file) => {
+        const res = await api.upload.upload({ file });
+        const done = await api.upload.complete({
+          key: res.data.key,
+          ext: res.data.ext,
+          mime: res.data.mime,
+          storage: res.data.storage,
+        });
+        return done.data;
+      }),
+    );
+    await handleList();
+    modalRef.current.handleClose();
   }
   async function handleDelete(row: Media) {
-    await media.deleteOne(row);
+    await api.media.deleteOne(row);
     await handleList();
   }
   async function handleList() {
-    const res = await media.list();
+    const res = await api.media.list();
     setItems(res.list);
     setTotal(res.total);
   }
+
   async function onCreateButtonClick() {
-    formModalRef.current.handleOpen();
+    modalRef.current.handleOpen();
+  }
+  async function onEditButtonClick(item: DTO<Media>) {
+    modalRef.current.handleOpen();
   }
   useEffect(() => {
     handleList();
@@ -79,11 +97,11 @@ export default function Gallery() {
                     image={buildImageUrl(item.key)}
                   />
                   <CardContent>
-                    {item.id} {item.createdAt}
+                    <Box>{item.id}</Box>
+                    <Box>{item.createdAt}</Box>
                   </CardContent>
                 </CardActionArea>
                 <CardActions>
-                  <Button size="small">Edit</Button>
                   <Button size="small" onClick={() => handleDelete(item)}>
                     Delete
                   </Button>
@@ -94,8 +112,8 @@ export default function Gallery() {
         </Grid>
       </Box>
 
-      <ProModal ref={formModalRef}>
-        <CreationForm handleCreate={handleCreate} />
+      <ProModal ref={modalRef}>
+        <CreationForm ref={formRef} handleCreate={handleCreate} />
       </ProModal>
     </Container>
   );
