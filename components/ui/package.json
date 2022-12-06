@@ -10,6 +10,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "repository": "https://github.com/kagari-project/kagari",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

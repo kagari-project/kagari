@@ -6,6 +6,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc"
   },
+  "repository": "https://github.com/kagari-project/kagari",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

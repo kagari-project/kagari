@@ -13,6 +13,7 @@ import {
   getSortedRowModel,
 } from '@tanstack/react-table';
 import Menu from '@mui/material/Menu';
+import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
@@ -35,7 +36,7 @@ export function TableColumnFilterMenu(props: {
   }, []);
 
   return (
-    <>
+    <Box>
       <IconButton onClick={handleOpen}>
         <FilterListIcon />
       </IconButton>
@@ -70,7 +71,7 @@ export function TableColumnFilterMenu(props: {
           </MenuItem>
         ))}
       </Menu>
-    </>
+    </Box>
   );
 }
 
@@ -102,7 +103,11 @@ export function ProTable<T = any>({
 
   return (
     <TableContainer>
-      <Stack justifyContent="end" direction="row">
+      <Stack
+        justifyContent="start"
+        direction="row"
+        sx={{ position: 'relative', width: '100%' }}
+      >
         <TableColumnFilterMenu table={$table} />
       </Stack>
       <Table>

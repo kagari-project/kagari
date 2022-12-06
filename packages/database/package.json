@@ -7,6 +7,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "repository": "https://github.com/kagari-project/kagari",
   "scripts": {
     "build": "tsc"
   },
