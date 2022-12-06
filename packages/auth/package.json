@@ -1,6 +1,6 @@
 {
   "name": "@kagari/auth",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -50,5 +50,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "gitHead": "a88a03c5cc9d4d3ef661dde142088d9342ca9146"
+  "gitHead": "251a3bb77317b7366768548ec2e0234f1a8fe1a8"
 }
