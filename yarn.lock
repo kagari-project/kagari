@@ -3070,7 +3070,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
-    "@nestjs/jwt": ^9.0.0
+    "@nestjs/jwt": ^10.0.0
     "@nestjs/passport": ^9.0.0
     "@types/express-session": ^1.17.5
     "@types/jest": 29.2.4
@@ -4326,15 +4326,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/jwt@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@nestjs/jwt@npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fjwt%2F-%2Fjwt-9.0.0.tgz"
+"@nestjs/jwt@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "@nestjs/jwt@npm:10.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fjwt%2F-%2Fjwt-10.0.1.tgz"
   dependencies:
-    "@types/jsonwebtoken": 8.5.8
-    jsonwebtoken: 8.5.1
+    "@types/jsonwebtoken": 8.5.9
+    jsonwebtoken: 9.0.0
   peerDependencies:
     "@nestjs/common": ^8.0.0 || ^9.0.0
-  checksum: c623bc710ace6345efc63d0dccff8d9f10b721b39efd94f4880bf8585a6a6a20ec00cc95fab6b913889382a0ff9327b4db02c12359eccc9e837d902bc9ba3676
+  checksum: 618f337bb4652576a884521eda6a19cb636cddb9b589dc74a8fa723fab0466b5af13101bbbe2fd9d9de8a9b68485d3617f995fd497a90e8ec8169733897ba303
   languageName: node
   linkType: hard
 
@@ -7003,21 +7003,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsonwebtoken@npm:*":
+"@types/jsonwebtoken@npm:*, @types/jsonwebtoken@npm:8.5.9":
   version: 8.5.9
   resolution: "@types/jsonwebtoken@npm:8.5.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-8.5.9.tgz"
   dependencies:
     "@types/node": "*"
   checksum: 33815ab02d1371b423118316b7706d2f2ec03eeee5e1494be72da50425d2384e5e0a09ea193f7a5ab4b4f6a9c5847147305f50e965f3d927a95bdf8adb471b2a
-  languageName: node
-  linkType: hard
-
-"@types/jsonwebtoken@npm:8.5.8":
-  version: 8.5.8
-  resolution: "@types/jsonwebtoken@npm:8.5.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjsonwebtoken%2F-%2Fjsonwebtoken-8.5.8.tgz"
-  dependencies:
-    "@types/node": "*"
-  checksum: 56738a918c543dba30786066959f801212e7fb5cd4ec53cf7b8d227711ed358834feb9e5141f7f88ec7c642bb39757330a5a8917e3b22e0ff9084940d35f0d70
   languageName: node
   linkType: hard
 
@@ -17464,7 +17455,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonwebtoken@npm:8.5.1, jsonwebtoken@npm:^8.2.0":
+"jsonwebtoken@npm:9.0.0":
+  version: 9.0.0
+  resolution: "jsonwebtoken@npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjsonwebtoken%2F-%2Fjsonwebtoken-9.0.0.tgz"
+  dependencies:
+    jws: ^3.2.2
+    lodash: ^4.17.21
+    ms: ^2.1.1
+    semver: ^7.3.8
+  checksum: b9181cecf9df99f1dc0253f91ba000a1aa4d91f5816d1608c0dba61a5623726a0bfe200b51df25de18c1a6000825d231ad7ce2788aa54fd48dcb760ad9eb9514
+  languageName: node
+  linkType: hard
+
+"jsonwebtoken@npm:^8.2.0":
   version: 8.5.1
   resolution: "jsonwebtoken@npm:8.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fjsonwebtoken%2F-%2Fjsonwebtoken-8.5.1.tgz"
   dependencies:
