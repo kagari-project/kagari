@@ -6,4 +6,5 @@ export * from './components/ProModal';
 export * from './components/ProRestful';
 export * from './components/ProTable';
 export * from './components/ProTransferList';
+export * from './components/ProEditor';
 export * from './utils/ProSnackbar';
