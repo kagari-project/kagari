@@ -42,7 +42,9 @@ export function ListItemLink(props: ListItemLinkProps) {
   return (
     <ListItem component={Link} to={node.to}>
       {node.icon ? <ListItemIcon>{node.icon}</ListItemIcon> : <></>}
-      <ListItemText primary={node.text} />
+      <ListItemText primary={node.text}  sx={{
+          '& .MuiTypography-root': { whiteSpace: 'nowrap' },
+      }} />
     </ListItem>
   );
 }

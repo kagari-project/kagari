@@ -11,7 +11,7 @@ export default {
 export function Default() {
   return (
     <Router>
-      <Box width={'100px'}>
+      <Box>
         <ProMenuBar
           opened={true}
           menu={[
@@ -24,4 +24,57 @@ export function Default() {
       </Box>
     </Router>
   );
+}
+
+export function RealExample() {
+    const tree = [
+        {
+            text: '首页',
+            to: '/',
+        },
+        {
+            text: '用户与权限',
+            children: [
+                {
+                    text: '用户管理',
+                    to: '/Users',
+                },
+                {
+                    text: '角色管理',
+                    to: '/Roles',
+                },
+                {
+                    text: '权限管理',
+                    to: '/Permissions',
+                },
+            ],
+        },
+        {
+            text: '内容管理',
+            children: [
+                {
+                    text: '公告',
+                    to: '/Announcements',
+                },
+                {
+                    text: '文章',
+                    to: '/Articles',
+                },
+            ],
+        },
+        {
+            text: '资源库',
+            to: '/Gallery',
+        },
+    ]
+    return (
+        <Router>
+            <Box  width={'200px'}>
+                <ProMenuBar
+                    opened={true}
+                    menu={tree}
+                />
+            </Box>
+        </Router>
+    );
 }
