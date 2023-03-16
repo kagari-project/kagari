@@ -19,6 +19,8 @@ import IconButton from '@mui/material/IconButton';
 import Checkbox from '@mui/material/Checkbox';
 import InputLabel from '@mui/material/InputLabel';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import NorthIcon from '@mui/icons-material/North';
+import SouthIcon from '@mui/icons-material/South';
 import { Stack, TableContainer } from '@mui/material';
 import { Optional } from 'utility-types';
 
@@ -121,6 +123,7 @@ export function ProTable<T = any>({
                 >
                   {header.isPlaceholder ? null : (
                     <div
+                      style={{ display: "flex", justifyContent: 'flex-start', alignItems: 'center' }}
                       {...{
                         className: header.column.getCanSort()
                           ? 'cursor-pointer select-none'
@@ -132,7 +135,7 @@ export function ProTable<T = any>({
                         header.column.columnDef.header,
                         header.getContext(),
                       )}
-                      {{ asc: ' 🔼', desc: ' 🔽' }[
+                      {{ asc: <NorthIcon fontSize={'small'}/>, desc: <SouthIcon fontSize={'small'}/> }[
                         header.column.getIsSorted() as string
                       ] ?? null}
                     </div>
