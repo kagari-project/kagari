@@ -8,13 +8,7 @@ export default {
     component: ProEditor,
 }
 
-function Template() {
-    return <ProEditor apiKey={'axhtqrj8j26uon609azst3p14c2a0wuyukqmjmfcjjo6pjmx'}/>
-}
-
-export const Default = Template.bind({})
-
-export const WithTinyMce = () => {
+export const Default = () => {
 
     const onSubmit = (data) => {
         console.log(data);
