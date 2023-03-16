@@ -11,8 +11,8 @@ export default {
 export function Default() {
   return (
     <Router>
-      <Box>
         <ProMenuBar
+            sx={{ width: 200 }}
           opened={true}
           menu={[
             {
@@ -21,7 +21,6 @@ export function Default() {
             },
           ]}
         />
-      </Box>
     </Router>
   );
 }
@@ -69,12 +68,11 @@ export function RealExample() {
     ]
     return (
         <Router>
-            <Box  width={'200px'}>
                 <ProMenuBar
+                    sx={{ width: 200 }}
                     opened={true}
                     menu={tree}
                 />
-            </Box>
         </Router>
     );
 }
