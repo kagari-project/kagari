@@ -1,11 +1,11 @@
 import React, { FormEvent, PropsWithChildren } from 'react';
 import {
-  useForm,
-  FormProvider,
-  useFormContext,
-  UseFormRegisterReturn,
-  useFormState,
-  UseFormStateReturn,
+    useForm,
+    FormProvider,
+    useFormContext,
+    UseFormRegisterReturn,
+    useFormState,
+    UseFormStateReturn, Control,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -61,15 +61,16 @@ export function FormItem(
       name: string;
       field: UseFormRegisterReturn;
       formState: UseFormStateReturn<any>;
+      control: Control<any>
     }) => React.ReactElement;
   }>,
 ) {
-  const useFormReturns = useFormContext();
+  const { register, control } = useFormContext();
   const formState = useFormState({ name: props.prop });
-  const registered = useFormReturns.register(props.prop);
+  const registered = register(props.prop);
 
   return (
-    <>{props.render({ name: props.prop, field: registered, formState })}</>
+    <>{props.render({ name: props.prop, field: registered, formState, control })}</>
   );
 }
 
