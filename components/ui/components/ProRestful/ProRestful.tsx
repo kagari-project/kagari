@@ -2,7 +2,7 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
-  useImperativeHandle,
+  useImperativeHandle, useRef,
   useState,
 } from 'react';
 import Container from '@mui/material/Container';
@@ -17,6 +17,7 @@ import Paper from '@mui/material/Paper';
 import { ProTable, ProTableProps } from '../ProTable';
 import TablePagination from '@mui/material/TablePagination';
 import Drawer from '@mui/material/Drawer';
+import Modal from "@mui/material/Modal";
 
 type ApiTypes = {
   list: (...args) => Promise<{ list: any[]; total: number }>;
@@ -39,6 +40,7 @@ export type EditForm = React.FC<{ handleEdit: HandleEdit; data: any }>;
 export type ProRestfulProps = PropsWithChildren<
   {
     title?: string;
+    mode?: "drawer" | "modal"
     columns: ProTableProps['columns'];
     searchForm?: SearchForm;
     createForm?: CreateForm;
@@ -105,19 +107,6 @@ export const ProRestful = React.forwardRef(function <T = any>(
   const onCreateButtonClicked = useCallback(() => {
     setIsDrawerOpen(true);
   }, []);
-  // const onEditButtonClicked = useCallback((props: any) => {
-  //   return async () => {
-  //     setFocusedRow(props.row.original);
-  //     setIsDrawerOpen(true);
-  //     await handleList();
-  //   };
-  // }, []);
-  // const onDeleteButtonClicked = useCallback((props: any) => {
-  //   return async () => {
-  //     await handleDelete(props.row.original.id);
-  //     await handleList();
-  //   };
-  // }, []);
   const onDrawerClose = useCallback(() => {
     setIsDrawerOpen(false);
     setFocusedRow(null);
@@ -135,6 +124,16 @@ export const ProRestful = React.forwardRef(function <T = any>(
     }
 
     return <></>;
+  }
+
+  function renderForms() {
+    if (props.mode === 'modal') {
+      return <Modal open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Modal>
+    }
+    return <Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Drawer>
+    // return (props.mode ?? 'drawer')
+    //     ? (<Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Drawer>)
+    //     : (<Modal open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Modal>)
   }
 
   useImperativeHandle(
@@ -190,10 +189,9 @@ export const ProRestful = React.forwardRef(function <T = any>(
         />
       </Box>
 
-      <Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>
-        {renderSideForm()}
-      </Drawer>
-
+      {
+        renderForms()
+      }
       {props.children}
     </Container>
   );
