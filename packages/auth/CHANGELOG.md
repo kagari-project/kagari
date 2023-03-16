@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/kagari-project/kagari/compare/v0.3.4...v0.4.0) (2023-03-16)
+
+**Note:** Version bump only for package @kagari/auth
+
 ## [0.3.2](https://github.com/kagari-project/kagari/compare/v0.3.0...v0.3.2) (2023-03-15)
 
 **Note:** Version bump only for package @kagari/auth

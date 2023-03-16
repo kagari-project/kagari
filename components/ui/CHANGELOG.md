@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/kagari-project/kagari/compare/v0.3.4...v0.4.0) (2023-03-16)
+
+### Bug Fixes
+
+- **ui:** fix [#40](https://github.com/kagari-project/kagari/issues/40) ([4722ca7](https://github.com/kagari-project/kagari/commit/4722ca7c6ba11bd442f1d5c9ecef8d557f3fd8ff))
+
+### Features
+
+- **ui:** pro restful supports modal form ([de76f8e](https://github.com/kagari-project/kagari/commit/de76f8efa5adcbd0cd4317f5d789bea87d0181b2))
+
 ## [0.3.2](https://github.com/kagari-project/kagari/compare/v0.3.0...v0.3.2) (2023-03-15)
 
 **Note:** Version bump only for package @kagari/ui
