@@ -62,9 +62,9 @@ export interface NestedMenuItem extends BaseMenuItem {
 export type MenuConfig = Array<MenuItem | NestedMenuItem>;
 
 export function ListItemGroup(
-  props: PropsWithChildren<{ node: NestedMenuItem; sx?: SxProps }>,
+  props: PropsWithChildren<{ node: NestedMenuItem; depth: number, sx?: SxProps }>,
 ) {
-  const { node } = props;
+  const { node, depth } = props;
   const [open, setOpen] = useState(false);
   const toggleCollapse = useCallback(() => setOpen(!open), [open]);
   return (
@@ -74,10 +74,10 @@ export function ListItemGroup(
         <ListItemText primary={node.text} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={open} timeout="auto" sx={{ ml: depth * 2 }}>
         {node.children.map((subNode, i) =>
           Array.isArray((subNode as NestedMenuItem).children) ? (
-            <ListItemGroup key={i} node={subNode as NestedMenuItem} />
+            <ListItemGroup key={i} node={subNode as NestedMenuItem} depth={depth + 1}/>
           ) : (
             <ListItemLink key={i} node={subNode as MenuItem} />
           ),
@@ -101,7 +101,7 @@ export function ProMenuBar(
     >
       {props.menu.map((node, i) =>
         Array.isArray((node as NestedMenuItem).children) ? (
-          <ListItemGroup key={i} node={node as NestedMenuItem} />
+          <ListItemGroup key={i} node={node as NestedMenuItem} depth={1}/>
         ) : (
           <ListItemLink key={i} node={node as MenuItem} />
         ),

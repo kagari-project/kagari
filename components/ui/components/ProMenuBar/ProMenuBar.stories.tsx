@@ -12,7 +12,7 @@ export function Default() {
   return (
     <Router>
         <ProMenuBar
-            sx={{ width: 200 }}
+          sx={{ width: 200 }}
           opened={true}
           menu={[
             {
