@@ -101,7 +101,7 @@ export function ImageItem(props: {
           onClick={click}
           src={createPreview(file)}
           alt=""
-          style={{ height: 100, cursor: 'pointer', zIndex: 1 }}
+          style={{ height: '100%', width: '100%', objectFit: 'contain', cursor: 'pointer', zIndex: 1 }}
         />
         {stage === 'idle' ? (
           <IconButton
