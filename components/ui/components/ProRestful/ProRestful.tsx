@@ -2,7 +2,7 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
-  useImperativeHandle, useRef,
+  useImperativeHandle,
   useState,
 } from 'react';
 import Container from '@mui/material/Container';
@@ -20,27 +20,27 @@ import Drawer from '@mui/material/Drawer';
 import Modal from "@mui/material/Modal";
 
 type ApiTypes = {
-  list: (...args) => Promise<{ list: any[]; total: number }>;
-  getOne: (...args) => Promise<any>;
-  createOne: (...args) => Promise<any>;
-  updateOne: (...args) => Promise<any>;
-  deleteOne: (...args) => Promise<any>;
+  list: (...args) => Promise<{ list: unknown[]; total: number }>;
+  getOne: (...args) => Promise<unknown>;
+  createOne: (...args) => Promise<unknown>;
+  updateOne: (...args) => Promise<unknown>;
+  deleteOne: (...args) => Promise<unknown>;
 };
 type ListParams = Parameters<ApiTypes['list']>[0];
 
 type HandleList = (params?: ListParams) => Promise<void>;
 type HandleCreate = (form: unknown, original?: unknown) => Promise<void>;
 type HandleEdit = (id: string, form: unknown) => Promise<void>;
-type HandleDelete = (row: { id: string; [key: string]: any }) => Promise<void>;
+type HandleDelete = (row: { id: string; [key: string]: unknown }) => Promise<void>;
 
 export type SearchForm = React.FC<{ handleList: HandleList }>;
 export type CreateForm = React.FC<{ handleCreate: HandleCreate }>;
-export type EditForm = React.FC<{ handleEdit: HandleEdit; data: any }>;
+export type EditForm = React.FC<{ handleEdit: HandleEdit; data: unknown }>;
 
 export type ProRestfulProps = PropsWithChildren<
   {
     title?: string;
-    mode?: "drawer" | "modal"
+    mode?: "drawer" | "modal" | "standalone-page"
     columns: ProTableProps['columns'];
     searchForm?: SearchForm;
     createForm?: CreateForm;
@@ -48,7 +48,17 @@ export type ProRestfulProps = PropsWithChildren<
   } & ApiTypes
 >;
 
-export const ProRestful = React.forwardRef(function <T = any>(
+export type ExposedProRestful<T = unknown> = {
+  setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  setFocusedRow: React.Dispatch<React.SetStateAction<T>>,
+  handleList: HandleList,
+  handleCreate: HandleCreate,
+  handleEdit: HandleEdit,
+  handleDelete: HandleDelete,
+  focusedRow: T,
+}
+
+export const ProRestful = React.forwardRef(function <T = unknown>(
   props: ProRestfulProps,
   ref,
 ) {
@@ -131,12 +141,9 @@ export const ProRestful = React.forwardRef(function <T = any>(
       return <Modal open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Modal>
     }
     return <Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Drawer>
-    // return (props.mode ?? 'drawer')
-    //     ? (<Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Drawer>)
-    //     : (<Modal open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Modal>)
   }
 
-  useImperativeHandle(
+  useImperativeHandle<unknown, ExposedProRestful>(
     ref,
     () => ({
       setIsDrawerOpen,
