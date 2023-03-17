@@ -1,16 +1,22 @@
-import React, { FormEvent, PropsWithChildren } from 'react';
+import React, { FormEvent, PropsWithChildren, ReactElement } from 'react';
 import {
-    useForm,
-    FormProvider,
-    useFormContext,
-    UseFormRegisterReturn,
-    useFormState,
-    UseFormStateReturn, Control,
+  useForm,
+  FormProvider,
+  useFormContext,
+  UseFormRegisterReturn,
+  useFormState,
+  UseFormStateReturn,
+  Control,
+  Controller,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SxProps } from '@mui/system/styleFunctionSx';
 import { styled } from '@mui/system';
+import {
+  ControllerFieldState,
+  ControllerRenderProps,
+} from 'react-hook-form/dist/types/controller';
 
 export type ProFormProps = PropsWithChildren<{
   inline?: boolean;
@@ -58,19 +64,33 @@ export function FormItem(
   props: PropsWithChildren<{
     prop: string;
     render: (props: {
-      name: string;
-      field: UseFormRegisterReturn;
-      formState: UseFormStateReturn<any>;
-      control: Control<any>
+      field: ControllerRenderProps;
+      fieldState: ControllerFieldState;
+      formState: UseFormStateReturn<unknown>;
     }) => React.ReactElement;
   }>,
 ) {
-  const { register, control } = useFormContext();
-  const formState = useFormState({ name: props.prop });
-  const registered = register(props.prop);
+  const { control } = useFormContext();
 
   return (
-    <>{props.render({ name: props.prop, field: registered, formState, control })}</>
+    <Controller
+      name={props.prop}
+      control={control}
+      render={({ field, fieldState, formState }) =>
+        props.render({ field, fieldState, formState })
+      }
+      // render={(params) => {
+      //   return React.cloneElement(
+      //     React.Children.only(props.children) as ReactElement,
+      //     {
+      //       onChange,
+      //       onBlur,
+      //       value,
+      //       error,
+      //     },
+      //   );
+      // }}
+    />
   );
 }
 

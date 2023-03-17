@@ -21,11 +21,10 @@ export function Single() {
     <ProForm onSubmit={onSubmit}>
       <ProFormItem
         prop="files"
-        render={({ name, field, formState }) => (
+        render={({ field }) => (
           <ProUpload {...field} upload={upload} multiple={false} />
         )}
       />
-
       <Button type="submit">submit</Button>
     </ProForm>
   );
@@ -40,9 +39,7 @@ export function Multiple() {
     <ProForm onSubmit={onSubmit}>
       <ProFormItem
         prop="files"
-        render={({ name, field, formState }) => (
-          <ProUpload {...field} upload={upload} />
-        )}
+        render={({ field }) => <ProUpload {...field} upload={upload} />}
       />
 
       <Button type="submit">submit</Button>

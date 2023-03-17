@@ -1,23 +1,26 @@
-import React, { useRef } from 'react'
-import {Editor, IAllProps} from "@tinymce/tinymce-react";
-import {useFormContext, UseFormRegisterReturn} from "react-hook-form";
+import React, { useRef } from 'react';
+import { Editor, IAllProps } from '@tinymce/tinymce-react';
+import { ControllerRenderProps } from 'react-hook-form/dist/types/controller';
 
-export type ProEditorProps = IAllProps & Partial<UseFormRegisterReturn>
+export type ProEditorProps = IAllProps & {
+  onChange?: ControllerRenderProps['onChange'];
+  onBlur?: ControllerRenderProps['onBlur'];
+  value?: ControllerRenderProps['value'];
+};
 
-export const ProEditor = React.forwardRef<unknown, ProEditorProps>((props, ref) => {
+export const ProEditor = React.forwardRef<unknown, ProEditorProps>(
+  ({ onChange, value, ...props }) => {
     const editorRef = useRef(null);
-    const { setValue, formState } = useFormContext();
-    const onEditorChange = (a: string) => {
-        setValue(props.name, a)
-    }
-
-    return <Editor
-        onInit={(evt, editor) => editorRef.current = editor}
+    return (
+      <Editor
+        onInit={(evt, editor) => (editorRef.current = editor)}
         init={{
-            height: 500,
+          height: 500,
         }}
         {...props}
-        initialValue={formState.defaultValues[props.name]}
-        onEditorChange={onEditorChange}
-    />
-})
+        onEditorChange={onChange}
+        value={value}
+      />
+    );
+  },
+);

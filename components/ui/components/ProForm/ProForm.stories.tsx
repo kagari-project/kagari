@@ -35,14 +35,14 @@ const Template = (args) => {
     <ProForm schema={schema} {...args} onSubmit={onSubmit}>
       <ProFormItem
         prop={'username'}
-        render={({ name, field, formState }) => {
+        render={({ field, formState }) => {
           return (
             <Box sx={{ mb: 1 }}>
-              <InputLabel required>{name}</InputLabel>
+              <InputLabel required>{field.name}</InputLabel>
               <Box>
                 <Input {...field} />
-                <FormHelperText error={!!formState.errors[name]}>
-                  {formState.errors[name]?.message as string}
+                <FormHelperText error={!!formState.errors[field.name]}>
+                  {formState.errors[field.name]?.message as string}
                 </FormHelperText>
               </Box>
             </Box>
@@ -52,13 +52,13 @@ const Template = (args) => {
 
       <ProFormItem
         prop={'password'}
-        render={({ name, field, formState }) => {
+        render={({ field, formState }) => {
           return (
             <Box sx={{ mb: 1 }}>
-              <InputLabel required>{name}</InputLabel>
+              <InputLabel required>password</InputLabel>
               <Input {...field} />
-              <FormHelperText error={!!formState.errors[name]}>
-                {formState.errors[name]?.message as string}
+              <FormHelperText error={!!formState.errors[field.name]}>
+                {formState.errors[field.name]?.message as string}
               </FormHelperText>
             </Box>
           );

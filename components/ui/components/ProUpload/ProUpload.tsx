@@ -9,6 +9,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import CircularProgress from '@mui/material/CircularProgress';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { ControllerRenderProps } from 'react-hook-form/dist/types/controller';
 
 export type IFile = File & {
   url?: string;
@@ -58,7 +59,10 @@ export type ProUploadProps = {
   accept?: string[];
   multiple?: boolean;
   upload?: UploadHandler;
-} & UseFormRegisterReturn<any>;
+  onChange?: ControllerRenderProps['onChange'];
+  onBlur?: ControllerRenderProps['onBlur'];
+  value?: ControllerRenderProps['value'];
+};
 
 export function ImageItem(props: {
   file: IFile;
@@ -131,7 +135,7 @@ export function ImageItem(props: {
 
 export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
   (props, ref) => {
-    const { accept = [], multiple = true, upload, onChange, name } = props;
+    const { accept = [], multiple = true, upload, onChange } = props;
     const [files, setFiles] = useState<IFile[]>([]);
     const inputRef = useRef<HTMLInputElement | null>();
     const { setValue } = useFormContext();
@@ -143,7 +147,7 @@ export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
       const newFiles = Array.from(e.target.files);
       const merged = [...files, ...newFiles];
       setFiles(merged);
-      setValue(name, merged);
+      // setValue(name, merged);
       inputRef.current.value = null;
       onChange(e);
 
@@ -157,7 +161,7 @@ export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
         const removed = [...files];
         removed.splice(i, 1);
         setFiles(removed);
-        setValue(name, removed);
+        // setValue(name, removed);
       }
     }
 

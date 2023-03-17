@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Card from "@mui/material/Card";
+import Card from '@mui/material/Card';
 
 export default {
   title: 'ProRestful',
@@ -47,9 +47,9 @@ const CreationForm: CreateForm = function (props) {
     <ProForm onSubmit={props.handleCreate} sx={{ padding: 1 }}>
       <ProFormItem
         prop="username"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -57,9 +57,9 @@ const CreationForm: CreateForm = function (props) {
 
       <ProFormItem
         prop="password"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -84,9 +84,9 @@ const EditionForm: EditForm = function (props) {
     >
       <ProFormItem
         prop="username"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>username</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -94,9 +94,9 @@ const EditionForm: EditForm = function (props) {
 
       <ProFormItem
         prop="password"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>password</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -175,65 +175,73 @@ export function Default() {
 }
 
 export function ModalMode() {
-    const ref = React.useRef(null);
-    const columnsHelper = createColumnHelper<User>();
-    const columns = React.useMemo(
-        () => [
-            columnsHelper.accessor('id', {
-                size: 1,
-                cell: (info) => info.getValue(),
-            }),
-            columnsHelper.accessor('username', {
-                cell: (info) => info.getValue(),
-            }),
-            columnsHelper.accessor('password', {
-                cell: (info) => info.getValue(),
-            }),
-            columnsHelper.accessor('createdAt', {
-                cell: (info) => info.getValue(),
-            }),
-            columnsHelper.accessor('updatedAt', {
-                cell: (info) => info.getValue(),
-            }),
-            columnsHelper.accessor('deletedAt', {
-                cell: (info) => info.getValue(),
-            }),
-            {
-                accessorKey: 'actions',
-                cell: (info) => {
-                    return (
-                        <>
-                            <IconButton
-                                onClick={() => {
-                                    ref.current.setFocusedRow(info.row.original);
-                                    ref.current.setIsDrawerOpen(true);
-                                }}
-                            >
-                                <EditIcon />
-                            </IconButton>
-                            <IconButton
-                                onClick={() => {
-                                    ref.current.handleDelete(info.row.original);
-                                }}
-                            >
-                                <DeleteIcon />
-                            </IconButton>
-                        </>
-                    );
-                },
-            },
-        ],
-        [],
-    );
+  const ref = React.useRef(null);
+  const columnsHelper = createColumnHelper<User>();
+  const columns = React.useMemo(
+    () => [
+      columnsHelper.accessor('id', {
+        size: 1,
+        cell: (info) => info.getValue(),
+      }),
+      columnsHelper.accessor('username', {
+        cell: (info) => info.getValue(),
+      }),
+      columnsHelper.accessor('password', {
+        cell: (info) => info.getValue(),
+      }),
+      columnsHelper.accessor('createdAt', {
+        cell: (info) => info.getValue(),
+      }),
+      columnsHelper.accessor('updatedAt', {
+        cell: (info) => info.getValue(),
+      }),
+      columnsHelper.accessor('deletedAt', {
+        cell: (info) => info.getValue(),
+      }),
+      {
+        accessorKey: 'actions',
+        cell: (info) => {
+          return (
+            <>
+              <IconButton
+                onClick={() => {
+                  ref.current.setFocusedRow(info.row.original);
+                  ref.current.setIsDrawerOpen(true);
+                }}
+              >
+                <EditIcon />
+              </IconButton>
+              <IconButton
+                onClick={() => {
+                  ref.current.handleDelete(info.row.original);
+                }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </>
+          );
+        },
+      },
+    ],
+    [],
+  );
 
-    return (
-        <ProRestful
-            ref={ref}
-            mode={"modal"}
-            columns={columns}
-            createForm={({ handleCreate }) => <Card sx={{ width: 500, margin: '40px auto' }}><CreationForm handleCreate={handleCreate}/></Card>}
-            editForm={({ handleEdit, data }) => <Card sx={{ width: 500, margin: '40px auto' }}><EditionForm handleEdit={handleEdit} data={data}/></Card>}
-            {...api}
-        />
-    );
+  return (
+    <ProRestful
+      ref={ref}
+      mode={'modal'}
+      columns={columns}
+      createForm={({ handleCreate }) => (
+        <Card sx={{ width: 500, margin: '40px auto' }}>
+          <CreationForm handleCreate={handleCreate} />
+        </Card>
+      )}
+      editForm={({ handleEdit, data }) => (
+        <Card sx={{ width: 500, margin: '40px auto' }}>
+          <EditionForm handleEdit={handleEdit} data={data} />
+        </Card>
+      )}
+      {...api}
+    />
+  );
 }
