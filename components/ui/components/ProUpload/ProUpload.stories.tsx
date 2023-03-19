@@ -9,7 +9,7 @@ export default {
 };
 
 function upload(file: IFile) {
-  return new Promise<void>((resolve) => setTimeout(resolve, 3000));
+  return new Promise<undefined>((resolve) => setTimeout(resolve, 1000));
 }
 
 export function Single() {
@@ -39,7 +39,9 @@ export function Multiple() {
     <ProForm onSubmit={onSubmit}>
       <ProFormItem
         prop="files"
-        render={({ field }) => <ProUpload {...field} upload={upload} />}
+        render={({ field }) => (
+          <ProUpload {...field} upload={upload} multiple={true} />
+        )}
       />
 
       <Button type="submit">submit</Button>

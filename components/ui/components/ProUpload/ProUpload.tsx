@@ -10,14 +10,16 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { ControllerRenderProps } from 'react-hook-form/dist/types/controller';
+import set from 'lodash/set';
 
-export type IFile = File & {
+export type FileExtraData = {
   url?: string;
   ext?: string;
   mime?: string;
   isLoading?: boolean;
 };
-type UploadHandler = (file: IFile) => Promise<void>;
+export type IFile = File & FileExtraData;
+type UploadHandler = (file: IFile) => Promise<FileExtraData | undefined>;
 
 function createPreview(file: IFile) {
   if (file) {
@@ -59,6 +61,7 @@ export type ProUploadProps = {
   accept?: string[];
   multiple?: boolean;
   upload?: UploadHandler;
+  name?: ControllerRenderProps['name'];
   onChange?: ControllerRenderProps['onChange'];
   onBlur?: ControllerRenderProps['onBlur'];
   value?: ControllerRenderProps['value'];
@@ -105,7 +108,13 @@ export function ImageItem(props: {
           onClick={click}
           src={createPreview(file)}
           alt=""
-          style={{ height: '100%', width: '100%', objectFit: 'contain', cursor: 'pointer', zIndex: 1 }}
+          style={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+            cursor: 'pointer',
+            zIndex: 1,
+          }}
         />
         {stage === 'idle' ? (
           <IconButton
@@ -135,7 +144,7 @@ export function ImageItem(props: {
 
 export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
   (props, ref) => {
-    const { accept = [], multiple = true, upload, onChange } = props;
+    const { accept = [], multiple = true, upload, onChange, name } = props;
     const [files, setFiles] = useState<IFile[]>([]);
     const inputRef = useRef<HTMLInputElement | null>();
     const { setValue } = useFormContext();
@@ -143,16 +152,25 @@ export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
     function handleClick() {
       inputRef.current?.click();
     }
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    async function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       const newFiles = Array.from(e.target.files);
       const merged = [...files, ...newFiles];
       setFiles(merged);
-      // setValue(name, merged);
-      inputRef.current.value = null;
-      onChange(e);
+      // onChange(e);
 
       if (upload) {
-        newFiles.map(upload);
+        const returns = await Promise.all(
+          newFiles.map((file) => {
+            return upload(file).then((res) => {
+              set(file, 'url', res?.url);
+              return file;
+            });
+          }),
+        );
+        const mergedFieldValue = props.multiple
+          ? [...(props.value ?? []), ...returns]
+          : [...returns];
+        setValue(name, mergedFieldValue);
       }
     }
     function handleRemove(file: IFile) {
@@ -161,7 +179,7 @@ export const ProUpload = React.forwardRef<HTMLInputElement, ProUploadProps>(
         const removed = [...files];
         removed.splice(i, 1);
         setFiles(removed);
-        // setValue(name, removed);
+        setValue(name, removed);
       }
     }
 
