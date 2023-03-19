@@ -7,4 +7,5 @@ export * from './components/ProRestful';
 export * from './components/ProTable';
 export * from './components/ProTransferList';
 export * from './components/ProEditor';
+export * from './components/ProDatePicker';
 export * from './utils/ProSnackbar';

@@ -56,11 +56,10 @@ export function ProForm(props: ProFormProps) {
 }
 
 /**
- * @deprecated use ProFormItem instead
  * @param props
  * @constructor
  */
-export function FormItem(
+export function ProFormItem(
   props: PropsWithChildren<{
     prop: string;
     render: (props: {
@@ -93,5 +92,3 @@ export function FormItem(
     />
   );
 }
-
-export const ProFormItem = FormItem;
