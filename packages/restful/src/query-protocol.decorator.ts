@@ -11,6 +11,7 @@ const schema = Joi.object({
   $pageSize: Joi.number().positive().integer().default(10),
   $withDeleted: Joi.boolean().default(false),
   $where: Joi.array(),
+  $relations: Joi.array().default([]),
 });
 
 export const QueryProtocol = createParamDecorator(

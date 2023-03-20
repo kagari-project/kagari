@@ -9,7 +9,9 @@ export function deserialize(data: Serialized): string {
     .map((key) => {
       switch (key) {
         case '$select':
-          return pickValue<string[]>(data, key).join(',');
+          return `${key}=${pickValue<string[]>(data, key).join(',')}`;
+        case '$relations':
+          return `${key}=${pickValue<string[]>(data, key).join(',')}`;
         default:
           if (!data[key]) {
             return '';

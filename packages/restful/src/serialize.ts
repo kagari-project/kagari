@@ -29,6 +29,10 @@ export function serialize(query): ParsedQueryString {
         parsed[key] = parsed[key] || {};
         pushOrder(parsed[key], value);
         break;
+      case QueryCommand.$relations:
+        parsed[key] = parsed[key] || [];
+        parsed[key].push(...value.split(','));
+        break;
       default:
         ensureIsArray(parsed, '$where');
         pushCondition(parsed['$where'], key, value);

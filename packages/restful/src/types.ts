@@ -19,6 +19,7 @@ export const QueryCommand = {
   $pageSize: '$pageSize',
   $sort: '$sort',
   $orWhere: '$orWhere',
+  $relations: '$relations',
 };
 
 export type ParsedQueryString = {
@@ -28,6 +29,7 @@ export type ParsedQueryString = {
   $where?: Array<{ [key: string]: string }>;
   $sort?: Record<string, 'DESC' | 'ASC'>;
   $select?: unknown[];
+  $relations?: string[];
 };
 
 export type Serialized = {

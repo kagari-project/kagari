@@ -54,3 +54,9 @@ it('should support $sort command', function () {
     },
   });
 });
+
+it('should support $relations command', function () {
+  expect(serialize(`$relations=order,order.user`)).toStrictEqual({
+    $relations: ['order', 'order.user'],
+  });
+});
