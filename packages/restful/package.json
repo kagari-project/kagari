@@ -1,6 +1,6 @@
 {
   "name": "@kagari/restful",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "module": "",
   "main": "dist/index.js",
   "repository": "https://github.com/kagari-project/kagari",
