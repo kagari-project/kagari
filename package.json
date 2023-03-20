@@ -9,7 +9,8 @@
     "prettier": "prettier --write '{apps,packages,components}/**/src/**'",
     "changelog": "lerna version --conventional-commits --amend -y",
     "build:all": "yarn workspaces foreach run build",
-    "publish": "yarn build:all && yarn changelog && lerna publish",
+    "~prepublish": "yarn build:all && yarn changelog",
+    "publish": "lerna publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
