@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "0.4.0",
+  "version": "0.4.6",
   "description": "",
   "author": "",
   "private": true,
@@ -24,7 +24,7 @@
     "@kagari/auth": "^0.4.0",
     "@kagari/database": "^0.4.0",
     "@kagari/rbac": "^0.4.0",
-    "@kagari/restful": "^0.4.0",
+    "@kagari/restful": "^0.4.6",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
