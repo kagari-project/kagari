@@ -10,7 +10,7 @@ export default {
   component: ProInfiniteList,
 };
 
-async function loadMore(page = 0, pageSize = 10) {
+async function loadMore(page = 1, pageSize = 10) {
   const response = await fetch(
     `https://api.github.com/repos/facebook/react/issues?page=${page}&pageSize=${pageSize}`,
     {

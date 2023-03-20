@@ -1,7 +1,6 @@
 import React, {
   useState,
   useCallback,
-  useMemo,
   useEffect,
   useImperativeHandle,
 } from 'react';
@@ -12,6 +11,7 @@ import { LinearProgress } from '@mui/material';
 export type ProInfiniteListProps<T = any> = {
   useWindow?: boolean;
   height?: number;
+  pageStart?: number
   pageSize?: number;
   loader?: React.ReactNode;
   loadMore: (
@@ -20,20 +20,21 @@ export type ProInfiniteListProps<T = any> = {
   ) => Promise<{ list: T[]; total: number }>;
   render: (item: any[]) => React.ReactNode;
 };
-export const ProInfiniteList = React.forwardRef(function (
-  props: ProInfiniteListProps,
+export const ProInfiniteList = React.forwardRef<{ init: () => void, items: unknown[] }, ProInfiniteListProps>(function (
+  props,
   ref,
 ) {
   const {
     loadMore,
     render,
     useWindow = false,
-    loader = <LinearProgress />,
+    loader = <LinearProgress key={'loader'} />,
+    pageStart = 1,
     pageSize = 10,
     height = 400,
   } = props;
   const [items, setItems] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(pageStart);
   const [total, setTotal] = useState(0);
 
   const [fetching, setFetching] = useState(false);
@@ -56,7 +57,7 @@ export const ProInfiniteList = React.forwardRef(function (
   }, [items, fetching, page, pageSize]);
   const init = useCallback(async () => {
     setItems([]);
-    setPage(0);
+    setPage(pageStart);
     setTotal(0);
     await handleLoadMore();
   }, []);
@@ -77,6 +78,7 @@ export const ProInfiniteList = React.forwardRef(function (
   return (
     <List sx={{ height, overflow: 'auto' }}>
       <InfiniteScroll
+        pageStart={pageStart}
         loadMore={handleLoadMore}
         hasMore={total > items.length}
         useWindow={useWindow}
