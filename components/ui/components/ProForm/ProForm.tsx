@@ -44,6 +44,7 @@ export function ProForm(props: ProFormProps) {
       <StyledForm
         onSubmit={form.handleSubmit(onSubmit)}
         sx={{
+          gap: '1rem',
           ...props.sx,
           display: 'flex',
           flexDirection: inline ? 'row' : 'column',
@@ -78,17 +79,6 @@ export function ProFormItem(
       render={({ field, fieldState, formState }) =>
         props.render({ field, fieldState, formState })
       }
-      // render={(params) => {
-      //   return React.cloneElement(
-      //     React.Children.only(props.children) as ReactElement,
-      //     {
-      //       onChange,
-      //       onBlur,
-      //       value,
-      //       error,
-      //     },
-      //   );
-      // }}
     />
   );
 }

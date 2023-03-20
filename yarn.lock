@@ -3515,7 +3515,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.4.3, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.4.4, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -8673,7 +8673,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.4.3
+    "@kagari/ui": ^0.4.4
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.0.0

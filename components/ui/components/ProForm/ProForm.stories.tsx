@@ -37,7 +37,7 @@ const Template = (args) => {
         prop={'username'}
         render={({ field, formState }) => {
           return (
-            <Box sx={{ mb: 1 }}>
+            <Box>
               <InputLabel required>{field.name}</InputLabel>
               <Box>
                 <Input {...field} />
@@ -54,7 +54,7 @@ const Template = (args) => {
         prop={'password'}
         render={({ field, formState }) => {
           return (
-            <Box sx={{ mb: 1 }}>
+            <Box>
               <InputLabel required>password</InputLabel>
               <Input {...field} />
               <FormHelperText error={!!formState.errors[field.name]}>
