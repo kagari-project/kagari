@@ -17,6 +17,7 @@ import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 import { RoleBasedAccessControlGuard } from '@kagari/rbac';
 import { UserEntity } from '../../core/entities/User.entity';
 import { ApiOperation } from '@nestjs/swagger';
+import { M2M_ROLES__PERMISSIONS } from '../../core/entities/junctions';
 
 @UseGuards(getAuthenticatedGuard('jwt'), RoleBasedAccessControlGuard)
 export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
@@ -62,9 +63,14 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
   ) {
     await this.roleRepo
       .createQueryBuilder()
-      .relation(RoleEntity, 'permissions')
-      .of(id)
-      .add(permissions);
+      .insert()
+      .into(M2M_ROLES__PERMISSIONS.name)
+      .values(
+        permissions.map((permission) => ({
+          [M2M_ROLES__PERMISSIONS.joinColumn.name]: id,
+          [M2M_ROLES__PERMISSIONS.inverseJoinColumn.name]: permission.id,
+        })),
+      );
   }
 
   @ApiOperation({

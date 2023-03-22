@@ -85,10 +85,16 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
           [M2M_USERS__ROLES.inverseJoinColumn.name]: role.id,
         })),
       )
-      .orUpdate([
-        M2M_USERS__ROLES.joinColumn.name,
-        M2M_USERS__ROLES.inverseJoinColumn.name,
-      ])
+      .orUpdate(
+        [
+          M2M_USERS__ROLES.joinColumn.name,
+          M2M_USERS__ROLES.inverseJoinColumn.name,
+        ],
+        [
+          M2M_USERS__ROLES.joinColumn.name,
+          M2M_USERS__ROLES.inverseJoinColumn.name,
+        ],
+      )
       .execute();
   }
 
@@ -149,12 +155,6 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
   ) {
     await this.userRepo
       .createQueryBuilder()
-      .relation(UserEntity, 'permissions')
-      .of(id)
-      .add(permissions);
-
-    await this.userRepo
-      .createQueryBuilder()
       .insert()
       .into(M2M_USERS__PERMISSIONS.name)
       .values(
@@ -163,10 +163,16 @@ export class UserController extends CreateBaseControllerHelper<UserEntity>(
           [M2M_USERS__PERMISSIONS.inverseJoinColumn.name]: permission.id,
         })),
       )
-      .orUpdate([
-        M2M_USERS__PERMISSIONS.joinColumn.name,
-        M2M_USERS__PERMISSIONS.inverseJoinColumn.name,
-      ])
+      .orUpdate(
+        [
+          M2M_USERS__PERMISSIONS.joinColumn.name,
+          M2M_USERS__PERMISSIONS.inverseJoinColumn.name,
+        ],
+        [
+          M2M_USERS__PERMISSIONS.joinColumn.name,
+          M2M_USERS__PERMISSIONS.inverseJoinColumn.name,
+        ],
+      )
       .execute();
   }
 
