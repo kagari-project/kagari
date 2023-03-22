@@ -20,9 +20,9 @@ export const CreationForm = React.forwardRef<unknown, CreationFormProps>(
         <ProForm onSubmit={props.handleCreate} sx={{ padding: 1 }}>
           <ProFormItem
             prop="files"
-            render={({ name, field }) => (
+            render={({ field }) => (
               <>
-                <InputLabel>{name}</InputLabel>
+                <InputLabel>{field.name}</InputLabel>
                 <ProUpload {...field} multiple={false} />
               </>
             )}

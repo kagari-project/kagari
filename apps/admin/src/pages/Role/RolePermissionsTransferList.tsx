@@ -6,12 +6,9 @@ import {
 } from '@kagari/ui/components/ProTransferList';
 import {
   addRolePermissions,
-  addUserPermissions,
   getRolePermissions,
-  getUserPermissions,
   permission,
   removeRolePermissions,
-  removeUserPermissions,
 } from '../../api';
 import Box from '@mui/material/Box';
 

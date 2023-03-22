@@ -16,9 +16,9 @@ export const EditionForm: EditForm = function (props) {
     >
       <ProFormItem
         prop="username"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -26,9 +26,9 @@ export const EditionForm: EditForm = function (props) {
 
       <ProFormItem
         prop="password"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}

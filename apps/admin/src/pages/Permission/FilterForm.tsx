@@ -13,8 +13,8 @@ export const FilterForm: SearchForm = function (props) {
     <ProForm inline onSubmit={onSubmit}>
       <ProFormItem
         prop={'search'}
-        render={({ field, name }) => {
-          return <Input {...field} placeholder={name} />;
+        render={({ field }) => {
+          return <Input {...field} placeholder={field.name} />;
         }}
       />
       <IconButton type="submit">

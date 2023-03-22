@@ -11,9 +11,9 @@ export const CreationForm: CreateForm = function (props) {
     <ProForm onSubmit={props.handleCreate} sx={{ padding: 1 }}>
       <ProFormItem
         prop="username"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}
@@ -21,9 +21,9 @@ export const CreationForm: CreateForm = function (props) {
 
       <ProFormItem
         prop="password"
-        render={({ name, field }) => (
+        render={({ field }) => (
           <>
-            <InputLabel>{name}</InputLabel>
+            <InputLabel>{field.name}</InputLabel>
             <Input {...field} />
           </>
         )}

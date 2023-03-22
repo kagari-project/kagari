@@ -13,6 +13,7 @@ import * as yup from 'yup';
 import { login } from '../api';
 import { useAuthStore } from '../store/auth.store';
 import router from '../config/router';
+import get from 'lodash/get';
 
 const loginFormSchema = yup.object().shape({
   username: yup.string().required(),
@@ -43,14 +44,14 @@ export default function LoginPage() {
         >
           <ProFormItem
             prop={'username'}
-            render={({ name, field, formState }) => {
+            render={({ field, formState }) => {
               return (
                 <Box sx={{ mb: 1 }}>
-                  <InputLabel required>{name}</InputLabel>
+                  <InputLabel required>{field.name}</InputLabel>
                   <Box>
                     <Input {...field} />
-                    <FormHelperText error={!!formState.errors[name]}>
-                      {formState.errors[name]?.message as string}
+                    <FormHelperText error={!!get(formState.errors, field.name)}>
+                      {get(formState.errors, `${field.name}.message`)}
                     </FormHelperText>
                   </Box>
                 </Box>
@@ -60,13 +61,13 @@ export default function LoginPage() {
 
           <ProFormItem
             prop={'password'}
-            render={({ name, field, formState }) => {
+            render={({ field, formState }) => {
               return (
                 <Box sx={{ mb: 1 }}>
-                  <InputLabel required>{name}</InputLabel>
+                  <InputLabel required>{field.name}</InputLabel>
                   <Input {...field} />
-                  <FormHelperText error={!!formState.errors[name]}>
-                    {formState.errors[name]?.message as string}
+                  <FormHelperText error={!!get(formState.errors, field.name)}>
+                    {get(formState.errors, `${field.name}.message`)}
                   </FormHelperText>
                 </Box>
               );
@@ -75,7 +76,7 @@ export default function LoginPage() {
 
           <ProFormItem
             prop={'rememberMe'}
-            render={({ name, field, formState }) => {
+            render={({ field, formState }) => {
               return (
                 <Box
                   sx={{ mb: 1 }}
@@ -86,8 +87,8 @@ export default function LoginPage() {
                 >
                   <Checkbox {...field} />
                   <InputLabel>remember me</InputLabel>
-                  <FormHelperText error={!!formState.errors[name]}>
-                    {formState.errors[name]?.message as string}
+                  <FormHelperText error={!!get(formState.errors, field.name)}>
+                    {get(formState.errors, `${field.name}.message`)}
                   </FormHelperText>
                 </Box>
               );
