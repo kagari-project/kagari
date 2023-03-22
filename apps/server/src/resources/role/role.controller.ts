@@ -70,6 +70,16 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
           [M2M_ROLES__PERMISSIONS.joinColumn.name]: id,
           [M2M_ROLES__PERMISSIONS.inverseJoinColumn.name]: permission.id,
         })),
+      )
+      .orUpdate(
+        [
+          M2M_ROLES__PERMISSIONS.joinColumn.name,
+          M2M_ROLES__PERMISSIONS.inverseJoinColumn.name,
+        ],
+        [
+          M2M_ROLES__PERMISSIONS.joinColumn.name,
+          M2M_ROLES__PERMISSIONS.inverseJoinColumn.name,
+        ],
       );
   }
 
