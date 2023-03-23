@@ -1,6 +1,6 @@
 {
   "name": "@kagari/multi-themes",
-  "version": "0.0.1",
+  "version": "0.4.9",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public",

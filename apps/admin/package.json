@@ -1,9 +1,9 @@
 {
   "name": "admin",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "private": true,
   "dependencies": {
-    "@kagari/ui": "^0.4.8",
+    "@kagari/ui": "^0.4.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.0.0",
