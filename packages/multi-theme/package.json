@@ -15,9 +15,7 @@
   "peerDependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/typeorm": "^9.0.1",
-    "rxjs": "^7.5.0",
-    "typeorm": "0.2.45"
+    "rxjs": "^7.5.0"
   },
   "dependencies": {
     "express-hbs": "^2.4.0",

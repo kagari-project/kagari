@@ -3443,7 +3443,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.4.8, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.4.9, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3468,7 +3468,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.4.8, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.4.9, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3485,7 +3485,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.0.1, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.4.11, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3500,13 +3500,11 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
-    "@nestjs/typeorm": ^9.0.1
     rxjs: ^7.5.0
-    typeorm: 0.2.45
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.4.8, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.4.9, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3520,7 +3518,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.4.8, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.4.9, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3536,7 +3534,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.4.8, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.4.9, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -8694,7 +8692,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.4.8
+    "@kagari/ui": ^0.4.9
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.0.0
@@ -24808,11 +24806,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.4.8
-    "@kagari/database": ^0.4.8
-    "@kagari/multi-themes": ^0.0.1
-    "@kagari/rbac": ^0.4.8
-    "@kagari/restful": ^0.4.8
+    "@kagari/auth": ^0.4.9
+    "@kagari/database": ^0.4.9
+    "@kagari/multi-themes": ^0.4.11
+    "@kagari/rbac": ^0.4.9
+    "@kagari/restful": ^0.4.9
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
