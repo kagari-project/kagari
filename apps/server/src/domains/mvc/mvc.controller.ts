@@ -7,7 +7,6 @@ export class MvcController {
   @Get()
   @Render('pages/home')
   getHome() {
-    throw new Error();
     return {};
   }
 }
