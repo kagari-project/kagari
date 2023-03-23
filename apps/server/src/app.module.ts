@@ -27,6 +27,7 @@ import { SessionEntity } from './core/entities/Session.entity';
 import { AuthModule } from './services/auth/auth.module';
 import { MediaModule } from './services/media/media.module';
 import { MediaEntity } from './services/media/Media.entity';
+import { MvcModule } from './domains/mvc/mvc.module';
 
 @Module({
   imports: [
@@ -101,6 +102,7 @@ import { MediaEntity } from './services/media/Media.entity';
         canActivate,
       }),
     }),
+    MvcModule,
     ApiModule,
     AuthModule,
     MediaModule,

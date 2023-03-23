@@ -23,6 +23,7 @@
   "dependencies": {
     "@kagari/auth": "^0.4.8",
     "@kagari/database": "^0.4.8",
+    "@kagari/multi-themes": "^0.0.1",
     "@kagari/rbac": "^0.4.8",
     "@kagari/restful": "^0.4.8",
     "@nestjs/common": "^9.0.0",

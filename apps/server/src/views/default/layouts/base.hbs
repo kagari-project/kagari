@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>{{ title }}</title>
+    <script type="text/javascript" src="{{ getUrl '/js/index.js' }}"></script>
+    <script type="text/javascript" src="{{ loadThemeAsset '/js/index.js' }}"></script>
+    <link rel="stylesheet" href="{{ loadThemeAsset '/css/index.css' }}">
+    <link rel="stylesheet" href="{{ getUrl '/css/index.css' }}"/>
+    {{{block "pageStyles"}}}
+</head>
+<body>
+
+{{#> header }}
+    {{> "header" }}
+{{/header}}
+<main>
+
+    <div class="mui-container">
+        {{{body}}}
+    </div>
+
+</main>
+
+{{#> footer }}
+    {{> "footer" }}
+{{/footer}}
+
+{{{block "predefines"}}}
+{{{block "pageScripts"}}}
+</body>
+</html>
