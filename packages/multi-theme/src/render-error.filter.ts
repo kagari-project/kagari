@@ -61,6 +61,7 @@ export class RenderErrorFilter implements ExceptionFilter {
       .status(status)
       .render(this.options.getErrorPage(exception), {
         status,
+        error: exception,
         layout: this.options.layout,
       });
   }
