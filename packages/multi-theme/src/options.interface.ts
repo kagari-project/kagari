@@ -1,11 +1,11 @@
-import { HttpException } from '@nestjs/common';
-
 export type ExpressHbsOptions = {
   blockHelperName?: string;
   contentHelperName?: string;
   defaultLayout?: string;
   extname?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   i18n?: Record<string, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   templateOptions?: Record<string, any>;
   beautify?: boolean;
 };

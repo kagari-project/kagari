@@ -1,4 +1,4 @@
-import { Inject, Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { THEME_ENGINE_MODULE_OPTIONS } from './tokens.constants';
 import { ThemeEngineModuleOptions } from './options.interface';

@@ -4,12 +4,8 @@ import {
   ExceptionFilter,
   HttpException,
   HttpStatus,
-  Inject,
-  InternalServerErrorException,
   RequestMethod,
 } from '@nestjs/common';
-import { THEME_ENGINE_MODULE_OPTIONS } from './tokens.constants';
-import { ThemeEngineModuleOptions } from './options.interface';
 
 export type RenderErrorFilterOptions = {
   getErrorPage: (e: Error | HttpException) => string;
