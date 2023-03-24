@@ -40,6 +40,14 @@ export class RenderErrorFilter implements ExceptionFilter {
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
+    const resBody =
+      exception instanceof HttpException
+        ? exception.getResponse()
+        : {
+            statusCode: 500,
+            message: exception.message,
+            error: exception.message,
+          };
 
     for (const exclude of this.excludes) {
       const methodId =
@@ -48,20 +56,19 @@ export class RenderErrorFilter implements ExceptionFilter {
         exclude.method === methodId || exclude.method === RequestMethod.ALL;
       const matchesOnUrl = exclude.path.test(request.url);
       if (matchesOnUrl && matchesOnMethod) {
-        return response.status(status).json({
-          statusCode: status,
-          timestamp: new Date().toISOString(),
-          path: request.url,
-          exception: exception,
-        });
+        return response.status(status).json(resBody);
       }
     }
+
+    const pageRes =
+      resBody instanceof String
+        ? { statusCode: status, message: resBody, error: exception }
+        : (resBody as Record<string, any>);
 
     return response
       .status(status)
       .render(this.options.getErrorPage(exception), {
-        status,
-        error: exception,
+        ...pageRes,
         layout: this.options.layout,
       });
   }
