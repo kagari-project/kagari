@@ -3696,7 +3696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/transform@npm:^29.5.0":
+"@jest/transform@npm:^29.3.1, @jest/transform@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/transform@npm:29.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40jest%2Ftransform%2F-%2Ftransform-29.5.0.tgz"
   dependencies:
@@ -3937,7 +3937,7 @@ __metadata:
     jest: ^29.0.2
     joi: ^17.6.0
     reflect-metadata: ^0.1.13
-    rimraf: ^3.0.2
+    rimraf: ^4.0.0
     rxjs: ~7.5.0
     ts-jest: 29.1.0
     typescript: ~4.7.4
@@ -13742,6 +13742,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:^9.2.0":
+  version: 9.3.4
+  resolution: "glob@npm:9.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fglob%2F-%2Fglob-9.3.4.tgz"
+  dependencies:
+    fs.realpath: ^1.0.0
+    minimatch: ^8.0.2
+    minipass: ^4.2.4
+    path-scurry: ^1.6.1
+  checksum: bcf49eaf475dc4ce8d4e98f896408a9f6507a2cb7d24a207c012cb318b969e04a02bcde2ff2920eadd5055ccae444a007b769e418147a56268fab2cda8694cde
+  languageName: node
+  linkType: hard
+
 "global-dirs@npm:^0.1.1":
   version: 0.1.1
   resolution: "global-dirs@npm:0.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fglobal-dirs%2F-%2Fglobal-dirs-0.1.1.tgz"
@@ -16962,6 +16974,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^7.14.1":
+  version: 7.18.3
+  resolution: "lru-cache@npm:7.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Flru-cache%2F-%2Flru-cache-7.18.3.tgz"
+  checksum: e550d772384709deea3f141af34b6d4fa392e2e418c1498c078de0ee63670f1f46f5eee746e8ef7e69e1c895af0d4224e62ee33e66a543a14763b0f2e74c1356
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^7.4.4, lru-cache@npm:^7.5.1, lru-cache@npm:^7.7.1":
   version: 7.14.1
   resolution: "lru-cache@npm:7.14.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Flru-cache%2F-%2Flru-cache-7.14.1.tgz"
@@ -17338,6 +17357,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^8.0.2":
+  version: 8.0.3
+  resolution: "minimatch@npm:8.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fminimatch%2F-%2Fminimatch-8.0.3.tgz"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 8957d8105be6729bf1d3af9c410b2a38ffcf3cd17d4ffaf715b2aa4841490aaa82f1ebff785e71b5b97747199ccc61027db597495941cf46243d9a64382e1560
+  languageName: node
+  linkType: hard
+
 "minimist-options@npm:4.1.0":
   version: 4.1.0
   resolution: "minimist-options@npm:4.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fminimist-options%2F-%2Fminimist-options-4.1.0.tgz"
@@ -17441,7 +17469,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^4.0.0":
+"minipass@npm:^4.0.0, minipass@npm:^4.0.2, minipass@npm:^4.2.4":
   version: 4.2.5
   resolution: "minipass@npm:4.2.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fminipass%2F-%2Fminipass-4.2.5.tgz"
   checksum: 4f9c19af23a5d4a9e7156feefc9110634b178a8cff8f8271af16ec5ebf7e221725a97429952c856f5b17b30c2065ebd24c81722d90c93d2122611d75b952b48f
@@ -18746,6 +18774,16 @@ __metadata:
   version: 1.0.7
   resolution: "path-parse@npm:1.0.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpath-parse%2F-%2Fpath-parse-1.0.7.tgz"
   checksum: 49abf3d81115642938a8700ec580da6e830dde670be21893c62f4e10bd7dd4c3742ddc603fe24f898cba7eb0c6bc1777f8d9ac14185d34540c6d4d80cd9cae8a
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^1.6.1":
+  version: 1.6.3
+  resolution: "path-scurry@npm:1.6.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpath-scurry%2F-%2Fpath-scurry-1.6.3.tgz"
+  dependencies:
+    lru-cache: ^7.14.1
+    minipass: ^4.0.2
+  checksum: 814ebd7f8df717e2381dc707ba3a3ddf84d0a4f9d653036c7554cb1fea632d4d78eb17dd5f4c85111b78ba8b8c0a5b59c756645c9d343bdacacda4ba8d1626c2
   languageName: node
   linkType: hard
 
@@ -21201,6 +21239,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rimraf@npm:^4.0.0":
+  version: 4.4.1
+  resolution: "rimraf@npm:4.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frimraf%2F-%2Frimraf-4.4.1.tgz"
+  dependencies:
+    glob: ^9.2.0
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: b786adc02651e2e24bbedb04bbdea80652fc9612632931ff2d9f898c5e4708fe30956186597373c568bd5230a4dc2fadfc816ccacba8a1daded3a006a6b74f1a
+  languageName: node
+  linkType: hard
+
 "rimraf@npm:~2.6.2":
   version: 2.6.3
   resolution: "rimraf@npm:2.6.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frimraf%2F-%2Frimraf-2.6.3.tgz"
@@ -21617,7 +21666,7 @@ __metadata:
     joi: ^17.6.0
     pg: ^8.8.0
     reflect-metadata: ^0.1.13
-    rimraf: ^3.0.2
+    rimraf: ^4.0.0
     rxjs: ~7.5.0
     source-map-support: ^0.5.20
     sqlite3: ^5.1.1
