@@ -3696,7 +3696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/transform@npm:^29.5.0":
+"@jest/transform@npm:^29.3.1, @jest/transform@npm:^29.5.0":
   version: 29.5.0
   resolution: "@jest/transform@npm:29.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40jest%2Ftransform%2F-%2Ftransform-29.5.0.tgz"
   dependencies:
@@ -7863,13 +7863,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-jwt@npm:^3.0.6":
-  version: 3.0.7
-  resolution: "@types/passport-jwt@npm:3.0.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.7.tgz"
+  version: 3.0.8
+  resolution: "@types/passport-jwt@npm:3.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.8.tgz"
   dependencies:
     "@types/express": "*"
     "@types/jsonwebtoken": "*"
     "@types/passport-strategy": "*"
-  checksum: c3631b9cb8a858e1ce366de04fe0e4fd350f265e09aad7e586c064ded6183dc011806c58c13a9e4535d66f900d76d6746e9c3d79b83a90ddc7dff679cbcfbe5d
+  checksum: 321eca319eff51c87a5ddebf590937b24ed7fa6c8cc2465cecb4edf49f839b7770e57a4ed009f323c66ade6c0f1d9b6a51033d82dd392270b17976380893af2f
   languageName: node
   linkType: hard
 
