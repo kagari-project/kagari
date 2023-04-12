@@ -1,6 +1,6 @@
 {
   "name": "@kagari/database",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "module": "",
   "main": "dist/index.js",
   "publishConfig": {
@@ -42,5 +42,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "gitHead": "bd46e19439f993f454024ad03a8b9e690806643b"
+  "gitHead": "953560fedacaaaf52d7b807c85f1325748962e9e"
 }
