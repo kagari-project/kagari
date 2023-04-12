@@ -10,7 +10,7 @@
     "changelog": "lerna version --conventional-commits --amend -y",
     "build:all": "yarn workspaces foreach run build",
     "prepublish": "yarn build:all && yarn changelog",
-    "publish": "lerna publish",
+    "publish": "lerna publish --force-publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@kagari/auth",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist",
