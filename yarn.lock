@@ -7874,13 +7874,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-local@npm:^1.0.34":
-  version: 1.0.34
-  resolution: "@types/passport-local@npm:1.0.34::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-local%2F-%2Fpassport-local-1.0.34.tgz"
+  version: 1.0.35
+  resolution: "@types/passport-local@npm:1.0.35::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-local%2F-%2Fpassport-local-1.0.35.tgz"
   dependencies:
     "@types/express": "*"
     "@types/passport": "*"
     "@types/passport-strategy": "*"
-  checksum: c8e162f571c8685344f4496b1473645eb1244a2ecb1c810854d43ac8897145083ac7412b8d3a3231f72f27a22d57e526fc8421d8208c18cdff8f83266e875f37
+  checksum: b4ed4c40d2c7c42370c8a0ca7e18728bf3dbf2a56171d45c4f4d0281af9d91595ef9677a4f47ef10fdd5374a917b0ea64fb02d44ff4c424e48965e92915da294
   languageName: node
   linkType: hard
 
