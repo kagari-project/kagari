@@ -7597,11 +7597,11 @@ __metadata:
   linkType: hard
 
 "@types/express-session@npm:^1.17.5":
-  version: 1.17.5
-  resolution: "@types/express-session@npm:1.17.5::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress-session%2F-%2Fexpress-session-1.17.5.tgz"
+  version: 1.17.7
+  resolution: "@types/express-session@npm:1.17.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress-session%2F-%2Fexpress-session-1.17.7.tgz"
   dependencies:
     "@types/express": "*"
-  checksum: f6995f7720a18546bcb10cc707cf8c9c92455eb4319c0c50c57e9b9b10ed20dc379d74d5e4c3323fe4e924238b75e13c97822c9d81a80fa064ddc71654c1059d
+  checksum: 4764eafaf4e26842e891e83fa9fee30b92cc3724d91987aac3a658322f9a69fb544dae24fc3aba6e15fe9575ed862760ebecd7ff97a947afb695284967434a65
   languageName: node
   linkType: hard
 
