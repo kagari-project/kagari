@@ -7574,7 +7574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-serve-static-core@npm:*, @types/express-serve-static-core@npm:^4.17.18":
+"@types/express-serve-static-core@npm:*":
   version: 4.17.31
   resolution: "@types/express-serve-static-core@npm:4.17.31::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress-serve-static-core%2F-%2Fexpress-serve-static-core-4.17.31.tgz"
   dependencies:
@@ -7605,19 +7605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:^4.17.13":
-  version: 4.17.14
-  resolution: "@types/express@npm:4.17.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress%2F-%2Fexpress-4.17.14.tgz"
-  dependencies:
-    "@types/body-parser": "*"
-    "@types/express-serve-static-core": ^4.17.18
-    "@types/qs": "*"
-    "@types/serve-static": "*"
-  checksum: 15c1af46d02de834e4a225eccaa9d85c0370fdbb3ed4e1bc2d323d24872309961542b993ae236335aeb3e278630224a6ea002078d39e651d78a3b0356b1eaa79
-  languageName: node
-  linkType: hard
-
-"@types/express@npm:^4.7.0":
+"@types/express@npm:*, @types/express@npm:^4.17.13, @types/express@npm:^4.7.0":
   version: 4.17.17
   resolution: "@types/express@npm:4.17.17::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress%2F-%2Fexpress-4.17.17.tgz"
   dependencies:
