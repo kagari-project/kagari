@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useFormContext, UseFormRegisterReturn } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';

@@ -40,6 +40,8 @@ export type EditForm = React.FC<{ handleEdit: HandleEdit; data: unknown }>;
 export type ProRestfulProps = PropsWithChildren<
   {
     title?: string;
+    disableEnforceFocus: boolean,
+    disableAutoFocus: boolean,
     mode?: "drawer" | "modal" | "standalone-page"
     columns: ProTableProps['columns'];
     searchForm?: SearchForm;
@@ -138,7 +140,7 @@ export const ProRestful = React.forwardRef(function <T = unknown>(
 
   function renderForms() {
     if (props.mode === 'modal') {
-      return <Modal open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Modal>
+      return <Modal open={isDrawerOpen} disableEnforceFocus={props.disableEnforceFocus} disableAutoFocus={props.disableAutoFocus} onClose={onDrawerClose}>{renderSideForm()}</Modal>
     }
     return <Drawer anchor="right" open={isDrawerOpen} onClose={onDrawerClose}>{renderSideForm()}</Drawer>
   }
