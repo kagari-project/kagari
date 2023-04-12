@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/kagari-project/kagari/compare/v0.4.13...v0.5.0) (2023-04-12)
+
+### Bug Fixes
+
+- **ui:** fix type issue ([518ab38](https://github.com/kagari-project/kagari/commit/518ab38e703e93f0ab3f5105795e6f974489d8ae))
+
+### Features
+
+- **ui:** add props to pro-restful component ([eb00186](https://github.com/kagari-project/kagari/commit/eb00186f1a183eadf8fc76deb49c697b81d9e5a7))
+
 # [0.4.0](https://github.com/kagari-project/kagari/compare/v0.3.4...v0.4.0) (2023-03-16)
 
 ### Bug Fixes

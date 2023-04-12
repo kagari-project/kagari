@@ -40,8 +40,8 @@ export type EditForm = React.FC<{ handleEdit: HandleEdit; data: unknown }>;
 export type ProRestfulProps = PropsWithChildren<
   {
     title?: string;
-    disableEnforceFocus: boolean,
-    disableAutoFocus: boolean,
+    disableEnforceFocus?: boolean,
+    disableAutoFocus?: boolean,
     mode?: "drawer" | "modal" | "standalone-page"
     columns: ProTableProps['columns'];
     searchForm?: SearchForm;
