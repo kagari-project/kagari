@@ -1,5 +1,5 @@
 import { extractOperators, extractOperator } from './extract-operators';
-import { Between, Equal } from '@kagari/database';
+import { Between, Equal, ILike } from '@kagari/database';
 
 it('should extract operator and value', function () {
   expect(extractOperators([{ username: '$eq(root2)' }])).toStrictEqual([
@@ -17,4 +17,8 @@ it('should correct handle between', function () {
   expect(extractOperator('$bw(2022-10-04,2022-10-15)')).toStrictEqual(
     Between('2022-10-04', '2022-10-15'),
   );
+});
+
+it('should give like', function () {
+  expect(extractOperator('$ilike(ffff)')).toStrictEqual(ILike('%ffff%'));
 });

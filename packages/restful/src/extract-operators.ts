@@ -8,6 +8,7 @@ import {
   MoreThan,
   MoreThanOrEqual,
   ILike,
+  Like,
   Equal,
 } from '@kagari/database';
 import { Operations } from './types';
@@ -21,7 +22,9 @@ function getOperatorBySymbol(symbol, value) {
     case Operations.bw:
       return Between(value.split(',')[0], value.split(',')[1]);
     case Operations.ilike:
-      return ILike(value);
+      return ILike(`%${value}%`);
+    case Operations.like:
+      return Like(`%${value}%`);
     case Operations.in:
       return In(value);
     case Operations.isnull:
