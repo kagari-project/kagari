@@ -1,6 +1,6 @@
 {
   "name": "@kagari/ui",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc -w"
