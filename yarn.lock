@@ -21918,8 +21918,8 @@ __metadata:
   linkType: hard
 
 "sqlite3@npm:^5.1.1":
-  version: 5.1.2
-  resolution: "sqlite3@npm:5.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsqlite3%2F-%2Fsqlite3-5.1.2.tgz"
+  version: 5.1.6
+  resolution: "sqlite3@npm:5.1.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fsqlite3%2F-%2Fsqlite3-5.1.6.tgz"
   dependencies:
     "@mapbox/node-pre-gyp": ^1.0.0
     node-addon-api: ^4.2.0
@@ -21933,7 +21933,7 @@ __metadata:
   peerDependenciesMeta:
     node-gyp:
       optional: true
-  checksum: 5ed90068f27853c4fef9d01c2e18706b7f51351220cbcd34488772a8ee5438097a16955e7a9d462da81c93fdf1ed3c8cdb085b23ddda02fc863b48e6acc0ee6e
+  checksum: ea640628843e37a63dfb4bd2c8429dbd7aab845c1a8204574dca3aac61486ab65bc0abfd99b48f1cead1f783171c6111c0cc4115335d5b95bb0b4eb44db162d5
   languageName: node
   linkType: hard
 
