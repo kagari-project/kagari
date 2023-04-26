@@ -3853,7 +3853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.5.2, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.5.4, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3878,7 +3878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.5.2, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.5.4, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3895,7 +3895,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.5.2, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.5.4, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3914,7 +3914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.5.2, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.5.4, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3928,7 +3928,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.5.2, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.5.4, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3944,7 +3944,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.5.2, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.5.4, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -7800,31 +7800,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 16.18.3
-  resolution: "@types/node@npm:16.18.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-16.18.3.tgz"
-  checksum: 6b8ba2ea5d842f7986e366cb9184c54d273d492784dc62e08fd5afeae938d9b61aec6e4222d2541cd18f9b1412ba361bbcb3f4204fb003608af80a2a6af959f9
+"@types/node@npm:*, @types/node@npm:^18.0.0":
+  version: 18.16.1
+  resolution: "@types/node@npm:18.16.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-18.16.1.tgz"
+  checksum: 799026b949a48993cba7c9b81b2eabfdfb34c880744cb44c1c990fbedc9e315f3634d126eb2cf9a6e0795577c01016e2326d98565bef695ada9d363fadeb6946
   languageName: node
   linkType: hard
 
 "@types/node@npm:^14.0.0":
-  version: 14.18.33
-  resolution: "@types/node@npm:14.18.33::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-14.18.33.tgz"
-  checksum: 4e23f95186d8ae1d38c999bc6b46fe94e790da88744b0a3bfeedcbd0d9ffe2cb0ff39e85f43014f6739e5270292c1a1f6f97a1fc606fd573a0c17fda9a1d42de
+  version: 14.18.43
+  resolution: "@types/node@npm:14.18.43::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-14.18.43.tgz"
+  checksum: 3ef43eda265c346597bc5c8329605255550f7a92300a76e9e3c48e07fd685b4a48d47465997bf6f1a68b235c7339e6e583d73515769efcad70e4f8f4c7f47fd4
   languageName: node
   linkType: hard
 
 "@types/node@npm:^16.0.0":
-  version: 16.18.23
-  resolution: "@types/node@npm:16.18.23::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-16.18.23.tgz"
-  checksum: 00e51db28fc7a182747f37215b3f25400b1c7a8525e09fa14e55be5798891a118ebf636a49d3197335a3580fcb8222fd4ecc20c2ccff69f1c0d233fc5697465d
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.0.0":
-  version: 18.11.10
-  resolution: "@types/node@npm:18.11.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-18.11.10.tgz"
-  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
+  version: 16.18.25
+  resolution: "@types/node@npm:16.18.25::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-16.18.25.tgz"
+  checksum: 181760ad6b54fcc498dfeb249e98bbf0be51d7c35e92e760e1a82004fa42b86e8c33a8f8dd7743b5ef872bda0753d9e6a5b8e3f0aed63e9eb79b4e65760c1fbe
   languageName: node
   linkType: hard
 
@@ -8592,7 +8585,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.5.2
+    "@kagari/ui": ^0.5.4
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.0.0
@@ -21493,11 +21486,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.5.2
-    "@kagari/database": ^0.5.2
-    "@kagari/multi-themes": ^0.5.2
-    "@kagari/rbac": ^0.5.2
-    "@kagari/restful": ^0.5.2
+    "@kagari/auth": ^0.5.4
+    "@kagari/database": ^0.5.4
+    "@kagari/multi-themes": ^0.5.4
+    "@kagari/rbac": ^0.5.4
+    "@kagari/restful": ^0.5.4
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
