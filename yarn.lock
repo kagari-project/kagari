@@ -3853,7 +3853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.5.2, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.5.4, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3878,7 +3878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.5.2, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.5.4, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3895,7 +3895,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.5.2, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.5.4, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3914,7 +3914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.5.2, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.5.4, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3928,7 +3928,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.5.2, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.5.4, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3944,7 +3944,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.5.2, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.5.4, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -8592,7 +8592,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.5.2
+    "@kagari/ui": ^0.5.4
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/user-event": ^14.0.0
@@ -20362,11 +20362,11 @@ __metadata:
   linkType: hard
 
 "react-hook-form@npm:^7.39.4":
-  version: 7.39.4
-  resolution: "react-hook-form@npm:7.39.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-hook-form%2F-%2Freact-hook-form-7.39.4.tgz"
+  version: 7.43.9
+  resolution: "react-hook-form@npm:7.43.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Freact-hook-form%2F-%2Freact-hook-form-7.43.9.tgz"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: 767337330a9ce305296adb435e05380fb138308931a0ca20f7a681604acf16a978f14f48d52279fb2eccc690f808622fa4db019835fd0e4fd6a768d2c13b83d0
+  checksum: 65b94de625f2b7921c4e856bf0abbe142bfe06c052217bd1bcc3a842e2cc37fa3a3e03758119dc038bbcf5edb49e02c29206528b80b201f9a4d601471ef78153
   languageName: node
   linkType: hard
 
@@ -21493,11 +21493,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.5.2
-    "@kagari/database": ^0.5.2
-    "@kagari/multi-themes": ^0.5.2
-    "@kagari/rbac": ^0.5.2
-    "@kagari/restful": ^0.5.2
+    "@kagari/auth": ^0.5.4
+    "@kagari/database": ^0.5.4
+    "@kagari/multi-themes": ^0.5.4
+    "@kagari/rbac": ^0.5.4
+    "@kagari/restful": ^0.5.4
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
