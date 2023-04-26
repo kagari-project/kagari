@@ -5049,31 +5049,42 @@ __metadata:
   linkType: hard
 
 "@mui/x-date-pickers-pro@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "@mui/x-date-pickers-pro@npm:6.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers-pro%2F-%2Fx-date-pickers-pro-6.0.2.tgz"
+  version: 6.2.1
+  resolution: "@mui/x-date-pickers-pro@npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers-pro%2F-%2Fx-date-pickers-pro-6.2.1.tgz"
   dependencies:
-    "@babel/runtime": ^7.20.13
+    "@babel/runtime": ^7.21.0
     "@date-io/date-fns": ^2.16.0
-    "@date-io/dayjs": ^2.16.0
     "@date-io/luxon": ^2.16.1
     "@date-io/moment": ^2.16.1
     "@mui/utils": ^5.11.13
-    "@mui/x-date-pickers": 6.0.2
-    "@mui/x-license-pro": 6.0.2
+    "@mui/x-date-pickers": 6.2.1
+    "@mui/x-license-pro": 6.0.4
     clsx: ^1.2.1
     prop-types: ^15.8.1
     react-transition-group: ^4.4.5
   peerDependencies:
-    "@mui/material": ^5.4.1
-    "@mui/system": ^5.4.1
+    "@emotion/react": ^11.9.0
+    "@emotion/styled": ^11.8.1
+    "@mui/base": ^5.0.0-alpha.87
+    "@mui/material": ^5.8.6
+    "@mui/system": ^5.8.0
     date-fns: ^2.25.0
+    date-fns-jalali: ^2.13.0-0
     dayjs: ^1.10.7
     luxon: ^3.0.2
     moment: ^2.29.4
+    moment-hijri: ^2.1.2
+    moment-jalaali: ^0.7.4 || ^0.8.0 || ^0.9.0
     react: ^17.0.2 || ^18.0.0
     react-dom: ^17.0.2 || ^18.0.0
   peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    "@emotion/styled":
+      optional: true
     date-fns:
+      optional: true
+    date-fns-jalali:
       optional: true
     dayjs:
       optional: true
@@ -5081,11 +5092,70 @@ __metadata:
       optional: true
     moment:
       optional: true
-  checksum: 478c57955e9fb44b5a175094c8e1db9270469d9dbde5fbedd448b71f109f0b0ee22531675a80d7182128d25b5d20ad352ccc7e0ba63212c27163216601b2de59
+    moment-hijri:
+      optional: true
+    moment-jalaali:
+      optional: true
+  checksum: f04d48cae1784ff46a0e9a29ea1195328975fbb184bf8353f4482a5d8f0ae3207abb5eb0390243052c6087cd4020827949d32ebb5ca50859d68c675825e49b2f
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:6.0.2, @mui/x-date-pickers@npm:^6.0.2":
+"@mui/x-date-pickers@npm:6.2.1":
+  version: 6.2.1
+  resolution: "@mui/x-date-pickers@npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers%2F-%2Fx-date-pickers-6.2.1.tgz"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+    "@date-io/core": ^2.16.0
+    "@date-io/date-fns": ^2.16.0
+    "@date-io/date-fns-jalali": ^2.16.0
+    "@date-io/hijri": ^2.16.1
+    "@date-io/jalaali": ^2.16.1
+    "@date-io/luxon": ^2.16.1
+    "@date-io/moment": ^2.16.1
+    "@mui/utils": ^5.11.13
+    "@types/react-transition-group": ^4.4.5
+    clsx: ^1.2.1
+    prop-types: ^15.8.1
+    react-transition-group: ^4.4.5
+  peerDependencies:
+    "@emotion/react": ^11.9.0
+    "@emotion/styled": ^11.8.1
+    "@mui/base": ^5.0.0-alpha.87
+    "@mui/material": ^5.8.6
+    "@mui/system": ^5.8.0
+    date-fns: ^2.25.0
+    date-fns-jalali: ^2.13.0-0
+    dayjs: ^1.10.7
+    luxon: ^3.0.2
+    moment: ^2.29.4
+    moment-hijri: ^2.1.2
+    moment-jalaali: ^0.7.4 || ^0.8.0 || ^0.9.0
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/react":
+      optional: true
+    "@emotion/styled":
+      optional: true
+    date-fns:
+      optional: true
+    date-fns-jalali:
+      optional: true
+    dayjs:
+      optional: true
+    luxon:
+      optional: true
+    moment:
+      optional: true
+    moment-hijri:
+      optional: true
+    moment-jalaali:
+      optional: true
+  checksum: f06eb6a89eafddbfd806e9296b2814b8de030a34d1eaecab6993ecfd9fd892f2d697ca98e31458fb2b0f41404008cedc652b912eb89eb3ac5f23baabd6de798b
+  languageName: node
+  linkType: hard
+
+"@mui/x-date-pickers@npm:^6.0.2":
   version: 6.0.2
   resolution: "@mui/x-date-pickers@npm:6.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers%2F-%2Fx-date-pickers-6.0.2.tgz"
   dependencies:
@@ -5140,15 +5210,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-license-pro@npm:6.0.2":
-  version: 6.0.2
-  resolution: "@mui/x-license-pro@npm:6.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-license-pro%2F-%2Fx-license-pro-6.0.2.tgz"
+"@mui/x-license-pro@npm:6.0.4":
+  version: 6.0.4
+  resolution: "@mui/x-license-pro@npm:6.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-license-pro%2F-%2Fx-license-pro-6.0.4.tgz"
   dependencies:
-    "@babel/runtime": ^7.20.13
+    "@babel/runtime": ^7.21.0
     "@mui/utils": ^5.11.13
   peerDependencies:
     react: ^17.0.2 || ^18.0.0
-  checksum: 20a8560d72b5b321e22dfe936c58e06b97ff0b54decd79698d348964c74466df2fd41d162e6d49ec059186725ed5f8d25c7d1f44d4363a7ae2fb5e1263af4ee0
+  checksum: 3b172af7f20657ed9f77449b5e4f3c6bc41446c069818d9055915dab268555de2f923f9de0a518903a46a6cc131cdaec6e1d9e7331bb5f8e03db0bc7afc1a169
   languageName: node
   linkType: hard
 
