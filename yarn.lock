@@ -8093,11 +8093,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.9":
-  version: 18.0.9
-  resolution: "@types/react-dom@npm:18.0.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.0.9.tgz"
+  version: 18.2.4
+  resolution: "@types/react-dom@npm:18.2.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.2.4.tgz"
   dependencies:
     "@types/react": "*"
-  checksum: e744e3feba25fc43733289d4df4d9c0e59fcca7f34e8c89d75f81a339accb2bd70236d69382d47d2c0ad06a1529b2e56aa6171fe175854d60e07156ddceedfcb
+  checksum: 8301f35cf1cbfec8c723e9477aecf87774e3c168bd457d353b23c45064737213d3e8008b067c6767b7b08e4f2b3823ee239242a6c225fc91e7f8725ef8734124
   languageName: node
   linkType: hard
 
@@ -8119,25 +8119,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.25":
-  version: 18.0.25
-  resolution: "@types/react@npm:18.0.25::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2F-%2Freact-18.0.25.tgz"
+"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.0.25":
+  version: 18.2.6
+  resolution: "@types/react@npm:18.2.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2F-%2Freact-18.2.6.tgz"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 231d658c45abdef044a716b4502774f1585d8336d73b2f5bd68f181acbfc874b7a457686ecd29b415b43ed0922c309bab7e2cf96832d188a3f4f1b02f2af760a
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:>=16":
-  version: 18.0.33
-  resolution: "@types/react@npm:18.0.33::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2F-%2Freact-18.0.33.tgz"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 4fbd2b2b6a26378bdfde121081a6406ec2d39e4ba87ea5f6897ab7bb2198713165e6fd703ad4ed7ba1d4f23ef54a4c9f108f3105c7ed8e136411ee6bdebc5669
+  checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
   languageName: node
   linkType: hard
 
