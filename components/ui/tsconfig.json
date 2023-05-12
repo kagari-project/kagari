@@ -1,7 +1,10 @@
 {
   "include": [
     "./**/*.ts",
-    "./**/*.tsx",
+    "./**/*.tsx"
+  ],
+  "exclude": [
+    "./**/*.stories.tsx"
   ],
   "compilerOptions": {
     "esModuleInterop": true,
