@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/kagari-project/kagari/compare/v0.5.4...v0.5.5) (2023-05-12)
+
+### Bug Fixes
+
+- **deps:** update dependency @nestjs/jwt to v10 ([b19102e](https://github.com/kagari-project/kagari/commit/b19102e8feb8bd8774d2700afb2714d96ebb7a93))
+
 # [0.5.0](https://github.com/kagari-project/kagari/compare/v0.4.13...v0.5.0) (2023-04-12)
 
 **Note:** Version bump only for package @kagari/auth

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/kagari-project/kagari/compare/v0.5.4...v0.5.5) (2023-05-12)
+
+### Bug Fixes
+
+- **deps:** update dependency @faker-js/faker to v8 ([0aae64f](https://github.com/kagari-project/kagari/commit/0aae64faf143800050fc8dd9d5e917aa10e6bf75))
+- **deps:** update dependency @testing-library/react to v14 ([422ddf1](https://github.com/kagari-project/kagari/commit/422ddf1ec261869c2b89d143dc1c56e6cadcc839))
+- **ui:** pro-transferlist sb doc ([04e6b7f](https://github.com/kagari-project/kagari/commit/04e6b7f67fa7b887f26f601539ad51269abdf236))
+- **ui:** pro-transferlist sb doc ([30fb5ae](https://github.com/kagari-project/kagari/commit/30fb5ae9e7e32ab4ddebca315cd07c49c3d0b046))
+- **ui:** tsc no longer compile .stories.ts files ([8cad269](https://github.com/kagari-project/kagari/commit/8cad2692365d6f2637da450ff81c65a106ecea3f))
+- **ui:** tsc no longer compile .stories.tsx files ([cb654da](https://github.com/kagari-project/kagari/commit/cb654dac5b1541da6ad1a020856497edd640c1aa))
+
 # [0.5.0](https://github.com/kagari-project/kagari/compare/v0.4.13...v0.5.0) (2023-04-12)
 
 ### Bug Fixes
