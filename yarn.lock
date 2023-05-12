@@ -11161,6 +11161,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.29.3":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdate-fns%2F-%2Fdate-fns-2.30.0.tgz"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
+  languageName: node
+  linkType: hard
+
 "dateformat@npm:^3.0.0":
   version: 3.0.3
   resolution: "dateformat@npm:3.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fdateformat%2F-%2Fdateformat-3.0.3.tgz"
@@ -23435,14 +23444,15 @@ __metadata:
   linkType: hard
 
 "typeorm@npm:^0.3.9":
-  version: 0.3.15
-  resolution: "typeorm@npm:0.3.15::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypeorm%2F-%2Ftypeorm-0.3.15.tgz"
+  version: 0.3.16
+  resolution: "typeorm@npm:0.3.16::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypeorm%2F-%2Ftypeorm-0.3.16.tgz"
   dependencies:
     "@sqltools/formatter": ^1.2.5
     app-root-path: ^3.1.0
     buffer: ^6.0.3
     chalk: ^4.1.2
     cli-highlight: ^2.1.11
+    date-fns: ^2.29.3
     debug: ^4.3.4
     dotenv: ^16.0.3
     glob: ^8.1.0
@@ -23509,7 +23519,7 @@ __metadata:
     typeorm: cli.js
     typeorm-ts-node-commonjs: cli-ts-node-commonjs.js
     typeorm-ts-node-esm: cli-ts-node-esm.js
-  checksum: 91038765ac3472ede5a979454c6e5c9b9d93527d5e61426c6c434e5f37c3561230fe9517fad93b8309fcf5cdd57648521b86791ecf9f6cbbb7872bfba74cf4f8
+  checksum: d889f6b4392367c38d9748fabaab1a75d21d78e7aa62088d53847958f2308b672acf8ab3e0bcf26c880fa52fac54be9a78ca43c99f19c4fe604fab458dc04c17
   languageName: node
   linkType: hard
 
