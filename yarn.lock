@@ -7257,21 +7257,21 @@ __metadata:
   linkType: hard
 
 "@tanstack/react-table@npm:^8.6.0":
-  version: 8.6.0
-  resolution: "@tanstack/react-table@npm:8.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Freact-table%2F-%2Freact-table-8.6.0.tgz"
+  version: 8.9.1
+  resolution: "@tanstack/react-table@npm:8.9.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Freact-table%2F-%2Freact-table-8.9.1.tgz"
   dependencies:
-    "@tanstack/table-core": 8.6.0
+    "@tanstack/table-core": 8.9.1
   peerDependencies:
     react: ">=16"
     react-dom: ">=16"
-  checksum: 796ecf4e5dd82108c22b517284a77826b926ea643ae5f475fe1ad748e6dc0c5be72301b87c9662616a3b0f93680c59c2aeef9cc05e551132a457ceefda5917c7
+  checksum: 16d044c382598aad3c984d8e175183c5fd48093249dfb51ee592d2f1bb16e253aa437e0834bf9d27d69043493feeb22a5185b3226c704b99e13c45950cb82141
   languageName: node
   linkType: hard
 
-"@tanstack/table-core@npm:8.6.0":
-  version: 8.6.0
-  resolution: "@tanstack/table-core@npm:8.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Ftable-core%2F-%2Ftable-core-8.6.0.tgz"
-  checksum: 87b3d82299e12b1cc0740222396c14aacad36ffea8f12858bef488bcdb31080719a48aeb3b91412dcec122d90152955464bb6b17bfea299a15b54d3a31120765
+"@tanstack/table-core@npm:8.9.1":
+  version: 8.9.1
+  resolution: "@tanstack/table-core@npm:8.9.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Ftable-core%2F-%2Ftable-core-8.9.1.tgz"
+  checksum: b9a514cfeb78b2ebece5116188ab929d0b0b72b6abfe6144c2b1dd68e32faafba5295b2b5dfefa9d3a0cf78dd0f20e7c313ff2dbdf013ee98232e856a549654f
   languageName: node
   linkType: hard
 
