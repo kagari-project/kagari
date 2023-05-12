@@ -4,6 +4,7 @@
     "./**/*.tsx"
   ],
   "exclude": [
+    "./**/*.stories.ts",
     "./**/*.stories.tsx"
   ],
   "compilerOptions": {
