@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from "react";
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -16,6 +16,8 @@ type Render = (item: any) => React.ReactNode;
 export type PanelConfig = {
   loadMore: ProInfiniteListProps['loadMore'];
   render: Render;
+  searchable?: ProInfiniteListProps['searchable'];
+  filter?: ProInfiniteListProps['filter'];
   title?: string;
 };
 type Zone = 'left' | 'right';
@@ -28,11 +30,11 @@ export type TransferListActionsProps = {
   onChange: ProTransferListProps['onChange'];
 };
 export type ProTransferListProps = Record<Zone, PanelConfig> & {
-  onChange: (params: OnChangeParams) => void;
+  onChange?: (params: OnChangeParams) => void;
 };
 
 export function TransferListActions(props: TransferListActionsProps) {
-  const { selected, onChange, onClean } = props;
+  const { selected, onChange = () => Promise.resolve(), onClean } = props;
   return (
     <Stack
       direction="column"
@@ -124,6 +126,8 @@ export function ProTransferList(props: ProTransferListProps) {
         <CardHeader title={left?.title} />
         <ProInfiniteList
           ref={$left}
+          searchable={left?.searchable}
+          filter={left?.filter}
           loadMore={left?.loadMore}
           render={(items) => renderList('left', items, left?.render)}
         />
@@ -139,6 +143,8 @@ export function ProTransferList(props: ProTransferListProps) {
         <CardHeader title={right?.title} />
         <ProInfiniteList
           ref={$right}
+          searchable={left?.searchable}
+          filter={left?.filter}
           loadMore={right?.loadMore}
           render={(items) => renderList('right', items, right?.render)}
         />

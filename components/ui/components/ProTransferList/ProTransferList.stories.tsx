@@ -5,10 +5,15 @@ import Box from "@mui/material/Box";
 const meta: Meta<typeof ProTransferList> = {
   title: 'Components/ProTransfer',
   component: ProTransferList,
-  tags: ['autodocs'],
   argTypes: {
     onChange: {
-      type: "function"
+      description: 'a callback fired when move from left to right(or the opposite direction)'
+    },
+    left: {
+      description: 'props for configuring left side'
+    },
+    right: {
+      description: 'props for configuring right side'
     },
   }
 }
@@ -17,7 +22,7 @@ export default meta
 type Story = StoryObj<typeof ProTransferList>
 
 function seed(size : number) {
-  return Array.from({ length: size }).map((_, i) => ({ id: i, name: 'foobar' }))
+  return Array.from({ length: size }).map((_, i) => ({ id: i, name:  Math.random().toString(36).slice(2, 13) }))
 }
 
 const loadMoreLeft = (page = 1, pageSize = 10) => {
@@ -56,7 +61,7 @@ const loadMoreRight = (page = 1, pageSize = 10) => {
 
 export const Default: Story = {
   render() {
-    const onChange = () => {}
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return <Box>
       <ProTransferList
         left={{
@@ -66,6 +71,29 @@ export const Default: Story = {
         }}
         right={{
           title: 'right',
+          loadMore: loadMoreRight,
+          render: (item) => <>#{item.id} { item.name }</>,
+        }}
+      />
+    </Box>
+  }
+}
+
+export const Filterable: Story = {
+  render() {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const onChange = () => {}
+    return <Box>
+      <ProTransferList
+        left={{
+          title: 'left',
+          loadMore: loadMoreLeft,
+          searchable: true,
+          render: (item) => <>#{item.id} { item.name }</>,
+        }}
+        right={{
+          title: 'right',
+          searchable: true,
           loadMore: loadMoreRight,
           render: (item) => <>#{item.id} { item.name }</>,
         }}
