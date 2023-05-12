@@ -2,7 +2,7 @@
   "name": "kagari",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.5.1",
   "scripts": {
     "postinstall": "husky install",
     "lint": "eslint '{apps,packages,components}/**/src/**.{ts,tsx}'",
