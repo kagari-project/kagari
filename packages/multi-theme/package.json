@@ -1,6 +1,6 @@
 {
   "name": "@kagari/multi-themes",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public",
@@ -43,5 +43,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "gitHead": "8820376a4d851dde7744653ffad5cdb0e6ab0a9b"
+  "gitHead": "cba7c6b0eadda0bda3cea24f88e9fe68fa516216"
 }
