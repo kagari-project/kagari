@@ -1,6 +1,6 @@
 {
   "name": "@kagari/rbac",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "module": "",
   "main": "dist/index.js",
   "publishConfig": {
@@ -41,5 +41,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "gitHead": "953560fedacaaaf52d7b807c85f1325748962e9e"
+  "gitHead": "7bf6db64487e1959515c3796c06eb0d16346d99d"
 }
