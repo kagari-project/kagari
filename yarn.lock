@@ -3601,7 +3601,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.5.6, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.5.9, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3626,7 +3626,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.5.6, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.5.9, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3643,7 +3643,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.5.6, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.5.9, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3662,7 +3662,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.5.6, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.5.9, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3676,7 +3676,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.5.6, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.5.9, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3692,7 +3692,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.5.6, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.5.9, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -7726,23 +7726,23 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.1.3
-  resolution: "@types/node@npm:20.1.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-20.1.3.tgz"
-  checksum: abdb593f662a079715b4e9df0c706822e49814dd641fa5a6226ab73fb931cbfc9cfd5df92e09c13dbc90dbc8fce680d29cb735b88899d661481d93e09a8df2be
+  version: 20.1.4
+  resolution: "@types/node@npm:20.1.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-20.1.4.tgz"
+  checksum: bffa6a6e92831cc805b13658c55be8e04abe3202d5e57ddd7fee4cfbe269656a1f475909a9f9514e1aff50310d0d90c516ac2c649cb6f1c77d4b1079c2fd1e88
   languageName: node
   linkType: hard
 
 "@types/node@npm:^16.0.0":
-  version: 16.18.29
-  resolution: "@types/node@npm:16.18.29::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-16.18.29.tgz"
-  checksum: fab191333d76dd01d1d5989dfa7cfae5ac46fb4620d860916b19fe680be9f358fb845ca9851fcc5f7e80c408401a27d111e138c831a2ee5d9dacb5220011eeef
+  version: 16.18.30
+  resolution: "@types/node@npm:16.18.30::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-16.18.30.tgz"
+  checksum: 2975519e337a3f29c495b97aa7510ef3f4ac5d3c9356f7886698a4abf8b12641c1f1247512b525599cba6aefe774735ef25fc83555e989033bdbcc4a2b1c7401
   languageName: node
   linkType: hard
 
 "@types/node@npm:^18.0.0":
-  version: 18.16.8
-  resolution: "@types/node@npm:18.16.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-18.16.8.tgz"
-  checksum: d2ec9b61abd260b0fa1e33e4eca8f0089ebb6f6ec1ad2f036a4d01af11dba4f1dbff95b2a1f5dbe9eab3a6f38ed4bd8bf95eb2de9ad96b1caa1f67671e623c1d
+  version: 18.16.9
+  resolution: "@types/node@npm:18.16.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fnode%2F-%2Fnode-18.16.9.tgz"
+  checksum: 7fe0ef372ba8b157bd646efe29b0ece92ccb9f455171a7ceb4c92d6b490789ff0f14411b1dc6ad203351a0efa2b435072dfab5566fb6eaaaa5cd549e1fb22afa
   languageName: node
   linkType: hard
 
@@ -8714,7 +8714,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.5.6
+    "@kagari/ui": ^0.5.9
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.0.0
@@ -21762,11 +21762,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.5.6
-    "@kagari/database": ^0.5.6
-    "@kagari/multi-themes": ^0.5.6
-    "@kagari/rbac": ^0.5.6
-    "@kagari/restful": ^0.5.6
+    "@kagari/auth": ^0.5.9
+    "@kagari/database": ^0.5.9
+    "@kagari/multi-themes": ^0.5.9
+    "@kagari/rbac": ^0.5.9
+    "@kagari/restful": ^0.5.9
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
