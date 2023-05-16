@@ -143,8 +143,8 @@ export function ProTransferList(props: ProTransferListProps) {
         <CardHeader title={right?.title} />
         <ProInfiniteList
           ref={$right}
-          searchable={left?.searchable}
-          filter={left?.filter}
+          searchable={right?.searchable}
+          filter={right?.filter}
           loadMore={right?.loadMore}
           render={(items) => renderList('right', items, right?.render)}
         />
