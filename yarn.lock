@@ -2540,7 +2540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:^11.10.5":
+"@emotion/react@npm:^11.11.0":
   version: 11.11.0
   resolution: "@emotion/react@npm:11.11.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40emotion%2Freact%2F-%2Freact-11.11.0.tgz"
   dependencies:
@@ -2581,7 +2581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.5":
+"@emotion/styled@npm:^11.11.0":
   version: 11.11.0
   resolution: "@emotion/styled@npm:11.11.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40emotion%2Fstyled%2F-%2Fstyled-11.11.0.tgz"
   dependencies:
@@ -2890,7 +2890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:^2.9.10":
+"@hookform/resolvers@npm:^2.9.11":
   version: 2.9.11
   resolution: "@hookform/resolvers@npm:2.9.11::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40hookform%2Fresolvers%2F-%2Fresolvers-2.9.11.tgz"
   peerDependencies:
@@ -3567,7 +3567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.5.9, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.5.10, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3592,7 +3592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.5.9, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.5.10, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3609,7 +3609,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.5.9, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.5.10, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3628,7 +3628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.5.9, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.5.10, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3642,7 +3642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.5.9, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.5.10, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3658,19 +3658,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.5.9, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.5.10, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
-    "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
+    "@emotion/react": ^11.11.0
+    "@emotion/styled": ^11.11.0
     "@faker-js/faker": ^8.0.0
-    "@hookform/resolvers": ^2.9.10
-    "@mui/icons-material": ^5.10.14
-    "@mui/material": ^5.10.14
-    "@mui/x-date-pickers": ^6.0.2
-    "@mui/x-date-pickers-pro": ^6.0.2
-    "@tanstack/react-table": ^8.6.0
+    "@hookform/resolvers": ^2.9.11
+    "@mui/icons-material": ^5.11.16
+    "@mui/material": ^5.13.0
+    "@mui/x-date-pickers": ^6.4.0
+    "@mui/x-date-pickers-pro": ^6.4.0
+    "@tanstack/react-table": ^8.9.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.0.0
@@ -4574,7 +4574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^5.10.14":
+"@mui/icons-material@npm:^5.11.16":
   version: 5.11.16
   resolution: "@mui/icons-material@npm:5.11.16::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Ficons-material%2F-%2Ficons-material-5.11.16.tgz"
   dependencies:
@@ -4590,7 +4590,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^5.10.14":
+"@mui/material@npm:^5.13.0":
   version: 5.13.0
   resolution: "@mui/material@npm:5.13.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fmaterial%2F-%2Fmaterial-5.13.0.tgz"
   dependencies:
@@ -4731,7 +4731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers-pro@npm:^6.0.2":
+"@mui/x-date-pickers-pro@npm:^6.4.0":
   version: 6.4.0
   resolution: "@mui/x-date-pickers-pro@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers-pro%2F-%2Fx-date-pickers-pro-6.4.0.tgz"
   dependencies:
@@ -4780,7 +4780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:6.4.0, @mui/x-date-pickers@npm:^6.0.2":
+"@mui/x-date-pickers@npm:6.4.0, @mui/x-date-pickers@npm:^6.4.0":
   version: 6.4.0
   resolution: "@mui/x-date-pickers@npm:6.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40mui%2Fx-date-pickers%2F-%2Fx-date-pickers-6.4.0.tgz"
   dependencies:
@@ -7061,7 +7061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-table@npm:^8.6.0":
+"@tanstack/react-table@npm:^8.9.1":
   version: 8.9.1
   resolution: "@tanstack/react-table@npm:8.9.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40tanstack%2Freact-table%2F-%2Freact-table-8.9.1.tgz"
   dependencies:
@@ -8626,7 +8626,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.5.9
+    "@kagari/ui": ^0.5.10
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.0.0
@@ -18899,10 +18899,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg-connection-string@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "pg-connection-string@npm:2.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpg-connection-string%2F-%2Fpg-connection-string-2.5.0.tgz"
-  checksum: a6f3a068f7c9416a5b33a326811caf0dfaaee045c225b7c628b4c9b4e9a2b25bdd12a21e4c48940e1000ea223a4e608ca122d2ff3dd08c8b1db0fc9f5705133a
+"pg-cloudflare@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "pg-cloudflare@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpg-cloudflare%2F-%2Fpg-cloudflare-1.1.0.tgz"
+  checksum: fca32af487feadf337baccceca4d2a6a43c6bbe324efcdf620ea581e958e70873cbf64424bd0861d37ecaf2cd3f33319fefb49018bcae5e909dea5f2c859698d
+  languageName: node
+  linkType: hard
+
+"pg-connection-string@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "pg-connection-string@npm:2.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpg-connection-string%2F-%2Fpg-connection-string-2.6.0.tgz"
+  checksum: 0262452638163c0b875495cfb82e363061cc8d560d3162143b1dfb63f70a666c7c52ba37e78054a3476de9a627faeec75f65445ba6fe065db068317ec84d3df8
   languageName: node
   linkType: hard
 
@@ -18943,22 +18950,26 @@ __metadata:
   linkType: hard
 
 "pg@npm:^8.8.0":
-  version: 8.10.0
-  resolution: "pg@npm:8.10.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpg%2F-%2Fpg-8.10.0.tgz"
+  version: 8.11.0
+  resolution: "pg@npm:8.11.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fpg%2F-%2Fpg-8.11.0.tgz"
   dependencies:
     buffer-writer: 2.0.0
     packet-reader: 1.0.0
-    pg-connection-string: ^2.5.0
+    pg-cloudflare: ^1.1.0
+    pg-connection-string: ^2.6.0
     pg-pool: ^3.6.0
     pg-protocol: ^1.6.0
     pg-types: ^2.1.0
     pgpass: 1.x
   peerDependencies:
     pg-native: ">=3.0.1"
+  dependenciesMeta:
+    pg-cloudflare:
+      optional: true
   peerDependenciesMeta:
     pg-native:
       optional: true
-  checksum: c6be78f2e823f2ae3c618c8e54a6622592dd71b556fb665d7eaedcbcc2fa5d210a8bcf519401e72526a65b9d797f19b772f48f29b9d9f31e98dd526fd27d61e0
+  checksum: 30448ab90fca85c3cf6dfb79f351b759a8d5b384b89bc3b7e5ba6be7afaa0cd7422a3c770acb052d512dd6b1e03768e6d6a6674547ec4a21cb5870c7b72cc101
   languageName: node
   linkType: hard
 
@@ -21663,11 +21674,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.5.9
-    "@kagari/database": ^0.5.9
-    "@kagari/multi-themes": ^0.5.9
-    "@kagari/rbac": ^0.5.9
-    "@kagari/restful": ^0.5.9
+    "@kagari/auth": ^0.5.10
+    "@kagari/database": ^0.5.10
+    "@kagari/multi-themes": ^0.5.10
+    "@kagari/rbac": ^0.5.10
+    "@kagari/restful": ^0.5.10
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
