@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/kagari-project/kagari/compare/v0.5.11...v0.6.0) (2023-05-19)
+
+### Bug Fixes
+
+- **ui:** fix react import in stories ([d8df0f2](https://github.com/kagari-project/kagari/commit/d8df0f2844c808fc8d77e18556b705d4618c0ef8))
+
+### Features
+
+- **ui:** add dialog utils ([5a183b9](https://github.com/kagari-project/kagari/commit/5a183b9d4f59a1c1ede33ec508e31b975fbce02f))
+
 ## [0.5.5](https://github.com/kagari-project/kagari/compare/v0.5.4...v0.5.5) (2023-05-12)
 
 ### Bug Fixes

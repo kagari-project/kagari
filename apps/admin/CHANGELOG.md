@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/kagari-project/kagari/compare/v0.5.11...v0.6.0) (2023-05-19)
+
+**Note:** Version bump only for package admin
+
 ## [0.5.5](https://github.com/kagari-project/kagari/compare/v0.5.4...v0.5.5) (2023-05-12)
 
 ### Bug Fixes
