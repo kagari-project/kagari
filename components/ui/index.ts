@@ -9,3 +9,4 @@ export * from './components/ProTransferList';
 export * from './components/ProEditor';
 export * from './components/ProDatePicker';
 export * from './utils/ProSnackbar';
+export * from './utils/ProDialog';
