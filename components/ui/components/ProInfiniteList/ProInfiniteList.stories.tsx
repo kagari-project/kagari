@@ -1,4 +1,3 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ProInfiniteList } from "./ProInfiniteList";
 import ListItem from "@mui/material/ListItem";

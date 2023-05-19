@@ -1,4 +1,3 @@
-import React from 'react'
 import { Meta, StoryObj } from "@storybook/react";
 import { ProForm, ProFormItem } from "./ProForm";
 import InputLabel from "@mui/material/InputLabel";

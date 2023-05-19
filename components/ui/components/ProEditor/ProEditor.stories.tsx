@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ProEditor } from "./ProEditor";
 import { Meta, StoryObj } from "@storybook/react";
 
