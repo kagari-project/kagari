@@ -2854,9 +2854,9 @@ __metadata:
   linkType: hard
 
 "@faker-js/faker@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@faker-js/faker@npm:8.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40faker-js%2Ffaker%2F-%2Ffaker-8.0.0.tgz"
-  checksum: ace60f719fb649199369d50f0095bb65f94d30dcd474daf179cb7ec490fdc63a63f0ac47ef810c21e94d462762421141153d3da9f4df5f952017da24eaa84f23
+  version: 8.0.2
+  resolution: "@faker-js/faker@npm:8.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40faker-js%2Ffaker%2F-%2Ffaker-8.0.2.tgz"
+  checksum: cf73daf9a50397eb0b3f04a7ef3fbb6f54acc026b167707136a7e58a517fd805a46c9e8c5f017f3022f104a4ff984765daaeee2cb98b3c34646db05c2acad441
   languageName: node
   linkType: hard
 
@@ -3567,7 +3567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kagari/auth@^0.5.10, @kagari/auth@workspace:packages/auth":
+"@kagari/auth@^0.6.1, @kagari/auth@workspace:packages/auth":
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
@@ -3592,7 +3592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/database@^0.5.10, @kagari/database@workspace:packages/database":
+"@kagari/database@^0.6.1, @kagari/database@workspace:packages/database":
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
@@ -3609,7 +3609,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/multi-themes@^0.5.10, @kagari/multi-themes@workspace:packages/multi-theme":
+"@kagari/multi-themes@^0.6.1, @kagari/multi-themes@workspace:packages/multi-theme":
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
@@ -3628,7 +3628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/rbac@^0.5.10, @kagari/rbac@workspace:packages/rbac":
+"@kagari/rbac@^0.6.1, @kagari/rbac@workspace:packages/rbac":
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
@@ -3642,7 +3642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/restful@^0.5.10, @kagari/restful@workspace:packages/restful":
+"@kagari/restful@^0.6.1, @kagari/restful@workspace:packages/restful":
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
@@ -3658,7 +3658,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@kagari/ui@^0.5.10, @kagari/ui@workspace:components/ui":
+"@kagari/ui@^0.6.1, @kagari/ui@workspace:components/ui":
   version: 0.0.0-use.local
   resolution: "@kagari/ui@workspace:components/ui"
   dependencies:
@@ -8626,7 +8626,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "admin@workspace:apps/admin"
   dependencies:
-    "@kagari/ui": ^0.5.10
+    "@kagari/ui": ^0.6.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.0.0
@@ -21674,11 +21674,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "server@workspace:apps/server"
   dependencies:
-    "@kagari/auth": ^0.5.10
-    "@kagari/database": ^0.5.10
-    "@kagari/multi-themes": ^0.5.10
-    "@kagari/rbac": ^0.5.10
-    "@kagari/restful": ^0.5.10
+    "@kagari/auth": ^0.6.1
+    "@kagari/database": ^0.6.1
+    "@kagari/multi-themes": ^0.6.1
+    "@kagari/rbac": ^0.6.1
+    "@kagari/restful": ^0.6.1
     "@nestjs/cli": ^9.0.0
     "@nestjs/common": ^9.0.0
     "@nestjs/config": ^2.2.0
