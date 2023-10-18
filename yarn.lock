@@ -4900,9 +4900,9 @@ __metadata:
     "@nestjs/core": ^9.0.0
     "@nestjs/jwt": ^10.0.0
     "@nestjs/passport": ^9.0.0
-    "@types/express-session": ^1.17.5
+    "@types/express-session": ^1.17.9
     "@types/passport": ^1.0.10
-    "@types/passport-jwt": ^3.0.6
+    "@types/passport-jwt": ^3.0.10
     "@types/passport-local": ^1.0.34
     express-session: ^1.17.3
     passport: ^0.6.0
@@ -8772,16 +8772,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-session@npm:^1.17.5":
-  version: 1.17.7
-  resolution: "@types/express-session@npm:1.17.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress-session%2F-%2Fexpress-session-1.17.7.tgz"
+"@types/express-session@npm:^1.17.9":
+  version: 1.17.9
+  resolution: "@types/express-session@npm:1.17.9::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress-session%2F-%2Fexpress-session-1.17.9.tgz"
   dependencies:
     "@types/express": "*"
-  checksum: 4764eafaf4e26842e891e83fa9fee30b92cc3724d91987aac3a658322f9a69fb544dae24fc3aba6e15fe9575ed862760ebecd7ff97a947afb695284967434a65
+  checksum: e66d50742a27389f3f1bb03b30eb96d74daf357db6cc5e549265e6610f2cff14539fec7e2b72c3f98ab1174eff7ed347e3fe4d3a2b9273a6d1367d78ee0add71
   languageName: node
   linkType: hard
 
-"@types/express@npm:*, @types/express@npm:^4.17.13, @types/express@npm:^4.7.0":
+"@types/express@npm:*, @types/express@npm:^4.17.13, @types/express@npm:^4.17.20, @types/express@npm:^4.7.0":
   version: 4.17.20
   resolution: "@types/express@npm:4.17.20::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fexpress%2F-%2Fexpress-4.17.20.tgz"
   dependencies:
@@ -8957,12 +8957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/multer@npm:^1.4.7":
-  version: 1.4.7
-  resolution: "@types/multer@npm:1.4.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fmulter%2F-%2Fmulter-1.4.7.tgz"
+"@types/multer@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "@types/multer@npm:1.4.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fmulter%2F-%2Fmulter-1.4.8.tgz"
   dependencies:
     "@types/express": "*"
-  checksum: 680cb0710aa25264d20cdcdaf34c212b636b55ea141310f06c25354ab1401193c7aa6839f9d22abf64a223fab1f2b8287f2512b0bef7e1628c4e9ffe54b4aeb2
+  checksum: bdc4e367d8f228303b987f8ecd4189d069990b97007308e3f1f80c009aae620eea7720484a39ef265e1ba915481e405631bc2113d148b4461e1d12d14dc38dac
   languageName: node
   linkType: hard
 
@@ -9004,14 +9004,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/passport-jwt@npm:^3.0.6":
-  version: 3.0.8
-  resolution: "@types/passport-jwt@npm:3.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.8.tgz"
+"@types/passport-jwt@npm:^3.0.10":
+  version: 3.0.10
+  resolution: "@types/passport-jwt@npm:3.0.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.10.tgz"
   dependencies:
     "@types/express": "*"
     "@types/jsonwebtoken": "*"
     "@types/passport-strategy": "*"
-  checksum: 321eca319eff51c87a5ddebf590937b24ed7fa6c8cc2465cecb4edf49f839b7770e57a4ed009f323c66ade6c0f1d9b6a51033d82dd392270b17976380893af2f
+  checksum: ec1c9ca119a4f85f9c2810581715a11a405b3f536c6ee25871f12b3698a75e56554d4752fc3d8791c291efae4d5481b49c3b1ad52d368718dcd265d7ae5bbc55
   languageName: node
   linkType: hard
 
@@ -24530,8 +24530,8 @@ __metadata:
     "@nestjs/serve-static": ^3.0.0
     "@nestjs/swagger": ^6.1.2
     "@nestjs/testing": ^9.0.0
-    "@types/express": ^4.17.13
-    "@types/multer": ^1.4.7
+    "@types/express": ^4.17.20
+    "@types/multer": ^1.4.8
     "@types/node": ^18.0.0
     "@types/supertest": ^2.0.11
     file-type: ^16.5.4
