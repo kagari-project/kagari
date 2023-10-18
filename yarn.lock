@@ -9059,13 +9059,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-jwt@npm:^3.0.10":
-  version: 3.0.10
-  resolution: "@types/passport-jwt@npm:3.0.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.10.tgz"
+  version: 3.0.11
+  resolution: "@types/passport-jwt@npm:3.0.11::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.11.tgz"
   dependencies:
     "@types/express": "*"
     "@types/jsonwebtoken": "*"
     "@types/passport-strategy": "*"
-  checksum: ec1c9ca119a4f85f9c2810581715a11a405b3f536c6ee25871f12b3698a75e56554d4752fc3d8791c291efae4d5481b49c3b1ad52d368718dcd265d7ae5bbc55
+  checksum: 1ea4e3bdff5b135b709782c969a4be9f80f510b1d77f51ac5c39e55a1cceedbcd4c45b64cd0b3911fe3803168cdb9de1ede4b7f6933339ab800a3ec80e1112a5
   languageName: node
   linkType: hard
 
