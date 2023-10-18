@@ -26,7 +26,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.0",
     "tsconfig-paths": "^4.0.0",
-    "typescript": "~4.7.4"
+    "typescript": "5.2.2"
   },
   "gitHead": "ff71fdb3635644d30e178cc76c522771461be81c"
 }

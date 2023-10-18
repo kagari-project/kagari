@@ -20,7 +20,7 @@
     "rxjs": "~7.5.0"
   },
   "devDependencies": {
-    "typescript": "~4.7.4"
+    "typescript": "5.2.2"
   },
   "gitHead": "ff71fdb3635644d30e178cc76c522771461be81c"
 }
