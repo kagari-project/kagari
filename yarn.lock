@@ -10633,7 +10633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:^9.0.0":
+"babel-loader@npm:^9.0.0, babel-loader@npm:^9.1.3":
   version: 9.1.3
   resolution: "babel-loader@npm:9.1.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fbabel-loader%2F-%2Fbabel-loader-9.1.3.tgz"
   dependencies:
@@ -18417,7 +18417,7 @@ __metadata:
     "@types/jest": ^29.5.5
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
-    babel-loader: ^9.0.0
+    babel-loader: ^9.1.3
     eslint: 8.40.0
     eslint-config-prettier: ^8.5.0
     eslint-config-react-app: ^7.0.1
