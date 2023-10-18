@@ -28,7 +28,7 @@
     "@types/passport": "^1.0.13",
     "@types/passport-jwt": "^3.0.10",
     "@types/passport-local": "^1.0.36",
-    "typescript": "~4.7.4"
+    "typescript": "~5.2.0"
   },
   "gitHead": "ff71fdb3635644d30e178cc76c522771461be81c"
 }
