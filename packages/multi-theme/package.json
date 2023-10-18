@@ -18,7 +18,7 @@
     "rxjs": "^7.5.0"
   },
   "dependencies": {
-    "express-hbs": "^2.4.0",
+    "express-hbs": "^2.4.2",
     "serve-static": "^1.15.0"
   },
   "devDependencies": {
