@@ -4903,7 +4903,7 @@ __metadata:
     "@types/express-session": ^1.17.9
     "@types/passport": ^1.0.10
     "@types/passport-jwt": ^3.0.10
-    "@types/passport-local": ^1.0.34
+    "@types/passport-local": ^1.0.36
     express-session: ^1.17.3
     passport: ^0.6.0
     passport-jwt: ^4.0.0
@@ -9015,7 +9015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/passport-local@npm:^1.0.34":
+"@types/passport-local@npm:^1.0.36":
   version: 1.0.36
   resolution: "@types/passport-local@npm:1.0.36::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-local%2F-%2Fpassport-local-1.0.36.tgz"
   dependencies:
