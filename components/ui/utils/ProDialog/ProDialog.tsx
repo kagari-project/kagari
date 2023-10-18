@@ -21,7 +21,7 @@ let dialogRef: ReturnType<typeof useDialog>
 export const useDialog = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [config, setConfig] = useState<DialogConfig>({})
-  const open = (cfg) => {
+  const open = (cfg: DialogConfig) => {
     setConfig(cfg)
     setIsOpen(true)
   }
