@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/kagari-project/kagari/compare/v0.6.2...v0.6.3) (2023-10-19)
+
+### Bug Fixes
+
+- bump nestjs monorepo and typescript and fix bugs ([6ea423d](https://github.com/kagari-project/kagari/commit/6ea423d8a3f329417d10550670b639e3c231f091))
+- **deps:** update dependency @nestjs/config to v3 ([ceaf824](https://github.com/kagari-project/kagari/commit/ceaf82481342d69d101a147e104e7bee83e8b9da))
+- **deps:** update dependency @nestjs/serve-static to v4 ([53ecf62](https://github.com/kagari-project/kagari/commit/53ecf62f6059403344309347c8379a4f664720f3))
+- **deps:** update nest monorepo to v10 ([13c2c56](https://github.com/kagari-project/kagari/commit/13c2c568430700153304d4cc333dcc438b75ec6e))
+
 # [0.6.0](https://github.com/kagari-project/kagari/compare/v0.5.11...v0.6.0) (2023-05-19)
 
 **Note:** Version bump only for package server

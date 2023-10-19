@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/kagari-project/kagari/compare/v0.6.2...v0.6.3) (2023-10-19)
+
+### Bug Fixes
+
+- bump nestjs monorepo and typescript and fix bugs ([6ea423d](https://github.com/kagari-project/kagari/commit/6ea423d8a3f329417d10550670b639e3c231f091))
+- **deps:** update dependency @faker-js/faker to v8.2.0 ([bb4fba7](https://github.com/kagari-project/kagari/commit/bb4fba707be4a00bfbafe82088699eeebcc4cfd7))
+- **deps:** update dependency @nestjs/config to v3 ([ceaf824](https://github.com/kagari-project/kagari/commit/ceaf82481342d69d101a147e104e7bee83e8b9da))
+- **deps:** update dependency @nestjs/serve-static to v4 ([53ecf62](https://github.com/kagari-project/kagari/commit/53ecf62f6059403344309347c8379a4f664720f3))
+- **deps:** update dependency @nestjs/typeorm to v10 ([ffabc55](https://github.com/kagari-project/kagari/commit/ffabc5548d3daea4b916ac8766424dba83b957bd))
+- **deps:** update dependency @types/node to v18.18.6 ([8d05d4a](https://github.com/kagari-project/kagari/commit/8d05d4a3325c4809d93c8d395e13a5df4223f65c))
+- **deps:** update dependency react-hook-form to v7.47.0 ([c2054b7](https://github.com/kagari-project/kagari/commit/c2054b74a5d5590d79fdd5fdc9186034dcde84fd))
+- **deps:** update nest monorepo to v10 ([13c2c56](https://github.com/kagari-project/kagari/commit/13c2c568430700153304d4cc333dcc438b75ec6e))
+- **deps:** update react monorepo ([64ba15c](https://github.com/kagari-project/kagari/commit/64ba15c58c48c5860023fa2995e3d16d5aa5d675))
+
 # [0.6.0](https://github.com/kagari-project/kagari/compare/v0.5.11...v0.6.0) (2023-05-19)
 
 ### Bug Fixes
