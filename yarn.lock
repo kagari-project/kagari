@@ -4951,7 +4951,7 @@ __metadata:
   dependencies:
     "@nestjs/common": ^10.0.0
     "@nestjs/core": ^10.0.0
-    "@nestjs/typeorm": ^9.0.1
+    "@nestjs/typeorm": ^10.0.0
     reflect-metadata: ^0.1.13
     rxjs: 7.8.1
     typeorm: ^0.3.17
@@ -5777,18 +5777,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/typeorm@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "@nestjs/typeorm@npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Ftypeorm%2F-%2Ftypeorm-9.0.1.tgz"
+"@nestjs/typeorm@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@nestjs/typeorm@npm:10.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Ftypeorm%2F-%2Ftypeorm-10.0.0.tgz"
   dependencies:
-    uuid: 8.3.2
+    uuid: 9.0.0
   peerDependencies:
-    "@nestjs/common": ^8.0.0 || ^9.0.0
-    "@nestjs/core": ^8.0.0 || ^9.0.0
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^8.0.0 || ^9.0.0 || ^10.0.0
     reflect-metadata: ^0.1.13
     rxjs: ^7.2.0
     typeorm: ^0.3.0
-  checksum: fbf8d28405331bffa7bf224664d99078c0b7bf55a77007f79ca141a94fcf812dbc5ac40baacff370626b15f6e037bb8d60e6fee977c798fbb3f6b080c5d5b3d9
+  checksum: 8551187f6652cb661dd72b2f7dbb0b8c9870e09dd58b11403b510fff5447a0a722d5240468624343580e9f364e9a6d2eaef83d40bd7f409c015b786756e35fb7
   languageName: node
   linkType: hard
 
