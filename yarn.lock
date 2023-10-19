@@ -4925,8 +4925,8 @@ __metadata:
     tsconfig-paths: ^4.0.0
     typescript: 5.2.2
   peerDependencies:
-    "@nestjs/common": ^9.0.0 || ^10.0.0
-    "@nestjs/core": ^9.0.0 || ^10.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
     rxjs: 7.8.1
   languageName: unknown
   linkType: soft
