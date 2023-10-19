@@ -15,7 +15,6 @@ import { JoiValidationPipe } from '../../core/pipes/joi-validation.pipe';
 import { UuidSchema } from '../../core/schemas/uuid.schema';
 import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 import { RoleBasedAccessControlGuard } from '@kagari/rbac';
-import { UserEntity } from '../../core/entities/User.entity';
 import { ApiOperation } from '@nestjs/swagger';
 import { M2M_ROLES__PERMISSIONS } from '../../core/entities/junctions';
 
@@ -80,7 +79,8 @@ export class RoleController extends CreateBaseControllerHelper<RoleEntity>(
           M2M_ROLES__PERMISSIONS.joinColumn.name,
           M2M_ROLES__PERMISSIONS.inverseJoinColumn.name,
         ],
-      );
+      )
+      .execute();
   }
 
   @ApiOperation({

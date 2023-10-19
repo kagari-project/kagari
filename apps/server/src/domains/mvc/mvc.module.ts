@@ -20,6 +20,7 @@ import * as path from 'path';
       useFactory: () => {
         return new RenderErrorFilter().exclude([
           { path: /^\/api/, method: RequestMethod.ALL },
+          { path: /^\/auth/, method: RequestMethod.ALL },
         ]);
       },
     },

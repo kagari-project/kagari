@@ -4940,7 +4940,7 @@ __metadata:
     passport-jwt: ^4.0.0
     passport-local: ^1.0.0
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -4953,7 +4953,7 @@ __metadata:
     "@nestjs/core": ^10.0.0
     "@nestjs/typeorm": ^9.0.1
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     typeorm: ^0.3.9
     typescript: 5.2.2
   languageName: unknown
@@ -4966,14 +4966,14 @@ __metadata:
     "@nestjs/testing": ^10.0.0
     express-hbs: ^2.4.2
     reflect-metadata: ^0.1.13
-    rxjs: ^7.5.0
+    rxjs: 7.8.1
     serve-static: ^1.15.0
     tsconfig-paths: ^4.0.0
     typescript: 5.2.2
   peerDependencies:
     "@nestjs/common": ^9.0.0 || ^10.0.0
     "@nestjs/core": ^9.0.0 || ^10.0.0
-    rxjs: ^7.5.0
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -4984,7 +4984,7 @@ __metadata:
     "@nestjs/common": ^10.0.0
     "@nestjs/core": ^10.0.0
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -4998,7 +4998,7 @@ __metadata:
     joi: ^17.6.0
     reflect-metadata: ^0.1.13
     rimraf: ^5.0.5
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -5637,20 +5637,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/mapped-types@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@nestjs/mapped-types@npm:1.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fmapped-types%2F-%2Fmapped-types-1.2.2.tgz"
+"@nestjs/mapped-types@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@nestjs/mapped-types@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fmapped-types%2F-%2Fmapped-types-2.0.2.tgz"
   peerDependencies:
-    "@nestjs/common": ^7.0.8 || ^8.0.0 || ^9.0.0
-    class-transformer: ^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0
-    class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0 || ^0.14.0
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    class-transformer: ^0.4.0 || ^0.5.0
+    class-validator: ^0.13.0 || ^0.14.0
     reflect-metadata: ^0.1.12
   peerDependenciesMeta:
     class-transformer:
       optional: true
     class-validator:
       optional: true
-  checksum: 85f295a1474c6dd1b6fb07556f744fee138571f3c6a4c5e693c72bddc716aeb8e73c02f8146fb3457e4e4a604559aa6c40985e3fbf1b3aadc0ea04a6970016d1
+  checksum: 1fb0dca3838d0dc23107233e95a711e251bfbef9017589d3764c955a1cf190c8372179cee70e3674807896f53a98ab2ba80cd769b4f072fadefb708be1cc911b
   languageName: node
   linkType: hard
 
@@ -5731,19 +5731,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:^6.1.2":
-  version: 6.3.0
-  resolution: "@nestjs/swagger@npm:6.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fswagger%2F-%2Fswagger-6.3.0.tgz"
+"@nestjs/swagger@npm:^7.1.13":
+  version: 7.1.13
+  resolution: "@nestjs/swagger@npm:7.1.13::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fswagger%2F-%2Fswagger-7.1.13.tgz"
   dependencies:
-    "@nestjs/mapped-types": 1.2.2
+    "@nestjs/mapped-types": 2.0.2
     js-yaml: 4.1.0
     lodash: 4.17.21
     path-to-regexp: 3.2.0
-    swagger-ui-dist: 4.18.2
+    swagger-ui-dist: 5.9.0
   peerDependencies:
     "@fastify/static": ^6.0.0
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
     class-transformer: "*"
     class-validator: "*"
     reflect-metadata: ^0.1.12
@@ -5754,7 +5754,7 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 33aa9fb622b79b99d25fce1838011d41f519a5bd108e76e3952e5c8b417d21a0d635294978326ba1737824500b0178af7f1054a1d3f16df1c73804b9ae5dff41
+  checksum: 0b1acc41f724f7be2d83cb15f15edd75b7776504d30bdfe6d35307c0581f3ebbee97e5a510de69946c1e6a6e3ef9d67de256067e341af23b82e4e5888875711c
   languageName: node
   linkType: hard
 
@@ -24324,21 +24324,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:^7.5.0, rxjs@npm:^7.5.5":
+"rxjs@npm:7.8.1, rxjs@npm:^7.5.5":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2F-%2Frxjs-7.8.1.tgz"
   dependencies:
     tslib: ^2.1.0
   checksum: de4b53db1063e618ec2eca0f7965d9137cabe98cf6be9272efe6c86b47c17b987383df8574861bcced18ebd590764125a901d5506082be84a8b8e364bf05f119
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:~7.5.0":
-  version: 7.5.7
-  resolution: "rxjs@npm:7.5.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2F-%2Frxjs-7.5.7.tgz"
-  dependencies:
-    tslib: ^2.1.0
-  checksum: edabcdb73b0f7e0f5f6e05c2077aff8c52222ac939069729704357d6406438acca831c24210db320aba269e86dbe1a400f3769c89101791885121a342fb15d9c
   languageName: node
   linkType: hard
 
@@ -24685,7 +24676,7 @@ __metadata:
     "@nestjs/platform-express": ^10.0.0
     "@nestjs/schematics": ^10.0.0
     "@nestjs/serve-static": ^3.0.0
-    "@nestjs/swagger": ^6.1.2
+    "@nestjs/swagger": ^7.1.13
     "@nestjs/testing": ^10.0.0
     "@types/express": ^4.17.20
     "@types/multer": ^1.4.8
@@ -24697,7 +24688,7 @@ __metadata:
     pg: ^8.8.0
     reflect-metadata: ^0.1.13
     rimraf: ^5.0.5
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     source-map-support: ^0.5.20
     sqlite3: ^5.1.1
     supertest: ^6.1.3
@@ -25571,10 +25562,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:4.18.2":
-  version: 4.18.2
-  resolution: "swagger-ui-dist@npm:4.18.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswagger-ui-dist%2F-%2Fswagger-ui-dist-4.18.2.tgz"
-  checksum: 3d3e801104af53a58662303aa82df81510cece64a28422e6de02b5d22eb5f6a354f3c3ab80d12f72442e0ec8cbae9122767d7f8476c4d4a21d5353163bc659a7
+"swagger-ui-dist@npm:5.9.0":
+  version: 5.9.0
+  resolution: "swagger-ui-dist@npm:5.9.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswagger-ui-dist%2F-%2Fswagger-ui-dist-5.9.0.tgz"
+  checksum: 722f5d81adf0c0a940559952f48f7cd20a3f2a53aee8771c896eee8e3bed6f78c2f231960a7c30a4dca390d1205c0b2909d84062978013bb60febc478b9fc3d9
   languageName: node
   linkType: hard
 

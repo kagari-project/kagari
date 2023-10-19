@@ -1,4 +1,9 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, {
+  AxiosError,
+  AxiosRequestConfig,
+  AxiosResponse,
+  InternalAxiosRequestConfig,
+} from 'axios';
 import { authStore } from '../store/auth.store';
 import set from 'lodash/set';
 import appConfig from '../config';
@@ -11,44 +16,47 @@ export const $request = axios.create({
   baseURL: appConfig.baseURL,
 });
 
-$http.interceptors.request.use((config) => {
+export function onRequest(config: InternalAxiosRequestConfig) {
   const accessToken = authStore.getState().accessToken;
   set(config, `headers[${appConfig.tokenField ?? 'x-token'}]`, accessToken);
   return config;
-});
+}
 
-$http.interceptors.response.use(
-  (res) => {
-    if (res.data.error) {
-      snackbar.error(res.data.message ?? res.data.error, {
-        autoHideDuration: 5000,
-      });
-      throw new AxiosError(
-        res.data.message,
-        res.data.error,
-        res.config,
-        res.request,
-        res,
-      );
-    }
-    return res;
-  },
-  (error) => {
-    snackbar.error(error.message, {
+$http.interceptors.request.use(onRequest);
+
+export function onResponse(res: AxiosResponse) {
+  if (res.data.error) {
+    snackbar.error(res.data.message ?? res.data.error, {
       autoHideDuration: 5000,
     });
-    if (error.response.status === 401) {
-      return router.navigate(config.loginUrl);
-    }
+    throw new AxiosError(
+      res.data.message,
+      res.data.error,
+      res.config,
+      res.request,
+      res,
+    );
+  }
+  return res;
+}
 
-    if (error.response.status === 403) {
-      return snackbar.error('Permission Denied');
-    }
+export function onError(error: AxiosError) {
+  snackbar.error(error.message, {
+    autoHideDuration: 5000,
+  });
+  if (error.response?.status === 401) {
+    router.navigate(config.loginUrl);
+  }
 
-    throw error;
-  },
-);
+  if (error.response?.status === 403) {
+    snackbar.error('Permission Denied');
+  }
 
-export default <T>(config: AxiosRequestConfig) => {
+  throw error;
+}
+
+$http.interceptors.response.use(onResponse, onError);
+
+export default function request<T>(config: AxiosRequestConfig) {
   return $http(config) as Promise<AxiosResponse<T>>;
-};
+}
