@@ -4932,8 +4932,8 @@ __metadata:
     "@nestjs/jwt": ^10.0.0
     "@nestjs/passport": ^10.0.0
     "@types/express-session": ^1.17.9
-    "@types/passport": ^1.0.13
-    "@types/passport-jwt": ^3.0.10
+    "@types/passport": ^1.0.14
+    "@types/passport-jwt": ^3.0.11
     "@types/passport-local": ^1.0.36
     express-session: ^1.17.3
     passport: ^0.6.0
@@ -4954,7 +4954,7 @@ __metadata:
     "@nestjs/typeorm": ^9.0.1
     reflect-metadata: ^0.1.13
     rxjs: 7.8.1
-    typeorm: ^0.3.9
+    typeorm: ^0.3.17
     typescript: 5.2.2
   languageName: unknown
   linkType: soft
@@ -9100,14 +9100,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/passport-jwt@npm:^3.0.10":
-  version: 3.0.10
-  resolution: "@types/passport-jwt@npm:3.0.10::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.10.tgz"
+"@types/passport-jwt@npm:^3.0.11":
+  version: 3.0.11
+  resolution: "@types/passport-jwt@npm:3.0.11::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-jwt%2F-%2Fpassport-jwt-3.0.11.tgz"
   dependencies:
     "@types/express": "*"
     "@types/jsonwebtoken": "*"
     "@types/passport-strategy": "*"
-  checksum: ec1c9ca119a4f85f9c2810581715a11a405b3f536c6ee25871f12b3698a75e56554d4752fc3d8791c291efae4d5481b49c3b1ad52d368718dcd265d7ae5bbc55
+  checksum: 1ea4e3bdff5b135b709782c969a4be9f80f510b1d77f51ac5c39e55a1cceedbcd4c45b64cd0b3911fe3803168cdb9de1ede4b7f6933339ab800a3ec80e1112a5
   languageName: node
   linkType: hard
 
@@ -9141,12 +9141,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/passport@npm:^1.0.13":
-  version: 1.0.13
-  resolution: "@types/passport@npm:1.0.13::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport%2F-%2Fpassport-1.0.13.tgz"
+"@types/passport@npm:^1.0.14":
+  version: 1.0.14
+  resolution: "@types/passport@npm:1.0.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport%2F-%2Fpassport-1.0.14.tgz"
   dependencies:
     "@types/express": "*"
-  checksum: 84330bedb330302ffd92b009b9b88eb20d3c66b659b383badb9aa3035612b40b47052153858b2498a95d9979d668443bdee3182345819cb18635dfb7f24c109c
+  checksum: 8e89c99d770db8acac54f15e06867a4795c441ef17007784dbb4494f5c5c371154d1ee7ef2abbadbcd10619e0ed3304f837cb78a1be478cb783a6ca98d49f3f9
   languageName: node
   linkType: hard
 
@@ -9321,12 +9321,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/supertest@npm:^2.0.14":
-  version: 2.0.14
-  resolution: "@types/supertest@npm:2.0.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fsupertest%2F-%2Fsupertest-2.0.14.tgz"
+"@types/supertest@npm:^2.0.15":
+  version: 2.0.15
+  resolution: "@types/supertest@npm:2.0.15::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fsupertest%2F-%2Fsupertest-2.0.15.tgz"
   dependencies:
     "@types/superagent": "*"
-  checksum: 9f6850a22b8f0fd4c26a6dfd9b64771a66476b1a4f841a3b84a9da843ce69463efbf37594fe107297dd14a225d199b802464d48d70e9413238c637903d392137
+  checksum: 89c1983662f0ab20969b3a6c44344397fd222d0f78b282619aabbe817f7c88a64210fd2b8b8f075ea22a27084e30ebc287bc5105619cbbf9af7f008e77f6eb93
   languageName: node
   linkType: hard
 
@@ -24681,7 +24681,7 @@ __metadata:
     "@types/express": ^4.17.20
     "@types/multer": ^1.4.8
     "@types/node": ^18.0.0
-    "@types/supertest": ^2.0.14
+    "@types/supertest": ^2.0.15
     file-type: ^16.5.4
     fs-extra: ^11.1.0
     joi: ^17.6.0
@@ -26405,9 +26405,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typeorm@npm:^0.3.9":
-  version: 0.3.16
-  resolution: "typeorm@npm:0.3.16::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypeorm%2F-%2Ftypeorm-0.3.16.tgz"
+"typeorm@npm:^0.3.17":
+  version: 0.3.17
+  resolution: "typeorm@npm:0.3.17::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypeorm%2F-%2Ftypeorm-0.3.17.tgz"
   dependencies:
     "@sqltools/formatter": ^1.2.5
     app-root-path: ^3.1.0
@@ -26481,7 +26481,7 @@ __metadata:
     typeorm: cli.js
     typeorm-ts-node-commonjs: cli-ts-node-commonjs.js
     typeorm-ts-node-esm: cli-ts-node-esm.js
-  checksum: d889f6b4392367c38d9748fabaab1a75d21d78e7aa62088d53847958f2308b672acf8ab3e0bcf26c880fa52fac54be9a78ca43c99f19c4fe604fab458dc04c17
+  checksum: 71fcb2b2e889c759b24add6c6ab7938c9a52f7c206b055f3a2abd77725acfec125b8f303e263381258ee03e52f7d3eb88c1fb893b15750b5237c8fc9db31ed78
   languageName: node
   linkType: hard
 
