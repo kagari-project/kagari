@@ -14,6 +14,8 @@ import { login } from '../api';
 import { useAuthStore } from '../store/auth.store';
 import router from '../config/router';
 import get from 'lodash/get';
+import { onError, onResponse } from '../api/request';
+import { AxiosResponse } from 'axios';
 
 const loginFormSchema = yup.object().shape({
   username: yup.string().required(),
@@ -26,9 +28,11 @@ export default function LoginPage() {
   const handleSubmit = useCallback(async (params: any) => {
     const {
       data: { data, accessToken, refreshToken },
-    } = await login(params);
+    } = await (login(params)
+      .then(onResponse)
+      .catch(onError) as Promise<AxiosResponse>);
     setLoginInfo(data, accessToken, refreshToken);
-    router.navigate('/', { replace: true });
+    await router.navigate('/', { replace: true });
   }, []);
 
   return (

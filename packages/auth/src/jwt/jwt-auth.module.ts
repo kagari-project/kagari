@@ -12,11 +12,12 @@ import { JWT_AUTH_MODULE_OPTIONS } from '../constants';
 
 import { ExtraOptions } from './types';
 import { JwtStrategy } from './jwt.strategy';
+import { ObjectLiteral } from '@kagari/database';
 
 @Module({})
 export class JwtAuthModule {
   static forRoot(
-    options: AuthModuleOptions<unknown, ExtraOptions>,
+    options: AuthModuleOptions<ObjectLiteral, ExtraOptions>,
   ): DynamicModule {
     return {
       module: JwtAuthModule,
@@ -33,7 +34,7 @@ export class JwtAuthModule {
   }
 
   static forRootAsync(
-    options: AsyncAuthModuleOptions<unknown, ExtraOptions>,
+    options: AsyncAuthModuleOptions<ObjectLiteral, ExtraOptions>,
   ): DynamicModule {
     return {
       global: true,
@@ -42,8 +43,9 @@ export class JwtAuthModule {
         PassportModule,
         JwtModule.registerAsync({
           inject: [JWT_AUTH_MODULE_OPTIONS],
-          useFactory: (options: AuthModuleOptions<unknown, ExtraOptions>) =>
-            options.jwt,
+          useFactory: (
+            options: AuthModuleOptions<ObjectLiteral, ExtraOptions>,
+          ) => options.jwt,
         }),
       ],
       providers: [

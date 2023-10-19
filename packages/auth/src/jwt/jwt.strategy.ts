@@ -4,11 +4,12 @@ import { Inject } from '@nestjs/common';
 import { JWT_AUTH_MODULE_OPTIONS } from '../constants';
 import { AuthModuleOptions } from '../types';
 import { ExtraOptions } from './types';
+import { ObjectLiteral } from '@kagari/database';
 
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(
     @Inject(JWT_AUTH_MODULE_OPTIONS)
-    private options: AuthModuleOptions<unknown, ExtraOptions>,
+    private options: AuthModuleOptions<ObjectLiteral, ExtraOptions>,
   ) {
     super({
       ...options.jwt,

@@ -4,13 +4,14 @@ import { JWT_AUTH_MODULE_OPTIONS } from '../constants';
 import { AuthModuleOptions, Credential } from '../types';
 import { JwtService } from '@nestjs/jwt';
 import { ExtraOptions } from './types';
+import { ObjectLiteral } from '@kagari/database';
 
 @Injectable()
 export class JwtAuthService {
   constructor(
     @InjectDataSource() private datasource: DataSource,
     @Inject(JWT_AUTH_MODULE_OPTIONS)
-    private options: AuthModuleOptions<unknown, ExtraOptions>,
+    private options: AuthModuleOptions<ObjectLiteral, ExtraOptions>,
     private jwtService: JwtService,
   ) {}
 

@@ -1,6 +1,7 @@
 import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
 import { JwtAuthService, LocalAuthGuard } from '@kagari/auth';
 import { ApiOperation } from '@nestjs/swagger';
+import express from 'express';
 import { getAuthenticatedGuard } from '../../core/guards/authenticated.guard';
 
 @Controller('auth')
@@ -32,7 +33,7 @@ export class AuthController {
       },
     },
   })
-  async login(@Request() req) {
+  async login(@Request() req: express.Request) {
     const tokens = await this.jwtSigner.signature(req.user);
     return {
       data: req.user,
@@ -44,7 +45,7 @@ export class AuthController {
   @ApiOperation({
     tags: ['auth'],
   })
-  logout(@Request() request) {
+  logout(@Request() request: express.Request) {
     return new Promise((resolve) => request.logOut(resolve));
   }
 
@@ -53,7 +54,7 @@ export class AuthController {
   @ApiOperation({
     tags: ['auth'],
   })
-  profile(@Request() request) {
+  profile(@Request() request: express.Request) {
     return request.user;
   }
 }

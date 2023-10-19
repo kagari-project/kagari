@@ -6,6 +6,7 @@ import { LOCAL_AUTH_MODULE_OPTIONS } from '../constants';
 import { AuthModuleOptions } from '../types';
 import { IStrategyOptions } from 'passport-local';
 import { Request } from 'express';
+import { ObjectLiteral } from '@kagari/database';
 
 /**
  * copy from passport-local
@@ -41,7 +42,7 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
     private authService: LocalAuthService,
     @Inject(LOCAL_AUTH_MODULE_OPTIONS)
     private options: AuthModuleOptions<
-      unknown,
+      ObjectLiteral,
       { strategyOptions?: IStrategyOptions }
     >,
   ) {

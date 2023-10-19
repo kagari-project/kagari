@@ -16,6 +16,7 @@ import { LocalSerializer } from './local.serializer';
 import { IStrategyOptions } from 'passport-local';
 import { Type } from '@nestjs/common/interfaces/type.interface';
 import { RouteInfo } from '@nestjs/common/interfaces/middleware/middleware-configuration.interface';
+import { ObjectLiteral } from '@kagari/database';
 
 type ExtraOptions = {
   session: session.SessionOptions;
@@ -28,10 +29,10 @@ type ExtraOptions = {
 export class LocalAuthModule implements NestModule {
   constructor(
     @Inject(LOCAL_AUTH_MODULE_OPTIONS)
-    private options: AuthModuleOptions<unknown, ExtraOptions>,
+    private options: AuthModuleOptions<ObjectLiteral, ExtraOptions>,
   ) {}
 
-  static forRoot<T>(
+  static forRoot<T extends ObjectLiteral>(
     options: AuthModuleOptions<T, ExtraOptions>,
   ): DynamicModule {
     return {
@@ -48,7 +49,7 @@ export class LocalAuthModule implements NestModule {
     };
   }
 
-  static forRootAsync<T>(
+  static forRootAsync<T extends ObjectLiteral>(
     options: AsyncAuthModuleOptions<T, ExtraOptions>,
   ): DynamicModule {
     return {

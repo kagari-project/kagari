@@ -1,9 +1,9 @@
-import { Repository } from '@kagari/database';
+import { Repository, ObjectLiteral } from '@kagari/database';
 import { ModuleMetadata, Type } from '@nestjs/common';
 
 export type Credential = { [key: string]: string };
 
-export type VerifyFunction<Entity> = (
+export type VerifyFunction<Entity extends ObjectLiteral> = (
   repo: Repository<Entity>,
   credential: Credential,
 ) => Promise<Entity>;
@@ -18,14 +18,17 @@ export type ComposeRefreshTokenPayload<Entity> = (
   userInfo: Entity,
 ) => Record<string, unknown>;
 
-export type AuthModuleOptions<Entity = unknown, ExtraOptions = unknown> = {
+export type AuthModuleOptions<
+  Entity extends ObjectLiteral = ObjectLiteral,
+  ExtraOptions = unknown,
+> = {
   entity: Type<Entity>;
   validate?: ValidateFunction;
   verify: VerifyFunction<Entity>;
 } & ExtraOptions;
 
 export type AsyncAuthModuleOptions<
-  Entity = unknown,
+  Entity extends ObjectLiteral = ObjectLiteral,
   ExtraOptions = unknown,
 > = Pick<ModuleMetadata, 'imports'> & {
   useFactory: (

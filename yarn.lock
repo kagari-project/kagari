@@ -58,6 +58,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular-devkit/core@npm:16.1.8":
+  version: 16.1.8
+  resolution: "@angular-devkit/core@npm:16.1.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40angular-devkit%2Fcore%2F-%2Fcore-16.1.8.tgz"
+  dependencies:
+    ajv: 8.12.0
+    ajv-formats: 2.1.1
+    jsonc-parser: 3.2.0
+    rxjs: 7.8.1
+    source-map: 0.7.4
+  peerDependencies:
+    chokidar: ^3.5.2
+  peerDependenciesMeta:
+    chokidar:
+      optional: true
+  checksum: 422d225df2fc1fcc44670fc51ca25873f3d937b20a0fc344f68182927b7ac775aff2c8014d98647133b65da45f220fbed2c234d25787e72865dab975a43ee907
+  languageName: node
+  linkType: hard
+
 "@angular-devkit/schematics-cli@npm:15.2.6":
   version: 15.2.6
   resolution: "@angular-devkit/schematics-cli@npm:15.2.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40angular-devkit%2Fschematics-cli%2F-%2Fschematics-cli-15.2.6.tgz"
@@ -97,6 +115,19 @@ __metadata:
     ora: 5.4.1
     rxjs: 6.6.7
   checksum: 43475d230d8c56dc4905a57707af36521610e2b9420c3ee38606cbdb0fc7c280235c3e268b6aed855ed159f2c69f82d194ca565a5912b26a76e1ce3ffbb55f45
+  languageName: node
+  linkType: hard
+
+"@angular-devkit/schematics@npm:16.1.8":
+  version: 16.1.8
+  resolution: "@angular-devkit/schematics@npm:16.1.8::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40angular-devkit%2Fschematics%2F-%2Fschematics-16.1.8.tgz"
+  dependencies:
+    "@angular-devkit/core": 16.1.8
+    jsonc-parser: 3.2.0
+    magic-string: 0.30.0
+    ora: 5.4.1
+    rxjs: 7.8.1
+  checksum: 9c691145565c8232bb807782ed6dd7de92b540faaa7a806723678964f9f3931fb5dad8d802966b2fcf31f2c388a3e3e8b0c640f8b212b5e3f9845205136f11a0
   languageName: node
   linkType: hard
 
@@ -4896,10 +4927,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kagari/auth@workspace:packages/auth"
   dependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
     "@nestjs/jwt": ^10.0.0
-    "@nestjs/passport": ^9.0.0
+    "@nestjs/passport": ^10.0.0
     "@types/express-session": ^1.17.9
     "@types/passport": ^1.0.13
     "@types/passport-jwt": ^3.0.10
@@ -4909,8 +4940,8 @@ __metadata:
     passport-jwt: ^4.0.0
     passport-local: ^1.0.0
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
-    typescript: ~4.7.4
+    rxjs: 7.8.1
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4918,14 +4949,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kagari/database@workspace:packages/database"
   dependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
     "@nestjs/typeorm": ^9.0.1
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
-    ts-jest: 29.1.1
+    rxjs: 7.8.1
     typeorm: ^0.3.9
-    typescript: ~4.7.4
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4933,17 +4963,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kagari/multi-themes@workspace:packages/multi-theme"
   dependencies:
-    "@nestjs/testing": ^9.0.0
+    "@nestjs/testing": ^10.0.0
     express-hbs: ^2.4.2
     reflect-metadata: ^0.1.13
-    rxjs: ^7.5.0
+    rxjs: 7.8.1
     serve-static: ^1.15.0
     tsconfig-paths: ^4.0.0
-    typescript: ~4.7.4
+    typescript: 5.2.2
   peerDependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
-    rxjs: ^7.5.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
+    rxjs: 7.8.1
   languageName: unknown
   linkType: soft
 
@@ -4951,11 +4981,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kagari/rbac@workspace:packages/rbac"
   dependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
     reflect-metadata: ^0.1.13
-    rxjs: ~7.5.0
-    typescript: ~4.7.4
+    rxjs: 7.8.1
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -4963,13 +4993,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kagari/restful@workspace:packages/restful"
   dependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
     joi: ^17.6.0
     reflect-metadata: ^0.1.13
     rimraf: ^5.0.5
-    rxjs: ~7.5.0
-    typescript: ~4.7.4
+    rxjs: 7.8.1
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -5000,7 +5030,7 @@ __metadata:
     react-dom: ^18.2.0
     react-hook-form: ^7.39.4
     react-infinite-scroller: ^1.2.6
-    typescript: ~4.7.4
+    typescript: 5.2.2
     utility-types: ^3.10.0
     yup: ^0.32.11
     zustand: ^4.1.4
@@ -5530,27 +5560,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:^9.0.0":
-  version: 9.4.0
-  resolution: "@nestjs/common@npm:9.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fcommon%2F-%2Fcommon-9.4.0.tgz"
+"@nestjs/common@npm:^10.0.0":
+  version: 10.2.7
+  resolution: "@nestjs/common@npm:10.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fcommon%2F-%2Fcommon-10.2.7.tgz"
   dependencies:
     iterare: 1.2.1
-    tslib: 2.5.0
+    tslib: 2.6.2
     uid: 2.0.2
   peerDependencies:
-    cache-manager: <=5
     class-transformer: "*"
     class-validator: "*"
     reflect-metadata: ^0.1.12
     rxjs: ^7.1.0
   peerDependenciesMeta:
-    cache-manager:
-      optional: true
     class-transformer:
       optional: true
     class-validator:
       optional: true
-  checksum: 751fc94111301da047e42f845415b806a393ca4ecadbe6cfcec9cf6bd230bb8be3a159faf574beb1ff98b2a436a432a726ff3dfccff21685f6ce5cb99ed8bb98
+  checksum: b0a498eae3bc5c84659064830eab57583caaddef15ed1137768d73e986dabe2e1a04f61d8c0181b1c538e8c5f4ea3342a1f342e7a19a59e46d306ea3b53f3342
   languageName: node
   linkType: hard
 
@@ -5570,21 +5597,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:^9.0.0":
-  version: 9.4.0
-  resolution: "@nestjs/core@npm:9.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fcore%2F-%2Fcore-9.4.0.tgz"
+"@nestjs/core@npm:^10.0.0":
+  version: 10.2.7
+  resolution: "@nestjs/core@npm:10.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fcore%2F-%2Fcore-10.2.7.tgz"
   dependencies:
     "@nuxtjs/opencollective": 0.3.2
     fast-safe-stringify: 2.1.1
     iterare: 1.2.1
     path-to-regexp: 3.2.0
-    tslib: 2.5.0
+    tslib: 2.6.2
     uid: 2.0.2
   peerDependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/microservices": ^9.0.0
-    "@nestjs/platform-express": ^9.0.0
-    "@nestjs/websockets": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+    "@nestjs/websockets": ^10.0.0
     reflect-metadata: ^0.1.12
     rxjs: ^7.1.0
   peerDependenciesMeta:
@@ -5594,7 +5621,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: a0d5ca077a25cdd21a720aead6121ff27070cc608dd323a4459c10c21d36dc59ab471d1198f8b3e20f1eeeec35d0fde4e589601ccc82236d8a99c8fcb3ea9b15
+  checksum: 7e180d9eb014bb5867ef9476e414ab497a145f3966871155eac08da6b6a75709cae1bbf43bd74bc855316f565396457ccef224ad173a5c5614e4032c59cb9e3c
   languageName: node
   linkType: hard
 
@@ -5610,50 +5637,65 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/mapped-types@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@nestjs/mapped-types@npm:1.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fmapped-types%2F-%2Fmapped-types-1.2.2.tgz"
+"@nestjs/mapped-types@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@nestjs/mapped-types@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fmapped-types%2F-%2Fmapped-types-2.0.2.tgz"
   peerDependencies:
-    "@nestjs/common": ^7.0.8 || ^8.0.0 || ^9.0.0
-    class-transformer: ^0.2.0 || ^0.3.0 || ^0.4.0 || ^0.5.0
-    class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0 || ^0.14.0
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
+    class-transformer: ^0.4.0 || ^0.5.0
+    class-validator: ^0.13.0 || ^0.14.0
     reflect-metadata: ^0.1.12
   peerDependenciesMeta:
     class-transformer:
       optional: true
     class-validator:
       optional: true
-  checksum: 85f295a1474c6dd1b6fb07556f744fee138571f3c6a4c5e693c72bddc716aeb8e73c02f8146fb3457e4e4a604559aa6c40985e3fbf1b3aadc0ea04a6970016d1
+  checksum: 1fb0dca3838d0dc23107233e95a711e251bfbef9017589d3764c955a1cf190c8372179cee70e3674807896f53a98ab2ba80cd769b4f072fadefb708be1cc911b
   languageName: node
   linkType: hard
 
-"@nestjs/passport@npm:^9.0.0":
-  version: 9.0.3
-  resolution: "@nestjs/passport@npm:9.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fpassport%2F-%2Fpassport-9.0.3.tgz"
+"@nestjs/passport@npm:^10.0.0":
+  version: 10.0.2
+  resolution: "@nestjs/passport@npm:10.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fpassport%2F-%2Fpassport-10.0.2.tgz"
   peerDependencies:
-    "@nestjs/common": ^8.0.0 || ^9.0.0
+    "@nestjs/common": ^8.0.0 || ^9.0.0 || ^10.0.0
     passport: ^0.4.0 || ^0.5.0 || ^0.6.0
-  checksum: 113148a68eef4c1036d6d3e7037376093706c9eeef005338c39d85161e3beab8c8188a61201bbec881c075641687325dd74f1b9200ab37b91983cf953f2b8774
+  checksum: d9d0c2206cc7fc1c88da2e165d901099c971be57732d7b4f28d169ae9e4637a423d992c63660026e16cb2c43d709369496c11c4b760ba98d82ce422a672a6ee9
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:^9.0.0":
-  version: 9.4.0
-  resolution: "@nestjs/platform-express@npm:9.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fplatform-express%2F-%2Fplatform-express-9.4.0.tgz"
+"@nestjs/platform-express@npm:^10.0.0":
+  version: 10.2.7
+  resolution: "@nestjs/platform-express@npm:10.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fplatform-express%2F-%2Fplatform-express-10.2.7.tgz"
   dependencies:
     body-parser: 1.20.2
     cors: 2.8.5
     express: 4.18.2
     multer: 1.4.4-lts.1
-    tslib: 2.5.0
+    tslib: 2.6.2
   peerDependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
-  checksum: 5003b0950cdb67fb2201778f230f56597da35206b995b4655ee4a1dad2626ef9ddaabb49b98345b459065aca19e0d431fff259e8b8f745e26101f73751673f80
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+  checksum: 34b912591642e86dc666c74c8b3ff10771251d9aa3f3c392525cbdff9b14f770c46e704eb2d9c9e790399a8d2416d25a6bc6fd3577e9ee22caac67acf608a32b
   languageName: node
   linkType: hard
 
-"@nestjs/schematics@npm:^9.0.0, @nestjs/schematics@npm:^9.0.4":
+"@nestjs/schematics@npm:^10.0.0":
+  version: 10.0.2
+  resolution: "@nestjs/schematics@npm:10.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fschematics%2F-%2Fschematics-10.0.2.tgz"
+  dependencies:
+    "@angular-devkit/core": 16.1.8
+    "@angular-devkit/schematics": 16.1.8
+    comment-json: 4.2.3
+    jsonc-parser: 3.2.0
+    pluralize: 8.0.0
+  peerDependencies:
+    typescript: ">=4.8.2"
+  checksum: bb54681dcf4f6c20315184c6b512998bbd2cb366dc197d0262efd4c0f25b87317cb305cf4b895237cbb712c80a5d7109f621e985f9de9cddd70d2bc5d2be7d62
+  languageName: node
+  linkType: hard
+
+"@nestjs/schematics@npm:^9.0.4":
   version: 9.1.0
   resolution: "@nestjs/schematics@npm:9.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fschematics%2F-%2Fschematics-9.1.0.tgz"
   dependencies:
@@ -5689,19 +5731,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:^6.1.2":
-  version: 6.3.0
-  resolution: "@nestjs/swagger@npm:6.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fswagger%2F-%2Fswagger-6.3.0.tgz"
+"@nestjs/swagger@npm:^7.1.13":
+  version: 7.1.13
+  resolution: "@nestjs/swagger@npm:7.1.13::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Fswagger%2F-%2Fswagger-7.1.13.tgz"
   dependencies:
-    "@nestjs/mapped-types": 1.2.2
+    "@nestjs/mapped-types": 2.0.2
     js-yaml: 4.1.0
     lodash: 4.17.21
     path-to-regexp: 3.2.0
-    swagger-ui-dist: 4.18.2
+    swagger-ui-dist: 5.9.0
   peerDependencies:
     "@fastify/static": ^6.0.0
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
+    "@nestjs/common": ^9.0.0 || ^10.0.0
+    "@nestjs/core": ^9.0.0 || ^10.0.0
     class-transformer: "*"
     class-validator: "*"
     reflect-metadata: ^0.1.12
@@ -5712,26 +5754,26 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 33aa9fb622b79b99d25fce1838011d41f519a5bd108e76e3952e5c8b417d21a0d635294978326ba1737824500b0178af7f1054a1d3f16df1c73804b9ae5dff41
+  checksum: 0b1acc41f724f7be2d83cb15f15edd75b7776504d30bdfe6d35307c0581f3ebbee97e5a510de69946c1e6a6e3ef9d67de256067e341af23b82e4e5888875711c
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^9.0.0":
-  version: 9.4.0
-  resolution: "@nestjs/testing@npm:9.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Ftesting%2F-%2Ftesting-9.4.0.tgz"
+"@nestjs/testing@npm:^10.0.0":
+  version: 10.2.7
+  resolution: "@nestjs/testing@npm:10.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40nestjs%2Ftesting%2F-%2Ftesting-10.2.7.tgz"
   dependencies:
-    tslib: 2.5.0
+    tslib: 2.6.2
   peerDependencies:
-    "@nestjs/common": ^9.0.0
-    "@nestjs/core": ^9.0.0
-    "@nestjs/microservices": ^9.0.0
-    "@nestjs/platform-express": ^9.0.0
+    "@nestjs/common": ^10.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/microservices": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
   peerDependenciesMeta:
     "@nestjs/microservices":
       optional: true
     "@nestjs/platform-express":
       optional: true
-  checksum: f5cc040817f8ec54da4ad8714a79fd40d239feba138e9f362bbaacf9411320c06435e520fa673674bf82779eab2137cdd23123f952450b50255ab965e9bc546f
+  checksum: 598f6b206d4dad0e03ef78fd5579df07212443983dfa2c7036f56e1f865f5175ee6d44aadca873e9f75c04550b0cb375d03b9f1343db9b55f4765bdb277cf95d
   languageName: node
   linkType: hard
 
@@ -10096,7 +10138,7 @@ __metadata:
     react-router: ^6.4.3
     react-router-dom: ^6.4.3
     react-scripts: 5.0.1
-    typescript: ~4.7.4
+    typescript: 5.2.2
     url-join: ^5.0.0
     web-vitals: ^3.0.0
     zustand: ^4.1.4
@@ -10452,6 +10494,13 @@ __metadata:
     get-intrinsic: ^1.1.3
     is-string: ^1.0.7
   checksum: f22f8cd8ba8a6448d91eebdc69f04e4e55085d09232b5216ee2d476dab3ef59984e8d1889e662c6a0ed939dcb1b57fd05b2c0209c3370942fc41b752c82a2ca5
+  languageName: node
+  linkType: hard
+
+"array-timsort@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "array-timsort@npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Farray-timsort%2F-%2Farray-timsort-1.0.3.tgz"
+  checksum: fd4b5b0911214bdc8b5699ed10d309685551b518b3819c611c967cff59b87aee01cf591a10e36a3f14dbff696984bd6682b845f6fdbf1217195e910f241a4f78
   languageName: node
   linkType: hard
 
@@ -11947,6 +11996,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"comment-json@npm:4.2.3":
+  version: 4.2.3
+  resolution: "comment-json@npm:4.2.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcomment-json%2F-%2Fcomment-json-4.2.3.tgz"
+  dependencies:
+    array-timsort: ^1.0.3
+    core-util-is: ^1.0.3
+    esprima: ^4.0.1
+    has-own-prop: ^2.0.0
+    repeat-string: ^1.6.1
+  checksum: 7f8d26266b0d49de9661f6365cbcc373fee4f4d0f422a203dfb17ad8f3d84c5be5ded444874935a197cd03cff297c53fe48910256cb4171cb2e52a3e6b9d317c
+  languageName: node
+  linkType: hard
+
 "common-ancestor-path@npm:^1.0.1":
   version: 1.0.1
   resolution: "common-ancestor-path@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcommon-ancestor-path%2F-%2Fcommon-ancestor-path-1.0.1.tgz"
@@ -12322,7 +12384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-util-is@npm:~1.0.0":
+"core-util-is@npm:^1.0.3, core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-util-is%2F-%2Fcore-util-is-1.0.3.tgz"
   checksum: 9de8597363a8e9b9952491ebe18167e3b36e7707569eed0ebf14f8bba773611376466ae34575bca8cfe3c767890c859c74056084738f09d4e4a6f902b2ad7d99
@@ -15773,6 +15835,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"has-own-prop@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "has-own-prop@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fhas-own-prop%2F-%2Fhas-own-prop-2.0.0.tgz"
+  checksum: ca6336e85ead2295c9603880cbc199e2d3ff7eaea0e9035d68fbc79892e9cf681abc62c0909520f112c671dad9961be2173b21dff951358cc98425c560e789e0
+  languageName: node
+  linkType: hard
+
 "has-property-descriptors@npm:^1.0.0":
   version: 1.0.0
   resolution: "has-property-descriptors@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fhas-property-descriptors%2F-%2Fhas-property-descriptors-1.0.0.tgz"
@@ -18503,7 +18572,7 @@ __metadata:
     react-dom: ^18.2.0
     storybook: ^7.5.0
     ts-jest: 29.1.1
-    typescript: ~4.7.4
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -19040,6 +19109,15 @@ __metadata:
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.13
   checksum: 19e5398fcfc44804917127c72ad622c68a19a0a10cbdb8d4f9f9417584a087fe9e117140bfb2463d86743cf1ed9cf4182ae0b0ad1a7536f7fdda257ee4449ffb
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:0.30.0":
+  version: 0.30.0
+  resolution: "magic-string@npm:0.30.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fmagic-string%2F-%2Fmagic-string-0.30.0.tgz"
+  dependencies:
+    "@jridgewell/sourcemap-codec": ^1.4.13
+  checksum: 7bdf22e27334d8a393858a16f5f840af63a7c05848c000fd714da5aa5eefa09a1bc01d8469362f25cc5c4a14ec01b46557b7fff8751365522acddf21e57c488d
   languageName: node
   linkType: hard
 
@@ -23960,6 +24038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"repeat-string@npm:^1.6.1":
+  version: 1.6.1
+  resolution: "repeat-string@npm:1.6.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frepeat-string%2F-%2Frepeat-string-1.6.1.tgz"
+  checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
+  languageName: node
+  linkType: hard
+
 "require-directory@npm:^2.1.1":
   version: 2.1.1
   resolution: "require-directory@npm:2.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frequire-directory%2F-%2Frequire-directory-2.1.1.tgz"
@@ -24239,21 +24324,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.5.0, rxjs@npm:^7.5.5":
+"rxjs@npm:7.8.1, rxjs@npm:^7.5.5":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2F-%2Frxjs-7.8.1.tgz"
   dependencies:
     tslib: ^2.1.0
   checksum: de4b53db1063e618ec2eca0f7965d9137cabe98cf6be9272efe6c86b47c17b987383df8574861bcced18ebd590764125a901d5506082be84a8b8e364bf05f119
-  languageName: node
-  linkType: hard
-
-"rxjs@npm:~7.5.0":
-  version: 7.5.7
-  resolution: "rxjs@npm:7.5.7::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Frxjs%2F-%2Frxjs-7.5.7.tgz"
-  dependencies:
-    tslib: ^2.1.0
-  checksum: edabcdb73b0f7e0f5f6e05c2077aff8c52222ac939069729704357d6406438acca831c24210db320aba269e86dbe1a400f3769c89101791885121a342fb15d9c
   languageName: node
   linkType: hard
 
@@ -24594,14 +24670,14 @@ __metadata:
     "@kagari/rbac": ^0.6.2
     "@kagari/restful": ^0.6.2
     "@nestjs/cli": ^9.0.0
-    "@nestjs/common": ^9.0.0
+    "@nestjs/common": ^10.0.0
     "@nestjs/config": ^2.2.0
-    "@nestjs/core": ^9.0.0
-    "@nestjs/platform-express": ^9.0.0
-    "@nestjs/schematics": ^9.0.0
+    "@nestjs/core": ^10.0.0
+    "@nestjs/platform-express": ^10.0.0
+    "@nestjs/schematics": ^10.0.0
     "@nestjs/serve-static": ^3.0.0
-    "@nestjs/swagger": ^6.1.2
-    "@nestjs/testing": ^9.0.0
+    "@nestjs/swagger": ^7.1.13
+    "@nestjs/testing": ^10.0.0
     "@types/express": ^4.17.20
     "@types/multer": ^1.4.8
     "@types/node": ^18.0.0
@@ -24612,7 +24688,7 @@ __metadata:
     pg: ^8.8.0
     reflect-metadata: ^0.1.13
     rimraf: ^5.0.5
-    rxjs: ~7.5.0
+    rxjs: 7.8.1
     source-map-support: ^0.5.20
     sqlite3: ^5.1.1
     supertest: ^6.1.3
@@ -24620,7 +24696,7 @@ __metadata:
     ts-node: ^10.0.0
     tsconfig-paths: 4.2.0
     typeorm-store: ^2.0.1
-    typescript: ^4.7.4
+    typescript: 5.2.2
   languageName: unknown
   linkType: soft
 
@@ -25486,10 +25562,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:4.18.2":
-  version: 4.18.2
-  resolution: "swagger-ui-dist@npm:4.18.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswagger-ui-dist%2F-%2Fswagger-ui-dist-4.18.2.tgz"
-  checksum: 3d3e801104af53a58662303aa82df81510cece64a28422e6de02b5d22eb5f6a354f3c3ab80d12f72442e0ec8cbae9122767d7f8476c4d4a21d5353163bc659a7
+"swagger-ui-dist@npm:5.9.0":
+  version: 5.9.0
+  resolution: "swagger-ui-dist@npm:5.9.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Fswagger-ui-dist%2F-%2Fswagger-ui-dist-5.9.0.tgz"
+  checksum: 722f5d81adf0c0a940559952f48f7cd20a3f2a53aee8771c896eee8e3bed6f78c2f231960a7c30a4dca390d1205c0b2909d84062978013bb60febc478b9fc3d9
   languageName: node
   linkType: hard
 
@@ -26163,10 +26239,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.5.0, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "tslib@npm:2.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-2.5.0.tgz"
-  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+"tslib@npm:2.6.2":
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-2.6.2.tgz"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
@@ -26174,6 +26250,13 @@ __metadata:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-1.14.1.tgz"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftslib%2F-%2Ftslib-2.5.0.tgz"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
   languageName: node
   linkType: hard
 
@@ -26412,6 +26495,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.2.2":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2F-%2Ftypescript-5.2.2.tgz"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^3 || ^4":
   version: 4.9.3
   resolution: "typescript@npm:4.9.3::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2F-%2Ftypescript-4.9.3.tgz"
@@ -26432,26 +26525,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.7.4":
-  version: 4.8.4
-  resolution: "typescript@npm:4.8.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2F-%2Ftypescript-4.8.4.tgz"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3e4f061658e0c8f36c820802fa809e0fd812b85687a9a2f5430bc3d0368e37d1c9605c3ce9b39df9a05af2ece67b1d844f9f6ea8ff42819f13bcb80f85629af0
-  languageName: node
-  linkType: hard
-
-"typescript@npm:~4.7.4":
-  version: 4.7.4
-  resolution: "typescript@npm:4.7.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2F-%2Ftypescript-4.7.4.tgz"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 5750181b1cd7e6482c4195825547e70f944114fb47e58e4aa7553e62f11b3f3173766aef9c281783edfd881f7b8299cf35e3ca8caebe73d8464528c907a164df
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmmirror.com%252Ftypescript%252F-%252Ftypescript-4.9.5.tgz#~builtin<compat/typescript>::version=4.9.5&hash=289587"
@@ -26459,6 +26532,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmmirror.com%252Ftypescript%252F-%252Ftypescript-5.2.2.tgz#~builtin<compat/typescript>::version=5.2.2&hash=77c9e2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
   languageName: node
   linkType: hard
 
@@ -26479,26 +26562,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: d26b6ba97b6d163c55dbdffd9bbb4c211667ebebc743accfeb2c8c0154aace7afd097b51165a72a5bad2cf65a4612259344ff60f8e642362aa1695c760d303ac
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.7.4#~builtin<compat/typescript>":
-  version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmmirror.com%252Ftypescript%252F-%252Ftypescript-4.8.4.tgz#~builtin<compat/typescript>::version=4.8.4&hash=1a91c8"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: c981e82b77a5acdcc4e69af9c56cdecf5b934a87a08e7b52120596701e389a878b8e3f860e73ffb287bf649cc47a8c741262ce058148f71de4cdd88bb9c75153
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@~4.7.4#~builtin<compat/typescript>":
-  version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmmirror.com%252Ftypescript%252F-%252Ftypescript-4.7.4.tgz#~builtin<compat/typescript>::version=4.7.4&hash=65a307"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 9096d8f6c16cb80ef3bf96fcbbd055bf1c4a43bd14f3b7be45a9fbe7ada46ec977f604d5feed3263b4f2aa7d4c7477ce5f9cd87de0d6feedec69a983f3a4f93e
   languageName: node
   linkType: hard
 
