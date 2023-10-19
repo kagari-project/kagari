@@ -4130,12 +4130,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookform/resolvers@npm:^2.9.11":
-  version: 2.9.11
-  resolution: "@hookform/resolvers@npm:2.9.11::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40hookform%2Fresolvers%2F-%2Fresolvers-2.9.11.tgz"
+"@hookform/resolvers@npm:^3.0.0":
+  version: 3.3.2
+  resolution: "@hookform/resolvers@npm:3.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40hookform%2Fresolvers%2F-%2Fresolvers-3.3.2.tgz"
   peerDependencies:
     react-hook-form: ^7.0.0
-  checksum: 977ea038bb94457ac9f6c7ca65438ce8fcd0cf7643b9925d8bc4d66df6faa0f49ad642bee7362f86a4d3ff7ff53d18b7aea0597085993971cae00e86bf6eda73
+  checksum: bcaefe2a8a212b015b3ea99c93d7ecb5c8f475606d83be9d82dc6cc0cbb3cda03f7fd7a4426688c2de29b6800b93adbf9abb932a1dafee1d053dcaa69ec13f3f
   languageName: node
   linkType: hard
 
@@ -4964,7 +4964,7 @@ __metadata:
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
     "@faker-js/faker": ^8.0.0
-    "@hookform/resolvers": ^2.9.11
+    "@hookform/resolvers": ^3.0.0
     "@mui/icons-material": ^5.14.14
     "@mui/material": ^5.14.14
     "@mui/x-date-pickers": ^6.16.2
