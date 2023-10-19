@@ -37,7 +37,7 @@
     "react-hook-form": "^7.39.4",
     "react-infinite-scroller": "^1.2.6",
     "utility-types": "^3.10.0",
-    "yup": "^0.32.11",
+    "yup": "^1.0.0",
     "zustand": "^4.1.4"
   },
   "devDependencies": {
