@@ -63,7 +63,7 @@ export class RenderErrorFilter implements ExceptionFilter {
     const pageRes =
       resBody instanceof String
         ? { statusCode: status, message: resBody, error: exception }
-        : (resBody as Record<string, any>);
+        : (resBody as Record<string, unknown>);
 
     return response
       .status(status)
