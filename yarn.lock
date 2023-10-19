@@ -9207,11 +9207,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.9":
-  version: 18.2.4
-  resolution: "@types/react-dom@npm:18.2.4::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.2.4.tgz"
+  version: 18.2.14
+  resolution: "@types/react-dom@npm:18.2.14::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2F-%2Freact-dom-18.2.14.tgz"
   dependencies:
     "@types/react": "*"
-  checksum: 8301f35cf1cbfec8c723e9477aecf87774e3c168bd457d353b23c45064737213d3e8008b067c6767b7b08e4f2b3823ee239242a6c225fc91e7f8725ef8734124
+  checksum: 890289c70d1966c168037637c09cacefe6205bdd27a33252144a6b432595a2943775ac1a1accac0beddaeb67f8fdf721e076acb1adc990b08e51c3d9fd4e780c
   languageName: node
   linkType: hard
 
@@ -9243,13 +9243,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.0.25":
-  version: 18.2.6
-  resolution: "@types/react@npm:18.2.6::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2F-%2Freact-18.2.6.tgz"
+  version: 18.2.29
+  resolution: "@types/react@npm:18.2.29::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact%2F-%2Freact-18.2.29.tgz"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
+  checksum: 3d09ac61a683fa976512a28ac175b9d823f0368adc5fb2abf53f64ab030e8ad866a201a8029f92ff48246c8e326f7517ebe165f976ecb412627c65c6f9a7c9d3
   languageName: node
   linkType: hard
 
