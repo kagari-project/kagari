@@ -9025,13 +9025,13 @@ __metadata:
   linkType: hard
 
 "@types/passport-local@npm:^1.0.36":
-  version: 1.0.36
-  resolution: "@types/passport-local@npm:1.0.36::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-local%2F-%2Fpassport-local-1.0.36.tgz"
+  version: 1.0.38
+  resolution: "@types/passport-local@npm:1.0.38::__archiveUrl=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fpassport-local%2F-%2Fpassport-local-1.0.38.tgz"
   dependencies:
     "@types/express": "*"
     "@types/passport": "*"
     "@types/passport-strategy": "*"
-  checksum: 32c9259053e659088527298c364ba2f05eac202412df89246506ad847d755107c08fe8452e50ebaca079cecedbb25acfd71fbb4565f109acc0557d1bf0db8386
+  checksum: d33395669960d47644b7c094c3ef59bba84e7aa4ee9bc820570027b922c1b7ff9b3f45ac8c11226f6861d2ef795c34b9498ab6f8e29693b51dafb64edd8b9879
   languageName: node
   linkType: hard
 
